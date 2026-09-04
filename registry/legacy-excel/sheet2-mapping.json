@@ -1,0 +1,148 @@
+{
+  "schemaVersion": "1.0.0",
+  "mappingId": "LEGACY_EXCEL_FIELD_MAPPING/1.0.0",
+  "workbook": "Datas/label/2015-6篇-0813.xlsx",
+  "workbookSha256": "A77A91F20532C5F32DB4AAF2363A3130FCA66E859EDE8BFD002D295984F06519",
+  "sheet": "Sheet2",
+  "columns": [
+    {
+      "mappingVersion": "LEGACY_EXCEL_FIELD_MAPPING/1.0.0",
+      "sheet": "Sheet2",
+      "column": "A",
+      "columnIndex": 1,
+      "header": "文献编号",
+      "legacyCode": null,
+      "canonicalFieldId": "case_id",
+      "recordProjectionPath": null,
+      "mappingType": "WORKFLOW_METADATA"
+    },
+    {
+      "mappingVersion": "LEGACY_EXCEL_FIELD_MAPPING/1.0.0",
+      "sheet": "Sheet2",
+      "column": "B",
+      "columnIndex": 2,
+      "header": null,
+      "legacyCode": null,
+      "canonicalFieldId": "article_code",
+      "recordProjectionPath": null,
+      "mappingType": "WORKFLOW_METADATA"
+    },
+    {
+      "mappingVersion": "LEGACY_EXCEL_FIELD_MAPPING/1.0.0",
+      "sheet": "Sheet2",
+      "column": "C",
+      "columnIndex": 3,
+      "header": "题目",
+      "legacyCode": null,
+      "canonicalFieldId": "title",
+      "recordProjectionPath": null,
+      "mappingType": "DIRECT_FIELD"
+    },
+    {
+      "mappingVersion": "LEGACY_EXCEL_FIELD_MAPPING/1.0.0",
+      "sheet": "Sheet2",
+      "column": "D",
+      "columnIndex": 4,
+      "header": "提取人",
+      "legacyCode": null,
+      "canonicalFieldId": "extractor_name",
+      "recordProjectionPath": null,
+      "mappingType": "WORKFLOW_METADATA"
+    },
+    {
+      "mappingVersion": "LEGACY_EXCEL_FIELD_MAPPING/1.0.0",
+      "sheet": "Sheet2",
+      "column": "E",
+      "columnIndex": 5,
+      "header": "主要结局或第1个出现的患者重要结局",
+      "legacyCode": null,
+      "canonicalFieldId": "primary_outcome_indicator",
+      "recordProjectionPath": "OutcomeRecord[role=PRIMARY_OR_FIRST_IMPORTANT].outcomeName",
+      "mappingType": "RECORD_PROJECTION",
+      "classification": "AGENT_DIRECT_OUTCOME_SELECTION"
+    },
+    {
+      "mappingVersion": "LEGACY_EXCEL_FIELD_MAPPING/1.0.0",
+      "sheet": "Sheet2",
+      "column": "F",
+      "columnIndex": 6,
+      "header": "疼痛类",
+      "legacyCode": null,
+      "canonicalFieldId": "outcome_construct",
+      "recordProjectionPath": "OutcomeRecord[construct=PAIN]",
+      "mappingType": "RECORD_PROJECTION",
+      "classification": "OUTCOME_CLASSIFICATION_REVIEW_EXPORT_SUMMARY"
+    },
+    {
+      "mappingVersion": "LEGACY_EXCEL_FIELD_MAPPING/1.0.0",
+      "sheet": "Sheet2",
+      "column": "G",
+      "columnIndex": 7,
+      "header": "非疼痛症状类结局",
+      "legacyCode": null,
+      "canonicalFieldId": "outcome_construct",
+      "recordProjectionPath": "OutcomeRecord[construct=NON_PAIN_SYMPTOM]",
+      "mappingType": "RECORD_PROJECTION",
+      "classification": "OUTCOME_CLASSIFICATION_REVIEW_EXPORT_SUMMARY"
+    },
+    {
+      "mappingVersion": "LEGACY_EXCEL_FIELD_MAPPING/1.0.0",
+      "sheet": "Sheet2",
+      "column": "H",
+      "columnIndex": 8,
+      "header": "功能类结局",
+      "legacyCode": null,
+      "canonicalFieldId": "outcome_construct",
+      "recordProjectionPath": "OutcomeRecord[construct=FUNCTION]",
+      "mappingType": "RECORD_PROJECTION",
+      "classification": "OUTCOME_CLASSIFICATION_REVIEW_EXPORT_SUMMARY"
+    },
+    {
+      "mappingVersion": "LEGACY_EXCEL_FIELD_MAPPING/1.0.0",
+      "sheet": "Sheet2",
+      "column": "I",
+      "columnIndex": 9,
+      "header": "生活质量类结局",
+      "legacyCode": null,
+      "canonicalFieldId": "outcome_construct",
+      "recordProjectionPath": "OutcomeRecord[construct=QUALITY_OF_LIFE]",
+      "mappingType": "RECORD_PROJECTION",
+      "classification": "OUTCOME_CLASSIFICATION_REVIEW_EXPORT_SUMMARY"
+    },
+    {
+      "mappingVersion": "LEGACY_EXCEL_FIELD_MAPPING/1.0.0",
+      "sheet": "Sheet2",
+      "column": "J",
+      "columnIndex": 10,
+      "header": "重要事件类结局",
+      "legacyCode": null,
+      "canonicalFieldId": "outcome_construct",
+      "recordProjectionPath": "OutcomeRecord[construct=IMPORTANT_EVENT]",
+      "mappingType": "RECORD_PROJECTION",
+      "classification": "OUTCOME_CLASSIFICATION_REVIEW_EXPORT_SUMMARY"
+    },
+    {
+      "mappingVersion": "LEGACY_EXCEL_FIELD_MAPPING/1.0.0",
+      "sheet": "Sheet2",
+      "column": "K",
+      "columnIndex": 11,
+      "header": "死亡率",
+      "legacyCode": null,
+      "canonicalFieldId": "outcome_construct",
+      "recordProjectionPath": "OutcomeRecord[construct=MORTALITY]",
+      "mappingType": "RECORD_PROJECTION",
+      "classification": "OUTCOME_CLASSIFICATION_REVIEW_EXPORT_SUMMARY"
+    },
+    {
+      "mappingVersion": "LEGACY_EXCEL_FIELD_MAPPING/1.0.0",
+      "sheet": "Sheet2",
+      "column": "L",
+      "columnIndex": 12,
+      "header": "备注",
+      "legacyCode": null,
+      "canonicalFieldId": null,
+      "recordProjectionPath": null,
+      "mappingType": "WORKFLOW_METADATA"
+    }
+  ]
+}

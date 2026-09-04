@@ -1,0 +1,4 @@
+# Optional structured extraction backend. The base MinerU requirements remain
+# installable without this package; baml_adapter.py falls back to the existing
+# OpenAI-compatible JSON + Pydantic validation when it is absent.
+baml-py==0.226.1

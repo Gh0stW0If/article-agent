@@ -1,0 +1,48 @@
+# Secrets and local API configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+
+# Raw articles, labels, spreadsheets, and generated extraction artifacts
+Datas/
+data/
+outputs/
+output/
+*.pdf
+*.xlsx
+*.xls
+*.xlsm
+*.csv
+*.parquet
+
+# Downloaded models and large local caches
+models/
+.cache/
+.tmp/
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.pytest_tmp*/
+pytest-cache-files-*/
+*.egg-info/
+dist/
+build/
+
+# JavaScript / TypeScript
+node_modules/
+.next/
+*.tsbuildinfo
+
+# Logs and OS/editor files
+*.log
+*.out
+*.err
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

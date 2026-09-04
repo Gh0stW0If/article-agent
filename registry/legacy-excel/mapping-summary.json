@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "1.0.0",
+  "mappingId": "LEGACY_EXCEL_FIELD_MAPPING/1.0.0",
+  "totalLegacyColumns": 256,
+  "accountedColumns": 256,
+  "mappingStatusCoverage": "100%",
+  "sheetCounts": {
+    "Sheet1": 91,
+    "Sheet2": 12,
+    "Sheet3": 153
+  },
+  "mappingTypeCounts": {
+    "DIRECT_FIELD": 48,
+    "CODED_FIELD": 21,
+    "DERIVED_FIELD": 7,
+    "RECORD_PROJECTION": 169,
+    "WORKFLOW_METADATA": 10,
+    "UNMAPPED": 1
+  },
+  "unmapped": [
+    "Sheet3!A"
+  ]
+}

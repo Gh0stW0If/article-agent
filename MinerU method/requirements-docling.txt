@@ -1,0 +1,2 @@
+# Optional PDF parsing backend. Install in the Agent conda environment only.
+docling==2.123.0

@@ -1,0 +1,1402 @@
+{
+  "$defs": {
+    "Arm": {
+      "additionalProperties": false,
+      "properties": {
+        "arm_id": {
+          "minLength": 1,
+          "title": "Arm Id",
+          "type": "string"
+        },
+        "study_id": {
+          "minLength": 1,
+          "title": "Study Id",
+          "type": "string"
+        },
+        "label": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Label"
+        },
+        "role": {
+          "default": "unknown",
+          "enum": [
+            "intervention",
+            "control",
+            "comparator",
+            "other",
+            "unknown"
+          ],
+          "title": "Role",
+          "type": "string"
+        },
+        "intervention_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Intervention Ids",
+          "type": "array"
+        },
+        "randomized_n": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Randomized N"
+        },
+        "received_n": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Received N"
+        },
+        "analyzed_n": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Analyzed N"
+        },
+        "dropout_n": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Dropout N"
+        },
+        "evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "legacy_fields": {
+          "additionalProperties": true,
+          "title": "Legacy Fields",
+          "type": "object"
+        }
+      },
+      "required": [
+        "arm_id",
+        "study_id"
+      ],
+      "title": "Arm",
+      "type": "object"
+    },
+    "ArmResult": {
+      "additionalProperties": false,
+      "properties": {
+        "arm_result_id": {
+          "minLength": 1,
+          "title": "Arm Result Id",
+          "type": "string"
+        },
+        "outcome_id": {
+          "minLength": 1,
+          "title": "Outcome Id",
+          "type": "string"
+        },
+        "arm_id": {
+          "minLength": 1,
+          "title": "Arm Id",
+          "type": "string"
+        },
+        "timepoint_raw": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Timepoint Raw"
+        },
+        "timepoint_value": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Timepoint Value"
+        },
+        "timepoint_unit": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Timepoint Unit"
+        },
+        "analysis_set": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Analysis Set"
+        },
+        "value_kind": {
+          "default": "unknown",
+          "enum": [
+            "baseline",
+            "endpoint",
+            "change",
+            "event",
+            "count",
+            "other",
+            "unknown"
+          ],
+          "title": "Value Kind",
+          "type": "string"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Value"
+        },
+        "standard_deviation": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Standard Deviation"
+        },
+        "change_from_baseline": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Change From Baseline"
+        },
+        "dispersion_lower": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Dispersion Lower"
+        },
+        "dispersion_upper": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Dispersion Upper"
+        },
+        "n": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "N"
+        },
+        "event_count": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Event Count"
+        },
+        "denominator": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Denominator"
+        },
+        "raw_value": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Raw Value"
+        },
+        "source_table_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source Table Id"
+        },
+        "source_row_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source Row Id"
+        },
+        "evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "derived": {
+          "default": false,
+          "title": "Derived",
+          "type": "boolean"
+        },
+        "derivation": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Derivation"
+        },
+        "legacy_fields": {
+          "additionalProperties": true,
+          "title": "Legacy Fields",
+          "type": "object"
+        }
+      },
+      "required": [
+        "arm_result_id",
+        "outcome_id",
+        "arm_id"
+      ],
+      "title": "ArmResult",
+      "type": "object"
+    },
+    "Article": {
+      "additionalProperties": false,
+      "properties": {
+        "article_id": {
+          "minLength": 1,
+          "title": "Article Id",
+          "type": "string"
+        },
+        "title": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Title"
+        },
+        "doi": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Doi"
+        },
+        "publication_year": {
+          "anyOf": [
+            {
+              "maximum": 3000,
+              "minimum": 1600,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Publication Year"
+        },
+        "journal": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Journal"
+        },
+        "language": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Language"
+        },
+        "authors": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Authors",
+          "type": "array"
+        },
+        "correspondence": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Correspondence",
+          "type": "array"
+        },
+        "evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "legacy_fields": {
+          "additionalProperties": true,
+          "title": "Legacy Fields",
+          "type": "object"
+        }
+      },
+      "required": [
+        "article_id"
+      ],
+      "title": "Article",
+      "type": "object"
+    },
+    "Comparison": {
+      "additionalProperties": false,
+      "properties": {
+        "comparison_id": {
+          "minLength": 1,
+          "title": "Comparison Id",
+          "type": "string"
+        },
+        "study_id": {
+          "minLength": 1,
+          "title": "Study Id",
+          "type": "string"
+        },
+        "relation": {
+          "default": "unknown",
+          "enum": [
+            "intervention_vs_control",
+            "arm_vs_arm",
+            "multi_arm",
+            "within_arm",
+            "overall",
+            "not_applicable",
+            "other",
+            "unknown"
+          ],
+          "title": "Relation",
+          "type": "string"
+        },
+        "arm_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Arm Ids",
+          "type": "array"
+        },
+        "intervention_arm_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Intervention Arm Id"
+        },
+        "comparator_arm_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Comparator Arm Ids",
+          "type": "array"
+        },
+        "contrast": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Contrast"
+        },
+        "evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "legacy_fields": {
+          "additionalProperties": true,
+          "title": "Legacy Fields",
+          "type": "object"
+        }
+      },
+      "required": [
+        "comparison_id",
+        "study_id"
+      ],
+      "title": "Comparison",
+      "type": "object"
+    },
+    "ComparisonResult": {
+      "additionalProperties": false,
+      "properties": {
+        "comparison_result_id": {
+          "minLength": 1,
+          "title": "Comparison Result Id",
+          "type": "string"
+        },
+        "comparison_id": {
+          "minLength": 1,
+          "title": "Comparison Id",
+          "type": "string"
+        },
+        "outcome_id": {
+          "minLength": 1,
+          "title": "Outcome Id",
+          "type": "string"
+        },
+        "timepoint_raw": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Timepoint Raw"
+        },
+        "timepoint_value": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Timepoint Value"
+        },
+        "timepoint_unit": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Timepoint Unit"
+        },
+        "analysis_set": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Analysis Set"
+        },
+        "effect_measure": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Effect Measure"
+        },
+        "estimate": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Estimate"
+        },
+        "confidence_interval_lower": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Confidence Interval Lower"
+        },
+        "confidence_interval_upper": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Confidence Interval Upper"
+        },
+        "p_value": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "P Value"
+        },
+        "p_value_comparator": {
+          "default": "unknown",
+          "enum": [
+            "=",
+            "<",
+            "<=",
+            ">",
+            ">=",
+            "unknown"
+          ],
+          "title": "P Value Comparator",
+          "type": "string"
+        },
+        "raw_value": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Raw Value"
+        },
+        "evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "derived": {
+          "default": false,
+          "title": "Derived",
+          "type": "boolean"
+        },
+        "derivation": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Derivation"
+        },
+        "legacy_fields": {
+          "additionalProperties": true,
+          "title": "Legacy Fields",
+          "type": "object"
+        }
+      },
+      "required": [
+        "comparison_result_id",
+        "comparison_id",
+        "outcome_id"
+      ],
+      "title": "ComparisonResult",
+      "type": "object"
+    },
+    "Evidence": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence_id": {
+          "minLength": 1,
+          "title": "Evidence Id",
+          "type": "string"
+        },
+        "field_paths": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Field Paths",
+          "type": "array"
+        },
+        "quote": {
+          "minLength": 1,
+          "title": "Quote",
+          "type": "string"
+        },
+        "source_type": {
+          "enum": [
+            "markdown",
+            "table",
+            "figure",
+            "bibliographic",
+            "other"
+          ],
+          "title": "Source Type",
+          "type": "string"
+        },
+        "source_id": {
+          "minLength": 1,
+          "title": "Source Id",
+          "type": "string"
+        },
+        "page": {
+          "anyOf": [
+            {
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Page"
+        },
+        "section": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Section"
+        },
+        "table_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Table Id"
+        },
+        "row_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Row Id"
+        },
+        "figure_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Figure Id"
+        },
+        "cell_refs": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Cell Refs",
+          "type": "array"
+        },
+        "support_type": {
+          "default": "direct",
+          "enum": [
+            "direct",
+            "derived"
+          ],
+          "title": "Support Type",
+          "type": "string"
+        },
+        "derivation": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Derivation"
+        },
+        "legacy_fields": {
+          "additionalProperties": true,
+          "title": "Legacy Fields",
+          "type": "object"
+        }
+      },
+      "required": [
+        "evidence_id",
+        "quote",
+        "source_type",
+        "source_id"
+      ],
+      "title": "Evidence",
+      "type": "object"
+    },
+    "Intervention": {
+      "additionalProperties": false,
+      "properties": {
+        "intervention_id": {
+          "minLength": 1,
+          "title": "Intervention Id",
+          "type": "string"
+        },
+        "study_id": {
+          "minLength": 1,
+          "title": "Study Id",
+          "type": "string"
+        },
+        "name": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Name"
+        },
+        "kind": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Kind"
+        },
+        "description": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Description"
+        },
+        "components": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Components",
+          "type": "array"
+        },
+        "frequency_raw": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Frequency Raw"
+        },
+        "frequency_value": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Frequency Value"
+        },
+        "frequency_unit": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Frequency Unit"
+        },
+        "duration_raw": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Duration Raw"
+        },
+        "duration_value": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Duration Value"
+        },
+        "duration_unit": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Duration Unit"
+        },
+        "total_sessions": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Total Sessions"
+        },
+        "evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "legacy_fields": {
+          "additionalProperties": true,
+          "title": "Legacy Fields",
+          "type": "object"
+        }
+      },
+      "required": [
+        "intervention_id",
+        "study_id"
+      ],
+      "title": "Intervention",
+      "type": "object"
+    },
+    "Outcome": {
+      "additionalProperties": false,
+      "properties": {
+        "outcome_id": {
+          "minLength": 1,
+          "title": "Outcome Id",
+          "type": "string"
+        },
+        "study_id": {
+          "minLength": 1,
+          "title": "Study Id",
+          "type": "string"
+        },
+        "name": {
+          "minLength": 1,
+          "title": "Name",
+          "type": "string"
+        },
+        "instrument": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Instrument"
+        },
+        "role": {
+          "default": "unknown",
+          "enum": [
+            "primary",
+            "secondary",
+            "safety",
+            "subgroup",
+            "sensitivity",
+            "baseline",
+            "administrative",
+            "other",
+            "unknown"
+          ],
+          "title": "Role",
+          "type": "string"
+        },
+        "direction": {
+          "default": "unknown",
+          "enum": [
+            "higher_better",
+            "lower_better",
+            "neutral",
+            "unknown"
+          ],
+          "title": "Direction",
+          "type": "string"
+        },
+        "unit": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Unit"
+        },
+        "scale_min": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Scale Min"
+        },
+        "scale_max": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Scale Max"
+        },
+        "evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "legacy_fields": {
+          "additionalProperties": true,
+          "title": "Legacy Fields",
+          "type": "object"
+        }
+      },
+      "required": [
+        "outcome_id",
+        "study_id",
+        "name"
+      ],
+      "title": "Outcome",
+      "type": "object"
+    },
+    "Study": {
+      "additionalProperties": false,
+      "properties": {
+        "study_id": {
+          "minLength": 1,
+          "title": "Study Id",
+          "type": "string"
+        },
+        "article_id": {
+          "minLength": 1,
+          "title": "Article Id",
+          "type": "string"
+        },
+        "design": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Design"
+        },
+        "condition": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Condition"
+        },
+        "countries": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Countries",
+          "type": "array"
+        },
+        "centre_count": {
+          "anyOf": [
+            {
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Centre Count"
+        },
+        "randomized_n": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Randomized N"
+        },
+        "analysis_sets": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Analysis Sets",
+          "type": "array"
+        },
+        "arm_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Arm Ids",
+          "type": "array"
+        },
+        "intervention_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Intervention Ids",
+          "type": "array"
+        },
+        "outcome_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Outcome Ids",
+          "type": "array"
+        },
+        "evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "legacy_fields": {
+          "additionalProperties": true,
+          "title": "Legacy Fields",
+          "type": "object"
+        }
+      },
+      "required": [
+        "study_id",
+        "article_id"
+      ],
+      "title": "Study",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "ARTICLE_EXTRACTION/1.0",
+      "default": "ARTICLE_EXTRACTION/1.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "source_format": {
+      "default": "canonical",
+      "enum": [
+        "canonical",
+        "legacy_extraction_bundle"
+      ],
+      "title": "Source Format",
+      "type": "string"
+    },
+    "source_record_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Source Record Id"
+    },
+    "parser_backend": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Parser Backend"
+    },
+    "article": {
+      "$ref": "#/$defs/Article"
+    },
+    "studies": {
+      "items": {
+        "$ref": "#/$defs/Study"
+      },
+      "title": "Studies",
+      "type": "array"
+    },
+    "interventions": {
+      "items": {
+        "$ref": "#/$defs/Intervention"
+      },
+      "title": "Interventions",
+      "type": "array"
+    },
+    "arms": {
+      "items": {
+        "$ref": "#/$defs/Arm"
+      },
+      "title": "Arms",
+      "type": "array"
+    },
+    "outcomes": {
+      "items": {
+        "$ref": "#/$defs/Outcome"
+      },
+      "title": "Outcomes",
+      "type": "array"
+    },
+    "arm_results": {
+      "items": {
+        "$ref": "#/$defs/ArmResult"
+      },
+      "title": "Arm Results",
+      "type": "array"
+    },
+    "comparisons": {
+      "items": {
+        "$ref": "#/$defs/Comparison"
+      },
+      "title": "Comparisons",
+      "type": "array"
+    },
+    "comparison_results": {
+      "items": {
+        "$ref": "#/$defs/ComparisonResult"
+      },
+      "title": "Comparison Results",
+      "type": "array"
+    },
+    "evidence": {
+      "items": {
+        "$ref": "#/$defs/Evidence"
+      },
+      "title": "Evidence",
+      "type": "array"
+    },
+    "adapter_warnings": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Adapter Warnings",
+      "type": "array"
+    }
+  },
+  "required": [
+    "article"
+  ],
+  "title": "ArticleExtraction",
+  "type": "object"
+}

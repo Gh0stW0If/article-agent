@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "1.0.0",
+  "registryId": "EVALUATOR_FIELD_REGISTRY/1.0.0",
+  "canonicalSchema": "schemas/article-extraction.schema.json",
+  "canonicalSchemaVersion": "ARTICLE_EXTRACTION/1.0",
+  "status": "ACTIVE",
+  "purpose": "Allow-list of canonical fields that an evaluator may score. Gold is evaluator-only and is never an extraction input.",
+  "defaults": {
+    "missingValue": null,
+    "numericAbsoluteTolerance": 1e-06,
+    "numericRelativeTolerance": 1e-06,
+    "unorderedListComparison": true,
+    "requireEvidenceForNonMissingCandidate": true
+  },
+  "fields": [
+    {"fieldId": "article.title", "entity": "Article", "jsonPointer": "/article/title", "valueType": "string", "cardinality": "ZERO_OR_ONE", "comparator": "normalized_text", "evidenceRequired": true, "legacySources": ["MetadataExtraction.title", "Sheet1!G"]},
+    {"fieldId": "article.doi", "entity": "Article", "jsonPointer": "/article/doi", "valueType": "string", "cardinality": "ZERO_OR_ONE", "comparator": "doi", "evidenceRequired": true, "legacySources": []},
+    {"fieldId": "article.publication_year", "entity": "Article", "jsonPointer": "/article/publication_year", "valueType": "integer", "cardinality": "ZERO_OR_ONE", "comparator": "exact", "evidenceRequired": true, "legacySources": ["MetadataExtraction.publication_year", "Sheet1!H"]},
+    {"fieldId": "article.journal", "entity": "Article", "jsonPointer": "/article/journal", "valueType": "string", "cardinality": "ZERO_OR_ONE", "comparator": "normalized_text", "evidenceRequired": true, "legacySources": ["MetadataExtraction.journal", "Sheet1!J"]},
+    {"fieldId": "article.language", "entity": "Article", "jsonPointer": "/article/language", "valueType": "string", "cardinality": "ZERO_OR_ONE", "comparator": "casefold_text", "evidenceRequired": true, "legacySources": ["MetadataExtraction.language", "Sheet1!I"]},
+    {"fieldId": "article.authors", "entity": "Article", "jsonPointer": "/article/authors", "valueType": "string_list", "cardinality": "ZERO_OR_MANY", "comparator": "normalized_text_set", "evidenceRequired": true, "legacySources": ["MetadataExtraction.first_author", "Sheet1!M"]},
+
+    {"fieldId": "study.condition", "entity": "Study", "jsonPointer": "/studies/*/condition", "valueType": "string", "cardinality": "ZERO_OR_ONE_PER_STUDY", "comparator": "normalized_text", "evidenceRequired": true, "legacySources": ["MetadataExtraction.disease_name", "Sheet1!R"]},
+    {"fieldId": "study.countries", "entity": "Study", "jsonPointer": "/studies/*/countries", "valueType": "string_list", "cardinality": "ZERO_OR_MANY_PER_STUDY", "comparator": "country_set", "evidenceRequired": true, "legacySources": ["MetadataExtraction.country", "Sheet1!U"]},
+    {"fieldId": "study.centre_count", "entity": "Study", "jsonPointer": "/studies/*/centre_count", "valueType": "integer", "cardinality": "ZERO_OR_ONE_PER_STUDY", "comparator": "exact", "evidenceRequired": true, "legacySources": ["Sheet1!W"]},
+    {"fieldId": "study.randomized_n", "entity": "Study", "jsonPointer": "/studies/*/randomized_n", "valueType": "integer", "cardinality": "ZERO_OR_ONE_PER_STUDY", "comparator": "exact", "evidenceRequired": true, "legacySources": ["RiskOfBiasExtraction.total_randomized", "ConsortFlowExtraction.randomized_n", "Sheet1!CD"]},
+    {"fieldId": "study.analysis_sets", "entity": "Study", "jsonPointer": "/studies/*/analysis_sets", "valueType": "string_list", "cardinality": "ZERO_OR_MANY_PER_STUDY", "comparator": "casefold_text_set", "evidenceRequired": true, "legacySources": ["OutcomeStatistic.analysis_set", "OutcomeStatistic.analysis_population"]},
+
+    {"fieldId": "arm.label", "entity": "Arm", "jsonPointer": "/arms/*/label", "valueType": "string", "cardinality": "ZERO_OR_ONE_PER_ARM", "comparator": "normalized_text", "evidenceRequired": true, "legacySources": ["OutcomeArm.arm_label"]},
+    {"fieldId": "arm.role", "entity": "Arm", "jsonPointer": "/arms/*/role", "valueType": "enum", "cardinality": "ONE_PER_ARM", "comparator": "exact", "evidenceRequired": true, "legacySources": ["OutcomeArm.role"]},
+    {"fieldId": "arm.randomized_n", "entity": "Arm", "jsonPointer": "/arms/*/randomized_n", "valueType": "integer", "cardinality": "ZERO_OR_ONE_PER_ARM", "comparator": "exact", "evidenceRequired": true, "legacySources": ["OutcomeArm.n", "RiskOfBiasExtraction.randomized_sample_intervention_raw", "RiskOfBiasExtraction.randomized_sample_control_raw"]},
+    {"fieldId": "arm.analyzed_n", "entity": "Arm", "jsonPointer": "/arms/*/analyzed_n", "valueType": "integer", "cardinality": "ZERO_OR_ONE_PER_ARM", "comparator": "exact", "evidenceRequired": true, "legacySources": ["FlowArm.analyzed_n"]},
+    {"fieldId": "arm.dropout_n", "entity": "Arm", "jsonPointer": "/arms/*/dropout_n", "valueType": "integer", "cardinality": "ZERO_OR_ONE_PER_ARM", "comparator": "exact", "evidenceRequired": true, "legacySources": ["FlowArm.dropout_n"]},
+
+    {"fieldId": "intervention.name", "entity": "Intervention", "jsonPointer": "/interventions/*/name", "valueType": "string", "cardinality": "ZERO_OR_ONE_PER_INTERVENTION", "comparator": "normalized_text", "evidenceRequired": true, "legacySources": ["MetadataExtraction.intervention", "MetadataExtraction.control"]},
+    {"fieldId": "intervention.kind", "entity": "Intervention", "jsonPointer": "/interventions/*/kind", "valueType": "string", "cardinality": "ZERO_OR_ONE_PER_INTERVENTION", "comparator": "casefold_text", "evidenceRequired": true, "legacySources": ["AcupunctureProtocol.control_type_transformed"]},
+    {"fieldId": "intervention.frequency_raw", "entity": "Intervention", "jsonPointer": "/interventions/*/frequency_raw", "valueType": "string", "cardinality": "ZERO_OR_ONE_PER_INTERVENTION", "comparator": "normalized_text", "evidenceRequired": true, "legacySources": ["AcupunctureProtocol.treatment_frequency_raw", "Sheet1!AT"]},
+    {"fieldId": "intervention.frequency_value", "entity": "Intervention", "jsonPointer": "/interventions/*/frequency_value", "valueType": "number", "cardinality": "ZERO_OR_ONE_PER_INTERVENTION", "comparator": "numeric", "evidenceRequired": true, "legacySources": ["AcupunctureProtocol.treatment_frequency_value", "Sheet1!AU"]},
+    {"fieldId": "intervention.duration_raw", "entity": "Intervention", "jsonPointer": "/interventions/*/duration_raw", "valueType": "string", "cardinality": "ZERO_OR_ONE_PER_INTERVENTION", "comparator": "normalized_text", "evidenceRequired": true, "legacySources": ["AcupunctureProtocol.treatment_duration_raw", "Sheet1!AX"]},
+    {"fieldId": "intervention.duration_value", "entity": "Intervention", "jsonPointer": "/interventions/*/duration_value", "valueType": "number", "cardinality": "ZERO_OR_ONE_PER_INTERVENTION", "comparator": "numeric", "evidenceRequired": true, "legacySources": ["AcupunctureProtocol.treatment_duration_value", "Sheet1!AY"]},
+    {"fieldId": "intervention.total_sessions", "entity": "Intervention", "jsonPointer": "/interventions/*/total_sessions", "valueType": "integer", "cardinality": "ZERO_OR_ONE_PER_INTERVENTION", "comparator": "exact", "evidenceRequired": true, "legacySources": ["AcupunctureProtocol.total_sessions", "Sheet1!BA"]},
+
+    {"fieldId": "outcome.name", "entity": "Outcome", "jsonPointer": "/outcomes/*/name", "valueType": "string", "cardinality": "ONE_PER_OUTCOME", "comparator": "clinical_term", "evidenceRequired": true, "legacySources": ["OutcomeStatistic.outcome_name", "Sheet3!OUTCOM"]},
+    {"fieldId": "outcome.instrument", "entity": "Outcome", "jsonPointer": "/outcomes/*/instrument", "valueType": "string", "cardinality": "ZERO_OR_ONE_PER_OUTCOME", "comparator": "instrument", "evidenceRequired": true, "legacySources": ["OutcomeStatistic.measurement_instrument", "Sheet3!INSTRU"]},
+    {"fieldId": "outcome.role", "entity": "Outcome", "jsonPointer": "/outcomes/*/role", "valueType": "enum", "cardinality": "ONE_PER_OUTCOME", "comparator": "exact", "evidenceRequired": true, "legacySources": ["OutcomeStatistic.record_role"]},
+    {"fieldId": "outcome.direction", "entity": "Outcome", "jsonPointer": "/outcomes/*/direction", "valueType": "enum", "cardinality": "ONE_PER_OUTCOME", "comparator": "exact", "evidenceRequired": true, "legacySources": ["Sheet3!MDIRE"]},
+    {"fieldId": "outcome.unit", "entity": "Outcome", "jsonPointer": "/outcomes/*/unit", "valueType": "string", "cardinality": "ZERO_OR_ONE_PER_OUTCOME", "comparator": "unit", "evidenceRequired": true, "legacySources": ["Sheet3!MUNIT"]},
+
+    {"fieldId": "arm_result.timepoint", "entity": "ArmResult", "jsonPointer": "/arm_results/*/timepoint_raw", "valueType": "string", "cardinality": "ZERO_OR_ONE_PER_RESULT", "comparator": "timepoint", "evidenceRequired": true, "legacySources": ["OutcomeStatistic.outcome_observation_timepoint_raw"]},
+    {"fieldId": "arm_result.analysis_set", "entity": "ArmResult", "jsonPointer": "/arm_results/*/analysis_set", "valueType": "string", "cardinality": "ZERO_OR_ONE_PER_RESULT", "comparator": "analysis_set", "evidenceRequired": true, "legacySources": ["OutcomeStatistic.analysis_set", "OutcomeStatistic.analysis_population"]},
+    {"fieldId": "arm_result.value", "entity": "ArmResult", "jsonPointer": "/arm_results/*/value", "valueType": "number", "cardinality": "ZERO_OR_ONE_PER_RESULT", "comparator": "numeric", "evidenceRequired": true, "legacySources": ["OutcomeArm.value", "OutcomeArm.estimate"]},
+    {"fieldId": "arm_result.standard_deviation", "entity": "ArmResult", "jsonPointer": "/arm_results/*/standard_deviation", "valueType": "number", "cardinality": "ZERO_OR_ONE_PER_RESULT", "comparator": "numeric", "evidenceRequired": true, "legacySources": ["OutcomeArm.sd"]},
+    {"fieldId": "arm_result.change_from_baseline", "entity": "ArmResult", "jsonPointer": "/arm_results/*/change_from_baseline", "valueType": "number", "cardinality": "ZERO_OR_ONE_PER_RESULT", "comparator": "numeric", "evidenceRequired": true, "legacySources": ["OutcomeArm.change"]},
+    {"fieldId": "arm_result.n", "entity": "ArmResult", "jsonPointer": "/arm_results/*/n", "valueType": "integer", "cardinality": "ZERO_OR_ONE_PER_RESULT", "comparator": "exact", "evidenceRequired": true, "legacySources": ["OutcomeArm.n", "OutcomeStatistic.intervention_n", "OutcomeStatistic.control_n"]},
+    {"fieldId": "arm_result.event_count", "entity": "ArmResult", "jsonPointer": "/arm_results/*/event_count", "valueType": "integer", "cardinality": "ZERO_OR_ONE_PER_RESULT", "comparator": "exact", "evidenceRequired": true, "legacySources": ["OutcomeArm.event_count"]},
+    {"fieldId": "arm_result.denominator", "entity": "ArmResult", "jsonPointer": "/arm_results/*/denominator", "valueType": "integer", "cardinality": "ZERO_OR_ONE_PER_RESULT", "comparator": "exact", "evidenceRequired": true, "legacySources": ["Sheet3 binary denominators"]},
+
+    {"fieldId": "comparison.relation", "entity": "Comparison", "jsonPointer": "/comparisons/*/relation", "valueType": "enum", "cardinality": "ONE_PER_COMPARISON", "comparator": "exact", "evidenceRequired": true, "legacySources": ["OutcomeComparison.relation"]},
+    {"fieldId": "comparison.arm_ids", "entity": "Comparison", "jsonPointer": "/comparisons/*/arm_ids", "valueType": "id_list", "cardinality": "ZERO_OR_MANY_PER_COMPARISON", "comparator": "entity_identity_set", "evidenceRequired": true, "legacySources": ["OutcomeComparison.intervention_arm_id", "OutcomeComparison.control_arm_id", "OutcomeComparison.comparator_arm_ids"]},
+    {"fieldId": "comparison.contrast", "entity": "Comparison", "jsonPointer": "/comparisons/*/contrast", "valueType": "string", "cardinality": "ZERO_OR_ONE_PER_COMPARISON", "comparator": "normalized_text", "evidenceRequired": true, "legacySources": ["OutcomeComparison.contrast"]},
+
+    {"fieldId": "comparison_result.effect_measure", "entity": "ComparisonResult", "jsonPointer": "/comparison_results/*/effect_measure", "valueType": "string", "cardinality": "ZERO_OR_ONE_PER_RESULT", "comparator": "effect_measure", "evidenceRequired": true, "legacySources": ["OutcomeStatistic.between_group_measure", "OutcomeStatistic.effect_size_name"]},
+    {"fieldId": "comparison_result.estimate", "entity": "ComparisonResult", "jsonPointer": "/comparison_results/*/estimate", "valueType": "number", "cardinality": "ZERO_OR_ONE_PER_RESULT", "comparator": "numeric", "evidenceRequired": true, "legacySources": ["OutcomeStatistic.outcome_between_group_estimate"]},
+    {"fieldId": "comparison_result.confidence_interval_lower", "entity": "ComparisonResult", "jsonPointer": "/comparison_results/*/confidence_interval_lower", "valueType": "number", "cardinality": "ZERO_OR_ONE_PER_RESULT", "comparator": "numeric", "evidenceRequired": true, "legacySources": ["OutcomeStatistic.outcome_between_group_lower"]},
+    {"fieldId": "comparison_result.confidence_interval_upper", "entity": "ComparisonResult", "jsonPointer": "/comparison_results/*/confidence_interval_upper", "valueType": "number", "cardinality": "ZERO_OR_ONE_PER_RESULT", "comparator": "numeric", "evidenceRequired": true, "legacySources": ["OutcomeStatistic.outcome_between_group_upper"]},
+    {"fieldId": "comparison_result.p_value", "entity": "ComparisonResult", "jsonPointer": "/comparison_results/*/p_value", "valueType": "number", "cardinality": "ZERO_OR_ONE_PER_RESULT", "comparator": "p_value", "evidenceRequired": true, "legacySources": ["OutcomeStatistic.outcome_p_value", "OutcomeStatistic.p_value_cells"]},
+    {"fieldId": "comparison_result.p_value_comparator", "entity": "ComparisonResult", "jsonPointer": "/comparison_results/*/p_value_comparator", "valueType": "enum", "cardinality": "ONE_PER_RESULT", "comparator": "exact", "evidenceRequired": true, "legacySources": ["OutcomeStatistic.outcome_p_value_comparator"]},
+
+    {"fieldId": "evidence.quote", "entity": "Evidence", "jsonPointer": "/evidence/*/quote", "valueType": "string", "cardinality": "ONE_PER_EVIDENCE", "comparator": "verbatim_text", "evidenceRequired": false, "legacySources": ["EvidenceQuote.quote", "OutcomeStatistic.source_evidence"]},
+    {"fieldId": "evidence.source_type", "entity": "Evidence", "jsonPointer": "/evidence/*/source_type", "valueType": "enum", "cardinality": "ONE_PER_EVIDENCE", "comparator": "exact", "evidenceRequired": false, "legacySources": ["EvidenceQuote.source"]},
+    {"fieldId": "evidence.page", "entity": "Evidence", "jsonPointer": "/evidence/*/page", "valueType": "integer", "cardinality": "ZERO_OR_ONE_PER_EVIDENCE", "comparator": "exact", "evidenceRequired": false, "legacySources": ["EvidenceQuote.page"]},
+    {"fieldId": "evidence.table_id", "entity": "Evidence", "jsonPointer": "/evidence/*/table_id", "valueType": "string", "cardinality": "ZERO_OR_ONE_PER_EVIDENCE", "comparator": "exact", "evidenceRequired": false, "legacySources": ["OutcomeStatistic.table_id"]},
+    {"fieldId": "evidence.row_id", "entity": "Evidence", "jsonPointer": "/evidence/*/row_id", "valueType": "string", "cardinality": "ZERO_OR_ONE_PER_EVIDENCE", "comparator": "exact", "evidenceRequired": false, "legacySources": ["OutcomeStatistic.row_id"]}
+  ]
+}

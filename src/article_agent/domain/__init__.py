@@ -11,6 +11,11 @@ from .models import (
     ArmResult,
     Article,
     ArticleExtraction,
+    CanonicalField,
+    ConflictCandidate,
+    FieldStatus,
+    EvidenceTarget,
+    merge_field_observation,
     Comparison,
     ComparisonResult,
     Evidence,
@@ -21,6 +26,11 @@ from .models import (
 
 __all__ = [
     "ArticleExtraction",
+    "CanonicalField",
+    "ConflictCandidate",
+    "FieldStatus",
+    "EvidenceTarget",
+    "merge_field_observation",
     "Article",
     "Study",
     "Arm",

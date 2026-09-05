@@ -390,6 +390,7 @@ class ArticleExtraction(CanonicalModel):
         evidence_ids = {item.evidence_id for item in self.evidence}
         if len(evidence_ids) != len(self.evidence):
             raise ValueError("duplicate evidence_id")
+        evidence_by_id = {item.evidence_id: item for item in self.evidence}
 
         for study in self.studies:
             if study.article_id != self.article.article_id:
@@ -448,6 +449,26 @@ class ArticleExtraction(CanonicalModel):
                 linked_ids = field.evidence_ids + [eid for candidate in field.conflict_candidates for eid in candidate.evidence_ids]
                 if item.evidence_id not in linked_ids:
                     raise ValueError("evidence target is not reciprocated by CanonicalField.evidence_ids")
+
+        for entity_type, id_field, items in entity_groups:
+            for entity in items:
+                entity_id = getattr(entity, id_field)
+                for field_name, field in entity:
+                    if not isinstance(field, CanonicalField):
+                        continue
+                    linked_evidence_ids = field.evidence_ids + [
+                        eid for candidate in field.conflict_candidates
+                        for eid in candidate.evidence_ids
+                    ]
+                    expected_target = EvidenceTarget(
+                        entity_type=entity_type, entity_id=entity_id, field_id=field_name,
+                    )
+                    for evidence_id in set(linked_evidence_ids):
+                        if expected_target not in evidence_by_id[evidence_id].targets:
+                            raise ValueError(
+                                f"{entity_type}.{field_name} evidence {evidence_id} "
+                                "does not contain reciprocal EvidenceTarget"
+                            )
         return self
 
     @staticmethod

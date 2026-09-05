@@ -390,3 +390,28 @@ def test_json_schema_exposes_status_constraints():
     constraints = CanonicalField[int].model_json_schema()["allOf"]
     assert constraints[0]["then"]["required"] == ["value"]
     assert constraints[1]["then"]["properties"]["conflict_candidates"]["minItems"] == 2
+
+
+@pytest.mark.parametrize("candidate_only", [False, True])
+def test_field_evidence_requires_reciprocal_target(candidate_only):
+    title = present("Trial", "E1")
+    if candidate_only:
+        title = CanonicalField[str](status="SOURCE_CONFLICT", conflict_candidates=[
+            {"value": "Trial", "evidence_ids": ["E1"]}, {"value": "Other"},
+        ])
+    with pytest.raises(ValidationError, match="Article.title evidence E1 does not contain reciprocal EvidenceTarget"):
+        ArticleExtraction(
+            article=Article(article_id="a1", title=title),
+            evidence=[Evidence(evidence_id="E1", quote="Trial", source_type="markdown",
+                               source_id="source", targets=[])],
+        )
+
+
+def test_shared_evidence_requires_target_for_every_linking_field():
+    article = Article(article_id="a1", title=present("Trial", "E1"), journal=present("Journal", "E1"))
+    evidence = Evidence(evidence_id="E1", quote="Trial, Journal", source_type="markdown", source_id="source",
+                        targets=[EvidenceTarget(entity_type="Article", entity_id="a1", field_id="title")])
+    with pytest.raises(ValidationError, match="Article.journal evidence E1 does not contain reciprocal EvidenceTarget"):
+        ArticleExtraction(article=article, evidence=[evidence])
+    evidence.targets.append(EvidenceTarget(entity_type="Article", entity_id="a1", field_id="journal"))
+    ArticleExtraction(article=article, evidence=[evidence])

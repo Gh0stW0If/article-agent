@@ -1,0 +1,116 @@
+{
+  "$defs": {
+    "TopologyArm": {
+      "additionalProperties": false,
+      "properties": {
+        "source_label": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source Label"
+        },
+        "name": {
+          "minLength": 1,
+          "title": "Name",
+          "type": "string"
+        },
+        "role": {
+          "anyOf": [
+            {
+              "enum": [
+                "intervention",
+                "control",
+                "comparator",
+                "other"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Role"
+        },
+        "aliases": {
+          "description": "Only source-supported names of this entire arm, not shared components",
+          "items": {
+            "type": "string"
+          },
+          "title": "Aliases",
+          "type": "array"
+        },
+        "evidence": {
+          "items": {
+            "$ref": "#/$defs/TopologyEvidence"
+          },
+          "minItems": 1,
+          "title": "Evidence",
+          "type": "array"
+        }
+      },
+      "required": [
+        "name",
+        "evidence"
+      ],
+      "title": "TopologyArm",
+      "type": "object"
+    },
+    "TopologyEvidence": {
+      "additionalProperties": false,
+      "properties": {
+        "source_id": {
+          "minLength": 1,
+          "title": "Source Id",
+          "type": "string"
+        },
+        "quote": {
+          "minLength": 1,
+          "title": "Quote",
+          "type": "string"
+        },
+        "arm_text": {
+          "description": "Verbatim arm-specific phrase within quote, used for source ordering",
+          "minLength": 1,
+          "title": "Arm Text",
+          "type": "string"
+        }
+      },
+      "required": [
+        "source_id",
+        "quote",
+        "arm_text"
+      ],
+      "title": "TopologyEvidence",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "number_of_arms": {
+      "minimum": 1,
+      "title": "Number Of Arms",
+      "type": "integer"
+    },
+    "arms": {
+      "items": {
+        "$ref": "#/$defs/TopologyArm"
+      },
+      "minItems": 1,
+      "title": "Arms",
+      "type": "array"
+    }
+  },
+  "required": [
+    "number_of_arms",
+    "arms"
+  ],
+  "title": "TrialTopology",
+  "type": "object"
+}

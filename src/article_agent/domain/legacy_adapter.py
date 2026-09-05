@@ -7,7 +7,10 @@ import json
 import math
 from collections.abc import Mapping
 from copy import deepcopy
-from typing import Any, Callable
+from typing import Any, Callable, TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from article_agent.trial_topology_agent import TrialTopology
 
 from pydantic import BaseModel
 
@@ -157,12 +160,22 @@ def _merge_entity(existing: BaseModel, incoming: BaseModel) -> BaseModel:
     return type(existing).model_validate({**existing.model_dump(), **updates})
 
 
-def legacy_bundle_to_canonical(bundle: BaseModel | Mapping[str, Any]) -> ArticleExtraction:
+def legacy_bundle_to_canonical(bundle: BaseModel | Mapping[str, Any], *, topology: TrialTopology | None = None) -> ArticleExtraction:
     data = _dict(bundle)
     article_id = _text(data.get("article_id"))
     if not article_id:
         raise ValueError("legacy bundle has no article_id")
-    sid = f"{article_id}:study-1"
+    sid = f"{article_id}-S1" if topology is not None else f"{article_id}:study-1"
+    topology_seed = None
+    topology_lookup: dict[str, set[str]] = {}
+    if topology is not None:
+        from article_agent.trial_topology_agent import identity_key, topology_to_canonical
+        topology_seed = topology_to_canonical(article_id, topology)
+        for source_arm, arm in zip(topology.arms, topology_seed.arms, strict=True):
+            for label in [source_arm.name, source_arm.source_label, *source_arm.aliases]:
+                if label:
+                    topology_lookup.setdefault(identity_key(label), set()).add(arm.arm_id)
+    warnings = list(data.get("cross_check_issues") or [])
     pool: dict[str, Evidence] = {}
     contexts = {
         key: _Context(_dict(data.get(key) or {}), f"{article_id}:legacy:{key}", pool)
@@ -198,12 +211,28 @@ def legacy_bundle_to_canonical(bundle: BaseModel | Mapping[str, Any]) -> Article
         ))
         intervention_by_role[role] = iid
 
-    arms: dict[str, Arm] = {}
+    arms: dict[str, Arm] = {arm.arm_id: arm for arm in topology_seed.arms} if topology_seed else {}
+    if topology_seed:
+        pool.update({item.evidence_id: item for item in topology_seed.evidence})
     aliases: dict[str, str] = {}
 
     def ensure_arm(context: _Context, alias: str | None, label_key: str, role_raw: Any = None,
-                   count_keys: dict[str, str] | None = None, label_context: _Context | None = None) -> str:
+                   count_keys: dict[str, str] | None = None, label_context: _Context | None = None) -> str | None:
         label = (label_context or context).field(label_key, str)
+        if topology_seed is not None:
+            # Topology owns identity. Never create an extra arm from a result row,
+            # infer identity from intervention/control role, or merge sample counts here.
+            matches = set()
+            for candidate_label in [label.value, alias]:
+                if candidate_label:
+                    matches.update(topology_lookup.get(identity_key(candidate_label), set()))
+            if len(matches) == 1:
+                aid = next(iter(matches))
+                if alias:
+                    aliases[alias] = aid
+                return aid
+            warnings.append(f"{context.source}: unresolved topology arm identity {label.value or alias}; source retained in legacy_fields")
+            return None
         role = _observation(role_raw, label.evidence_ids, str)
         counts = {key: context.field(source, _integer) for key, source in (count_keys or {}).items()}
         aid = aliases.get(alias or "")
@@ -213,7 +242,7 @@ def legacy_bundle_to_canonical(bundle: BaseModel | Mapping[str, Any]) -> Article
             if len(matching) == 1:
                 aid = matching[0]
         if not aid:
-            aid = _id("arm", sid, alias or label.value or context.source)
+            aid = f"{article_id}-S1-A{len(arms) + 1:02d}"
         incoming = Arm(arm_id=aid, study_id=sid, label=label, role=role,
                        **counts, legacy_fields=context.data)
         if role.value in intervention_by_role:
@@ -232,8 +261,9 @@ def legacy_bundle_to_canonical(bundle: BaseModel | Mapping[str, Any]) -> Article
     for role in ("intervention", "control"):
         count_key = f"randomized_sample_{role}_raw"
         if _text(meta.data.get(role)) or risk.data.get(count_key) is not None:
-            defaults[role] = ensure_arm(risk, role, role, role,
-                                       {"randomized_n": count_key}, meta)
+            aid = ensure_arm(risk, role, role, role, {"randomized_n": count_key}, meta)
+            if aid is not None:
+                defaults[role] = aid
     for index, raw in enumerate(flow.data.get("arms") or []):
         context = flow.child(_dict(raw), f"arms:{index}")
         ensure_arm(context, f"flow:{index}", "arm_name", count_keys={
@@ -241,7 +271,7 @@ def legacy_bundle_to_canonical(bundle: BaseModel | Mapping[str, Any]) -> Article
         })
 
     rows: list[_Context] = []
-    row_arm_ids: dict[tuple[int, int], str] = {}
+    row_arm_ids: dict[tuple[int, int], str | None] = {}
     for index, raw in enumerate((data.get("outcomes") or {}).get("outcomes") or []):
         row = _Context(_dict(raw), f"{article_id}:legacy:outcomes:{index}", pool)
         rows.append(row)
@@ -256,7 +286,6 @@ def legacy_bundle_to_canonical(bundle: BaseModel | Mapping[str, Any]) -> Article
     arm_results: list[ArmResult] = []
     comparisons: dict[tuple, Comparison] = {}
     comparison_results: list[ComparisonResult] = []
-    warnings = list(data.get("cross_check_issues") or [])
     for index, row in enumerate(rows):
         name = row.field("outcome_name", str)
         instrument = row.field("measurement_instrument", str)
@@ -276,8 +305,10 @@ def legacy_bundle_to_canonical(bundle: BaseModel | Mapping[str, Any]) -> Article
         }
         result_arms = []
         for arm_index, raw in enumerate(row.data.get("arm") or []):
-            result_arms.append((row_arm_ids[index, arm_index], row.child(_dict(raw), f"arm:{arm_index}")))
-        if not result_arms:
+            aid = row_arm_ids[index, arm_index]
+            if aid is not None:
+                result_arms.append((aid, row.child(_dict(raw), f"arm:{arm_index}")))
+        if not row.data.get("arm"):
             for role, aid in defaults.items():
                 keys = {"value": f"{role}_estimate", "lower": f"{role}_variance_lower",
                         "upper": f"{role}_variance_upper", "n": f"{role}_n"}
@@ -313,7 +344,7 @@ def legacy_bundle_to_canonical(bundle: BaseModel | Mapping[str, Any]) -> Article
         controls = [resolve(alias) for alias in comp.data.get("comparator_arm_ids") or []]
         controls.append(resolve(comp.data.get("control_arm_id")))
         # Only an explicit two-arm relation supports legacy role-based references.
-        if relation.value == "intervention_vs_control":
+        if relation.value == "intervention_vs_control" and topology_seed is None:
             if not _text(comp.data.get("intervention_arm_id")):
                 active = defaults.get("intervention")
             if not comp.data.get("comparator_arm_ids") and not _text(comp.data.get("control_arm_id")):
@@ -380,5 +411,6 @@ def legacy_bundle_to_canonical(bundle: BaseModel | Mapping[str, Any]) -> Article
     )
 
 
-def canonical_json(bundle: BaseModel | Mapping[str, Any], *, indent: int = 2) -> str:
-    return legacy_bundle_to_canonical(bundle).model_dump_json(indent=indent)
+def canonical_json(bundle: BaseModel | Mapping[str, Any], *, indent: int = 2,
+                   topology: TrialTopology | None = None) -> str:
+    return legacy_bundle_to_canonical(bundle, topology=topology).model_dump_json(indent=indent)

@@ -6,6 +6,7 @@ import re
 from pathlib import Path
 
 from article_agent.models import OpenAICompatibleClient
+from article_agent.trial_topology_agent import TrialTopology, run_topology
 from article_agent.evidence_engine import BibliographicMetadata, MetadataResolver, inject_metadata_into_contexts
 from article_agent.document_pipeline import chunks_from_normalized_document, normalize_markdown_document, write_normalized_document
 
@@ -250,6 +251,18 @@ def run_experiment(
     except ValueError:
         api_timeout = 180
     client = OpenAICompatibleClient(timeout=max(10, api_timeout))
+    # Identity discovery precedes protocol, sample flow and outcome extraction.
+    # No default two-arm fallback: unresolved topology stops canonical production.
+    topology_client = OpenAICompatibleClient(
+        api_key=client.api_key, base_url=client.base_url, timeout=client.timeout,
+        model=os.getenv("ARTICLE_AGENT_TOPOLOGY_MODEL", "gpt-5.6-luna"),
+    )
+    run_topology(article_id, markdown, output_dir / "trial_topology", topology_client)
+    topology = TrialTopology.model_validate_json(
+        (output_dir / "trial_topology" / "trial_topology.json").read_text(encoding="utf-8")
+    )
+    manifest["trial_topology"] = {"number_of_arms": topology.number_of_arms,
+                                  "artifact": "trial_topology/trial_topology.json"}
     try:
         extraction_retries = int(os.getenv("ARTICLE_AGENT_EXTRACT_RETRIES", "2"))
     except ValueError:

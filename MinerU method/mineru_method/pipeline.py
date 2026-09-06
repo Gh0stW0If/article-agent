@@ -7,6 +7,7 @@ from pathlib import Path
 
 from article_agent.models import OpenAICompatibleClient
 from article_agent.trial_topology_agent import TrialTopology, run_topology
+from article_agent.arm_details_agent import run_arm_details
 from article_agent.evidence_engine import BibliographicMetadata, MetadataResolver, inject_metadata_into_contexts
 from article_agent.document_pipeline import chunks_from_normalized_document, normalize_markdown_document, write_normalized_document
 
@@ -263,6 +264,13 @@ def run_experiment(
     )
     manifest["trial_topology"] = {"number_of_arms": topology.number_of_arms,
                                   "artifact": "trial_topology/trial_topology.json"}
+    arm_details_client = OpenAICompatibleClient(
+        api_key=client.api_key, base_url=client.base_url, timeout=client.timeout,
+        model=os.getenv("ARTICLE_AGENT_ARM_DETAILS_MODEL", "gpt-5.6-sol"),
+    )
+    arm_graph = run_arm_details(article_id, markdown, topology, output_dir / "arm_details", arm_details_client)
+    manifest["arm_details"] = {"artifact": "arm_details/arm_details.canonical.json",
+                               "interventions": len(arm_graph.interventions)}
     try:
         extraction_retries = int(os.getenv("ARTICLE_AGENT_EXTRACT_RETRIES", "2"))
     except ValueError:

@@ -144,9 +144,13 @@ def test_analysis_set_basis_wording_is_normalized():
     assert itt.basis=="intention_to_treat"
     assert SampleFlowObservation.model_validate({"field":"analyzed_n","value":80,"raw_value":"PP 80",
         "basis":"Per Protocol","evidence":[{"source_id":"article","quote":"PP 80"}]}).basis=="per_protocol"
+    # Article-specific labels pass through normalized instead of failing.
+    assert SampleFlowObservation.model_validate({"field":"dropout_n","value":7,"raw_value":"7",
+        "basis":"Withdrawals at end of follow-up","evidence":[{"source_id":"article","quote":"7"}]}
+        ).basis=="withdrawals_at_end_of_follow_up"
     with pytest.raises(ValidationError):
         SampleFlowObservation.model_validate({"field":"analyzed_n","value":80,"raw_value":"80",
-            "basis":"made_up_basis","evidence":[{"source_id":"article","quote":"80"}]})
+            "basis":"  ","evidence":[{"source_id":"article","quote":"80"}]})
 
 
 def test_ocr_spaced_digits_pass_value_check():

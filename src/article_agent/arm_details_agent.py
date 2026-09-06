@@ -25,7 +25,7 @@ class DetailEvidence(BaseModel):
 
 
 # Models echo the source's own analysis-set wording for flow counts; fold the
-# known spellings onto canonical basis values before the Literal check.
+# known spellings onto canonical basis values, keep everything else as-is.
 _BASIS_ALIASES = {
     "itt": "intention_to_treat",
     "itt_analysis": "intention_to_treat",
@@ -57,17 +57,19 @@ class SampleFlowObservation(BaseModel):
     field: Literal["randomized_n", "received_n", "analyzed_n", "dropout_n"]
     value: int = Field(ge=0, strict=True)
     raw_value: str = Field(min_length=1)
-    basis: Literal["explicit", "baseline_group_size", "intention_to_treat", "per_protocol"] = "explicit"
+    # Analysis-set wording differs per article (ITT, per-protocol, withdrawals,
+    # ...), so basis stays a normalized descriptive label: known spellings fold
+    # onto canonical values, unknown ones pass through verbatim-underscored.
+    basis: str = Field(default="explicit", min_length=1)
     evidence: list[DetailEvidence] = Field(min_length=1)
 
     @field_validator("basis", mode="before")
     @classmethod
     def _normalize_basis(cls, value):
-        # Models label flow counts with the source's own analysis-set wording;
-        # fold the known spellings, let anything else fail the Literal closed.
-        if isinstance(value, str):
-            return _BASIS_ALIASES.get(" ".join(value.split()).casefold(), value)
-        return value
+        if not isinstance(value, str):
+            return value
+        key = re.sub(r"[\s-]+", "_", value.strip()).casefold()
+        return _BASIS_ALIASES.get(key, key)
 
 
 class ArmDetail(BaseModel):

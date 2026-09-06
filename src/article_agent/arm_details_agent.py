@@ -11,7 +11,7 @@ import time
 from pathlib import Path
 from typing import Literal
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, field_validator
 
 from .domain.models import ArticleExtraction, CanonicalField, Evidence, EvidenceTarget, Intervention, merge_field_observation
 from .trial_topology_agent import JsonClient, TrialTopology, _locate, identity_key, topology_to_canonical
@@ -22,6 +22,26 @@ class DetailEvidence(BaseModel):
     source_id: str = Field(min_length=1)
     quote: str = Field(min_length=1)
     source_type: Literal["markdown", "table"] = "markdown"
+
+
+# Models echo the source's own analysis-set wording for flow counts; fold the
+# known spellings onto canonical basis values before the Literal check.
+_BASIS_ALIASES = {
+    "itt": "intention_to_treat",
+    "itt_analysis": "intention_to_treat",
+    "intention_to_treat": "intention_to_treat",
+    "intention-to-treat": "intention_to_treat",
+    "intention to treat": "intention_to_treat",
+    "intention_to_treat_analysis": "intention_to_treat",
+    "intention-to-treat-analysis": "intention_to_treat",
+    "intention to treat analysis": "intention_to_treat",
+    "pp": "per_protocol",
+    "per_protocol": "per_protocol",
+    "per-protocol": "per_protocol",
+    "per protocol": "per_protocol",
+    "per_protocol_analysis": "per_protocol",
+    "per protocol analysis": "per_protocol",
+}
 
 
 class InterventionComponent(BaseModel):
@@ -37,8 +57,17 @@ class SampleFlowObservation(BaseModel):
     field: Literal["randomized_n", "received_n", "analyzed_n", "dropout_n"]
     value: int = Field(ge=0, strict=True)
     raw_value: str = Field(min_length=1)
-    basis: Literal["explicit", "baseline_group_size"] = "explicit"
+    basis: Literal["explicit", "baseline_group_size", "intention_to_treat", "per_protocol"] = "explicit"
     evidence: list[DetailEvidence] = Field(min_length=1)
+
+    @field_validator("basis", mode="before")
+    @classmethod
+    def _normalize_basis(cls, value):
+        # Models label flow counts with the source's own analysis-set wording;
+        # fold the known spellings, let anything else fail the Literal closed.
+        if isinstance(value, str):
+            return _BASIS_ALIASES.get(" ".join(value.split()).casefold(), value)
+        return value
 
 
 class ArmDetail(BaseModel):
@@ -104,7 +133,11 @@ def validate_detail_sources(details: ArmDetails, topology: TrialTopology, markdo
                     raise ValueError("unknown arm-details source_id")
                 evidence.quote = _locate(evidence.quote, markdown).group()
             if isinstance(item, SampleFlowObservation):
-                if not re.search(rf"(?<![\d.]){item.value}(?![\d.])", item.raw_value):
+                # MinerU OCR can space out digits inside table cells ("8 8");
+                # compare on whitespace-compacted text while keeping digit
+                # boundaries, so 8 cannot pass inside 88 or 8.8.
+                compact = re.sub(r"\s+", "", item.raw_value)
+                if not re.search(rf"(?<![\d.]){item.value}(?![\d.])", compact):
                     raise ValueError("sample-flow raw_value must contain the reported integer value")
                 if not any(_contains(item.raw_value, evidence.quote) for evidence in item.evidence):
                     raise ValueError("sample-flow raw_value must be a verbatim evidence span")

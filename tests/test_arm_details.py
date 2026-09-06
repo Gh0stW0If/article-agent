@@ -5,7 +5,13 @@ from pathlib import Path
 import pytest
 from pydantic import ValidationError
 
-from article_agent.arm_details_agent import ArmDetails, arm_details_to_canonical, extract_arm_details, run_arm_details
+from article_agent.arm_details_agent import (
+    ArmDetails,
+    SampleFlowObservation,
+    arm_details_to_canonical,
+    extract_arm_details,
+    run_arm_details,
+)
 from article_agent.domain import ArticleExtraction, FieldStatus
 from article_agent.trial_topology_agent import TrialTopology, topology_to_canonical
 
@@ -130,3 +136,29 @@ def test_full_source_and_frozen_topology_sent_without_truncation():
 def test_schema_matches_published():
     path=Path(__file__).resolve().parents[1]/"schemas/arm-details.schema.json"
     assert json.loads(path.read_text(encoding="utf-8"))==ArmDetails.model_json_schema()
+
+
+def test_analysis_set_basis_wording_is_normalized():
+    itt=SampleFlowObservation.model_validate({"field":"analyzed_n","value":80,"raw_value":"ITT 80",
+        "basis":"intention_to_treat_analysis","evidence":[{"source_id":"article","quote":"ITT 80"}]})
+    assert itt.basis=="intention_to_treat"
+    assert SampleFlowObservation.model_validate({"field":"analyzed_n","value":80,"raw_value":"PP 80",
+        "basis":"Per Protocol","evidence":[{"source_id":"article","quote":"PP 80"}]}).basis=="per_protocol"
+    with pytest.raises(ValidationError):
+        SampleFlowObservation.model_validate({"field":"analyzed_n","value":80,"raw_value":"80",
+            "basis":"made_up_basis","evidence":[{"source_id":"article","quote":"80"}]})
+
+
+def test_ocr_spaced_digits_pass_value_check():
+    source,topology,response=fixture(2)
+    spaced="Table 2: Real (n = 8 8); Sham (n = 8 7)."
+    for arm,value,raw in zip(response["arms"],[88,87],["Real (n = 8 8)","Sham (n = 8 7)"]):
+        arm["sample_flow"]=[{"field":"randomized_n","value":value,"raw_value":raw,
+            "evidence":[{"source_id":"article","quote":spaced}]}]
+    graph=arm_details_to_canonical("trial",topology,
+        extract_arm_details(source+"\n"+spaced,topology,FakeClient(response)))
+    assert graph.arms[0].randomized_n.value==88
+    # A digit broken across OCR whitespace must not satisfy a smaller value.
+    response["arms"][0]["sample_flow"][0]["value"]=8
+    with pytest.raises(ValueError,match="reported integer"):
+        extract_arm_details(source+"\n"+spaced,topology,FakeClient(response),retries=0)

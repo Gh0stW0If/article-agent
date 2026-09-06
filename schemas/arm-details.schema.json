@@ -136,7 +136,9 @@
           "default": "explicit",
           "enum": [
             "explicit",
-            "baseline_group_size"
+            "baseline_group_size",
+            "intention_to_treat",
+            "per_protocol"
           ],
           "title": "Basis",
           "type": "string"

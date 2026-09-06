@@ -14,28 +14,10 @@
           "type": "string"
         },
         "label": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Label"
+          "$ref": "#/$defs/CanonicalField_str_"
         },
         "role": {
-          "default": "unknown",
-          "enum": [
-            "intervention",
-            "control",
-            "comparator",
-            "other",
-            "unknown"
-          ],
-          "title": "Role",
-          "type": "string"
+          "$ref": "#/$defs/CanonicalField_str_"
         },
         "intervention_ids": {
           "items": {
@@ -45,63 +27,16 @@
           "type": "array"
         },
         "randomized_n": {
-          "anyOf": [
-            {
-              "minimum": 0,
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Randomized N"
+          "$ref": "#/$defs/CanonicalField_int_"
         },
         "received_n": {
-          "anyOf": [
-            {
-              "minimum": 0,
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Received N"
+          "$ref": "#/$defs/CanonicalField_int_"
         },
         "analyzed_n": {
-          "anyOf": [
-            {
-              "minimum": 0,
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Analyzed N"
+          "$ref": "#/$defs/CanonicalField_int_"
         },
         "dropout_n": {
-          "anyOf": [
-            {
-              "minimum": 0,
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Dropout N"
-        },
-        "evidence_ids": {
-          "items": {
-            "type": "string"
-          },
-          "title": "Evidence Ids",
-          "type": "array"
+          "$ref": "#/$defs/CanonicalField_int_"
         },
         "legacy_fields": {
           "additionalProperties": true,
@@ -134,180 +69,47 @@
           "title": "Arm Id",
           "type": "string"
         },
-        "timepoint_raw": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Timepoint Raw"
+        "timepoint": {
+          "$ref": "#/$defs/CanonicalField_str_"
         },
         "timepoint_value": {
-          "anyOf": [
-            {
-              "minimum": 0,
-              "type": "number"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Timepoint Value"
+          "$ref": "#/$defs/CanonicalField_float_"
         },
         "timepoint_unit": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Timepoint Unit"
+          "$ref": "#/$defs/CanonicalField_str_"
         },
         "analysis_set": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Analysis Set"
+          "$ref": "#/$defs/CanonicalField_str_"
         },
         "value_kind": {
-          "default": "unknown",
-          "enum": [
-            "baseline",
-            "endpoint",
-            "change",
-            "event",
-            "count",
-            "other",
-            "unknown"
-          ],
-          "title": "Value Kind",
-          "type": "string"
+          "$ref": "#/$defs/CanonicalField_str_"
         },
         "value": {
-          "anyOf": [
-            {
-              "type": "number"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Value"
+          "$ref": "#/$defs/CanonicalField_float_"
         },
         "standard_deviation": {
-          "anyOf": [
-            {
-              "minimum": 0,
-              "type": "number"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Standard Deviation"
+          "$ref": "#/$defs/CanonicalField_float_"
         },
         "change_from_baseline": {
-          "anyOf": [
-            {
-              "type": "number"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Change From Baseline"
+          "$ref": "#/$defs/CanonicalField_float_"
         },
         "dispersion_lower": {
-          "anyOf": [
-            {
-              "type": "number"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Dispersion Lower"
+          "$ref": "#/$defs/CanonicalField_float_"
         },
         "dispersion_upper": {
-          "anyOf": [
-            {
-              "type": "number"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Dispersion Upper"
+          "$ref": "#/$defs/CanonicalField_float_"
         },
         "n": {
-          "anyOf": [
-            {
-              "minimum": 0,
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "N"
+          "$ref": "#/$defs/CanonicalField_int_"
         },
         "event_count": {
-          "anyOf": [
-            {
-              "minimum": 0,
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Event Count"
+          "$ref": "#/$defs/CanonicalField_int_"
         },
         "denominator": {
-          "anyOf": [
-            {
-              "minimum": 0,
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Denominator"
+          "$ref": "#/$defs/CanonicalField_int_"
         },
         "raw_value": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Raw Value"
+          "$ref": "#/$defs/CanonicalField_str_"
         },
         "source_table_id": {
           "anyOf": [
@@ -332,13 +134,6 @@
           ],
           "default": null,
           "title": "Source Row Id"
-        },
-        "evidence_ids": {
-          "items": {
-            "type": "string"
-          },
-          "title": "Evidence Ids",
-          "type": "array"
         },
         "derived": {
           "default": false,
@@ -380,87 +175,25 @@
           "type": "string"
         },
         "title": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Title"
+          "$ref": "#/$defs/CanonicalField_str_"
         },
         "doi": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Doi"
+          "$ref": "#/$defs/CanonicalField_str_"
         },
         "publication_year": {
-          "anyOf": [
-            {
-              "maximum": 3000,
-              "minimum": 1600,
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Publication Year"
+          "$ref": "#/$defs/CanonicalField_int_"
         },
         "journal": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Journal"
+          "$ref": "#/$defs/CanonicalField_str_"
         },
         "language": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Language"
+          "$ref": "#/$defs/CanonicalField_str_"
         },
         "authors": {
-          "items": {
-            "type": "string"
-          },
-          "title": "Authors",
-          "type": "array"
+          "$ref": "#/$defs/CanonicalField_list_str__"
         },
         "correspondence": {
-          "items": {
-            "type": "string"
-          },
-          "title": "Correspondence",
-          "type": "array"
-        },
-        "evidence_ids": {
-          "items": {
-            "type": "string"
-          },
-          "title": "Evidence Ids",
-          "type": "array"
+          "$ref": "#/$defs/CanonicalField_list_str__"
         },
         "legacy_fields": {
           "additionalProperties": true,
@@ -472,6 +205,445 @@
         "article_id"
       ],
       "title": "Article",
+      "type": "object"
+    },
+    "CanonicalField_float_": {
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "PRESENT"
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "value": {
+                "not": {
+                  "type": "null"
+                }
+              }
+            },
+            "required": [
+              "value"
+            ]
+          }
+        },
+        {
+          "else": {
+            "properties": {
+              "conflict_candidates": {
+                "maxItems": 0
+              }
+            }
+          },
+          "if": {
+            "properties": {
+              "status": {
+                "const": "SOURCE_CONFLICT"
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "conflict_candidates": {
+                "minItems": 2
+              },
+              "value": {
+                "type": "null"
+              }
+            },
+            "required": [
+              "conflict_candidates"
+            ]
+          }
+        }
+      ],
+      "properties": {
+        "status": {
+          "$ref": "#/$defs/FieldStatus"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Value"
+        },
+        "raw_value": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Raw Value"
+        },
+        "evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "conflict_candidates": {
+          "items": {
+            "$ref": "#/$defs/ConflictCandidate_float_"
+          },
+          "title": "Conflict Candidates",
+          "type": "array"
+        }
+      },
+      "required": [
+        "status"
+      ],
+      "title": "CanonicalField[float]",
+      "type": "object"
+    },
+    "CanonicalField_int_": {
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "PRESENT"
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "value": {
+                "not": {
+                  "type": "null"
+                }
+              }
+            },
+            "required": [
+              "value"
+            ]
+          }
+        },
+        {
+          "else": {
+            "properties": {
+              "conflict_candidates": {
+                "maxItems": 0
+              }
+            }
+          },
+          "if": {
+            "properties": {
+              "status": {
+                "const": "SOURCE_CONFLICT"
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "conflict_candidates": {
+                "minItems": 2
+              },
+              "value": {
+                "type": "null"
+              }
+            },
+            "required": [
+              "conflict_candidates"
+            ]
+          }
+        }
+      ],
+      "properties": {
+        "status": {
+          "$ref": "#/$defs/FieldStatus"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Value"
+        },
+        "raw_value": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Raw Value"
+        },
+        "evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "conflict_candidates": {
+          "items": {
+            "$ref": "#/$defs/ConflictCandidate_int_"
+          },
+          "title": "Conflict Candidates",
+          "type": "array"
+        }
+      },
+      "required": [
+        "status"
+      ],
+      "title": "CanonicalField[int]",
+      "type": "object"
+    },
+    "CanonicalField_list_str__": {
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "PRESENT"
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "value": {
+                "not": {
+                  "type": "null"
+                }
+              }
+            },
+            "required": [
+              "value"
+            ]
+          }
+        },
+        {
+          "else": {
+            "properties": {
+              "conflict_candidates": {
+                "maxItems": 0
+              }
+            }
+          },
+          "if": {
+            "properties": {
+              "status": {
+                "const": "SOURCE_CONFLICT"
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "conflict_candidates": {
+                "minItems": 2
+              },
+              "value": {
+                "type": "null"
+              }
+            },
+            "required": [
+              "conflict_candidates"
+            ]
+          }
+        }
+      ],
+      "properties": {
+        "status": {
+          "$ref": "#/$defs/FieldStatus"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Value"
+        },
+        "raw_value": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Raw Value"
+        },
+        "evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "conflict_candidates": {
+          "items": {
+            "$ref": "#/$defs/ConflictCandidate_list_str__"
+          },
+          "title": "Conflict Candidates",
+          "type": "array"
+        }
+      },
+      "required": [
+        "status"
+      ],
+      "title": "CanonicalField[list[str]]",
+      "type": "object"
+    },
+    "CanonicalField_str_": {
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "PRESENT"
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "value": {
+                "not": {
+                  "type": "null"
+                }
+              }
+            },
+            "required": [
+              "value"
+            ]
+          }
+        },
+        {
+          "else": {
+            "properties": {
+              "conflict_candidates": {
+                "maxItems": 0
+              }
+            }
+          },
+          "if": {
+            "properties": {
+              "status": {
+                "const": "SOURCE_CONFLICT"
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "conflict_candidates": {
+                "minItems": 2
+              },
+              "value": {
+                "type": "null"
+              }
+            },
+            "required": [
+              "conflict_candidates"
+            ]
+          }
+        }
+      ],
+      "properties": {
+        "status": {
+          "$ref": "#/$defs/FieldStatus"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Value"
+        },
+        "raw_value": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Raw Value"
+        },
+        "evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "conflict_candidates": {
+          "items": {
+            "$ref": "#/$defs/ConflictCandidate_str_"
+          },
+          "title": "Conflict Candidates",
+          "type": "array"
+        }
+      },
+      "required": [
+        "status"
+      ],
+      "title": "CanonicalField[str]",
       "type": "object"
     },
     "Comparison": {
@@ -488,19 +660,7 @@
           "type": "string"
         },
         "relation": {
-          "default": "unknown",
-          "enum": [
-            "intervention_vs_control",
-            "arm_vs_arm",
-            "multi_arm",
-            "within_arm",
-            "overall",
-            "not_applicable",
-            "other",
-            "unknown"
-          ],
-          "title": "Relation",
-          "type": "string"
+          "$ref": "#/$defs/CanonicalField_str_"
         },
         "arm_ids": {
           "items": {
@@ -529,23 +689,7 @@
           "type": "array"
         },
         "contrast": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Contrast"
-        },
-        "evidence_ids": {
-          "items": {
-            "type": "string"
-          },
-          "title": "Evidence Ids",
-          "type": "array"
+          "$ref": "#/$defs/CanonicalField_str_"
         },
         "legacy_fields": {
           "additionalProperties": true,
@@ -578,146 +722,38 @@
           "title": "Outcome Id",
           "type": "string"
         },
-        "timepoint_raw": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Timepoint Raw"
+        "timepoint": {
+          "$ref": "#/$defs/CanonicalField_str_"
         },
         "timepoint_value": {
-          "anyOf": [
-            {
-              "minimum": 0,
-              "type": "number"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Timepoint Value"
+          "$ref": "#/$defs/CanonicalField_float_"
         },
         "timepoint_unit": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Timepoint Unit"
+          "$ref": "#/$defs/CanonicalField_str_"
         },
         "analysis_set": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Analysis Set"
+          "$ref": "#/$defs/CanonicalField_str_"
         },
         "effect_measure": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Effect Measure"
+          "$ref": "#/$defs/CanonicalField_str_"
         },
         "estimate": {
-          "anyOf": [
-            {
-              "type": "number"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Estimate"
+          "$ref": "#/$defs/CanonicalField_float_"
         },
         "confidence_interval_lower": {
-          "anyOf": [
-            {
-              "type": "number"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Confidence Interval Lower"
+          "$ref": "#/$defs/CanonicalField_float_"
         },
         "confidence_interval_upper": {
-          "anyOf": [
-            {
-              "type": "number"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Confidence Interval Upper"
+          "$ref": "#/$defs/CanonicalField_float_"
         },
         "p_value": {
-          "anyOf": [
-            {
-              "type": "number"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "P Value"
+          "$ref": "#/$defs/CanonicalField_float_"
         },
         "p_value_comparator": {
-          "default": "unknown",
-          "enum": [
-            "=",
-            "<",
-            "<=",
-            ">",
-            ">=",
-            "unknown"
-          ],
-          "title": "P Value Comparator",
-          "type": "string"
+          "$ref": "#/$defs/CanonicalField_str_"
         },
         "raw_value": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Raw Value"
-        },
-        "evidence_ids": {
-          "items": {
-            "type": "string"
-          },
-          "title": "Evidence Ids",
-          "type": "array"
+          "$ref": "#/$defs/CanonicalField_str_"
         },
         "derived": {
           "default": false,
@@ -750,6 +786,161 @@
       "title": "ComparisonResult",
       "type": "object"
     },
+    "ConflictCandidate_float_": {
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Value"
+        },
+        "raw_value": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Raw Value"
+        },
+        "evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        }
+      },
+      "title": "ConflictCandidate[float]",
+      "type": "object"
+    },
+    "ConflictCandidate_int_": {
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Value"
+        },
+        "raw_value": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Raw Value"
+        },
+        "evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        }
+      },
+      "title": "ConflictCandidate[int]",
+      "type": "object"
+    },
+    "ConflictCandidate_list_str__": {
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Value"
+        },
+        "raw_value": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Raw Value"
+        },
+        "evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        }
+      },
+      "title": "ConflictCandidate[list[str]]",
+      "type": "object"
+    },
+    "ConflictCandidate_str_": {
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Value"
+        },
+        "raw_value": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Raw Value"
+        },
+        "evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        }
+      },
+      "title": "ConflictCandidate[str]",
+      "type": "object"
+    },
     "Evidence": {
       "additionalProperties": false,
       "properties": {
@@ -757,6 +948,13 @@
           "minLength": 1,
           "title": "Evidence Id",
           "type": "string"
+        },
+        "targets": {
+          "items": {
+            "$ref": "#/$defs/EvidenceTarget"
+          },
+          "title": "Targets",
+          "type": "array"
         },
         "field_paths": {
           "items": {
@@ -890,6 +1088,46 @@
       "title": "Evidence",
       "type": "object"
     },
+    "EvidenceTarget": {
+      "additionalProperties": false,
+      "properties": {
+        "entity_type": {
+          "minLength": 1,
+          "title": "Entity Type",
+          "type": "string"
+        },
+        "entity_id": {
+          "minLength": 1,
+          "title": "Entity Id",
+          "type": "string"
+        },
+        "field_id": {
+          "minLength": 1,
+          "title": "Field Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "entity_type",
+        "entity_id",
+        "field_id"
+      ],
+      "title": "EvidenceTarget",
+      "type": "object"
+    },
+    "FieldStatus": {
+      "enum": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "INSUFFICIENT_CONTEXT",
+        "UNRESOLVED",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "title": "FieldStatus",
+      "type": "string"
+    },
     "Intervention": {
       "additionalProperties": false,
       "properties": {
@@ -904,141 +1142,37 @@
           "type": "string"
         },
         "name": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Name"
+          "$ref": "#/$defs/CanonicalField_str_"
         },
         "kind": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Kind"
+          "$ref": "#/$defs/CanonicalField_str_"
         },
         "description": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Description"
+          "$ref": "#/$defs/CanonicalField_str_"
         },
         "components": {
-          "items": {
-            "type": "string"
-          },
-          "title": "Components",
-          "type": "array"
+          "$ref": "#/$defs/CanonicalField_list_str__"
         },
         "frequency_raw": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Frequency Raw"
+          "$ref": "#/$defs/CanonicalField_str_"
         },
         "frequency_value": {
-          "anyOf": [
-            {
-              "minimum": 0,
-              "type": "number"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Frequency Value"
+          "$ref": "#/$defs/CanonicalField_float_"
         },
         "frequency_unit": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Frequency Unit"
+          "$ref": "#/$defs/CanonicalField_str_"
         },
         "duration_raw": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Duration Raw"
+          "$ref": "#/$defs/CanonicalField_str_"
         },
         "duration_value": {
-          "anyOf": [
-            {
-              "minimum": 0,
-              "type": "number"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Duration Value"
+          "$ref": "#/$defs/CanonicalField_float_"
         },
         "duration_unit": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Duration Unit"
+          "$ref": "#/$defs/CanonicalField_str_"
         },
         "total_sessions": {
-          "anyOf": [
-            {
-              "minimum": 0,
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Total Sessions"
-        },
-        "evidence_ids": {
-          "items": {
-            "type": "string"
-          },
-          "title": "Evidence Ids",
-          "type": "array"
+          "$ref": "#/$defs/CanonicalField_int_"
         },
         "legacy_fields": {
           "additionalProperties": true,
@@ -1067,91 +1201,25 @@
           "type": "string"
         },
         "name": {
-          "minLength": 1,
-          "title": "Name",
-          "type": "string"
+          "$ref": "#/$defs/CanonicalField_str_"
         },
         "instrument": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Instrument"
+          "$ref": "#/$defs/CanonicalField_str_"
         },
         "role": {
-          "default": "unknown",
-          "enum": [
-            "primary",
-            "secondary",
-            "safety",
-            "subgroup",
-            "sensitivity",
-            "baseline",
-            "administrative",
-            "other",
-            "unknown"
-          ],
-          "title": "Role",
-          "type": "string"
+          "$ref": "#/$defs/CanonicalField_str_"
         },
         "direction": {
-          "default": "unknown",
-          "enum": [
-            "higher_better",
-            "lower_better",
-            "neutral",
-            "unknown"
-          ],
-          "title": "Direction",
-          "type": "string"
+          "$ref": "#/$defs/CanonicalField_str_"
         },
         "unit": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Unit"
+          "$ref": "#/$defs/CanonicalField_str_"
         },
         "scale_min": {
-          "anyOf": [
-            {
-              "type": "number"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Scale Min"
+          "$ref": "#/$defs/CanonicalField_float_"
         },
         "scale_max": {
-          "anyOf": [
-            {
-              "type": "number"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Scale Max"
-        },
-        "evidence_ids": {
-          "items": {
-            "type": "string"
-          },
-          "title": "Evidence Ids",
-          "type": "array"
+          "$ref": "#/$defs/CanonicalField_float_"
         },
         "legacy_fields": {
           "additionalProperties": true,
@@ -1161,8 +1229,7 @@
       },
       "required": [
         "outcome_id",
-        "study_id",
-        "name"
+        "study_id"
       ],
       "title": "Outcome",
       "type": "object"
@@ -1181,68 +1248,49 @@
           "type": "string"
         },
         "design": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Design"
+          "$ref": "#/$defs/CanonicalField_str_"
         },
         "condition": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Condition"
+          "$ref": "#/$defs/CanonicalField_str_"
         },
         "countries": {
-          "items": {
-            "type": "string"
-          },
-          "title": "Countries",
-          "type": "array"
+          "$ref": "#/$defs/CanonicalField_list_str__"
         },
         "centre_count": {
-          "anyOf": [
-            {
-              "minimum": 1,
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Centre Count"
+          "$ref": "#/$defs/CanonicalField_int_"
         },
         "randomized_n": {
-          "anyOf": [
-            {
-              "minimum": 0,
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Randomized N"
+          "$ref": "#/$defs/CanonicalField_int_"
         },
-        "analysis_sets": {
-          "items": {
-            "type": "string"
-          },
-          "title": "Analysis Sets",
-          "type": "array"
+        "random_sequence_method": {
+          "$ref": "#/$defs/CanonicalField_str_"
+        },
+        "random_sequence_code": {
+          "$ref": "#/$defs/CanonicalField_int_"
+        },
+        "allocation_concealment": {
+          "$ref": "#/$defs/CanonicalField_str_"
+        },
+        "allocation_concealment_code": {
+          "$ref": "#/$defs/CanonicalField_int_"
+        },
+        "participant_blinding": {
+          "$ref": "#/$defs/CanonicalField_str_"
+        },
+        "practitioner_blinding": {
+          "$ref": "#/$defs/CanonicalField_str_"
+        },
+        "outcome_assessor_blinding": {
+          "$ref": "#/$defs/CanonicalField_str_"
+        },
+        "statistician_blinding": {
+          "$ref": "#/$defs/CanonicalField_str_"
+        },
+        "primary_analysis_set": {
+          "$ref": "#/$defs/CanonicalField_str_"
+        },
+        "missing_data_method": {
+          "$ref": "#/$defs/CanonicalField_str_"
         },
         "arm_ids": {
           "items": {
@@ -1265,13 +1313,6 @@
           "title": "Outcome Ids",
           "type": "array"
         },
-        "evidence_ids": {
-          "items": {
-            "type": "string"
-          },
-          "title": "Evidence Ids",
-          "type": "array"
-        },
         "legacy_fields": {
           "additionalProperties": true,
           "title": "Legacy Fields",
@@ -1289,8 +1330,8 @@
   "additionalProperties": false,
   "properties": {
     "schema_version": {
-      "const": "ARTICLE_EXTRACTION/1.0",
-      "default": "ARTICLE_EXTRACTION/1.0",
+      "const": "ARTICLE_EXTRACTION/2.0",
+      "default": "ARTICLE_EXTRACTION/2.0",
       "title": "Schema Version",
       "type": "string"
     },

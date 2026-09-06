@@ -166,3 +166,20 @@ def test_ocr_spaced_digits_pass_value_check():
     response["arms"][0]["sample_flow"][0]["value"]=8
     with pytest.raises(ValueError,match="reported integer"):
         extract_arm_details(source+"\n"+spaced,topology,FakeClient(response),retries=0)
+
+
+def test_word_form_counts_pass_value_check():
+    source,topology,response=fixture(2)
+    quote="At the end of follow-up, three from Group A and two from Group B had withdrawn."
+    response["arms"][0]["sample_flow"]=[{"field":"dropout_n","value":3,"raw_value":"three from Group A",
+        "evidence":[{"source_id":"article","quote":quote}]}]
+    response["arms"][1]["sample_flow"]=[{"field":"dropout_n","value":2,"raw_value":"two from Group B",
+        "evidence":[{"source_id":"article","quote":quote}]}]
+    graph=arm_details_to_canonical("trial",topology,
+        extract_arm_details(source+" "+quote,topology,FakeClient(response)))
+    assert graph.arms[0].dropout_n.value==3
+    assert graph.arms[1].dropout_n.value==2
+    # A spelled count must not satisfy a different value.
+    response["arms"][0]["sample_flow"][0]["value"]=4
+    with pytest.raises(ValueError,match="reported integer"):
+        extract_arm_details(source+" "+quote,topology,FakeClient(response),retries=0)

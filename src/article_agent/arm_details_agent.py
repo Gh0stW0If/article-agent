@@ -43,6 +43,26 @@ _BASIS_ALIASES = {
     "per protocol analysis": "per_protocol",
 }
 
+# Prose sometimes spells small counts out ("three from Group A"); fold these
+# before the value check so verbatim word-form raw values still verify.
+_NUMBER_WORDS = {
+    "zero": 0, "one": 1, "two": 2, "three": 3, "four": 4, "five": 5, "six": 6,
+    "seven": 7, "eight": 8, "nine": 9, "ten": 10, "eleven": 11, "twelve": 12,
+    "thirteen": 13, "fourteen": 14, "fifteen": 15, "sixteen": 16,
+    "seventeen": 17, "eighteen": 18, "nineteen": 19, "twenty": 20,
+}
+_NUMBER_WORD_RE = re.compile(r"\b(" + "|".join(_NUMBER_WORDS) + r")\b", re.IGNORECASE)
+
+
+def _raw_value_reports(item_value: int, raw_value: str) -> bool:
+    # MinerU OCR can space out digits inside table cells ("8 8") and prose can
+    # spell counts out ("three from Group A"); compare on compacted text with
+    # number words folded to digits, keeping digit boundaries so 8 cannot pass
+    # inside 88 or 8.8.
+    text = _NUMBER_WORD_RE.sub(lambda m: str(_NUMBER_WORDS[m.group(1).casefold()]), raw_value)
+    compact = re.sub(r"\s+", "", text)
+    return bool(re.search(rf"(?<![\d.]){item_value}(?![\d.])", compact))
+
 
 class InterventionComponent(BaseModel):
     model_config = ConfigDict(extra="forbid")
@@ -135,11 +155,7 @@ def validate_detail_sources(details: ArmDetails, topology: TrialTopology, markdo
                     raise ValueError("unknown arm-details source_id")
                 evidence.quote = _locate(evidence.quote, markdown).group()
             if isinstance(item, SampleFlowObservation):
-                # MinerU OCR can space out digits inside table cells ("8 8");
-                # compare on whitespace-compacted text while keeping digit
-                # boundaries, so 8 cannot pass inside 88 or 8.8.
-                compact = re.sub(r"\s+", "", item.raw_value)
-                if not re.search(rf"(?<![\d.]){item.value}(?![\d.])", compact):
+                if not _raw_value_reports(item.value, item.raw_value):
                     raise ValueError("sample-flow raw_value must contain the reported integer value")
                 if not any(_contains(item.raw_value, evidence.quote) for evidence in item.evidence):
                     raise ValueError("sample-flow raw_value must be a verbatim evidence span")

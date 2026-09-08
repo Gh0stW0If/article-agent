@@ -1,0 +1,175 @@
+{
+  "$defs": {
+    "ArmDetail": {
+      "additionalProperties": false,
+      "properties": {
+        "arm_index": {
+          "minimum": 1,
+          "title": "Arm Index",
+          "type": "integer"
+        },
+        "intervention_components": {
+          "items": {
+            "$ref": "#/$defs/InterventionComponent"
+          },
+          "title": "Intervention Components",
+          "type": "array"
+        },
+        "sample_flow": {
+          "items": {
+            "$ref": "#/$defs/SampleFlowObservation"
+          },
+          "title": "Sample Flow",
+          "type": "array"
+        }
+      },
+      "required": [
+        "arm_index",
+        "intervention_components",
+        "sample_flow"
+      ],
+      "title": "ArmDetail",
+      "type": "object"
+    },
+    "DetailEvidence": {
+      "additionalProperties": false,
+      "properties": {
+        "source_id": {
+          "minLength": 1,
+          "title": "Source Id",
+          "type": "string"
+        },
+        "quote": {
+          "minLength": 1,
+          "title": "Quote",
+          "type": "string"
+        },
+        "source_type": {
+          "default": "markdown",
+          "enum": [
+            "markdown",
+            "table"
+          ],
+          "title": "Source Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "source_id",
+        "quote"
+      ],
+      "title": "DetailEvidence",
+      "type": "object"
+    },
+    "InterventionComponent": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "minLength": 1,
+          "title": "Name",
+          "type": "string"
+        },
+        "kind": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Kind"
+        },
+        "description": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Description"
+        },
+        "evidence": {
+          "items": {
+            "$ref": "#/$defs/DetailEvidence"
+          },
+          "minItems": 1,
+          "title": "Evidence",
+          "type": "array"
+        }
+      },
+      "required": [
+        "name",
+        "evidence"
+      ],
+      "title": "InterventionComponent",
+      "type": "object"
+    },
+    "SampleFlowObservation": {
+      "additionalProperties": false,
+      "properties": {
+        "field": {
+          "enum": [
+            "randomized_n",
+            "received_n",
+            "analyzed_n",
+            "dropout_n"
+          ],
+          "title": "Field",
+          "type": "string"
+        },
+        "value": {
+          "minimum": 0,
+          "title": "Value",
+          "type": "integer"
+        },
+        "raw_value": {
+          "minLength": 1,
+          "title": "Raw Value",
+          "type": "string"
+        },
+        "basis": {
+          "default": "explicit",
+          "minLength": 1,
+          "title": "Basis",
+          "type": "string"
+        },
+        "evidence": {
+          "items": {
+            "$ref": "#/$defs/DetailEvidence"
+          },
+          "minItems": 1,
+          "title": "Evidence",
+          "type": "array"
+        }
+      },
+      "required": [
+        "field",
+        "value",
+        "raw_value",
+        "evidence"
+      ],
+      "title": "SampleFlowObservation",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "arms": {
+      "items": {
+        "$ref": "#/$defs/ArmDetail"
+      },
+      "title": "Arms",
+      "type": "array"
+    }
+  },
+  "required": [
+    "arms"
+  ],
+  "title": "ArmDetails",
+  "type": "object"
+}

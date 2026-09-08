@@ -78,6 +78,8 @@ def normalize_outcome_sources(article_id: str, topology, records):
     arm_aliases = _arm_aliases(topology)
     arm_ids = {i: f"{article_id}-S1-A{i:02d}" for i in arm_aliases}
     warnings = []
+    counters = {"statistic/value_kind": 0, "timepoint": 0, "unit": 0,
+                "arm_bindings": 0, "comparator_mappings": 0, "ambiguous_unchanged": 0}
     normalized = []
     for idx, row in enumerate(data):
         if not isinstance(row, dict):
@@ -91,6 +93,9 @@ def normalize_outcome_sources(article_id: str, topology, records):
             # Derived source semantics are written to their dedicated field.
             # The original record remains under _pr41_original.
             out[field] = value
+            if field == "value_kind": counters["statistic/value_kind"] += 1
+            elif field == "timepoint": counters["timepoint"] += 1
+            elif field == "unit": counters["unit"] += 1
         # Avoid duplicating an already independent instrument in outcome_name.
         instrument = _text(row.get("measurement_instrument", row.get("instrument")))
         if instrument and _norm(out.get("outcome_name")) == _norm(instrument):
@@ -109,10 +114,12 @@ def normalize_outcome_sources(article_id: str, topology, records):
             if len(matches) == 1:
                 arm["source_arm_id"] = arm_ids[next(iter(matches))]
                 arm["source_arm_binding_status"] = "RESOLVED"
+                counters["arm_bindings"] += 1
             else:
                 arm["source_arm_id"] = None
                 arm["source_arm_binding_status"] = "UNRESOLVED"
                 warnings.append({"index": idx, "type": "ARM_BINDING", "message": f"non-unique source arm labels: {labels}"})
+                counters["ambiguous_unchanged"] += 1
         out["arm"] = arms
         # Comparator mappings are accepted only when explicitly present in source.
         comparisons = out.get("comparisons")
@@ -132,11 +139,14 @@ def normalize_outcome_sources(article_id: str, topology, records):
                     mapped.append(found[0])
                 if len(mapped) == len(labels):
                     comp["source_arm_ids"] = mapped
+                    counters["comparator_mappings"] += 1
                 else:
                     comp["source_arm_ids"] = None
                     warnings.append({"index": idx, "type": "COMPARISON_SCOPE", "message": "comparison labels not uniquely bindable"})
+                    counters["ambiguous_unchanged"] += 1
             elif labels:
                 warnings.append({"index": idx, "type": "COMPARISON_SCOPE", "message": "comparison labels incomplete"})
+                counters["ambiguous_unchanged"] += 1
         # P1/P2/P3 mapping is only copied when explicitly supplied by source.
         explicit_p = row.get("p_comparisons") or row.get("p_value_comparisons")
         if explicit_p is not None:
@@ -145,4 +155,5 @@ def normalize_outcome_sources(article_id: str, topology, records):
             out.setdefault("p_value_comparisons", None)
             warnings.append({"index": idx, "type": "COMPARISON_SCOPE", "message": "P cells have no explicit participant mapping"})
         normalized.append(out)
-    return normalized, {"article_id": article_id, "record_count": len(normalized), "warnings": warnings}
+    return normalized, {"article_id": article_id, "record_count": len(normalized), "warnings": warnings,
+                        "counters": counters}

@@ -57,3 +57,14 @@ def test_original_traceable_and_no_mutation():
     rows, _ = normalize_outcome_sources("2015-06", topology(), original)
     assert original == before
     assert rows[0]["_pr41_original"] == before[0]
+
+def test_normalization_counters_are_reported():
+    rows, report = normalize_outcome_sources("2015-06", topology(), [{
+        "outcome_name": "Pain mean at 1 month",
+        "arm": [{"arm_label": "Group 1"}],
+        "comparison": {"arm_labels": ["Group 1", "Group 2"], "contrast": "Group 1 vs Group 2"},
+    }])
+    assert report["counters"]["statistic/value_kind"] == 1
+    assert report["counters"]["timepoint"] == 1
+    assert report["counters"]["arm_bindings"] == 1
+    assert report["counters"]["comparator_mappings"] == 1

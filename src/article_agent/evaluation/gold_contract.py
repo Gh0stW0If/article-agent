@@ -41,7 +41,7 @@ class GoldStandardV2(BaseModel):
     @model_validator(mode="after")
     def validate_gold(self):
         if self.truth.article.article_id != self.article_id: raise ValueError("Gold/article_id mismatch")
-        ids={(t.entity_type,t.entity_id,t.field_id) for e in self.truth.evidence for t in e.targets}
+        evidence_by_id={e.evidence_id:e for e in self.truth.evidence}
         fields=[]
         for typ, items in (("Article",[self.truth.article]),("Study",self.truth.studies),("Intervention",self.truth.interventions),("Arm",self.truth.arms),("Outcome",self.truth.outcomes),("ArmResult",self.truth.arm_results),("Comparison",self.truth.comparisons),("ComparisonResult",self.truth.comparison_results)):
             for item in items:
@@ -54,7 +54,11 @@ class GoldStandardV2(BaseModel):
                             if not ma or not ma[0].coverage_complete: raise ValueError(f"NOT_REPORTED needs complete assessment: {typ}.{field}")
                         if value.status==FieldStatus.SOURCE_CONFLICT and len(value.conflict_candidates)<2: raise ValueError("invalid Gold conflict")
                         for eid in value.evidence_ids+[x for c in value.conflict_candidates for x in c.evidence_ids]:
-                            if (typ,entity_id,field) not in ids: raise ValueError(f"missing reciprocal evidence target for {eid}")
+                            evidence=evidence_by_id.get(eid)
+                            if evidence is None:
+                                raise ValueError(f"referenced evidence does not exist: {eid}")
+                            if not any(t.entity_type==typ and t.entity_id==entity_id and t.field_id==field for t in evidence.targets):
+                                raise ValueError(f"missing reciprocal evidence target for {eid}")
         known={t.entity_id for e in self.truth.evidence for t in e.targets}
         entities={getattr(x, idf) for items,idf in (([self.truth.article],"article_id"),(self.truth.studies,"study_id"),(self.truth.interventions,"intervention_id"),(self.truth.arms,"arm_id"),(self.truth.outcomes,"outcome_id"),(self.truth.arm_results,"arm_result_id"),(self.truth.comparisons,"comparison_id"),(self.truth.comparison_results,"comparison_result_id")) for x in items}
         for alias in self.entity_aliases:

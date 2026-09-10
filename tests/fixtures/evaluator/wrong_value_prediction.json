@@ -1,0 +1,1467 @@
+{
+  "schema_version": "ARTICLE_EXTRACTION/2.0",
+  "source_format": "canonical",
+  "source_record_id": null,
+  "parser_backend": null,
+  "article": {
+    "article_id": "synthetic",
+    "title": {
+      "status": "PRESENT",
+      "value": "Synthetic trial",
+      "raw_value": null,
+      "evidence_ids": [
+        "E:Article:synthetic:title:0"
+      ],
+      "conflict_candidates": []
+    },
+    "doi": {
+      "status": "PRESENT",
+      "value": "10.synthetic/test",
+      "raw_value": null,
+      "evidence_ids": [
+        "E:Article:synthetic:doi:0"
+      ],
+      "conflict_candidates": []
+    },
+    "publication_year": {
+      "status": "PRESENT",
+      "value": 2000,
+      "raw_value": null,
+      "evidence_ids": [
+        "E:Article:synthetic:publication_year:0"
+      ],
+      "conflict_candidates": []
+    },
+    "journal": {
+      "status": "NOT_APPLICABLE",
+      "value": null,
+      "raw_value": null,
+      "evidence_ids": [],
+      "conflict_candidates": []
+    },
+    "language": {
+      "status": "NOT_APPLICABLE",
+      "value": null,
+      "raw_value": null,
+      "evidence_ids": [],
+      "conflict_candidates": []
+    },
+    "authors": {
+      "status": "NOT_APPLICABLE",
+      "value": null,
+      "raw_value": null,
+      "evidence_ids": [],
+      "conflict_candidates": []
+    },
+    "correspondence": {
+      "status": "NOT_APPLICABLE",
+      "value": null,
+      "raw_value": null,
+      "evidence_ids": [],
+      "conflict_candidates": []
+    },
+    "legacy_fields": {}
+  },
+  "studies": [
+    {
+      "study_id": "synthetic-S1",
+      "article_id": "synthetic",
+      "design": {
+        "status": "NOT_APPLICABLE",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": [],
+        "conflict_candidates": []
+      },
+      "condition": {
+        "status": "NOT_APPLICABLE",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": [],
+        "conflict_candidates": []
+      },
+      "countries": {
+        "status": "NOT_APPLICABLE",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": [],
+        "conflict_candidates": []
+      },
+      "centre_count": {
+        "status": "NOT_APPLICABLE",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": [],
+        "conflict_candidates": []
+      },
+      "randomized_n": {
+        "status": "NOT_APPLICABLE",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": [],
+        "conflict_candidates": []
+      },
+      "random_sequence_method": {
+        "status": "NOT_APPLICABLE",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": [],
+        "conflict_candidates": []
+      },
+      "random_sequence_code": {
+        "status": "NOT_APPLICABLE",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": [],
+        "conflict_candidates": []
+      },
+      "allocation_concealment": {
+        "status": "NOT_APPLICABLE",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": [],
+        "conflict_candidates": []
+      },
+      "allocation_concealment_code": {
+        "status": "NOT_APPLICABLE",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": [],
+        "conflict_candidates": []
+      },
+      "participant_blinding": {
+        "status": "NOT_APPLICABLE",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": [],
+        "conflict_candidates": []
+      },
+      "practitioner_blinding": {
+        "status": "NOT_APPLICABLE",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": [],
+        "conflict_candidates": []
+      },
+      "outcome_assessor_blinding": {
+        "status": "NOT_APPLICABLE",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": [],
+        "conflict_candidates": []
+      },
+      "statistician_blinding": {
+        "status": "NOT_APPLICABLE",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": [],
+        "conflict_candidates": []
+      },
+      "primary_analysis_set": {
+        "status": "NOT_APPLICABLE",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": [],
+        "conflict_candidates": []
+      },
+      "missing_data_method": {
+        "status": "NOT_APPLICABLE",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": [],
+        "conflict_candidates": []
+      },
+      "arm_ids": [
+        "synthetic-S1-A01",
+        "synthetic-S1-A02",
+        "synthetic-S1-A03"
+      ],
+      "intervention_ids": [
+        "synthetic-S1-I01"
+      ],
+      "outcome_ids": [
+        "synthetic-S1-O01",
+        "synthetic-S1-O02"
+      ],
+      "legacy_fields": {}
+    }
+  ],
+  "interventions": [
+    {
+      "intervention_id": "synthetic-S1-I01",
+      "study_id": "synthetic-S1",
+      "name": {
+        "status": "PRESENT",
+        "value": "Shared synthetic care",
+        "raw_value": null,
+        "evidence_ids": [
+          "E:Intervention:synthetic-S1-I01:name:0"
+        ],
+        "conflict_candidates": []
+      },
+      "kind": {
+        "status": "NOT_APPLICABLE",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": [],
+        "conflict_candidates": []
+      },
+      "description": {
+        "status": "NOT_APPLICABLE",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": [],
+        "conflict_candidates": []
+      },
+      "components": {
+        "status": "NOT_APPLICABLE",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": [],
+        "conflict_candidates": []
+      },
+      "frequency_raw": {
+        "status": "NOT_APPLICABLE",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": [],
+        "conflict_candidates": []
+      },
+      "frequency_value": {
+        "status": "NOT_APPLICABLE",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": [],
+        "conflict_candidates": []
+      },
+      "frequency_unit": {
+        "status": "NOT_APPLICABLE",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": [],
+        "conflict_candidates": []
+      },
+      "duration_raw": {
+        "status": "NOT_APPLICABLE",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": [],
+        "conflict_candidates": []
+      },
+      "duration_value": {
+        "status": "NOT_APPLICABLE",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": [],
+        "conflict_candidates": []
+      },
+      "duration_unit": {
+        "status": "NOT_APPLICABLE",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": [],
+        "conflict_candidates": []
+      },
+      "total_sessions": {
+        "status": "NOT_APPLICABLE",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": [],
+        "conflict_candidates": []
+      },
+      "legacy_fields": {}
+    }
+  ],
+  "arms": [
+    {
+      "arm_id": "synthetic-S1-A01",
+      "study_id": "synthetic-S1",
+      "label": {
+        "status": "PRESENT",
+        "value": "Arm 0",
+        "raw_value": null,
+        "evidence_ids": [
+          "E:Arm:synthetic-S1-A01:label:0"
+        ],
+        "conflict_candidates": []
+      },
+      "role": {
+        "status": "NOT_APPLICABLE",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": [],
+        "conflict_candidates": []
+      },
+      "intervention_ids": [
+        "synthetic-S1-I01"
+      ],
+      "randomized_n": {
+        "status": "PRESENT",
+        "value": 99,
+        "raw_value": null,
+        "evidence_ids": [
+          "E:Arm:synthetic-S1-A01:randomized_n:0"
+        ],
+        "conflict_candidates": []
+      },
+      "received_n": {
+        "status": "NOT_APPLICABLE",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": [],
+        "conflict_candidates": []
+      },
+      "analyzed_n": {
+        "status": "NOT_APPLICABLE",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": [],
+        "conflict_candidates": []
+      },
+      "dropout_n": {
+        "status": "NOT_APPLICABLE",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": [],
+        "conflict_candidates": []
+      },
+      "legacy_fields": {}
+    },
+    {
+      "arm_id": "synthetic-S1-A02",
+      "study_id": "synthetic-S1",
+      "label": {
+        "status": "PRESENT",
+        "value": "Arm 1",
+        "raw_value": null,
+        "evidence_ids": [
+          "E:Arm:synthetic-S1-A02:label:0"
+        ],
+        "conflict_candidates": []
+      },
+      "role": {
+        "status": "NOT_APPLICABLE",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": [],
+        "conflict_candidates": []
+      },
+      "intervention_ids": [
+        "synthetic-S1-I01"
+      ],
+      "randomized_n": {
+        "status": "SOURCE_CONFLICT",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": [],
+        "conflict_candidates": [
+          {
+            "value": 38,
+            "raw_value": null,
+            "evidence_ids": [
+              "E:Arm:synthetic-S1-A02:randomized_n:0"
+            ]
+          },
+          {
+            "value": 34,
+            "raw_value": null,
+            "evidence_ids": [
+              "E:Arm:synthetic-S1-A02:randomized_n:1"
+            ]
+          }
+        ]
+      },
+      "received_n": {
+        "status": "NOT_APPLICABLE",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": [],
+        "conflict_candidates": []
+      },
+      "analyzed_n": {
+        "status": "NOT_APPLICABLE",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": [],
+        "conflict_candidates": []
+      },
+      "dropout_n": {
+        "status": "NOT_APPLICABLE",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": [],
+        "conflict_candidates": []
+      },
+      "legacy_fields": {}
+    },
+    {
+      "arm_id": "synthetic-S1-A03",
+      "study_id": "synthetic-S1",
+      "label": {
+        "status": "PRESENT",
+        "value": "Arm 2",
+        "raw_value": null,
+        "evidence_ids": [
+          "E:Arm:synthetic-S1-A03:label:0"
+        ],
+        "conflict_candidates": []
+      },
+      "role": {
+        "status": "NOT_APPLICABLE",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": [],
+        "conflict_candidates": []
+      },
+      "intervention_ids": [
+        "synthetic-S1-I01"
+      ],
+      "randomized_n": {
+        "status": "PRESENT",
+        "value": 35,
+        "raw_value": null,
+        "evidence_ids": [
+          "E:Arm:synthetic-S1-A03:randomized_n:0"
+        ],
+        "conflict_candidates": []
+      },
+      "received_n": {
+        "status": "NOT_APPLICABLE",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": [],
+        "conflict_candidates": []
+      },
+      "analyzed_n": {
+        "status": "NOT_APPLICABLE",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": [],
+        "conflict_candidates": []
+      },
+      "dropout_n": {
+        "status": "NOT_APPLICABLE",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": [],
+        "conflict_candidates": []
+      },
+      "legacy_fields": {}
+    }
+  ],
+  "outcomes": [
+    {
+      "outcome_id": "synthetic-S1-O01",
+      "study_id": "synthetic-S1",
+      "name": {
+        "status": "PRESENT",
+        "value": "Pain",
+        "raw_value": null,
+        "evidence_ids": [
+          "E:Outcome:synthetic-S1-O01:name:0"
+        ],
+        "conflict_candidates": []
+      },
+      "instrument": {
+        "status": "PRESENT",
+        "value": "VAS",
+        "raw_value": null,
+        "evidence_ids": [
+          "E:Outcome:synthetic-S1-O01:instrument:0"
+        ],
+        "conflict_candidates": []
+      },
+      "role": {
+        "status": "NOT_APPLICABLE",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": [],
+        "conflict_candidates": []
+      },
+      "direction": {
+        "status": "NOT_APPLICABLE",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": [],
+        "conflict_candidates": []
+      },
+      "unit": {
+        "status": "NOT_APPLICABLE",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": [],
+        "conflict_candidates": []
+      },
+      "scale_min": {
+        "status": "NOT_APPLICABLE",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": [],
+        "conflict_candidates": []
+      },
+      "scale_max": {
+        "status": "NOT_APPLICABLE",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": [],
+        "conflict_candidates": []
+      },
+      "legacy_fields": {}
+    },
+    {
+      "outcome_id": "synthetic-S1-O02",
+      "study_id": "synthetic-S1",
+      "name": {
+        "status": "PRESENT",
+        "value": "Disability",
+        "raw_value": null,
+        "evidence_ids": [
+          "E:Outcome:synthetic-S1-O02:name:0"
+        ],
+        "conflict_candidates": []
+      },
+      "instrument": {
+        "status": "PRESENT",
+        "value": "ODI",
+        "raw_value": null,
+        "evidence_ids": [
+          "E:Outcome:synthetic-S1-O02:instrument:0"
+        ],
+        "conflict_candidates": []
+      },
+      "role": {
+        "status": "NOT_APPLICABLE",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": [],
+        "conflict_candidates": []
+      },
+      "direction": {
+        "status": "NOT_APPLICABLE",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": [],
+        "conflict_candidates": []
+      },
+      "unit": {
+        "status": "NOT_APPLICABLE",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": [],
+        "conflict_candidates": []
+      },
+      "scale_min": {
+        "status": "NOT_APPLICABLE",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": [],
+        "conflict_candidates": []
+      },
+      "scale_max": {
+        "status": "NOT_APPLICABLE",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": [],
+        "conflict_candidates": []
+      },
+      "legacy_fields": {}
+    }
+  ],
+  "arm_results": [
+    {
+      "arm_result_id": "synthetic-S1-AR01",
+      "outcome_id": "synthetic-S1-O01",
+      "arm_id": "synthetic-S1-A01",
+      "timepoint": {
+        "status": "PRESENT",
+        "value": "4 weeks",
+        "raw_value": null,
+        "evidence_ids": [
+          "E:ArmResult:synthetic-S1-AR01:timepoint:0"
+        ],
+        "conflict_candidates": []
+      },
+      "timepoint_value": {
+        "status": "NOT_APPLICABLE",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": [],
+        "conflict_candidates": []
+      },
+      "timepoint_unit": {
+        "status": "NOT_APPLICABLE",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": [],
+        "conflict_candidates": []
+      },
+      "analysis_set": {
+        "status": "PRESENT",
+        "value": "ITT",
+        "raw_value": null,
+        "evidence_ids": [
+          "E:ArmResult:synthetic-S1-AR01:analysis_set:0"
+        ],
+        "conflict_candidates": []
+      },
+      "value_kind": {
+        "status": "PRESENT",
+        "value": "mean",
+        "raw_value": null,
+        "evidence_ids": [
+          "E:ArmResult:synthetic-S1-AR01:value_kind:0"
+        ],
+        "conflict_candidates": []
+      },
+      "value": {
+        "status": "PRESENT",
+        "value": 5.0,
+        "raw_value": null,
+        "evidence_ids": [
+          "E:ArmResult:synthetic-S1-AR01:value:0"
+        ],
+        "conflict_candidates": []
+      },
+      "standard_deviation": {
+        "status": "NOT_APPLICABLE",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": [],
+        "conflict_candidates": []
+      },
+      "change_from_baseline": {
+        "status": "NOT_APPLICABLE",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": [],
+        "conflict_candidates": []
+      },
+      "dispersion_lower": {
+        "status": "NOT_APPLICABLE",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": [],
+        "conflict_candidates": []
+      },
+      "dispersion_upper": {
+        "status": "NOT_APPLICABLE",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": [],
+        "conflict_candidates": []
+      },
+      "n": {
+        "status": "NOT_APPLICABLE",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": [],
+        "conflict_candidates": []
+      },
+      "event_count": {
+        "status": "NOT_APPLICABLE",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": [],
+        "conflict_candidates": []
+      },
+      "denominator": {
+        "status": "NOT_APPLICABLE",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": [],
+        "conflict_candidates": []
+      },
+      "raw_value": {
+        "status": "NOT_APPLICABLE",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": [],
+        "conflict_candidates": []
+      },
+      "source_table_id": null,
+      "source_row_id": null,
+      "derived": false,
+      "derivation": null,
+      "legacy_fields": {}
+    }
+  ],
+  "comparisons": [
+    {
+      "comparison_id": "synthetic-S1-C01",
+      "study_id": "synthetic-S1",
+      "relation": {
+        "status": "PRESENT",
+        "value": "between-group",
+        "raw_value": null,
+        "evidence_ids": [
+          "E:Comparison:synthetic-S1-C01:relation:0"
+        ],
+        "conflict_candidates": []
+      },
+      "arm_ids": [
+        "synthetic-S1-A01",
+        "synthetic-S1-A02"
+      ],
+      "intervention_arm_id": null,
+      "comparator_arm_ids": [],
+      "contrast": {
+        "status": "PRESENT",
+        "value": "difference",
+        "raw_value": null,
+        "evidence_ids": [
+          "E:Comparison:synthetic-S1-C01:contrast:0"
+        ],
+        "conflict_candidates": []
+      },
+      "legacy_fields": {}
+    }
+  ],
+  "comparison_results": [
+    {
+      "comparison_result_id": "synthetic-S1-CR01",
+      "comparison_id": "synthetic-S1-C01",
+      "outcome_id": "synthetic-S1-O01",
+      "timepoint": {
+        "status": "PRESENT",
+        "value": "4 weeks",
+        "raw_value": null,
+        "evidence_ids": [
+          "E:ComparisonResult:synthetic-S1-CR01:timepoint:0"
+        ],
+        "conflict_candidates": []
+      },
+      "timepoint_value": {
+        "status": "NOT_APPLICABLE",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": [],
+        "conflict_candidates": []
+      },
+      "timepoint_unit": {
+        "status": "NOT_APPLICABLE",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": [],
+        "conflict_candidates": []
+      },
+      "analysis_set": {
+        "status": "PRESENT",
+        "value": "ITT",
+        "raw_value": null,
+        "evidence_ids": [
+          "E:ComparisonResult:synthetic-S1-CR01:analysis_set:0"
+        ],
+        "conflict_candidates": []
+      },
+      "effect_measure": {
+        "status": "PRESENT",
+        "value": "MD",
+        "raw_value": null,
+        "evidence_ids": [
+          "E:ComparisonResult:synthetic-S1-CR01:effect_measure:0"
+        ],
+        "conflict_candidates": []
+      },
+      "estimate": {
+        "status": "PRESENT",
+        "value": -2.0,
+        "raw_value": null,
+        "evidence_ids": [
+          "E:ComparisonResult:synthetic-S1-CR01:estimate:0"
+        ],
+        "conflict_candidates": []
+      },
+      "confidence_interval_lower": {
+        "status": "PRESENT",
+        "value": -3.0,
+        "raw_value": null,
+        "evidence_ids": [
+          "E:ComparisonResult:synthetic-S1-CR01:confidence_interval_lower:0"
+        ],
+        "conflict_candidates": []
+      },
+      "confidence_interval_upper": {
+        "status": "PRESENT",
+        "value": -1.0,
+        "raw_value": null,
+        "evidence_ids": [
+          "E:ComparisonResult:synthetic-S1-CR01:confidence_interval_upper:0"
+        ],
+        "conflict_candidates": []
+      },
+      "p_value": {
+        "status": "PRESENT",
+        "value": 0.02,
+        "raw_value": null,
+        "evidence_ids": [
+          "E:ComparisonResult:synthetic-S1-CR01:p_value:0"
+        ],
+        "conflict_candidates": []
+      },
+      "p_value_comparator": {
+        "status": "NOT_APPLICABLE",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": [],
+        "conflict_candidates": []
+      },
+      "raw_value": {
+        "status": "NOT_APPLICABLE",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": [],
+        "conflict_candidates": []
+      },
+      "derived": false,
+      "derivation": null,
+      "legacy_fields": {}
+    }
+  ],
+  "evidence": [
+    {
+      "evidence_id": "E:Article:synthetic:title:0",
+      "targets": [
+        {
+          "entity_type": "Article",
+          "entity_id": "synthetic",
+          "field_id": "title"
+        }
+      ],
+      "field_paths": [],
+      "quote": "Synthetic trial",
+      "source_type": "other",
+      "source_id": "synthetic",
+      "page": null,
+      "section": null,
+      "table_id": null,
+      "row_id": null,
+      "figure_id": null,
+      "cell_refs": [],
+      "support_type": "direct",
+      "derivation": null,
+      "legacy_fields": {}
+    },
+    {
+      "evidence_id": "E:Article:synthetic:doi:0",
+      "targets": [
+        {
+          "entity_type": "Article",
+          "entity_id": "synthetic",
+          "field_id": "doi"
+        }
+      ],
+      "field_paths": [],
+      "quote": "10.synthetic/test",
+      "source_type": "other",
+      "source_id": "synthetic",
+      "page": null,
+      "section": null,
+      "table_id": null,
+      "row_id": null,
+      "figure_id": null,
+      "cell_refs": [],
+      "support_type": "direct",
+      "derivation": null,
+      "legacy_fields": {}
+    },
+    {
+      "evidence_id": "E:Article:synthetic:publication_year:0",
+      "targets": [
+        {
+          "entity_type": "Article",
+          "entity_id": "synthetic",
+          "field_id": "publication_year"
+        }
+      ],
+      "field_paths": [],
+      "quote": "2000",
+      "source_type": "other",
+      "source_id": "synthetic",
+      "page": null,
+      "section": null,
+      "table_id": null,
+      "row_id": null,
+      "figure_id": null,
+      "cell_refs": [],
+      "support_type": "direct",
+      "derivation": null,
+      "legacy_fields": {}
+    },
+    {
+      "evidence_id": "E:Arm:synthetic-S1-A01:label:0",
+      "targets": [
+        {
+          "entity_type": "Arm",
+          "entity_id": "synthetic-S1-A01",
+          "field_id": "label"
+        }
+      ],
+      "field_paths": [],
+      "quote": "Arm 0",
+      "source_type": "other",
+      "source_id": "synthetic",
+      "page": null,
+      "section": null,
+      "table_id": null,
+      "row_id": null,
+      "figure_id": null,
+      "cell_refs": [],
+      "support_type": "direct",
+      "derivation": null,
+      "legacy_fields": {}
+    },
+    {
+      "evidence_id": "E:Arm:synthetic-S1-A01:randomized_n:0",
+      "targets": [
+        {
+          "entity_type": "Arm",
+          "entity_id": "synthetic-S1-A01",
+          "field_id": "randomized_n"
+        }
+      ],
+      "field_paths": [],
+      "quote": "99",
+      "source_type": "other",
+      "source_id": "synthetic",
+      "page": null,
+      "section": null,
+      "table_id": null,
+      "row_id": null,
+      "figure_id": null,
+      "cell_refs": [],
+      "support_type": "direct",
+      "derivation": null,
+      "legacy_fields": {}
+    },
+    {
+      "evidence_id": "E:Arm:synthetic-S1-A02:label:0",
+      "targets": [
+        {
+          "entity_type": "Arm",
+          "entity_id": "synthetic-S1-A02",
+          "field_id": "label"
+        }
+      ],
+      "field_paths": [],
+      "quote": "Arm 1",
+      "source_type": "other",
+      "source_id": "synthetic",
+      "page": null,
+      "section": null,
+      "table_id": null,
+      "row_id": null,
+      "figure_id": null,
+      "cell_refs": [],
+      "support_type": "direct",
+      "derivation": null,
+      "legacy_fields": {}
+    },
+    {
+      "evidence_id": "E:Arm:synthetic-S1-A02:randomized_n:0",
+      "targets": [
+        {
+          "entity_type": "Arm",
+          "entity_id": "synthetic-S1-A02",
+          "field_id": "randomized_n"
+        }
+      ],
+      "field_paths": [],
+      "quote": "38",
+      "source_type": "other",
+      "source_id": "synthetic",
+      "page": null,
+      "section": null,
+      "table_id": null,
+      "row_id": null,
+      "figure_id": null,
+      "cell_refs": [],
+      "support_type": "direct",
+      "derivation": null,
+      "legacy_fields": {}
+    },
+    {
+      "evidence_id": "E:Arm:synthetic-S1-A02:randomized_n:1",
+      "targets": [
+        {
+          "entity_type": "Arm",
+          "entity_id": "synthetic-S1-A02",
+          "field_id": "randomized_n"
+        }
+      ],
+      "field_paths": [],
+      "quote": "34",
+      "source_type": "other",
+      "source_id": "synthetic",
+      "page": null,
+      "section": null,
+      "table_id": null,
+      "row_id": null,
+      "figure_id": null,
+      "cell_refs": [],
+      "support_type": "direct",
+      "derivation": null,
+      "legacy_fields": {}
+    },
+    {
+      "evidence_id": "E:Arm:synthetic-S1-A03:label:0",
+      "targets": [
+        {
+          "entity_type": "Arm",
+          "entity_id": "synthetic-S1-A03",
+          "field_id": "label"
+        }
+      ],
+      "field_paths": [],
+      "quote": "Arm 2",
+      "source_type": "other",
+      "source_id": "synthetic",
+      "page": null,
+      "section": null,
+      "table_id": null,
+      "row_id": null,
+      "figure_id": null,
+      "cell_refs": [],
+      "support_type": "direct",
+      "derivation": null,
+      "legacy_fields": {}
+    },
+    {
+      "evidence_id": "E:Arm:synthetic-S1-A03:randomized_n:0",
+      "targets": [
+        {
+          "entity_type": "Arm",
+          "entity_id": "synthetic-S1-A03",
+          "field_id": "randomized_n"
+        }
+      ],
+      "field_paths": [],
+      "quote": "35",
+      "source_type": "other",
+      "source_id": "synthetic",
+      "page": null,
+      "section": null,
+      "table_id": null,
+      "row_id": null,
+      "figure_id": null,
+      "cell_refs": [],
+      "support_type": "direct",
+      "derivation": null,
+      "legacy_fields": {}
+    },
+    {
+      "evidence_id": "E:Intervention:synthetic-S1-I01:name:0",
+      "targets": [
+        {
+          "entity_type": "Intervention",
+          "entity_id": "synthetic-S1-I01",
+          "field_id": "name"
+        }
+      ],
+      "field_paths": [],
+      "quote": "Shared synthetic care",
+      "source_type": "other",
+      "source_id": "synthetic",
+      "page": null,
+      "section": null,
+      "table_id": null,
+      "row_id": null,
+      "figure_id": null,
+      "cell_refs": [],
+      "support_type": "direct",
+      "derivation": null,
+      "legacy_fields": {}
+    },
+    {
+      "evidence_id": "E:Outcome:synthetic-S1-O01:name:0",
+      "targets": [
+        {
+          "entity_type": "Outcome",
+          "entity_id": "synthetic-S1-O01",
+          "field_id": "name"
+        }
+      ],
+      "field_paths": [],
+      "quote": "Pain",
+      "source_type": "other",
+      "source_id": "synthetic",
+      "page": null,
+      "section": null,
+      "table_id": null,
+      "row_id": null,
+      "figure_id": null,
+      "cell_refs": [],
+      "support_type": "direct",
+      "derivation": null,
+      "legacy_fields": {}
+    },
+    {
+      "evidence_id": "E:Outcome:synthetic-S1-O01:instrument:0",
+      "targets": [
+        {
+          "entity_type": "Outcome",
+          "entity_id": "synthetic-S1-O01",
+          "field_id": "instrument"
+        }
+      ],
+      "field_paths": [],
+      "quote": "VAS",
+      "source_type": "other",
+      "source_id": "synthetic",
+      "page": null,
+      "section": null,
+      "table_id": null,
+      "row_id": null,
+      "figure_id": null,
+      "cell_refs": [],
+      "support_type": "direct",
+      "derivation": null,
+      "legacy_fields": {}
+    },
+    {
+      "evidence_id": "E:Outcome:synthetic-S1-O02:name:0",
+      "targets": [
+        {
+          "entity_type": "Outcome",
+          "entity_id": "synthetic-S1-O02",
+          "field_id": "name"
+        }
+      ],
+      "field_paths": [],
+      "quote": "Disability",
+      "source_type": "other",
+      "source_id": "synthetic",
+      "page": null,
+      "section": null,
+      "table_id": null,
+      "row_id": null,
+      "figure_id": null,
+      "cell_refs": [],
+      "support_type": "direct",
+      "derivation": null,
+      "legacy_fields": {}
+    },
+    {
+      "evidence_id": "E:Outcome:synthetic-S1-O02:instrument:0",
+      "targets": [
+        {
+          "entity_type": "Outcome",
+          "entity_id": "synthetic-S1-O02",
+          "field_id": "instrument"
+        }
+      ],
+      "field_paths": [],
+      "quote": "ODI",
+      "source_type": "other",
+      "source_id": "synthetic",
+      "page": null,
+      "section": null,
+      "table_id": null,
+      "row_id": null,
+      "figure_id": null,
+      "cell_refs": [],
+      "support_type": "direct",
+      "derivation": null,
+      "legacy_fields": {}
+    },
+    {
+      "evidence_id": "E:Comparison:synthetic-S1-C01:relation:0",
+      "targets": [
+        {
+          "entity_type": "Comparison",
+          "entity_id": "synthetic-S1-C01",
+          "field_id": "relation"
+        }
+      ],
+      "field_paths": [],
+      "quote": "between-group",
+      "source_type": "other",
+      "source_id": "synthetic",
+      "page": null,
+      "section": null,
+      "table_id": null,
+      "row_id": null,
+      "figure_id": null,
+      "cell_refs": [],
+      "support_type": "direct",
+      "derivation": null,
+      "legacy_fields": {}
+    },
+    {
+      "evidence_id": "E:Comparison:synthetic-S1-C01:contrast:0",
+      "targets": [
+        {
+          "entity_type": "Comparison",
+          "entity_id": "synthetic-S1-C01",
+          "field_id": "contrast"
+        }
+      ],
+      "field_paths": [],
+      "quote": "difference",
+      "source_type": "other",
+      "source_id": "synthetic",
+      "page": null,
+      "section": null,
+      "table_id": null,
+      "row_id": null,
+      "figure_id": null,
+      "cell_refs": [],
+      "support_type": "direct",
+      "derivation": null,
+      "legacy_fields": {}
+    },
+    {
+      "evidence_id": "E:ArmResult:synthetic-S1-AR01:timepoint:0",
+      "targets": [
+        {
+          "entity_type": "ArmResult",
+          "entity_id": "synthetic-S1-AR01",
+          "field_id": "timepoint"
+        }
+      ],
+      "field_paths": [],
+      "quote": "4 weeks",
+      "source_type": "other",
+      "source_id": "synthetic",
+      "page": null,
+      "section": null,
+      "table_id": null,
+      "row_id": null,
+      "figure_id": null,
+      "cell_refs": [],
+      "support_type": "direct",
+      "derivation": null,
+      "legacy_fields": {}
+    },
+    {
+      "evidence_id": "E:ArmResult:synthetic-S1-AR01:analysis_set:0",
+      "targets": [
+        {
+          "entity_type": "ArmResult",
+          "entity_id": "synthetic-S1-AR01",
+          "field_id": "analysis_set"
+        }
+      ],
+      "field_paths": [],
+      "quote": "ITT",
+      "source_type": "other",
+      "source_id": "synthetic",
+      "page": null,
+      "section": null,
+      "table_id": null,
+      "row_id": null,
+      "figure_id": null,
+      "cell_refs": [],
+      "support_type": "direct",
+      "derivation": null,
+      "legacy_fields": {}
+    },
+    {
+      "evidence_id": "E:ArmResult:synthetic-S1-AR01:value_kind:0",
+      "targets": [
+        {
+          "entity_type": "ArmResult",
+          "entity_id": "synthetic-S1-AR01",
+          "field_id": "value_kind"
+        }
+      ],
+      "field_paths": [],
+      "quote": "mean",
+      "source_type": "other",
+      "source_id": "synthetic",
+      "page": null,
+      "section": null,
+      "table_id": null,
+      "row_id": null,
+      "figure_id": null,
+      "cell_refs": [],
+      "support_type": "direct",
+      "derivation": null,
+      "legacy_fields": {}
+    },
+    {
+      "evidence_id": "E:ArmResult:synthetic-S1-AR01:value:0",
+      "targets": [
+        {
+          "entity_type": "ArmResult",
+          "entity_id": "synthetic-S1-AR01",
+          "field_id": "value"
+        }
+      ],
+      "field_paths": [],
+      "quote": "5.0",
+      "source_type": "other",
+      "source_id": "synthetic",
+      "page": null,
+      "section": null,
+      "table_id": null,
+      "row_id": null,
+      "figure_id": null,
+      "cell_refs": [],
+      "support_type": "direct",
+      "derivation": null,
+      "legacy_fields": {}
+    },
+    {
+      "evidence_id": "E:ComparisonResult:synthetic-S1-CR01:timepoint:0",
+      "targets": [
+        {
+          "entity_type": "ComparisonResult",
+          "entity_id": "synthetic-S1-CR01",
+          "field_id": "timepoint"
+        }
+      ],
+      "field_paths": [],
+      "quote": "4 weeks",
+      "source_type": "other",
+      "source_id": "synthetic",
+      "page": null,
+      "section": null,
+      "table_id": null,
+      "row_id": null,
+      "figure_id": null,
+      "cell_refs": [],
+      "support_type": "direct",
+      "derivation": null,
+      "legacy_fields": {}
+    },
+    {
+      "evidence_id": "E:ComparisonResult:synthetic-S1-CR01:analysis_set:0",
+      "targets": [
+        {
+          "entity_type": "ComparisonResult",
+          "entity_id": "synthetic-S1-CR01",
+          "field_id": "analysis_set"
+        }
+      ],
+      "field_paths": [],
+      "quote": "ITT",
+      "source_type": "other",
+      "source_id": "synthetic",
+      "page": null,
+      "section": null,
+      "table_id": null,
+      "row_id": null,
+      "figure_id": null,
+      "cell_refs": [],
+      "support_type": "direct",
+      "derivation": null,
+      "legacy_fields": {}
+    },
+    {
+      "evidence_id": "E:ComparisonResult:synthetic-S1-CR01:effect_measure:0",
+      "targets": [
+        {
+          "entity_type": "ComparisonResult",
+          "entity_id": "synthetic-S1-CR01",
+          "field_id": "effect_measure"
+        }
+      ],
+      "field_paths": [],
+      "quote": "MD",
+      "source_type": "other",
+      "source_id": "synthetic",
+      "page": null,
+      "section": null,
+      "table_id": null,
+      "row_id": null,
+      "figure_id": null,
+      "cell_refs": [],
+      "support_type": "direct",
+      "derivation": null,
+      "legacy_fields": {}
+    },
+    {
+      "evidence_id": "E:ComparisonResult:synthetic-S1-CR01:estimate:0",
+      "targets": [
+        {
+          "entity_type": "ComparisonResult",
+          "entity_id": "synthetic-S1-CR01",
+          "field_id": "estimate"
+        }
+      ],
+      "field_paths": [],
+      "quote": "-2.0",
+      "source_type": "other",
+      "source_id": "synthetic",
+      "page": null,
+      "section": null,
+      "table_id": null,
+      "row_id": null,
+      "figure_id": null,
+      "cell_refs": [],
+      "support_type": "direct",
+      "derivation": null,
+      "legacy_fields": {}
+    },
+    {
+      "evidence_id": "E:ComparisonResult:synthetic-S1-CR01:confidence_interval_lower:0",
+      "targets": [
+        {
+          "entity_type": "ComparisonResult",
+          "entity_id": "synthetic-S1-CR01",
+          "field_id": "confidence_interval_lower"
+        }
+      ],
+      "field_paths": [],
+      "quote": "-3.0",
+      "source_type": "other",
+      "source_id": "synthetic",
+      "page": null,
+      "section": null,
+      "table_id": null,
+      "row_id": null,
+      "figure_id": null,
+      "cell_refs": [],
+      "support_type": "direct",
+      "derivation": null,
+      "legacy_fields": {}
+    },
+    {
+      "evidence_id": "E:ComparisonResult:synthetic-S1-CR01:confidence_interval_upper:0",
+      "targets": [
+        {
+          "entity_type": "ComparisonResult",
+          "entity_id": "synthetic-S1-CR01",
+          "field_id": "confidence_interval_upper"
+        }
+      ],
+      "field_paths": [],
+      "quote": "-1.0",
+      "source_type": "other",
+      "source_id": "synthetic",
+      "page": null,
+      "section": null,
+      "table_id": null,
+      "row_id": null,
+      "figure_id": null,
+      "cell_refs": [],
+      "support_type": "direct",
+      "derivation": null,
+      "legacy_fields": {}
+    },
+    {
+      "evidence_id": "E:ComparisonResult:synthetic-S1-CR01:p_value:0",
+      "targets": [
+        {
+          "entity_type": "ComparisonResult",
+          "entity_id": "synthetic-S1-CR01",
+          "field_id": "p_value"
+        }
+      ],
+      "field_paths": [],
+      "quote": "0.02",
+      "source_type": "other",
+      "source_id": "synthetic",
+      "page": null,
+      "section": null,
+      "table_id": null,
+      "row_id": null,
+      "figure_id": null,
+      "cell_refs": [],
+      "support_type": "direct",
+      "derivation": null,
+      "legacy_fields": {}
+    }
+  ],
+  "adapter_warnings": []
+}

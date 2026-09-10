@@ -5,6 +5,13 @@ from pathlib import Path
 
 from .gold_contract import GoldStandardV2, MissingnessAssessment, EntityMatchAlias
 from .registry import EvaluatorRegistryV3
+from .models import EvaluationReportV2
+
+
+def evaluate_article(prediction, gold, registry):
+    """Lazy public entry point; keep legacy APIs and module CLI independent."""
+    from .engine import evaluate_article as evaluate
+    return evaluate(prediction, gold, registry)
 
 # ``evaluation.py`` predates this package and is still imported by the pipeline.
 # Load it under a private name so introducing the contract package is additive.
@@ -25,4 +32,5 @@ __all__ = [
     "GoldStandardV2", "MissingnessAssessment", "EntityMatchAlias",
     "EvaluatorRegistryV3", "EVALUATION_HEADERS", "build_evaluation_rows",
     "compute_evaluation_summary", "write_evaluation_summary",
+    "evaluate_article", "EvaluationReportV2",
 ]

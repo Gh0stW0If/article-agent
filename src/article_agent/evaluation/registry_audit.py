@@ -49,7 +49,14 @@ def audit(path="schemas/evaluator-field-registry-v3.json"):
         elif f.enabled: invalid.append(f.field_id)
     counts={k:sum(f.support_status==k for f in registry.fields) for k in ("SUPPORTED","PARTIAL","UNSUPPORTED")}
     tiers={k:sum(f.evaluation_tier==k for f in registry.fields) for k in ("HARD","SOFT","AUDIT")}
-    return {"registry_version":registry.registry_version,"total_fields":len(registry.fields),"total_canonical_fields":len(canonical),"registered_fields":len(registered),"explicitly_disabled_fields":sorted(disabled),"unregistered_fields":unregistered,"invalid_field_paths":invalid,"value_type_mismatches":mismatches,"comparator_type_mismatches":comp,"duplicate_field_ids":len(entries)!=len(registry.fields),"support_counts":counts,"tier_counts":tiers,"hard_but_not_supported":[f.field_id for f in registry.fields if f.evaluation_tier=="HARD" and f.support_status!="SUPPORTED"],"hard_without_comparator":[f.field_id for f in registry.fields if f.evaluation_tier=="HARD" and not f.comparator],"missing_entity_identity_rule":[e for e in ENTITIES if e not in registry.entities],"ok":not(unregistered or invalid or mismatches or comp)}
+    result = {"registry_version":registry.registry_version,"total_fields":len(registry.fields),"total_canonical_fields":len(canonical),"registered_fields":len(registered),"explicitly_disabled_fields":sorted(disabled),"unregistered_fields":unregistered,"invalid_field_paths":invalid,"value_type_mismatches":mismatches,"comparator_type_mismatches":comp,"duplicate_field_ids":len(entries)!=len(registry.fields),"support_counts":counts,"tier_counts":tiers,"hard_but_not_supported":[f.field_id for f in registry.fields if f.evaluation_tier=="HARD" and f.support_status!="SUPPORTED"],"hard_without_comparator":[f.field_id for f in registry.fields if f.evaluation_tier=="HARD" and not f.comparator],"missing_entity_identity_rule":[e for e in ENTITIES if e not in registry.entities]}
+    result["ok"] = not any(result[key] for key in (
+        "unregistered_fields", "invalid_field_paths", "value_type_mismatches",
+        "comparator_type_mismatches", "duplicate_field_ids",
+        "hard_but_not_supported", "hard_without_comparator",
+        "missing_entity_identity_rule",
+    ))
+    return result
 def main():
     result=audit(); out=Path("outputs/pr5a_contract_acceptance"); out.mkdir(parents=True,exist_ok=True); (out/"REGISTRY_COVERAGE.json").write_text(json.dumps(result,indent=2),encoding="utf-8"); print(json.dumps(result,indent=2)); return 0 if result["ok"] else 1
 if __name__=="__main__": raise SystemExit(main())

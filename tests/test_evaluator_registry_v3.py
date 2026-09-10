@@ -89,3 +89,44 @@ def test_audit_cli_exits_nonzero_on_mismatch(tmp_path, monkeypatch):
     monkeypatch.chdir(tmp_path)
     monkeypatch.setattr(registry_audit,"audit",lambda:{"ok":False})
     assert registry_audit.main() == 1
+
+
+def test_missing_entity_identity_rule_fails_audit_and_cli(tmp_path):
+    import subprocess
+    import sys
+
+    data = load_registry().model_dump()
+    del data["entities"]["Outcome"]
+    schema_dir = tmp_path / "schemas"
+    schema_dir.mkdir()
+    path = schema_dir / "evaluator-field-registry-v3.json"
+    path.write_text(json.dumps(data), encoding="utf-8")
+    result = audit(path)
+    assert result["missing_entity_identity_rule"] == ["Outcome"]
+    assert result["ok"] is False
+    completed = subprocess.run(
+        [sys.executable, "-m", "article_agent.evaluation.registry_audit"],
+        cwd=tmp_path, capture_output=True, text=True,
+    )
+    assert completed.returncode == 1, completed.stderr
+    assert json.loads(completed.stdout) == result
+
+
+@pytest.mark.parametrize("defect", ["duplicate_field_ids", "hard_but_not_supported", "hard_without_comparator"])
+def test_ok_includes_diagnostics_normally_rejected_by_loader(monkeypatch, defect):
+    from article_agent.evaluation import registry_audit
+
+    registry = load_registry().model_copy(deep=True)
+    # Isolate aggregation: production loading rejects these malformed models.
+    if defect == "duplicate_field_ids":
+        registry.fields.append(registry.fields[0].model_copy())
+    else:
+        field = next(f for f in registry.fields if f.evaluation_tier == "HARD")
+        if defect == "hard_but_not_supported":
+            field.support_status = "PARTIAL"
+        else:
+            field.comparator = None
+    monkeypatch.setattr(registry_audit, "load_registry", lambda path: registry)
+    result = registry_audit.audit()
+    assert result[defect]
+    assert result["ok"] is False

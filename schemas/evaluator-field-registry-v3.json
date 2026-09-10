@@ -183,7 +183,7 @@
       "evaluation_tier": "SOFT",
       "required": false,
       "comparator": {
-        "type": "NORMALIZED_NUMERIC"
+        "type": "NORMALIZED_STRING"
       },
       "normalization": [],
       "gold_allowed_statuses": [
@@ -217,7 +217,7 @@
       "evaluation_tier": "SOFT",
       "required": false,
       "comparator": {
-        "type": "NORMALIZED_NUMERIC"
+        "type": "NORMALIZED_STRING"
       },
       "normalization": [],
       "gold_allowed_statuses": [
@@ -251,7 +251,7 @@
       "evaluation_tier": "SOFT",
       "required": false,
       "comparator": {
-        "type": "NORMALIZED_STRING"
+        "type": "ORDERED_LIST"
       },
       "normalization": [],
       "gold_allowed_statuses": [
@@ -285,7 +285,7 @@
       "evaluation_tier": "SOFT",
       "required": false,
       "comparator": {
-        "type": "NORMALIZED_NUMERIC"
+        "type": "UNORDERED_LIST"
       },
       "normalization": [],
       "gold_allowed_statuses": [
@@ -319,7 +319,7 @@
       "evaluation_tier": "SOFT",
       "required": false,
       "comparator": {
-        "type": "NORMALIZED_NUMERIC"
+        "type": "NORMALIZED_STRING"
       },
       "normalization": [],
       "gold_allowed_statuses": [
@@ -353,7 +353,7 @@
       "evaluation_tier": "SOFT",
       "required": false,
       "comparator": {
-        "type": "NORMALIZED_NUMERIC"
+        "type": "NORMALIZED_STRING"
       },
       "normalization": [],
       "gold_allowed_statuses": [
@@ -387,7 +387,7 @@
       "evaluation_tier": "SOFT",
       "required": false,
       "comparator": {
-        "type": "NORMALIZED_NUMERIC"
+        "type": "SET_EQUALITY"
       },
       "normalization": [],
       "gold_allowed_statuses": [
@@ -489,7 +489,7 @@
       "evaluation_tier": "SOFT",
       "required": false,
       "comparator": {
-        "type": "NORMALIZED_NUMERIC"
+        "type": "NORMALIZED_STRING"
       },
       "normalization": [],
       "gold_allowed_statuses": [
@@ -523,7 +523,7 @@
       "evaluation_tier": "SOFT",
       "required": false,
       "comparator": {
-        "type": "NORMALIZED_NUMERIC"
+        "type": "EXACT_VALUE"
       },
       "normalization": [],
       "gold_allowed_statuses": [
@@ -557,7 +557,7 @@
       "evaluation_tier": "SOFT",
       "required": false,
       "comparator": {
-        "type": "NORMALIZED_NUMERIC"
+        "type": "NORMALIZED_STRING"
       },
       "normalization": [],
       "gold_allowed_statuses": [
@@ -591,7 +591,7 @@
       "evaluation_tier": "SOFT",
       "required": false,
       "comparator": {
-        "type": "NORMALIZED_NUMERIC"
+        "type": "EXACT_VALUE"
       },
       "normalization": [],
       "gold_allowed_statuses": [
@@ -625,7 +625,7 @@
       "evaluation_tier": "SOFT",
       "required": false,
       "comparator": {
-        "type": "NORMALIZED_NUMERIC"
+        "type": "NORMALIZED_STRING"
       },
       "normalization": [],
       "gold_allowed_statuses": [
@@ -659,7 +659,7 @@
       "evaluation_tier": "SOFT",
       "required": false,
       "comparator": {
-        "type": "NORMALIZED_NUMERIC"
+        "type": "NORMALIZED_STRING"
       },
       "normalization": [],
       "gold_allowed_statuses": [
@@ -693,7 +693,7 @@
       "evaluation_tier": "SOFT",
       "required": false,
       "comparator": {
-        "type": "NORMALIZED_NUMERIC"
+        "type": "NORMALIZED_STRING"
       },
       "normalization": [],
       "gold_allowed_statuses": [
@@ -727,7 +727,7 @@
       "evaluation_tier": "SOFT",
       "required": false,
       "comparator": {
-        "type": "NORMALIZED_NUMERIC"
+        "type": "NORMALIZED_STRING"
       },
       "normalization": [],
       "gold_allowed_statuses": [
@@ -761,7 +761,7 @@
       "evaluation_tier": "SOFT",
       "required": false,
       "comparator": {
-        "type": "NORMALIZED_NUMERIC"
+        "type": "NORMALIZED_STRING"
       },
       "normalization": [],
       "gold_allowed_statuses": [
@@ -795,7 +795,7 @@
       "evaluation_tier": "SOFT",
       "required": false,
       "comparator": {
-        "type": "NORMALIZED_NUMERIC"
+        "type": "NORMALIZED_STRING"
       },
       "normalization": [],
       "gold_allowed_statuses": [
@@ -1033,7 +1033,7 @@
       "evaluation_tier": "HARD",
       "required": false,
       "comparator": {
-        "type": "NORMALIZED_NUMERIC"
+        "type": "NORMALIZED_STRING"
       },
       "normalization": [],
       "gold_allowed_statuses": [
@@ -1067,7 +1067,7 @@
       "evaluation_tier": "SOFT",
       "required": false,
       "comparator": {
-        "type": "NORMALIZED_NUMERIC"
+        "type": "NORMALIZED_STRING"
       },
       "normalization": [],
       "gold_allowed_statuses": [
@@ -1101,7 +1101,7 @@
       "evaluation_tier": "SOFT",
       "required": false,
       "comparator": {
-        "type": "NORMALIZED_NUMERIC"
+        "type": "NORMALIZED_STRING"
       },
       "normalization": [],
       "gold_allowed_statuses": [
@@ -1135,7 +1135,7 @@
       "evaluation_tier": "SOFT",
       "required": false,
       "comparator": {
-        "type": "NORMALIZED_NUMERIC"
+        "type": "UNORDERED_LIST"
       },
       "normalization": [],
       "gold_allowed_statuses": [
@@ -1169,7 +1169,7 @@
       "evaluation_tier": "SOFT",
       "required": false,
       "comparator": {
-        "type": "NORMALIZED_NUMERIC"
+        "type": "NORMALIZED_STRING"
       },
       "normalization": [],
       "gold_allowed_statuses": [
@@ -1237,7 +1237,7 @@
       "evaluation_tier": "SOFT",
       "required": false,
       "comparator": {
-        "type": "NORMALIZED_NUMERIC"
+        "type": "NORMALIZED_STRING"
       },
       "normalization": [],
       "gold_allowed_statuses": [
@@ -1271,7 +1271,7 @@
       "evaluation_tier": "SOFT",
       "required": false,
       "comparator": {
-        "type": "NORMALIZED_NUMERIC"
+        "type": "NORMALIZED_STRING"
       },
       "normalization": [],
       "gold_allowed_statuses": [
@@ -1339,7 +1339,7 @@
       "evaluation_tier": "SOFT",
       "required": false,
       "comparator": {
-        "type": "NORMALIZED_NUMERIC"
+        "type": "NORMALIZED_STRING"
       },
       "normalization": [],
       "gold_allowed_statuses": [
@@ -1407,7 +1407,7 @@
       "evaluation_tier": "HARD",
       "required": false,
       "comparator": {
-        "type": "NORMALIZED_NUMERIC"
+        "type": "NORMALIZED_STRING"
       },
       "normalization": [],
       "gold_allowed_statuses": [
@@ -1441,7 +1441,7 @@
       "evaluation_tier": "SOFT",
       "required": false,
       "comparator": {
-        "type": "NORMALIZED_NUMERIC"
+        "type": "NORMALIZED_STRING"
       },
       "normalization": [],
       "gold_allowed_statuses": [
@@ -1509,7 +1509,7 @@
       "evaluation_tier": "SOFT",
       "required": false,
       "comparator": {
-        "type": "NORMALIZED_NUMERIC"
+        "type": "NORMALIZED_STRING"
       },
       "normalization": [],
       "gold_allowed_statuses": [
@@ -1543,7 +1543,7 @@
       "evaluation_tier": "SOFT",
       "required": false,
       "comparator": {
-        "type": "NORMALIZED_NUMERIC"
+        "type": "NORMALIZED_STRING"
       },
       "normalization": [],
       "gold_allowed_statuses": [
@@ -1645,7 +1645,7 @@
       "evaluation_tier": "HARD",
       "required": false,
       "comparator": {
-        "type": "NORMALIZED_NUMERIC"
+        "type": "NORMALIZED_STRING"
       },
       "normalization": [],
       "gold_allowed_statuses": [
@@ -1713,7 +1713,7 @@
       "evaluation_tier": "SOFT",
       "required": false,
       "comparator": {
-        "type": "NORMALIZED_NUMERIC"
+        "type": "NORMALIZED_STRING"
       },
       "normalization": [],
       "gold_allowed_statuses": [
@@ -1747,7 +1747,7 @@
       "evaluation_tier": "SOFT",
       "required": false,
       "comparator": {
-        "type": "NORMALIZED_NUMERIC"
+        "type": "NORMALIZED_STRING"
       },
       "normalization": [],
       "gold_allowed_statuses": [
@@ -1781,7 +1781,7 @@
       "evaluation_tier": "SOFT",
       "required": false,
       "comparator": {
-        "type": "NORMALIZED_NUMERIC"
+        "type": "NORMALIZED_STRING"
       },
       "normalization": [],
       "gold_allowed_statuses": [
@@ -2087,7 +2087,7 @@
       "evaluation_tier": "HARD",
       "required": false,
       "comparator": {
-        "type": "NORMALIZED_NUMERIC"
+        "type": "NORMALIZED_STRING"
       },
       "normalization": [],
       "gold_allowed_statuses": [
@@ -2121,7 +2121,7 @@
       "evaluation_tier": "HARD",
       "required": false,
       "comparator": {
-        "type": "NORMALIZED_NUMERIC"
+        "type": "NORMALIZED_STRING"
       },
       "normalization": [],
       "gold_allowed_statuses": [
@@ -2155,7 +2155,7 @@
       "evaluation_tier": "HARD",
       "required": false,
       "comparator": {
-        "type": "NORMALIZED_NUMERIC"
+        "type": "NORMALIZED_STRING"
       },
       "normalization": [],
       "gold_allowed_statuses": [
@@ -2189,7 +2189,7 @@
       "evaluation_tier": "HARD",
       "required": false,
       "comparator": {
-        "type": "NORMALIZED_NUMERIC"
+        "type": "NORMALIZED_STRING"
       },
       "normalization": [],
       "gold_allowed_statuses": [
@@ -2257,7 +2257,7 @@
       "evaluation_tier": "SOFT",
       "required": false,
       "comparator": {
-        "type": "NORMALIZED_NUMERIC"
+        "type": "NORMALIZED_STRING"
       },
       "normalization": [],
       "gold_allowed_statuses": [
@@ -2291,7 +2291,7 @@
       "evaluation_tier": "SOFT",
       "required": false,
       "comparator": {
-        "type": "NORMALIZED_NUMERIC"
+        "type": "NORMALIZED_STRING"
       },
       "normalization": [],
       "gold_allowed_statuses": [
@@ -2495,7 +2495,7 @@
       "evaluation_tier": "HARD",
       "required": false,
       "comparator": {
-        "type": "NORMALIZED_NUMERIC"
+        "type": "NORMALIZED_STRING"
       },
       "normalization": [],
       "gold_allowed_statuses": [
@@ -2529,7 +2529,7 @@
       "evaluation_tier": "HARD",
       "required": false,
       "comparator": {
-        "type": "NORMALIZED_NUMERIC"
+        "type": "NORMALIZED_STRING"
       },
       "normalization": [],
       "gold_allowed_statuses": [

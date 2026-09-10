@@ -1,0 +1,20 @@
+{
+  "gold_version": "GOLD_STANDARD/2.0.0",
+  "article_schema_version": "ARTICLE_EXTRACTION/2.0",
+  "gold_id": "synthetic-g1",
+  "article_id": "synthetic",
+  "state": "DRAFT",
+  "source_lineage": {"documents": [{"source_id": "article", "sha256": null, "role": "PRIMARY_ARTICLE"}]},
+  "truth": {
+    "schema_version": "ARTICLE_EXTRACTION/2.0",
+    "source_format": "canonical",
+    "article": {"article_id": "synthetic", "title": {"status": "NOT_APPLICABLE"}, "doi": {"status": "NOT_APPLICABLE"}, "publication_year": {"status": "NOT_APPLICABLE"}, "journal": {"status": "NOT_APPLICABLE"}, "language": {"status": "NOT_APPLICABLE"}, "authors": {"status": "NOT_APPLICABLE"}, "correspondence": {"status": "NOT_APPLICABLE"}},
+    "studies": [{"study_id": "synthetic-S1", "article_id": "synthetic", "design": {"status": "NOT_APPLICABLE"}, "condition": {"status": "NOT_APPLICABLE"}, "countries": {"status": "NOT_APPLICABLE"}, "centre_count": {"status": "NOT_APPLICABLE"}, "randomized_n": {"status": "NOT_APPLICABLE"}, "random_sequence_method": {"status": "NOT_APPLICABLE"}, "random_sequence_code": {"status": "NOT_APPLICABLE"}, "allocation_concealment": {"status": "NOT_APPLICABLE"}, "allocation_concealment_code": {"status": "NOT_APPLICABLE"}, "participant_blinding": {"status": "NOT_APPLICABLE"}, "practitioner_blinding": {"status": "NOT_APPLICABLE"}, "outcome_assessor_blinding": {"status": "NOT_APPLICABLE"}, "statistician_blinding": {"status": "NOT_APPLICABLE"}, "primary_analysis_set": {"status": "NOT_APPLICABLE"}, "missing_data_method": {"status": "NOT_APPLICABLE"}, "arm_ids": ["synthetic-S1-A01", "synthetic-S1-A02", "synthetic-S1-A03"]}],
+    "arms": [{"arm_id": "synthetic-S1-A01", "study_id": "synthetic-S1", "label": {"status": "NOT_APPLICABLE"}, "role": {"status": "NOT_APPLICABLE"}, "randomized_n": {"status": "NOT_APPLICABLE"}, "received_n": {"status": "NOT_APPLICABLE"}, "analyzed_n": {"status": "NOT_APPLICABLE"}, "dropout_n": {"status": "NOT_APPLICABLE"}}, {"arm_id": "synthetic-S1-A02", "study_id": "synthetic-S1", "label": {"status": "NOT_APPLICABLE"}, "role": {"status": "NOT_APPLICABLE"}, "randomized_n": {"status": "NOT_APPLICABLE"}, "received_n": {"status": "NOT_APPLICABLE"}, "analyzed_n": {"status": "NOT_APPLICABLE"}, "dropout_n": {"status": "NOT_APPLICABLE"}}, {"arm_id": "synthetic-S1-A03", "study_id": "synthetic-S1", "label": {"status": "NOT_APPLICABLE"}, "role": {"status": "NOT_APPLICABLE"}, "randomized_n": {"status": "NOT_APPLICABLE"}, "received_n": {"status": "NOT_APPLICABLE"}, "analyzed_n": {"status": "NOT_APPLICABLE"}, "dropout_n": {"status": "NOT_APPLICABLE"}}],
+    "comparisons": [],
+    "evidence": []
+  },
+  "entity_aliases": [],
+  "missingness_assessments": [],
+  "review_notes": ["Synthetic contract fixture; no real article truth."]
+}

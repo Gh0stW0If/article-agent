@@ -1,0 +1,2558 @@
+{
+  "registry_version": "EVALUATOR_FIELD_REGISTRY/3.0.0",
+  "article_schema_version": "ARTICLE_EXTRACTION/2.0",
+  "entities": {
+    "Article": {
+      "identity": "article_id",
+      "fallback": [],
+      "forbidden": [
+        "fuzzy",
+        "embedding"
+      ]
+    },
+    "Study": {
+      "identity": "study_id",
+      "fallback": [],
+      "forbidden": [
+        "fuzzy"
+      ]
+    },
+    "Arm": {
+      "identity": "arm_id",
+      "fallback": [
+        "normalized source label",
+        "Gold alias"
+      ],
+      "forbidden": [
+        "role inference",
+        "fuzzy"
+      ]
+    },
+    "Intervention": {
+      "identity": "normalized intervention name + linked Arm context",
+      "fallback": [
+        "Gold alias"
+      ],
+      "forbidden": [
+        "ordinal ID only",
+        "fuzzy"
+      ]
+    },
+    "Outcome": {
+      "identity": "normalized outcome name + instrument",
+      "fallback": [
+        "Gold alias"
+      ],
+      "forbidden": [
+        "clinical synonym expansion",
+        "embedding",
+        "LLM"
+      ]
+    },
+    "ArmResult": {
+      "identity": "Arm + Outcome + timepoint + analysis_set + value_kind + provenance",
+      "fallback": [],
+      "forbidden": [
+        "ordinal ID only"
+      ]
+    },
+    "Comparison": {
+      "identity": "ordered participant Arms + relation/contrast",
+      "fallback": [],
+      "forbidden": [
+        "automatic pairwise"
+      ]
+    },
+    "ComparisonResult": {
+      "identity": "Comparison + Outcome + timepoint + analysis_set + effect_measure + provenance",
+      "fallback": [],
+      "forbidden": [
+        "ordinal ID only"
+      ]
+    }
+  },
+  "fields": [
+    {
+      "field_id": "article.title",
+      "entity_type": "Article",
+      "field_path": "title",
+      "value_type": "string",
+      "support_status": "PARTIAL",
+      "evaluation_tier": "SOFT",
+      "required": false,
+      "comparator": {
+        "type": "NORMALIZED_STRING"
+      },
+      "normalization": [],
+      "gold_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "runtime_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "INSUFFICIENT_CONTEXT",
+        "UNRESOLVED",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "evidence_policy": "REQUIRED_WHEN_PRESENT",
+      "missingness_policy": "ASSESSMENT_REQUIRED_FOR_NOT_REPORTED",
+      "source_conflict_policy": "SEPARATE_METRIC",
+      "notes": null,
+      "enabled": true
+    },
+    {
+      "field_id": "article.doi",
+      "entity_type": "Article",
+      "field_path": "doi",
+      "value_type": "string",
+      "support_status": "PARTIAL",
+      "evaluation_tier": "SOFT",
+      "required": false,
+      "comparator": {
+        "type": "NORMALIZED_STRING"
+      },
+      "normalization": [],
+      "gold_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "runtime_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "INSUFFICIENT_CONTEXT",
+        "UNRESOLVED",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "evidence_policy": "REQUIRED_WHEN_PRESENT",
+      "missingness_policy": "ASSESSMENT_REQUIRED_FOR_NOT_REPORTED",
+      "source_conflict_policy": "SEPARATE_METRIC",
+      "notes": null,
+      "enabled": true
+    },
+    {
+      "field_id": "article.publication_year",
+      "entity_type": "Article",
+      "field_path": "publication_year",
+      "value_type": "integer",
+      "support_status": "PARTIAL",
+      "evaluation_tier": "SOFT",
+      "required": false,
+      "comparator": {
+        "type": "NORMALIZED_NUMERIC"
+      },
+      "normalization": [],
+      "gold_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "runtime_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "INSUFFICIENT_CONTEXT",
+        "UNRESOLVED",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "evidence_policy": "REQUIRED_WHEN_PRESENT",
+      "missingness_policy": "ASSESSMENT_REQUIRED_FOR_NOT_REPORTED",
+      "source_conflict_policy": "SEPARATE_METRIC",
+      "notes": null,
+      "enabled": true
+    },
+    {
+      "field_id": "article.journal",
+      "entity_type": "Article",
+      "field_path": "journal",
+      "value_type": "string",
+      "support_status": "PARTIAL",
+      "evaluation_tier": "SOFT",
+      "required": false,
+      "comparator": {
+        "type": "NORMALIZED_NUMERIC"
+      },
+      "normalization": [],
+      "gold_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "runtime_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "INSUFFICIENT_CONTEXT",
+        "UNRESOLVED",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "evidence_policy": "REQUIRED_WHEN_PRESENT",
+      "missingness_policy": "ASSESSMENT_REQUIRED_FOR_NOT_REPORTED",
+      "source_conflict_policy": "SEPARATE_METRIC",
+      "notes": null,
+      "enabled": true
+    },
+    {
+      "field_id": "article.language",
+      "entity_type": "Article",
+      "field_path": "language",
+      "value_type": "string",
+      "support_status": "PARTIAL",
+      "evaluation_tier": "SOFT",
+      "required": false,
+      "comparator": {
+        "type": "NORMALIZED_NUMERIC"
+      },
+      "normalization": [],
+      "gold_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "runtime_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "INSUFFICIENT_CONTEXT",
+        "UNRESOLVED",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "evidence_policy": "REQUIRED_WHEN_PRESENT",
+      "missingness_policy": "ASSESSMENT_REQUIRED_FOR_NOT_REPORTED",
+      "source_conflict_policy": "SEPARATE_METRIC",
+      "notes": null,
+      "enabled": true
+    },
+    {
+      "field_id": "article.authors",
+      "entity_type": "Article",
+      "field_path": "authors",
+      "value_type": "list[string]",
+      "support_status": "PARTIAL",
+      "evaluation_tier": "SOFT",
+      "required": false,
+      "comparator": {
+        "type": "NORMALIZED_STRING"
+      },
+      "normalization": [],
+      "gold_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "runtime_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "INSUFFICIENT_CONTEXT",
+        "UNRESOLVED",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "evidence_policy": "REQUIRED_WHEN_PRESENT",
+      "missingness_policy": "ASSESSMENT_REQUIRED_FOR_NOT_REPORTED",
+      "source_conflict_policy": "SEPARATE_METRIC",
+      "notes": null,
+      "enabled": true
+    },
+    {
+      "field_id": "article.correspondence",
+      "entity_type": "Article",
+      "field_path": "correspondence",
+      "value_type": "list[string]",
+      "support_status": "PARTIAL",
+      "evaluation_tier": "SOFT",
+      "required": false,
+      "comparator": {
+        "type": "NORMALIZED_NUMERIC"
+      },
+      "normalization": [],
+      "gold_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "runtime_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "INSUFFICIENT_CONTEXT",
+        "UNRESOLVED",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "evidence_policy": "REQUIRED_WHEN_PRESENT",
+      "missingness_policy": "ASSESSMENT_REQUIRED_FOR_NOT_REPORTED",
+      "source_conflict_policy": "SEPARATE_METRIC",
+      "notes": null,
+      "enabled": true
+    },
+    {
+      "field_id": "study.design",
+      "entity_type": "Study",
+      "field_path": "design",
+      "value_type": "string",
+      "support_status": "PARTIAL",
+      "evaluation_tier": "SOFT",
+      "required": false,
+      "comparator": {
+        "type": "NORMALIZED_NUMERIC"
+      },
+      "normalization": [],
+      "gold_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "runtime_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "INSUFFICIENT_CONTEXT",
+        "UNRESOLVED",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "evidence_policy": "REQUIRED_WHEN_PRESENT",
+      "missingness_policy": "ASSESSMENT_REQUIRED_FOR_NOT_REPORTED",
+      "source_conflict_policy": "SEPARATE_METRIC",
+      "notes": null,
+      "enabled": true
+    },
+    {
+      "field_id": "study.condition",
+      "entity_type": "Study",
+      "field_path": "condition",
+      "value_type": "string",
+      "support_status": "PARTIAL",
+      "evaluation_tier": "SOFT",
+      "required": false,
+      "comparator": {
+        "type": "NORMALIZED_NUMERIC"
+      },
+      "normalization": [],
+      "gold_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "runtime_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "INSUFFICIENT_CONTEXT",
+        "UNRESOLVED",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "evidence_policy": "REQUIRED_WHEN_PRESENT",
+      "missingness_policy": "ASSESSMENT_REQUIRED_FOR_NOT_REPORTED",
+      "source_conflict_policy": "SEPARATE_METRIC",
+      "notes": null,
+      "enabled": true
+    },
+    {
+      "field_id": "study.countries",
+      "entity_type": "Study",
+      "field_path": "countries",
+      "value_type": "list[string]",
+      "support_status": "PARTIAL",
+      "evaluation_tier": "SOFT",
+      "required": false,
+      "comparator": {
+        "type": "NORMALIZED_NUMERIC"
+      },
+      "normalization": [],
+      "gold_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "runtime_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "INSUFFICIENT_CONTEXT",
+        "UNRESOLVED",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "evidence_policy": "REQUIRED_WHEN_PRESENT",
+      "missingness_policy": "ASSESSMENT_REQUIRED_FOR_NOT_REPORTED",
+      "source_conflict_policy": "SEPARATE_METRIC",
+      "notes": null,
+      "enabled": true
+    },
+    {
+      "field_id": "study.centre_count",
+      "entity_type": "Study",
+      "field_path": "centre_count",
+      "value_type": "integer",
+      "support_status": "PARTIAL",
+      "evaluation_tier": "SOFT",
+      "required": false,
+      "comparator": {
+        "type": "NORMALIZED_NUMERIC"
+      },
+      "normalization": [],
+      "gold_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "runtime_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "INSUFFICIENT_CONTEXT",
+        "UNRESOLVED",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "evidence_policy": "REQUIRED_WHEN_PRESENT",
+      "missingness_policy": "ASSESSMENT_REQUIRED_FOR_NOT_REPORTED",
+      "source_conflict_policy": "SEPARATE_METRIC",
+      "notes": null,
+      "enabled": true
+    },
+    {
+      "field_id": "study.randomized_n",
+      "entity_type": "Study",
+      "field_path": "randomized_n",
+      "value_type": "integer",
+      "support_status": "SUPPORTED",
+      "evaluation_tier": "HARD",
+      "required": false,
+      "comparator": {
+        "type": "NORMALIZED_NUMERIC"
+      },
+      "normalization": [],
+      "gold_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "runtime_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "INSUFFICIENT_CONTEXT",
+        "UNRESOLVED",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "evidence_policy": "REQUIRED_WHEN_PRESENT",
+      "missingness_policy": "ASSESSMENT_REQUIRED_FOR_NOT_REPORTED",
+      "source_conflict_policy": "SEPARATE_METRIC",
+      "notes": null,
+      "enabled": true
+    },
+    {
+      "field_id": "study.random_sequence_method",
+      "entity_type": "Study",
+      "field_path": "random_sequence_method",
+      "value_type": "string",
+      "support_status": "PARTIAL",
+      "evaluation_tier": "SOFT",
+      "required": false,
+      "comparator": {
+        "type": "NORMALIZED_NUMERIC"
+      },
+      "normalization": [],
+      "gold_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "runtime_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "INSUFFICIENT_CONTEXT",
+        "UNRESOLVED",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "evidence_policy": "REQUIRED_WHEN_PRESENT",
+      "missingness_policy": "ASSESSMENT_REQUIRED_FOR_NOT_REPORTED",
+      "source_conflict_policy": "SEPARATE_METRIC",
+      "notes": null,
+      "enabled": true
+    },
+    {
+      "field_id": "study.random_sequence_code",
+      "entity_type": "Study",
+      "field_path": "random_sequence_code",
+      "value_type": "integer",
+      "support_status": "PARTIAL",
+      "evaluation_tier": "SOFT",
+      "required": false,
+      "comparator": {
+        "type": "NORMALIZED_NUMERIC"
+      },
+      "normalization": [],
+      "gold_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "runtime_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "INSUFFICIENT_CONTEXT",
+        "UNRESOLVED",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "evidence_policy": "REQUIRED_WHEN_PRESENT",
+      "missingness_policy": "ASSESSMENT_REQUIRED_FOR_NOT_REPORTED",
+      "source_conflict_policy": "SEPARATE_METRIC",
+      "notes": null,
+      "enabled": true
+    },
+    {
+      "field_id": "study.allocation_concealment",
+      "entity_type": "Study",
+      "field_path": "allocation_concealment",
+      "value_type": "string",
+      "support_status": "PARTIAL",
+      "evaluation_tier": "SOFT",
+      "required": false,
+      "comparator": {
+        "type": "NORMALIZED_NUMERIC"
+      },
+      "normalization": [],
+      "gold_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "runtime_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "INSUFFICIENT_CONTEXT",
+        "UNRESOLVED",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "evidence_policy": "REQUIRED_WHEN_PRESENT",
+      "missingness_policy": "ASSESSMENT_REQUIRED_FOR_NOT_REPORTED",
+      "source_conflict_policy": "SEPARATE_METRIC",
+      "notes": null,
+      "enabled": true
+    },
+    {
+      "field_id": "study.allocation_concealment_code",
+      "entity_type": "Study",
+      "field_path": "allocation_concealment_code",
+      "value_type": "integer",
+      "support_status": "PARTIAL",
+      "evaluation_tier": "SOFT",
+      "required": false,
+      "comparator": {
+        "type": "NORMALIZED_NUMERIC"
+      },
+      "normalization": [],
+      "gold_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "runtime_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "INSUFFICIENT_CONTEXT",
+        "UNRESOLVED",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "evidence_policy": "REQUIRED_WHEN_PRESENT",
+      "missingness_policy": "ASSESSMENT_REQUIRED_FOR_NOT_REPORTED",
+      "source_conflict_policy": "SEPARATE_METRIC",
+      "notes": null,
+      "enabled": true
+    },
+    {
+      "field_id": "study.participant_blinding",
+      "entity_type": "Study",
+      "field_path": "participant_blinding",
+      "value_type": "string",
+      "support_status": "PARTIAL",
+      "evaluation_tier": "SOFT",
+      "required": false,
+      "comparator": {
+        "type": "NORMALIZED_NUMERIC"
+      },
+      "normalization": [],
+      "gold_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "runtime_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "INSUFFICIENT_CONTEXT",
+        "UNRESOLVED",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "evidence_policy": "REQUIRED_WHEN_PRESENT",
+      "missingness_policy": "ASSESSMENT_REQUIRED_FOR_NOT_REPORTED",
+      "source_conflict_policy": "SEPARATE_METRIC",
+      "notes": null,
+      "enabled": true
+    },
+    {
+      "field_id": "study.practitioner_blinding",
+      "entity_type": "Study",
+      "field_path": "practitioner_blinding",
+      "value_type": "string",
+      "support_status": "PARTIAL",
+      "evaluation_tier": "SOFT",
+      "required": false,
+      "comparator": {
+        "type": "NORMALIZED_NUMERIC"
+      },
+      "normalization": [],
+      "gold_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "runtime_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "INSUFFICIENT_CONTEXT",
+        "UNRESOLVED",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "evidence_policy": "REQUIRED_WHEN_PRESENT",
+      "missingness_policy": "ASSESSMENT_REQUIRED_FOR_NOT_REPORTED",
+      "source_conflict_policy": "SEPARATE_METRIC",
+      "notes": null,
+      "enabled": true
+    },
+    {
+      "field_id": "study.outcome_assessor_blinding",
+      "entity_type": "Study",
+      "field_path": "outcome_assessor_blinding",
+      "value_type": "string",
+      "support_status": "PARTIAL",
+      "evaluation_tier": "SOFT",
+      "required": false,
+      "comparator": {
+        "type": "NORMALIZED_NUMERIC"
+      },
+      "normalization": [],
+      "gold_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "runtime_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "INSUFFICIENT_CONTEXT",
+        "UNRESOLVED",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "evidence_policy": "REQUIRED_WHEN_PRESENT",
+      "missingness_policy": "ASSESSMENT_REQUIRED_FOR_NOT_REPORTED",
+      "source_conflict_policy": "SEPARATE_METRIC",
+      "notes": null,
+      "enabled": true
+    },
+    {
+      "field_id": "study.statistician_blinding",
+      "entity_type": "Study",
+      "field_path": "statistician_blinding",
+      "value_type": "string",
+      "support_status": "PARTIAL",
+      "evaluation_tier": "SOFT",
+      "required": false,
+      "comparator": {
+        "type": "NORMALIZED_NUMERIC"
+      },
+      "normalization": [],
+      "gold_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "runtime_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "INSUFFICIENT_CONTEXT",
+        "UNRESOLVED",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "evidence_policy": "REQUIRED_WHEN_PRESENT",
+      "missingness_policy": "ASSESSMENT_REQUIRED_FOR_NOT_REPORTED",
+      "source_conflict_policy": "SEPARATE_METRIC",
+      "notes": null,
+      "enabled": true
+    },
+    {
+      "field_id": "study.primary_analysis_set",
+      "entity_type": "Study",
+      "field_path": "primary_analysis_set",
+      "value_type": "string",
+      "support_status": "PARTIAL",
+      "evaluation_tier": "SOFT",
+      "required": false,
+      "comparator": {
+        "type": "NORMALIZED_NUMERIC"
+      },
+      "normalization": [],
+      "gold_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "runtime_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "INSUFFICIENT_CONTEXT",
+        "UNRESOLVED",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "evidence_policy": "REQUIRED_WHEN_PRESENT",
+      "missingness_policy": "ASSESSMENT_REQUIRED_FOR_NOT_REPORTED",
+      "source_conflict_policy": "SEPARATE_METRIC",
+      "notes": null,
+      "enabled": true
+    },
+    {
+      "field_id": "study.missing_data_method",
+      "entity_type": "Study",
+      "field_path": "missing_data_method",
+      "value_type": "string",
+      "support_status": "PARTIAL",
+      "evaluation_tier": "SOFT",
+      "required": false,
+      "comparator": {
+        "type": "NORMALIZED_NUMERIC"
+      },
+      "normalization": [],
+      "gold_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "runtime_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "INSUFFICIENT_CONTEXT",
+        "UNRESOLVED",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "evidence_policy": "REQUIRED_WHEN_PRESENT",
+      "missingness_policy": "ASSESSMENT_REQUIRED_FOR_NOT_REPORTED",
+      "source_conflict_policy": "SEPARATE_METRIC",
+      "notes": null,
+      "enabled": true
+    },
+    {
+      "field_id": "arm.label",
+      "entity_type": "Arm",
+      "field_path": "label",
+      "value_type": "string",
+      "support_status": "SUPPORTED",
+      "evaluation_tier": "HARD",
+      "required": false,
+      "comparator": {
+        "type": "NORMALIZED_STRING"
+      },
+      "normalization": [],
+      "gold_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "runtime_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "INSUFFICIENT_CONTEXT",
+        "UNRESOLVED",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "evidence_policy": "REQUIRED_WHEN_PRESENT",
+      "missingness_policy": "ASSESSMENT_REQUIRED_FOR_NOT_REPORTED",
+      "source_conflict_policy": "SEPARATE_METRIC",
+      "notes": null,
+      "enabled": true
+    },
+    {
+      "field_id": "arm.role",
+      "entity_type": "Arm",
+      "field_path": "role",
+      "value_type": "string",
+      "support_status": "SUPPORTED",
+      "evaluation_tier": "HARD",
+      "required": false,
+      "comparator": {
+        "type": "NORMALIZED_STRING"
+      },
+      "normalization": [],
+      "gold_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "runtime_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "INSUFFICIENT_CONTEXT",
+        "UNRESOLVED",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "evidence_policy": "REQUIRED_WHEN_PRESENT",
+      "missingness_policy": "ASSESSMENT_REQUIRED_FOR_NOT_REPORTED",
+      "source_conflict_policy": "SEPARATE_METRIC",
+      "notes": null,
+      "enabled": true
+    },
+    {
+      "field_id": "arm.randomized_n",
+      "entity_type": "Arm",
+      "field_path": "randomized_n",
+      "value_type": "integer",
+      "support_status": "SUPPORTED",
+      "evaluation_tier": "HARD",
+      "required": false,
+      "comparator": {
+        "type": "NORMALIZED_NUMERIC"
+      },
+      "normalization": [],
+      "gold_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "runtime_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "INSUFFICIENT_CONTEXT",
+        "UNRESOLVED",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "evidence_policy": "REQUIRED_WHEN_PRESENT",
+      "missingness_policy": "ASSESSMENT_REQUIRED_FOR_NOT_REPORTED",
+      "source_conflict_policy": "SEPARATE_METRIC",
+      "notes": null,
+      "enabled": true
+    },
+    {
+      "field_id": "arm.received_n",
+      "entity_type": "Arm",
+      "field_path": "received_n",
+      "value_type": "integer",
+      "support_status": "SUPPORTED",
+      "evaluation_tier": "HARD",
+      "required": false,
+      "comparator": {
+        "type": "NORMALIZED_NUMERIC"
+      },
+      "normalization": [],
+      "gold_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "runtime_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "INSUFFICIENT_CONTEXT",
+        "UNRESOLVED",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "evidence_policy": "REQUIRED_WHEN_PRESENT",
+      "missingness_policy": "ASSESSMENT_REQUIRED_FOR_NOT_REPORTED",
+      "source_conflict_policy": "SEPARATE_METRIC",
+      "notes": null,
+      "enabled": true
+    },
+    {
+      "field_id": "arm.analyzed_n",
+      "entity_type": "Arm",
+      "field_path": "analyzed_n",
+      "value_type": "integer",
+      "support_status": "SUPPORTED",
+      "evaluation_tier": "HARD",
+      "required": false,
+      "comparator": {
+        "type": "NORMALIZED_NUMERIC"
+      },
+      "normalization": [],
+      "gold_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "runtime_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "INSUFFICIENT_CONTEXT",
+        "UNRESOLVED",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "evidence_policy": "REQUIRED_WHEN_PRESENT",
+      "missingness_policy": "ASSESSMENT_REQUIRED_FOR_NOT_REPORTED",
+      "source_conflict_policy": "SEPARATE_METRIC",
+      "notes": null,
+      "enabled": true
+    },
+    {
+      "field_id": "arm.dropout_n",
+      "entity_type": "Arm",
+      "field_path": "dropout_n",
+      "value_type": "integer",
+      "support_status": "SUPPORTED",
+      "evaluation_tier": "HARD",
+      "required": false,
+      "comparator": {
+        "type": "NORMALIZED_NUMERIC"
+      },
+      "normalization": [],
+      "gold_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "runtime_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "INSUFFICIENT_CONTEXT",
+        "UNRESOLVED",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "evidence_policy": "REQUIRED_WHEN_PRESENT",
+      "missingness_policy": "ASSESSMENT_REQUIRED_FOR_NOT_REPORTED",
+      "source_conflict_policy": "SEPARATE_METRIC",
+      "notes": null,
+      "enabled": true
+    },
+    {
+      "field_id": "intervention.name",
+      "entity_type": "Intervention",
+      "field_path": "name",
+      "value_type": "string",
+      "support_status": "SUPPORTED",
+      "evaluation_tier": "HARD",
+      "required": false,
+      "comparator": {
+        "type": "NORMALIZED_NUMERIC"
+      },
+      "normalization": [],
+      "gold_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "runtime_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "INSUFFICIENT_CONTEXT",
+        "UNRESOLVED",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "evidence_policy": "REQUIRED_WHEN_PRESENT",
+      "missingness_policy": "ASSESSMENT_REQUIRED_FOR_NOT_REPORTED",
+      "source_conflict_policy": "SEPARATE_METRIC",
+      "notes": null,
+      "enabled": true
+    },
+    {
+      "field_id": "intervention.kind",
+      "entity_type": "Intervention",
+      "field_path": "kind",
+      "value_type": "string",
+      "support_status": "PARTIAL",
+      "evaluation_tier": "SOFT",
+      "required": false,
+      "comparator": {
+        "type": "NORMALIZED_NUMERIC"
+      },
+      "normalization": [],
+      "gold_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "runtime_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "INSUFFICIENT_CONTEXT",
+        "UNRESOLVED",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "evidence_policy": "REQUIRED_WHEN_PRESENT",
+      "missingness_policy": "ASSESSMENT_REQUIRED_FOR_NOT_REPORTED",
+      "source_conflict_policy": "SEPARATE_METRIC",
+      "notes": null,
+      "enabled": true
+    },
+    {
+      "field_id": "intervention.description",
+      "entity_type": "Intervention",
+      "field_path": "description",
+      "value_type": "string",
+      "support_status": "PARTIAL",
+      "evaluation_tier": "SOFT",
+      "required": false,
+      "comparator": {
+        "type": "NORMALIZED_NUMERIC"
+      },
+      "normalization": [],
+      "gold_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "runtime_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "INSUFFICIENT_CONTEXT",
+        "UNRESOLVED",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "evidence_policy": "REQUIRED_WHEN_PRESENT",
+      "missingness_policy": "ASSESSMENT_REQUIRED_FOR_NOT_REPORTED",
+      "source_conflict_policy": "SEPARATE_METRIC",
+      "notes": null,
+      "enabled": true
+    },
+    {
+      "field_id": "intervention.components",
+      "entity_type": "Intervention",
+      "field_path": "components",
+      "value_type": "list[string]",
+      "support_status": "PARTIAL",
+      "evaluation_tier": "SOFT",
+      "required": false,
+      "comparator": {
+        "type": "NORMALIZED_NUMERIC"
+      },
+      "normalization": [],
+      "gold_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "runtime_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "INSUFFICIENT_CONTEXT",
+        "UNRESOLVED",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "evidence_policy": "REQUIRED_WHEN_PRESENT",
+      "missingness_policy": "ASSESSMENT_REQUIRED_FOR_NOT_REPORTED",
+      "source_conflict_policy": "SEPARATE_METRIC",
+      "notes": null,
+      "enabled": true
+    },
+    {
+      "field_id": "intervention.frequency_raw",
+      "entity_type": "Intervention",
+      "field_path": "frequency_raw",
+      "value_type": "string",
+      "support_status": "PARTIAL",
+      "evaluation_tier": "SOFT",
+      "required": false,
+      "comparator": {
+        "type": "NORMALIZED_NUMERIC"
+      },
+      "normalization": [],
+      "gold_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "runtime_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "INSUFFICIENT_CONTEXT",
+        "UNRESOLVED",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "evidence_policy": "REQUIRED_WHEN_PRESENT",
+      "missingness_policy": "ASSESSMENT_REQUIRED_FOR_NOT_REPORTED",
+      "source_conflict_policy": "SEPARATE_METRIC",
+      "notes": null,
+      "enabled": true
+    },
+    {
+      "field_id": "intervention.frequency_value",
+      "entity_type": "Intervention",
+      "field_path": "frequency_value",
+      "value_type": "number",
+      "support_status": "PARTIAL",
+      "evaluation_tier": "SOFT",
+      "required": false,
+      "comparator": {
+        "type": "NORMALIZED_NUMERIC"
+      },
+      "normalization": [],
+      "gold_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "runtime_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "INSUFFICIENT_CONTEXT",
+        "UNRESOLVED",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "evidence_policy": "REQUIRED_WHEN_PRESENT",
+      "missingness_policy": "ASSESSMENT_REQUIRED_FOR_NOT_REPORTED",
+      "source_conflict_policy": "SEPARATE_METRIC",
+      "notes": null,
+      "enabled": true
+    },
+    {
+      "field_id": "intervention.frequency_unit",
+      "entity_type": "Intervention",
+      "field_path": "frequency_unit",
+      "value_type": "string",
+      "support_status": "PARTIAL",
+      "evaluation_tier": "SOFT",
+      "required": false,
+      "comparator": {
+        "type": "NORMALIZED_NUMERIC"
+      },
+      "normalization": [],
+      "gold_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "runtime_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "INSUFFICIENT_CONTEXT",
+        "UNRESOLVED",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "evidence_policy": "REQUIRED_WHEN_PRESENT",
+      "missingness_policy": "ASSESSMENT_REQUIRED_FOR_NOT_REPORTED",
+      "source_conflict_policy": "SEPARATE_METRIC",
+      "notes": null,
+      "enabled": true
+    },
+    {
+      "field_id": "intervention.duration_raw",
+      "entity_type": "Intervention",
+      "field_path": "duration_raw",
+      "value_type": "string",
+      "support_status": "PARTIAL",
+      "evaluation_tier": "SOFT",
+      "required": false,
+      "comparator": {
+        "type": "NORMALIZED_NUMERIC"
+      },
+      "normalization": [],
+      "gold_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "runtime_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "INSUFFICIENT_CONTEXT",
+        "UNRESOLVED",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "evidence_policy": "REQUIRED_WHEN_PRESENT",
+      "missingness_policy": "ASSESSMENT_REQUIRED_FOR_NOT_REPORTED",
+      "source_conflict_policy": "SEPARATE_METRIC",
+      "notes": null,
+      "enabled": true
+    },
+    {
+      "field_id": "intervention.duration_value",
+      "entity_type": "Intervention",
+      "field_path": "duration_value",
+      "value_type": "number",
+      "support_status": "PARTIAL",
+      "evaluation_tier": "SOFT",
+      "required": false,
+      "comparator": {
+        "type": "NORMALIZED_NUMERIC"
+      },
+      "normalization": [],
+      "gold_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "runtime_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "INSUFFICIENT_CONTEXT",
+        "UNRESOLVED",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "evidence_policy": "REQUIRED_WHEN_PRESENT",
+      "missingness_policy": "ASSESSMENT_REQUIRED_FOR_NOT_REPORTED",
+      "source_conflict_policy": "SEPARATE_METRIC",
+      "notes": null,
+      "enabled": true
+    },
+    {
+      "field_id": "intervention.duration_unit",
+      "entity_type": "Intervention",
+      "field_path": "duration_unit",
+      "value_type": "string",
+      "support_status": "PARTIAL",
+      "evaluation_tier": "SOFT",
+      "required": false,
+      "comparator": {
+        "type": "NORMALIZED_NUMERIC"
+      },
+      "normalization": [],
+      "gold_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "runtime_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "INSUFFICIENT_CONTEXT",
+        "UNRESOLVED",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "evidence_policy": "REQUIRED_WHEN_PRESENT",
+      "missingness_policy": "ASSESSMENT_REQUIRED_FOR_NOT_REPORTED",
+      "source_conflict_policy": "SEPARATE_METRIC",
+      "notes": null,
+      "enabled": true
+    },
+    {
+      "field_id": "intervention.total_sessions",
+      "entity_type": "Intervention",
+      "field_path": "total_sessions",
+      "value_type": "integer",
+      "support_status": "PARTIAL",
+      "evaluation_tier": "SOFT",
+      "required": false,
+      "comparator": {
+        "type": "NORMALIZED_NUMERIC"
+      },
+      "normalization": [],
+      "gold_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "runtime_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "INSUFFICIENT_CONTEXT",
+        "UNRESOLVED",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "evidence_policy": "REQUIRED_WHEN_PRESENT",
+      "missingness_policy": "ASSESSMENT_REQUIRED_FOR_NOT_REPORTED",
+      "source_conflict_policy": "SEPARATE_METRIC",
+      "notes": null,
+      "enabled": true
+    },
+    {
+      "field_id": "outcome.name",
+      "entity_type": "Outcome",
+      "field_path": "name",
+      "value_type": "string",
+      "support_status": "SUPPORTED",
+      "evaluation_tier": "HARD",
+      "required": false,
+      "comparator": {
+        "type": "NORMALIZED_NUMERIC"
+      },
+      "normalization": [],
+      "gold_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "runtime_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "INSUFFICIENT_CONTEXT",
+        "UNRESOLVED",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "evidence_policy": "REQUIRED_WHEN_PRESENT",
+      "missingness_policy": "ASSESSMENT_REQUIRED_FOR_NOT_REPORTED",
+      "source_conflict_policy": "SEPARATE_METRIC",
+      "notes": null,
+      "enabled": true
+    },
+    {
+      "field_id": "outcome.instrument",
+      "entity_type": "Outcome",
+      "field_path": "instrument",
+      "value_type": "string",
+      "support_status": "PARTIAL",
+      "evaluation_tier": "SOFT",
+      "required": false,
+      "comparator": {
+        "type": "NORMALIZED_NUMERIC"
+      },
+      "normalization": [],
+      "gold_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "runtime_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "INSUFFICIENT_CONTEXT",
+        "UNRESOLVED",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "evidence_policy": "REQUIRED_WHEN_PRESENT",
+      "missingness_policy": "ASSESSMENT_REQUIRED_FOR_NOT_REPORTED",
+      "source_conflict_policy": "SEPARATE_METRIC",
+      "notes": null,
+      "enabled": true
+    },
+    {
+      "field_id": "outcome.role",
+      "entity_type": "Outcome",
+      "field_path": "role",
+      "value_type": "string",
+      "support_status": "SUPPORTED",
+      "evaluation_tier": "HARD",
+      "required": false,
+      "comparator": {
+        "type": "NORMALIZED_STRING"
+      },
+      "normalization": [],
+      "gold_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "runtime_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "INSUFFICIENT_CONTEXT",
+        "UNRESOLVED",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "evidence_policy": "REQUIRED_WHEN_PRESENT",
+      "missingness_policy": "ASSESSMENT_REQUIRED_FOR_NOT_REPORTED",
+      "source_conflict_policy": "SEPARATE_METRIC",
+      "notes": null,
+      "enabled": true
+    },
+    {
+      "field_id": "outcome.direction",
+      "entity_type": "Outcome",
+      "field_path": "direction",
+      "value_type": "string",
+      "support_status": "PARTIAL",
+      "evaluation_tier": "SOFT",
+      "required": false,
+      "comparator": {
+        "type": "NORMALIZED_NUMERIC"
+      },
+      "normalization": [],
+      "gold_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "runtime_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "INSUFFICIENT_CONTEXT",
+        "UNRESOLVED",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "evidence_policy": "REQUIRED_WHEN_PRESENT",
+      "missingness_policy": "ASSESSMENT_REQUIRED_FOR_NOT_REPORTED",
+      "source_conflict_policy": "SEPARATE_METRIC",
+      "notes": null,
+      "enabled": true
+    },
+    {
+      "field_id": "outcome.unit",
+      "entity_type": "Outcome",
+      "field_path": "unit",
+      "value_type": "string",
+      "support_status": "PARTIAL",
+      "evaluation_tier": "SOFT",
+      "required": false,
+      "comparator": {
+        "type": "NORMALIZED_NUMERIC"
+      },
+      "normalization": [],
+      "gold_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "runtime_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "INSUFFICIENT_CONTEXT",
+        "UNRESOLVED",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "evidence_policy": "REQUIRED_WHEN_PRESENT",
+      "missingness_policy": "ASSESSMENT_REQUIRED_FOR_NOT_REPORTED",
+      "source_conflict_policy": "SEPARATE_METRIC",
+      "notes": null,
+      "enabled": true
+    },
+    {
+      "field_id": "outcome.scale_min",
+      "entity_type": "Outcome",
+      "field_path": "scale_min",
+      "value_type": "number",
+      "support_status": "PARTIAL",
+      "evaluation_tier": "SOFT",
+      "required": false,
+      "comparator": {
+        "type": "NORMALIZED_NUMERIC"
+      },
+      "normalization": [],
+      "gold_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "runtime_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "INSUFFICIENT_CONTEXT",
+        "UNRESOLVED",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "evidence_policy": "REQUIRED_WHEN_PRESENT",
+      "missingness_policy": "ASSESSMENT_REQUIRED_FOR_NOT_REPORTED",
+      "source_conflict_policy": "SEPARATE_METRIC",
+      "notes": null,
+      "enabled": true
+    },
+    {
+      "field_id": "outcome.scale_max",
+      "entity_type": "Outcome",
+      "field_path": "scale_max",
+      "value_type": "number",
+      "support_status": "PARTIAL",
+      "evaluation_tier": "SOFT",
+      "required": false,
+      "comparator": {
+        "type": "NORMALIZED_NUMERIC"
+      },
+      "normalization": [],
+      "gold_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "runtime_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "INSUFFICIENT_CONTEXT",
+        "UNRESOLVED",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "evidence_policy": "REQUIRED_WHEN_PRESENT",
+      "missingness_policy": "ASSESSMENT_REQUIRED_FOR_NOT_REPORTED",
+      "source_conflict_policy": "SEPARATE_METRIC",
+      "notes": null,
+      "enabled": true
+    },
+    {
+      "field_id": "armResult.timepoint",
+      "entity_type": "ArmResult",
+      "field_path": "timepoint",
+      "value_type": "string",
+      "support_status": "SUPPORTED",
+      "evaluation_tier": "HARD",
+      "required": false,
+      "comparator": {
+        "type": "NORMALIZED_NUMERIC"
+      },
+      "normalization": [],
+      "gold_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "runtime_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "INSUFFICIENT_CONTEXT",
+        "UNRESOLVED",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "evidence_policy": "REQUIRED_WHEN_PRESENT",
+      "missingness_policy": "ASSESSMENT_REQUIRED_FOR_NOT_REPORTED",
+      "source_conflict_policy": "SEPARATE_METRIC",
+      "notes": null,
+      "enabled": true
+    },
+    {
+      "field_id": "armResult.timepoint_value",
+      "entity_type": "ArmResult",
+      "field_path": "timepoint_value",
+      "value_type": "number",
+      "support_status": "PARTIAL",
+      "evaluation_tier": "SOFT",
+      "required": false,
+      "comparator": {
+        "type": "NORMALIZED_NUMERIC"
+      },
+      "normalization": [],
+      "gold_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "runtime_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "INSUFFICIENT_CONTEXT",
+        "UNRESOLVED",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "evidence_policy": "REQUIRED_WHEN_PRESENT",
+      "missingness_policy": "ASSESSMENT_REQUIRED_FOR_NOT_REPORTED",
+      "source_conflict_policy": "SEPARATE_METRIC",
+      "notes": null,
+      "enabled": true
+    },
+    {
+      "field_id": "armResult.timepoint_unit",
+      "entity_type": "ArmResult",
+      "field_path": "timepoint_unit",
+      "value_type": "string",
+      "support_status": "PARTIAL",
+      "evaluation_tier": "SOFT",
+      "required": false,
+      "comparator": {
+        "type": "NORMALIZED_NUMERIC"
+      },
+      "normalization": [],
+      "gold_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "runtime_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "INSUFFICIENT_CONTEXT",
+        "UNRESOLVED",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "evidence_policy": "REQUIRED_WHEN_PRESENT",
+      "missingness_policy": "ASSESSMENT_REQUIRED_FOR_NOT_REPORTED",
+      "source_conflict_policy": "SEPARATE_METRIC",
+      "notes": null,
+      "enabled": true
+    },
+    {
+      "field_id": "armResult.analysis_set",
+      "entity_type": "ArmResult",
+      "field_path": "analysis_set",
+      "value_type": "string",
+      "support_status": "PARTIAL",
+      "evaluation_tier": "SOFT",
+      "required": false,
+      "comparator": {
+        "type": "NORMALIZED_NUMERIC"
+      },
+      "normalization": [],
+      "gold_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "runtime_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "INSUFFICIENT_CONTEXT",
+        "UNRESOLVED",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "evidence_policy": "REQUIRED_WHEN_PRESENT",
+      "missingness_policy": "ASSESSMENT_REQUIRED_FOR_NOT_REPORTED",
+      "source_conflict_policy": "SEPARATE_METRIC",
+      "notes": null,
+      "enabled": true
+    },
+    {
+      "field_id": "armResult.value_kind",
+      "entity_type": "ArmResult",
+      "field_path": "value_kind",
+      "value_type": "string",
+      "support_status": "PARTIAL",
+      "evaluation_tier": "SOFT",
+      "required": false,
+      "comparator": {
+        "type": "NORMALIZED_NUMERIC"
+      },
+      "normalization": [],
+      "gold_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "runtime_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "INSUFFICIENT_CONTEXT",
+        "UNRESOLVED",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "evidence_policy": "REQUIRED_WHEN_PRESENT",
+      "missingness_policy": "ASSESSMENT_REQUIRED_FOR_NOT_REPORTED",
+      "source_conflict_policy": "SEPARATE_METRIC",
+      "notes": null,
+      "enabled": true
+    },
+    {
+      "field_id": "armResult.value",
+      "entity_type": "ArmResult",
+      "field_path": "value",
+      "value_type": "number",
+      "support_status": "SUPPORTED",
+      "evaluation_tier": "HARD",
+      "required": false,
+      "comparator": {
+        "type": "NORMALIZED_NUMERIC"
+      },
+      "normalization": [],
+      "gold_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "runtime_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "INSUFFICIENT_CONTEXT",
+        "UNRESOLVED",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "evidence_policy": "REQUIRED_WHEN_PRESENT",
+      "missingness_policy": "ASSESSMENT_REQUIRED_FOR_NOT_REPORTED",
+      "source_conflict_policy": "SEPARATE_METRIC",
+      "notes": null,
+      "enabled": true
+    },
+    {
+      "field_id": "armResult.standard_deviation",
+      "entity_type": "ArmResult",
+      "field_path": "standard_deviation",
+      "value_type": "number",
+      "support_status": "SUPPORTED",
+      "evaluation_tier": "HARD",
+      "required": false,
+      "comparator": {
+        "type": "NORMALIZED_NUMERIC"
+      },
+      "normalization": [],
+      "gold_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "runtime_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "INSUFFICIENT_CONTEXT",
+        "UNRESOLVED",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "evidence_policy": "REQUIRED_WHEN_PRESENT",
+      "missingness_policy": "ASSESSMENT_REQUIRED_FOR_NOT_REPORTED",
+      "source_conflict_policy": "SEPARATE_METRIC",
+      "notes": null,
+      "enabled": true
+    },
+    {
+      "field_id": "armResult.change_from_baseline",
+      "entity_type": "ArmResult",
+      "field_path": "change_from_baseline",
+      "value_type": "number",
+      "support_status": "PARTIAL",
+      "evaluation_tier": "SOFT",
+      "required": false,
+      "comparator": {
+        "type": "NORMALIZED_NUMERIC"
+      },
+      "normalization": [],
+      "gold_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "runtime_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "INSUFFICIENT_CONTEXT",
+        "UNRESOLVED",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "evidence_policy": "REQUIRED_WHEN_PRESENT",
+      "missingness_policy": "ASSESSMENT_REQUIRED_FOR_NOT_REPORTED",
+      "source_conflict_policy": "SEPARATE_METRIC",
+      "notes": null,
+      "enabled": true
+    },
+    {
+      "field_id": "armResult.dispersion_lower",
+      "entity_type": "ArmResult",
+      "field_path": "dispersion_lower",
+      "value_type": "number",
+      "support_status": "PARTIAL",
+      "evaluation_tier": "SOFT",
+      "required": false,
+      "comparator": {
+        "type": "NORMALIZED_NUMERIC"
+      },
+      "normalization": [],
+      "gold_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "runtime_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "INSUFFICIENT_CONTEXT",
+        "UNRESOLVED",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "evidence_policy": "REQUIRED_WHEN_PRESENT",
+      "missingness_policy": "ASSESSMENT_REQUIRED_FOR_NOT_REPORTED",
+      "source_conflict_policy": "SEPARATE_METRIC",
+      "notes": null,
+      "enabled": true
+    },
+    {
+      "field_id": "armResult.dispersion_upper",
+      "entity_type": "ArmResult",
+      "field_path": "dispersion_upper",
+      "value_type": "number",
+      "support_status": "PARTIAL",
+      "evaluation_tier": "SOFT",
+      "required": false,
+      "comparator": {
+        "type": "NORMALIZED_NUMERIC"
+      },
+      "normalization": [],
+      "gold_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "runtime_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "INSUFFICIENT_CONTEXT",
+        "UNRESOLVED",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "evidence_policy": "REQUIRED_WHEN_PRESENT",
+      "missingness_policy": "ASSESSMENT_REQUIRED_FOR_NOT_REPORTED",
+      "source_conflict_policy": "SEPARATE_METRIC",
+      "notes": null,
+      "enabled": true
+    },
+    {
+      "field_id": "armResult.n",
+      "entity_type": "ArmResult",
+      "field_path": "n",
+      "value_type": "integer",
+      "support_status": "SUPPORTED",
+      "evaluation_tier": "HARD",
+      "required": false,
+      "comparator": {
+        "type": "NORMALIZED_NUMERIC"
+      },
+      "normalization": [],
+      "gold_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "runtime_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "INSUFFICIENT_CONTEXT",
+        "UNRESOLVED",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "evidence_policy": "REQUIRED_WHEN_PRESENT",
+      "missingness_policy": "ASSESSMENT_REQUIRED_FOR_NOT_REPORTED",
+      "source_conflict_policy": "SEPARATE_METRIC",
+      "notes": null,
+      "enabled": true
+    },
+    {
+      "field_id": "armResult.event_count",
+      "entity_type": "ArmResult",
+      "field_path": "event_count",
+      "value_type": "integer",
+      "support_status": "SUPPORTED",
+      "evaluation_tier": "HARD",
+      "required": false,
+      "comparator": {
+        "type": "NORMALIZED_NUMERIC"
+      },
+      "normalization": [],
+      "gold_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "runtime_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "INSUFFICIENT_CONTEXT",
+        "UNRESOLVED",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "evidence_policy": "REQUIRED_WHEN_PRESENT",
+      "missingness_policy": "ASSESSMENT_REQUIRED_FOR_NOT_REPORTED",
+      "source_conflict_policy": "SEPARATE_METRIC",
+      "notes": null,
+      "enabled": true
+    },
+    {
+      "field_id": "armResult.denominator",
+      "entity_type": "ArmResult",
+      "field_path": "denominator",
+      "value_type": "integer",
+      "support_status": "SUPPORTED",
+      "evaluation_tier": "HARD",
+      "required": false,
+      "comparator": {
+        "type": "NORMALIZED_NUMERIC"
+      },
+      "normalization": [],
+      "gold_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "runtime_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "INSUFFICIENT_CONTEXT",
+        "UNRESOLVED",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "evidence_policy": "REQUIRED_WHEN_PRESENT",
+      "missingness_policy": "ASSESSMENT_REQUIRED_FOR_NOT_REPORTED",
+      "source_conflict_policy": "SEPARATE_METRIC",
+      "notes": null,
+      "enabled": true
+    },
+    {
+      "field_id": "armResult.raw_value",
+      "entity_type": "ArmResult",
+      "field_path": "raw_value",
+      "value_type": "string",
+      "support_status": "SUPPORTED",
+      "evaluation_tier": "HARD",
+      "required": false,
+      "comparator": {
+        "type": "NORMALIZED_NUMERIC"
+      },
+      "normalization": [],
+      "gold_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "runtime_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "INSUFFICIENT_CONTEXT",
+        "UNRESOLVED",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "evidence_policy": "REQUIRED_WHEN_PRESENT",
+      "missingness_policy": "ASSESSMENT_REQUIRED_FOR_NOT_REPORTED",
+      "source_conflict_policy": "SEPARATE_METRIC",
+      "notes": null,
+      "enabled": true
+    },
+    {
+      "field_id": "comparison.relation",
+      "entity_type": "Comparison",
+      "field_path": "relation",
+      "value_type": "string",
+      "support_status": "SUPPORTED",
+      "evaluation_tier": "HARD",
+      "required": false,
+      "comparator": {
+        "type": "NORMALIZED_NUMERIC"
+      },
+      "normalization": [],
+      "gold_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "runtime_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "INSUFFICIENT_CONTEXT",
+        "UNRESOLVED",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "evidence_policy": "REQUIRED_WHEN_PRESENT",
+      "missingness_policy": "ASSESSMENT_REQUIRED_FOR_NOT_REPORTED",
+      "source_conflict_policy": "SEPARATE_METRIC",
+      "notes": null,
+      "enabled": true
+    },
+    {
+      "field_id": "comparison.contrast",
+      "entity_type": "Comparison",
+      "field_path": "contrast",
+      "value_type": "string",
+      "support_status": "SUPPORTED",
+      "evaluation_tier": "HARD",
+      "required": false,
+      "comparator": {
+        "type": "NORMALIZED_NUMERIC"
+      },
+      "normalization": [],
+      "gold_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "runtime_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "INSUFFICIENT_CONTEXT",
+        "UNRESOLVED",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "evidence_policy": "REQUIRED_WHEN_PRESENT",
+      "missingness_policy": "ASSESSMENT_REQUIRED_FOR_NOT_REPORTED",
+      "source_conflict_policy": "SEPARATE_METRIC",
+      "notes": null,
+      "enabled": true
+    },
+    {
+      "field_id": "comparisonResult.timepoint",
+      "entity_type": "ComparisonResult",
+      "field_path": "timepoint",
+      "value_type": "string",
+      "support_status": "SUPPORTED",
+      "evaluation_tier": "HARD",
+      "required": false,
+      "comparator": {
+        "type": "NORMALIZED_NUMERIC"
+      },
+      "normalization": [],
+      "gold_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "runtime_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "INSUFFICIENT_CONTEXT",
+        "UNRESOLVED",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "evidence_policy": "REQUIRED_WHEN_PRESENT",
+      "missingness_policy": "ASSESSMENT_REQUIRED_FOR_NOT_REPORTED",
+      "source_conflict_policy": "SEPARATE_METRIC",
+      "notes": null,
+      "enabled": true
+    },
+    {
+      "field_id": "comparisonResult.timepoint_value",
+      "entity_type": "ComparisonResult",
+      "field_path": "timepoint_value",
+      "value_type": "number",
+      "support_status": "PARTIAL",
+      "evaluation_tier": "SOFT",
+      "required": false,
+      "comparator": {
+        "type": "NORMALIZED_NUMERIC"
+      },
+      "normalization": [],
+      "gold_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "runtime_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "INSUFFICIENT_CONTEXT",
+        "UNRESOLVED",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "evidence_policy": "REQUIRED_WHEN_PRESENT",
+      "missingness_policy": "ASSESSMENT_REQUIRED_FOR_NOT_REPORTED",
+      "source_conflict_policy": "SEPARATE_METRIC",
+      "notes": null,
+      "enabled": true
+    },
+    {
+      "field_id": "comparisonResult.timepoint_unit",
+      "entity_type": "ComparisonResult",
+      "field_path": "timepoint_unit",
+      "value_type": "string",
+      "support_status": "PARTIAL",
+      "evaluation_tier": "SOFT",
+      "required": false,
+      "comparator": {
+        "type": "NORMALIZED_NUMERIC"
+      },
+      "normalization": [],
+      "gold_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "runtime_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "INSUFFICIENT_CONTEXT",
+        "UNRESOLVED",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "evidence_policy": "REQUIRED_WHEN_PRESENT",
+      "missingness_policy": "ASSESSMENT_REQUIRED_FOR_NOT_REPORTED",
+      "source_conflict_policy": "SEPARATE_METRIC",
+      "notes": null,
+      "enabled": true
+    },
+    {
+      "field_id": "comparisonResult.analysis_set",
+      "entity_type": "ComparisonResult",
+      "field_path": "analysis_set",
+      "value_type": "string",
+      "support_status": "PARTIAL",
+      "evaluation_tier": "SOFT",
+      "required": false,
+      "comparator": {
+        "type": "NORMALIZED_NUMERIC"
+      },
+      "normalization": [],
+      "gold_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "runtime_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "INSUFFICIENT_CONTEXT",
+        "UNRESOLVED",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "evidence_policy": "REQUIRED_WHEN_PRESENT",
+      "missingness_policy": "ASSESSMENT_REQUIRED_FOR_NOT_REPORTED",
+      "source_conflict_policy": "SEPARATE_METRIC",
+      "notes": null,
+      "enabled": true
+    },
+    {
+      "field_id": "comparisonResult.effect_measure",
+      "entity_type": "ComparisonResult",
+      "field_path": "effect_measure",
+      "value_type": "string",
+      "support_status": "PARTIAL",
+      "evaluation_tier": "SOFT",
+      "required": false,
+      "comparator": {
+        "type": "NORMALIZED_STRING"
+      },
+      "normalization": [],
+      "gold_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "runtime_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "INSUFFICIENT_CONTEXT",
+        "UNRESOLVED",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "evidence_policy": "REQUIRED_WHEN_PRESENT",
+      "missingness_policy": "ASSESSMENT_REQUIRED_FOR_NOT_REPORTED",
+      "source_conflict_policy": "SEPARATE_METRIC",
+      "notes": null,
+      "enabled": true
+    },
+    {
+      "field_id": "comparisonResult.estimate",
+      "entity_type": "ComparisonResult",
+      "field_path": "estimate",
+      "value_type": "number",
+      "support_status": "SUPPORTED",
+      "evaluation_tier": "HARD",
+      "required": false,
+      "comparator": {
+        "type": "NORMALIZED_NUMERIC"
+      },
+      "normalization": [],
+      "gold_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "runtime_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "INSUFFICIENT_CONTEXT",
+        "UNRESOLVED",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "evidence_policy": "REQUIRED_WHEN_PRESENT",
+      "missingness_policy": "ASSESSMENT_REQUIRED_FOR_NOT_REPORTED",
+      "source_conflict_policy": "SEPARATE_METRIC",
+      "notes": null,
+      "enabled": true
+    },
+    {
+      "field_id": "comparisonResult.confidence_interval_lower",
+      "entity_type": "ComparisonResult",
+      "field_path": "confidence_interval_lower",
+      "value_type": "number",
+      "support_status": "PARTIAL",
+      "evaluation_tier": "SOFT",
+      "required": false,
+      "comparator": {
+        "type": "NORMALIZED_NUMERIC"
+      },
+      "normalization": [],
+      "gold_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "runtime_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "INSUFFICIENT_CONTEXT",
+        "UNRESOLVED",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "evidence_policy": "REQUIRED_WHEN_PRESENT",
+      "missingness_policy": "ASSESSMENT_REQUIRED_FOR_NOT_REPORTED",
+      "source_conflict_policy": "SEPARATE_METRIC",
+      "notes": null,
+      "enabled": true
+    },
+    {
+      "field_id": "comparisonResult.confidence_interval_upper",
+      "entity_type": "ComparisonResult",
+      "field_path": "confidence_interval_upper",
+      "value_type": "number",
+      "support_status": "PARTIAL",
+      "evaluation_tier": "SOFT",
+      "required": false,
+      "comparator": {
+        "type": "NORMALIZED_NUMERIC"
+      },
+      "normalization": [],
+      "gold_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "runtime_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "INSUFFICIENT_CONTEXT",
+        "UNRESOLVED",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "evidence_policy": "REQUIRED_WHEN_PRESENT",
+      "missingness_policy": "ASSESSMENT_REQUIRED_FOR_NOT_REPORTED",
+      "source_conflict_policy": "SEPARATE_METRIC",
+      "notes": null,
+      "enabled": true
+    },
+    {
+      "field_id": "comparisonResult.p_value",
+      "entity_type": "ComparisonResult",
+      "field_path": "p_value",
+      "value_type": "number",
+      "support_status": "SUPPORTED",
+      "evaluation_tier": "HARD",
+      "required": false,
+      "comparator": {
+        "type": "NORMALIZED_NUMERIC"
+      },
+      "normalization": [],
+      "gold_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "runtime_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "INSUFFICIENT_CONTEXT",
+        "UNRESOLVED",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "evidence_policy": "REQUIRED_WHEN_PRESENT",
+      "missingness_policy": "ASSESSMENT_REQUIRED_FOR_NOT_REPORTED",
+      "source_conflict_policy": "SEPARATE_METRIC",
+      "notes": null,
+      "enabled": true
+    },
+    {
+      "field_id": "comparisonResult.p_value_comparator",
+      "entity_type": "ComparisonResult",
+      "field_path": "p_value_comparator",
+      "value_type": "string",
+      "support_status": "SUPPORTED",
+      "evaluation_tier": "HARD",
+      "required": false,
+      "comparator": {
+        "type": "NORMALIZED_NUMERIC"
+      },
+      "normalization": [],
+      "gold_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "runtime_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "INSUFFICIENT_CONTEXT",
+        "UNRESOLVED",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "evidence_policy": "REQUIRED_WHEN_PRESENT",
+      "missingness_policy": "ASSESSMENT_REQUIRED_FOR_NOT_REPORTED",
+      "source_conflict_policy": "SEPARATE_METRIC",
+      "notes": null,
+      "enabled": true
+    },
+    {
+      "field_id": "comparisonResult.raw_value",
+      "entity_type": "ComparisonResult",
+      "field_path": "raw_value",
+      "value_type": "string",
+      "support_status": "SUPPORTED",
+      "evaluation_tier": "HARD",
+      "required": false,
+      "comparator": {
+        "type": "NORMALIZED_NUMERIC"
+      },
+      "normalization": [],
+      "gold_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "runtime_allowed_statuses": [
+        "PRESENT",
+        "NOT_REPORTED",
+        "NOT_APPLICABLE",
+        "INSUFFICIENT_CONTEXT",
+        "UNRESOLVED",
+        "SOURCE_CONFLICT",
+        "REVIEW_REQUIRED"
+      ],
+      "evidence_policy": "REQUIRED_WHEN_PRESENT",
+      "missingness_policy": "ASSESSMENT_REQUIRED_FOR_NOT_REPORTED",
+      "source_conflict_policy": "SEPARATE_METRIC",
+      "notes": null,
+      "enabled": true
+    }
+  ]
+}

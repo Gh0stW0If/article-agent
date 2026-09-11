@@ -1,14 +1,14 @@
-# 2015-06 Gold DRAFT — 人工审阅包
+# 2015-06 Gold FROZEN — 人工审阅记录
 
-状态：DRAFT。尚未批准为 FROZEN，不运行真实 Agent benchmark。
+状态：FROZEN。人工审核已完成；gold_id：2015-06-gold-v1。本次仅冻结状态与版本标识，不改变任何事实 annotation。不运行真实 Agent benchmark，等待 PR 最终 merge。
 
 ## 来源与审阅范围
 
 主来源为本地 `-2015-06.pdf`，逐页审阅 1–7 页，并视觉核对第 4 页 Table 1/2。Excel `2015-6篇.xlsx` 仅用于交叉核对。SHA256 见 gold.json source_lineage；不提交二进制。
 
-## REVIEW_REQUIRED 队列
+## REVIEW_REQUIRED（已审核的不确定状态）
 
-所有条目当前 value=null；不会纳入普通 HARD 分母。
+centre_count 和 participant_blinding 保持 REVIEW_REQUIRED、value=null。这是人工审核完成后保留的不确定状态，不是未完成工作；不进入 ordinary scoring denominator（包括普通 HARD 分母）。
 
 ### Study 2015-06-S1.centre_count
 
@@ -38,9 +38,9 @@ Source says single blind and describes a mock device to facilitate blinding, but
 - 仅使用当前 Table 2 单元格的事件数和百分比：相除后取最近整数，并核对该整数计算出的百分比在原表精度下与印刷值一致。百分比已舍入，因此 A02/A03 使用近似符号。每个字段链接独立的 support_type=derived evidence，保存完整推导、页码、表格、行及组别单元格坐标。
 - derived outcome denominator does not adjudicate randomized_n SOURCE_CONFLICT. 不按人数求和、Methods/Table 1 或组别角色消解 A02/A03 randomized_n 的来源冲突。
 
-## 待人工决定
+## 冻结结论
 
-- 最终 REVIEW_REQUIRED 仅剩 2 项：centre_count 和 participant_blinding；value=null。Gold 暂仍保持 DRAFT。
+- 最终 REVIEW_REQUIRED 仅剩 2 项：centre_count 和 participant_blinding；value=null。人工审核已完成，Gold 状态为 FROZEN；两项语义与证据不变，不代表待完成工作，不进入 ordinary scoring denominator。
 
 ## 保留的解释与限制
 

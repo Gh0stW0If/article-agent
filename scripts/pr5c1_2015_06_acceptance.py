@@ -1,4 +1,4 @@
-"""Offline acceptance for the 2015-06 Gold DRAFT."""
+"""Offline acceptance for the 2015-06 FROZEN Gold."""
 from __future__ import annotations
 import hashlib
 import json
@@ -15,7 +15,8 @@ GOLD_PATH = ROOT / "gold/2015-06/gold.json"
 def validate():
     gold = GoldStandardV2.model_validate_json(GOLD_PATH.read_text(encoding="utf-8"))
     t = gold.truth
-    assert gold.state == "DRAFT"
+    assert gold.state == "FROZEN"
+    assert gold.gold_id == "2015-06-gold-v1"
     assert gold.article_id == "2015-06"
     assert t.article.article_id == "2015-06"
     assert [s.study_id for s in t.studies] == ["2015-06-S1"]
@@ -57,7 +58,7 @@ def validate():
     assert all(x.status not in {FieldStatus.UNRESOLVED,FieldStatus.INSUFFICIENT_CONTEXT}
                for group in ([t.article],t.studies,t.arms,t.interventions,t.outcomes,t.arm_results,t.comparisons,t.comparison_results)
                for item in group for _,x in item if hasattr(x,"status"))
-    # Freeze the human-reviewed DRAFT decisions, not predictions or inferred values.
+    # Preserve the human-reviewed frozen decisions, not predictions or inferred values.
     study = t.studies[0]
     assert study.participant_blinding.status == FieldStatus.REVIEW_REQUIRED
     assert study.centre_count.status == FieldStatus.REVIEW_REQUIRED
@@ -123,6 +124,10 @@ def validate():
     assert GoldStandardV2.model_validate_json(serialized).model_dump_json() == serialized
     assert "2015-06-01" not in serialized and "2015-06-02" not in serialized
     report = evaluate_article(t, gold, load_registry())
+    assert report.gold_state == "FROZEN"
+    reviewed_uncertain = [f for f in report.field_results if f.gold_status == "REVIEW_REQUIRED"]
+    assert {f.field_id for f in reviewed_uncertain} == {"study.centre_count", "study.participant_blinding"}
+    assert all(not f.in_hard_denominator and not f.in_value_accuracy_denominator for f in reviewed_uncertain)
     assert report.metrics["hard_exact"]["rate"] == 1.0
     assert report.metrics["production_coverage"]["rate"] == 1.0
     assert report.metrics["supported_value_accuracy"]["rate"] == 1.0
@@ -136,6 +141,7 @@ def validate():
                     statuses[value.status.value] += 1
     assert statuses["REVIEW_REQUIRED"] == 2
     summary = {
+        "gold_id": gold.gold_id, "gold_state": gold.state,
         "article_count": 1, "study_count": len(t.studies), "arm_count": len(t.arms),
         "intervention_count": len(t.interventions), "outcome_count": len(t.outcomes),
         "arm_result_count": len(t.arm_results), "comparison_count": len(t.comparisons),
@@ -170,7 +176,7 @@ def main():
     out.mkdir(parents=True, exist_ok=True)
     summary = validate()
     (out/"SUMMARY.json").write_text(json.dumps(summary,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
-    lines=["# 2015-06 Gold DRAFT acceptance","","状态：PASS（结构与 self-consistency），Gold 仍为 DRAFT，未评估人工事实正确性。","",
+    lines=["# 2015-06 Gold FROZEN acceptance","","状态：PASS（结构与 self-consistency）。人工审核已完成，Gold 已冻结为 FROZEN（2015-06-gold-v1）；本次冻结未改变事实 annotation，自洽检查不是独立事实准确率评估。","",
            "| 项目 | 数量 |","|---|---:|"]
     for key in ("article_count","study_count","arm_count","intervention_count","outcome_count","arm_result_count","comparison_count","comparison_result_count","present_field_count","not_reported_count","not_applicable_count","source_conflict_count","review_required_count","evidence_count","missingness_assessment_count"):
         lines.append(f"| {key} | {summary[key]} |")
@@ -182,14 +188,16 @@ def main():
     lines += [f"- {x['arm_id']}: PRESENT {x['value']}; `{x['formula']}`; raw `{x['raw_value']}`"
               for x in summary["derived_bladder_balance_denominators"]]
     lines += ["", "derived outcome denominator does not adjudicate randomized_n SOURCE_CONFLICT.",
-              "", "## Review queue", ""]
+              "", "## Reviewed uncertainty (not unfinished work)", "",
+              "centre_count 和 participant_blinding 保持 REVIEW_REQUIRED：已审核后的不确定状态，不进入 ordinary scoring denominator。", ""]
     lines += [f"- `{x}`" for x in summary["review_required_fields"]]
     lines += ["","## Scope safeguards","",
               "- Source: primary PDF `-2015-06.pdf`; workbook is LEGACY_ANNOTATION only.",
               "- No API, LLM, extraction pipeline, evaluator benchmark or Gold migration was used.",
               "- No pseudo-article IDs `2015-06-01` / `2015-06-02` occur in canonical entities.",
               "- Self-consistency PASS is not a claim that human annotation is correct.",
-              "- Review required before changing state to FROZEN."]
+              "- Human review completed; Gold is FROZEN. The two REVIEW_REQUIRED fields retain their reviewed uncertainty, not unfinished work.",
+              "- No real benchmark is run; await the final PR merge."]
     (out/"REPORT.md").write_text("\n".join(lines)+"\n",encoding="utf-8")
     print(json.dumps(summary,ensure_ascii=False,indent=2))
 

@@ -13,7 +13,8 @@ def load_gold():
 
 def test_real_gold_topology_and_no_pseudo_articles():
     g=load_gold(); t=g.truth
-    assert g.state=="DRAFT" and g.article_id=="2015-06"
+    assert g.state=="FROZEN" and g.article_id=="2015-06"
+    assert g.gold_id=="2015-06-gold-v1"
     assert len(t.studies)==1 and len(t.arms)==3 and len(t.interventions)==3 and len(t.outcomes)==4
     assert all("2015-06-0" not in x for x in [a.arm_id for a in t.arms]+[o.outcome_id for o in t.outcomes])
 
@@ -45,6 +46,10 @@ def test_missingness_and_runtime_statuses():
 
 def test_self_evaluation_and_determinism(tmp_path):
     g=load_gold(); report=evaluate_article(g.truth,g,load_registry())
+    assert report.gold_state == "FROZEN"
+    uncertain = [f for f in report.field_results if f.gold_status == "REVIEW_REQUIRED"]
+    assert {f.field_id for f in uncertain} == {"study.centre_count", "study.participant_blinding"}
+    assert all(not f.in_hard_denominator and not f.in_value_accuracy_denominator for f in uncertain)
     assert report.metrics["hard_exact"]["rate"]==1.0
     assert report.metrics["production_coverage"]["rate"]==1.0
     assert report.metrics["supported_value_accuracy"]["rate"]==1.0
@@ -135,7 +140,7 @@ def test_human_review_absences_have_complete_individual_assessments():
         assert "pages 1–7" in assessment.rationale
 
 
-def test_human_review_queue_preserves_only_undecided_fields():
+def test_frozen_gold_preserves_reviewed_uncertainty():
     from article_agent.evaluation.entity_matcher import GROUPS, entities
     t = load_gold().truth
     pending = {(kind, entity_id, field)
@@ -146,7 +151,7 @@ def test_human_review_queue_preserves_only_undecided_fields():
         ("Study", "2015-06-S1", "centre_count"),
         ("Study", "2015-06-S1", "participant_blinding"),
     }
-    assert load_gold().state == "DRAFT"
+    assert load_gold().state == "FROZEN"
 
 
 def test_countries_has_direct_address_and_reciprocal_evidence():
@@ -180,11 +185,14 @@ def test_review_document_records_accepted_baseline_and_reconciliation_only_sessi
                if re.search(r"\b90\b", line))  # Exclude evidence IDs such as E0090.
     assert "Denominator 最终人工裁决与 derivation policy" in review
     assert "deterministic derived" in review and "最终 REVIEW_REQUIRED 仅剩 2 项" in review
-    queue = review.split("## REVIEW_REQUIRED 队列", 1)[1].split("## 已接受的人工审核决策", 1)[0]
+    assert "状态：FROZEN" in review and "人工审核已完成" in review
+    assert "不是未完成工作" in review and "不进入 ordinary scoring denominator" in review
+    assert "## 待人工决定" not in review
+    queue = review.split("## REVIEW_REQUIRED（已审核的不确定状态）", 1)[1].split("## 已接受的人工审核决策", 1)[0]
     assert ".denominator" not in queue
 
 
-def test_reviewed_draft_builder_reproduces_committed_annotation():
+def test_frozen_builder_reproduces_committed_annotation():
     import runpy
     import pytest
     module = runpy.run_path(str(GOLD.parent / "build_draft.py"))
@@ -193,6 +201,17 @@ def test_reviewed_draft_builder_reproduces_committed_annotation():
     generated, queue = module["build"]()
     assert generated.model_dump_json(indent=2) + "\n" == GOLD.read_text(encoding="utf-8")
     assert len(queue) == 2
+
+
+def test_freeze_changes_no_reviewed_annotation():
+    payload = json.loads(GOLD.read_text(encoding="utf-8"))
+    assert payload.pop("state") == "FROZEN"
+    assert payload.pop("gold_id") == "2015-06-gold-v1"
+    serialized = json.dumps(payload, sort_keys=True, ensure_ascii=False, separators=(",", ":"))
+    # Snapshot of the approved DRAFT (0a5aec3), excluding only state and gold_id.
+    # Includes all truth/evidence, missingness, source lineage and historical review notes.
+    assert hashlib.sha256(serialized.encode("utf-8")).hexdigest() == (
+        "5727deb48faed69f4a5572589180a8a731141b3aca853db2b76bfd315c403e5d")
 
 
 def test_acceptance_rejects_reintroduced_bladder_timepoint(monkeypatch):

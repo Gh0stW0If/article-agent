@@ -1,7 +1,8 @@
-"""Reproduce the independently PDF-reviewed DRAFT; never reads predictions.
+"""Reproduce the independently PDF-reviewed FROZEN Gold; never reads predictions.
 
 Annotation values below were transcribed from the seven-page primary article.
 This is a document-specific authoring file, not an extraction pipeline.
+The historical filename is retained for compatibility.
 """
 import hashlib
 import json
@@ -319,7 +320,7 @@ def build():
                arm_results=arm_results,comparisons=comparisons,comparison_results=comparison_results,evidence=evidence)
     gold=GoldStandardV2.model_validate({
         "gold_version":"GOLD_STANDARD/2.0.0","article_schema_version":"ARTICLE_EXTRACTION/2.0",
-        "gold_id":"2015-06-gold-draft","article_id":"2015-06","state":"DRAFT",
+        "gold_id":"2015-06-gold-v1","article_id":"2015-06","state":"FROZEN",
         "source_lineage":{"documents":[
             {"source_id":SOURCE,"role":"PRIMARY_ARTICLE","sha256":hashlib.sha256(PDF.read_bytes()).hexdigest()},
             {"source_id":"2015-06-legacy-workbook","role":"LEGACY_ANNOTATION","sha256":hashlib.sha256(WORKBOOK.read_bytes()).hexdigest()}]},
@@ -340,9 +341,9 @@ def main():
     gold,queue=build()
     directory=Path(__file__).parent
     (directory/"gold.json").write_text(gold.model_dump_json(indent=2)+"\n",encoding="utf-8")
-    lines=["# 2015-06 Gold DRAFT — 人工审阅包","","状态：DRAFT。尚未批准为 FROZEN，不运行真实 Agent benchmark。",
+    lines=["# 2015-06 Gold FROZEN — 人工审阅记录","","状态：FROZEN。人工审核已完成；gold_id：2015-06-gold-v1。本次仅冻结状态与版本标识，不改变任何事实 annotation。不运行真实 Agent benchmark，等待 PR 最终 merge。",
         "","## 来源与审阅范围","","主来源为本地 `-2015-06.pdf`，逐页审阅 1–7 页，并视觉核对第 4 页 Table 1/2。Excel `2015-6篇.xlsx` 仅用于交叉核对。SHA256 见 gold.json source_lineage；不提交二进制。",
-        "","## REVIEW_REQUIRED 队列","","所有条目当前 value=null；不会纳入普通 HARD 分母。"]
+        "","## REVIEW_REQUIRED（已审核的不确定状态）","","centre_count 和 participant_blinding 保持 REVIEW_REQUIRED、value=null。这是人工审核完成后保留的不确定状态，不是未完成工作；不进入 ordinary scoring denominator（包括普通 HARD 分母）。"]
     by_id={e.evidence_id:e for e in gold.truth.evidence}
     for kind,eid,field,reason,ids in queue:
         lines += [f"\n### {kind} {eid}.{field}","",reason]
@@ -360,8 +361,8 @@ def main():
         "- A03：23 / 0.605 ≈ 38；raw_value 保留 \"23 (60.5)\"。",
         "- 仅使用当前 Table 2 单元格的事件数和百分比：相除后取最近整数，并核对该整数计算出的百分比在原表精度下与印刷值一致。百分比已舍入，因此 A02/A03 使用近似符号。每个字段链接独立的 support_type=derived evidence，保存完整推导、页码、表格、行及组别单元格坐标。",
         "- derived outcome denominator does not adjudicate randomized_n SOURCE_CONFLICT. 不按人数求和、Methods/Table 1 或组别角色消解 A02/A03 randomized_n 的来源冲突。",
-        "","## 待人工决定","",
-        "- 最终 REVIEW_REQUIRED 仅剩 2 项：centre_count 和 participant_blinding；value=null。Gold 暂仍保持 DRAFT。",
+        "","## 冻结结论","",
+        "- 最终 REVIEW_REQUIRED 仅剩 2 项：centre_count 和 participant_blinding；value=null。人工审核已完成，Gold 状态为 FROZEN；两项语义与证据不变，不代表待完成工作，不进入 ordinary scoring denominator。",
         "","## 保留的解释与限制","",
         "- Bladder balance 定义见 Outcome O01.legacy_fields.definition：低压充分排尿、残余尿约100 ml或以下、无感染。",
         "- A02/A03 randomized_n 各保留 Methods/Table 1 两候选，不依据百分比裁决。",
@@ -381,7 +382,7 @@ def main():
         "","## 解释限制","","NOT_REPORTED coverage_complete 仅指已审阅提供的完整论文及合理章节，不代表检索过所有外部注册/补充文件。",
         "Self-consistency PASS 只证明与冻结 schema/evaluator 结构兼容，不证明人工标注正确。"]
     (directory/"REVIEW.md").write_text("\n".join(lines)+"\n",encoding="utf-8")
-    print(f"DRAFT written; review queue={len(queue)}")
+    print(f"FROZEN written; reviewed uncertain fields={len(queue)}")
 
 
 if __name__=="__main__":

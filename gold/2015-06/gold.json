@@ -1,9 +1,9 @@
 {
   "gold_version": "GOLD_STANDARD/2.0.0",
   "article_schema_version": "ARTICLE_EXTRACTION/2.0",
-  "gold_id": "2015-06-gold-draft",
+  "gold_id": "2015-06-gold-v1",
   "article_id": "2015-06",
-  "state": "DRAFT",
+  "state": "FROZEN",
   "source_lineage": {
     "documents": [
       {

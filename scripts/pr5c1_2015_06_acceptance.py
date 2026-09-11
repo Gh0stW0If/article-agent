@@ -57,8 +57,50 @@ def validate():
     assert all(x.status not in {FieldStatus.UNRESOLVED,FieldStatus.INSUFFICIENT_CONTEXT}
                for group in ([t.article],t.studies,t.arms,t.interventions,t.outcomes,t.arm_results,t.comparisons,t.comparison_results)
                for item in group for _,x in item if hasattr(x,"status"))
+    # Freeze the human-reviewed DRAFT decisions, not predictions or inferred values.
+    study = t.studies[0]
+    assert study.participant_blinding.status == FieldStatus.REVIEW_REQUIRED
+    assert study.centre_count.status == FieldStatus.REVIEW_REQUIRED
+    reviewed_absences = [getattr(study, f) for f in (
+        "practitioner_blinding", "outcome_assessor_blinding", "statistician_blinding")]
+    reviewed_absences += [i.total_sessions for i in t.interventions
+                         if i.intervention_id in {"2015-06-S1-I02", "2015-06-S1-I03"}]
+    bladder_arms = [r for r in t.arm_results if r.outcome_id == "2015-06-S1-O01"]
+    bladder_comparisons = [r for r in t.comparison_results if r.outcome_id == "2015-06-S1-O01"]
+    assert len(bladder_arms) == len(bladder_comparisons) == 3
+    for result in bladder_arms + bladder_comparisons:
+        reviewed_absences.extend(getattr(result, f) for f in (
+            "timepoint", "timepoint_value", "timepoint_unit"))
+    assert len(reviewed_absences) == 23
+    assert all(f.status == FieldStatus.NOT_REPORTED and f.value is None for f in reviewed_absences)
+    baseline = [r for r in t.arm_results if r.source_row_id == "residual-baseline"]
+    assert len(t.arm_results) == 21 and len(baseline) == 3
+    assert all(r.outcome_id == "2015-06-S1-O03" and r.timepoint.value == "baseline" for r in baseline)
     # Gold permits some empty evidence lists structurally; real annotation does not.
     evidence_by_id={e.evidence_id:e for e in t.evidence}
+    derived_denominators = []
+    for i, (value, raw, formula) in enumerate(zip(
+            (35, 34, 38), ("21 (60.0)", "29 (85.29)", "23 (60.5)"),
+            ("21 / 0.600 = 35", "29 / 0.8529 ≈ 34", "23 / 0.605 ≈ 38")), start=1):
+        result = next(r for r in bladder_arms if r.arm_id == f"2015-06-S1-A{i:02}")
+        field = result.denominator
+        assert field.status == FieldStatus.PRESENT and field.value == value and field.raw_value == raw
+        assert field.evidence_ids and not field.conflict_candidates
+        disclaimer = "derived outcome denominator does not adjudicate randomized_n SOURCE_CONFLICT."
+        assert disclaimer in result.legacy_fields["annotation_notes"]["denominator"]
+        for eid in field.evidence_ids:
+            e = evidence_by_id[eid]
+            assert e.support_type == "derived" and e.derivation and formula in e.derivation
+            assert disclaimer in e.derivation and e.quote == raw
+            assert e.page == 4 and e.table_id == "Table 2" and e.row_id == "bladder-balance"
+            assert e.cell_refs == [f"Group {i}"]
+        derived_denominators.append({"arm_id": result.arm_id, "status": field.status.value,
+                                     "value": field.value, "raw_value": field.raw_value,
+                                     "formula": formula, "evidence_ids": field.evidence_ids})
+    assert any(evidence_by_id[eid].support_type == "direct"
+               and evidence_by_id[eid].page == 5
+               and "Jiaxing University, Jiaxing 314000, China" in evidence_by_id[eid].quote
+               for eid in study.countries.evidence_ids)
     assessments={(m.entity_type,m.entity_id,m.field_id):m for m in gold.missingness_assessments}
     from article_agent.evaluation.entity_matcher import GROUPS, entities
     for kind in GROUPS:
@@ -78,6 +120,7 @@ def validate():
                             assert e.source_id=="2015-06-article" and e.page
                             assert any(target.entity_type==kind and target.entity_id==entity_id and target.field_id==field for target in e.targets)
     serialized=gold.model_dump_json()
+    assert GoldStandardV2.model_validate_json(serialized).model_dump_json() == serialized
     assert "2015-06-01" not in serialized and "2015-06-02" not in serialized
     report = evaluate_article(t, gold, load_registry())
     assert report.metrics["hard_exact"]["rate"] == 1.0
@@ -91,6 +134,7 @@ def validate():
             for _, value in item:
                 if hasattr(value,"status"):
                     statuses[value.status.value] += 1
+    assert statuses["REVIEW_REQUIRED"] == 2
     summary = {
         "article_count": 1, "study_count": len(t.studies), "arm_count": len(t.arms),
         "intervention_count": len(t.interventions), "outcome_count": len(t.outcomes),
@@ -100,6 +144,7 @@ def validate():
         "not_applicable_count": statuses["NOT_APPLICABLE"], "source_conflict_count": statuses["SOURCE_CONFLICT"],
         "review_required_count": statuses["REVIEW_REQUIRED"], "evidence_count": len(t.evidence),
         "missingness_assessment_count": len(gold.missingness_assessments),
+        "derived_bladder_balance_denominators": derived_denominators,
         "self_evaluation": {
             "hard_exact": report.metrics["hard_exact"],
             "production_coverage": report.metrics["production_coverage"],
@@ -133,7 +178,11 @@ def main():
               f"- Production coverage: `{summary['self_evaluation']['production_coverage']}`",
               f"- Supported value accuracy: `{summary['self_evaluation']['supported_value_accuracy']}`",
               f"- Conflict detection: `{summary['self_evaluation']['conflict_detection']}`",
-              "","## Review queue",""]
+              "","## Human-adjudicated derived denominators",""]
+    lines += [f"- {x['arm_id']}: PRESENT {x['value']}; `{x['formula']}`; raw `{x['raw_value']}`"
+              for x in summary["derived_bladder_balance_denominators"]]
+    lines += ["", "derived outcome denominator does not adjudicate randomized_n SOURCE_CONFLICT.",
+              "", "## Review queue", ""]
     lines += [f"- `{x}`" for x in summary["review_required_fields"]]
     lines += ["","## Scope safeguards","",
               "- Source: primary PDF `-2015-06.pdf`; workbook is LEGACY_ANNOTATION only.",

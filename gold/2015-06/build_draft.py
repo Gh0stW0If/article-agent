@@ -5,6 +5,7 @@ This is a document-specific authoring file, not an extraction pipeline.
 """
 import hashlib
 import json
+from decimal import Decimal, ROUND_HALF_UP
 from pathlib import Path
 import sys
 from article_agent.domain import models as dm
@@ -104,6 +105,8 @@ def build():
         "This study was a single blind, randomized, controlled clinical trial", 2, section="Methods")
     put(study, "condition", "urinary retention after spinal cord injury", "urinary retention (residual urine volume > 100 ml) after SCI", 2)
     put(study, "countries", ["China"], "A total of 107 Chinese patients", 2)
+    study["countries"]["evidence_ids"].append(ev(study, "countries",
+        "Second Hospital, Jiaxing University, Jiaxing 314000, China.", 5, section="Correspondence"))
     put(study, "randomized_n", 107, "A total of 107 patients with SCI induced urinary retention were randomly divided into 3 groups", 1)
     review(study, "centre_count", "Methods gives one recruiting hospital; Acknowledgements names two hospitals where the study was finished. Centre definition requires review; no explicit contradictory centre counts.",
            "We thank Second Hospital Affiliated Jiaxing University and Sir Runrun Hospital of Zhejiang University where the study was finished.", 5)
@@ -114,9 +117,12 @@ def build():
         derivation="Existing coding contract (legacy workbook Sheet1 AD1: 2=计算机随机; canonical adapter random_sequence_class preserves code 2) maps computer-generated list to 2. Article does not print the code.")
     nr(study, "allocation_concealment allocation_concealment_code",
        "Full article including Methods randomization paragraph reports sequence generation only, no allocation concealment. Canonical legacy adapter excludes NR code 5 from present codes; retain NOT_REPORTED, not a numeric source observation.")
-    for field in ("participant_blinding", "practitioner_blinding", "outcome_assessor_blinding", "statistician_blinding"):
-        review(study, field, "Source says single blind and describes a mock device to facilitate blinding, but does not explicitly identify the blinded party.",
-               "To facilitate blinding, a mock EA therapeutic instrument, emitted a sound and a blinking light, was attached to the needles", 3)
+    review(study, "participant_blinding", "Source says single blind and describes a mock device to facilitate blinding, but does not explicitly identify the blinded party.",
+           "To facilitate blinding, a mock EA therapeutic instrument, emitted a sound and a blinking light, was attached to the needles", 3)
+    for field, party in (("practitioner_blinding", "treating practitioners"),
+                         ("outcome_assessor_blinding", "outcome assessors"),
+                         ("statistician_blinding", "statisticians")):
+        nr(study, field, f"Human-reviewed NOT_REPORTED: full article, including Methods treatment/blinding paragraphs, outcome measurements and statistical analysis, does not explicitly report blinding of {party}. The single-blind label and mock-device description do not identify this party as blinded; no role inference is made.")
     nr(study, "primary_analysis_set missing_data_method",
        "Reviewed Methods/statistical analysis, Results, Discussion and all seven pages: no ITT, per-protocol, complete-case or imputation statement. ANOVA/Tukey/Bonferroni describe tests, not analysis set or missing-data handling.")
     arms = []
@@ -180,7 +186,7 @@ def build():
             put(item,"frequency_raw","once a day","EA was performed on patients in the morning once a day.",2)
             put(item,"frequency_value",1,"once a day",2,derivation="Explicit once/day parsed as value 1 and unit day.")
             put(item,"frequency_unit","day","once a day",2,derivation="Explicit once/day parsed as value 1 and unit day.")
-            review(item,"total_sessions","Legacy workbook gives 90 from once/day × 3 months; months have variable length and no explicit 90 sessions are printed.","These treatments lasted for 3 months.",2)
+            nr(item,"total_sessions","Human-reviewed NOT_REPORTED: Methods reports EA once/day and a three-month treatment course, but no total session count. Full article contains no explicit total; frequency and calendar months are not converted to sessions.")
         else:
             put(item,"description","Needle taped to BL31–BL34 dermal surface without insertion; mock EA device emits sound/blinking light; same CIC procedure.",sham,3,
                 derivation="Summary of sham paragraph; no penetrating acupuncture.")
@@ -192,7 +198,7 @@ def build():
             item["description"]["evidence_ids"].append(ev(item,"description",
                 "The procedure of CIC was same as described above",3))
             nr(item,"frequency_raw frequency_value frequency_unit","Sham described as based on EA method, without an explicit sham frequency; do not silently copy once/day.")
-            review(item,"total_sessions","Sham total treatment count is not reported; do not inherit 90 from EA/legacy workbook.","These treatments lasted for 3 months.",2)
+            nr(item,"total_sessions","Human-reviewed NOT_REPORTED: Methods sham-treatment paragraph and full article report no total sham session count. Do not copy the EA schedule or calculate a count from treatment duration.")
     outcomes = []
     for i,name in enumerate(["Bladder balance","CIC frequency","Residual urine volume","Voided volume"]):
         o=entity(dm.Outcome,SID+f"-O{i+1:02}",study_id=SID); outcomes.append(o)
@@ -229,9 +235,7 @@ def build():
             put(item,"timepoint_value",month,rowname,4,table="Table 2",row=row,cell="label",derivation="Explicit row timepoint split into number and unit.")
             put(item,"timepoint_unit","months",rowname,4,table="Table 2",row=row,cell="label",derivation="Explicit row timepoint split into number and unit.")
         elif row=="bladder-balance":
-            for field in ("timepoint","timepoint_value","timepoint_unit"):
-                review(item,field,"Table 2 gives no timepoint; Results mentions the 1st month in a sentence also naming voided volume. Scope of the time qualifier is ambiguous; no inheritance from adjacent rows.",
-                       "there were no significant differences between group 1 and 3 in number of bladder balance patients and voided volume (ml) at the 1st month",4)
+            nr(item,"timepoint timepoint_value timepoint_unit","Human-reviewed NOT_REPORTED: Table 2 bladder-balance row, caption and footnote do not state a timepoint. Full Methods/Results review provides no uniquely assigned timepoint for these counts or their comparisons. The Results sentence also naming voided volume does not establish a bladder-balance timepoint; do not infer one month or borrow adjacent-row timepoints.")
         else:
             nr(item,"timepoint timepoint_value timepoint_unit","CIC-frequency row has no timepoint; full Results/Methods do not uniquely assign one. Do not assume 3 months.")
     for row_index,(row,oi,month,values,pvalues) in enumerate(ROWS):
@@ -246,7 +250,23 @@ def build():
                 put(r,"value_kind","event_count",ROW_NAMES[0],4,table="Table 2",row=row,cell="label",derivation="n,% row represents event counts plus percentages, not a continuous mean.")
                 put(r,"event_count",int(raw.split()[0]),raw,4,**loc)
                 na(r,"value standard_deviation change_from_baseline dispersion_lower dispersion_upper","Event count record: continuous mean/SD/change/dispersion fields do not apply.")
-                review(r,"denominator","Percentages imply 35/34/38 but explicit outcome denominators are not given; Methods allocation conflicts with Table 1. No denominator inferred from percentages.",raw,4)
+                # Human-approved, field-level derivation from this Table 2 cell only.
+                count_text, percent_text = raw.rstrip(")").split(" (")
+                count, percent = Decimal(count_text), Decimal(percent_text)
+                proportion = percent / 100
+                denominator = int((count / proportion).to_integral_value(rounding=ROUND_HALF_UP))
+                assert (count * 100 / denominator).quantize(percent, rounding=ROUND_HALF_UP) == percent
+                precision = -percent.as_tuple().exponent + 2
+                relation = "=" if count / proportion == denominator else "≈"
+                derivation = (
+                    f"{count_text} / {proportion:.{precision}f} {relation} {denominator}. "
+                    "Human-approved deterministic policy: divide the reported event count by its reported percentage/100, "
+                    "round to the nearest integer, and verify that the resulting percentage rounds back to the printed precision. "
+                    "Use only this Table 2 cell, not Methods/Table 1 allocation counts. "
+                    "derived outcome denominator does not adjudicate randomized_n SOURCE_CONFLICT."
+                )
+                put(r,"denominator",denominator,raw,4,derivation=derivation,**loc)
+                reasons[(id(r),"denominator")] = derivation
             else:
                 put(r,"value_kind","mean","Quantitative data were expressed as mean ± standard deviation (SD).",3)
                 mean,sd=map(float,raw.split("±"))
@@ -269,7 +289,7 @@ def build():
         r=entity(dm.ArmResult,SID+f"-AR{len(arm_results)+1:02}",outcome_id=SID+"-O03",arm_id=ARMS[ai],source_table_id="Table 1",source_row_id="residual-baseline")
         arm_results.append(r); loc=dict(table="Table 1",row="residual-baseline",cell=f"Group {ai+1}")
         put(r,"timepoint","baseline","Table 1. The clinical state of patients with spinal cord injury (SCI) induced urinary retention",4,
-            derivation="Table 1 clinical characteristics before treatment outcomes in Table 2; retained as baseline observation for review.",**loc)
+            derivation="Table 1 clinical characteristics before treatment outcomes in Table 2; retained as baseline observation under the accepted baseline inclusion policy.",**loc)
         na(r,"timepoint_value timepoint_unit","Baseline is a phase, not an elapsed numeric time.")
         put(r,"raw_value",raw,raw,4,**loc)
         put(r,"value_kind","mean","Quantitative data were expressed as mean ± standard deviation (SD).",3)
@@ -308,8 +328,8 @@ def build():
             "DRAFT independently annotated from all seven PDF pages; workbook only cross-checked. No prediction output or LLM/API was used.",
             "PDF journal abbreviation retained as normalized journal value; no external bibliographic lookup.",
             "NOT_REPORTED vs NOT_APPLICABLE decisions are per-field in legacy_fields.annotation_notes.",
-            "Baseline residual-urine results retained as three observations, not additional Outcomes; reviewer to confirm inclusion policy.",
-            "Table 2 percentages retained in raw_value; no inferred outcome denominators or effects.",
+            "Accepted policy: retain the three Table 1 baseline residual-urine ArmResults under the existing Outcome; baseline inclusion is not pending adjudication.",
+            "Human-adjudicated policy: Table 2 bladder-balance denominators are deterministically derived as 35/34/38 from the event counts and printed percentages, with field-level derived evidence and original cells retained. derived outcome denominator does not adjudicate randomized_n SOURCE_CONFLICT. No derived effects.",
             "Source quote normalization joins PDF line wraps and removes discretionary hyphens only; author affiliation markers transcribed as text.",
             "No claim of annotation accuracy from self-evaluation; self-consistency only.",
         ]})
@@ -327,7 +347,22 @@ def main():
     for kind,eid,field,reason,ids in queue:
         lines += [f"\n### {kind} {eid}.{field}","",reason]
         lines += [f"- {e}: PDF p.{by_id[e].page}: {by_id[e].quote}" for e in ids]
-    lines += ["","## 额外人工审阅项目","","- 已保留 Table 1 的 3 个 baseline residual urine ArmResults；不新建 Outcome。请确认 baseline inclusion policy。",
+    lines += ["","## 已接受的人工审核决策","",
+        "- Baseline inclusion：accepted policy。保留 Table 1 的 3 个 baseline residual urine ArmResults，并关联已有 Outcome；不再作为待裁决项。",
+        "- participant_blinding 保持 REVIEW_REQUIRED；practitioner / outcome assessor / statistician blinding 改为 NOT_REPORTED，各自建立完整 MissingnessAssessment，不从 single blind 推断角色。",
+        "- I02/I03.total_sessions 改为 NOT_REPORTED；不由频次和月数计算 Gold 总次数。Workbook 数值仅留在下方 reconciliation note。",
+        "- Bladder balance 的 3 个 ArmResult 和 3 个 ComparisonResult，其 timepoint / timepoint_value / timepoint_unit 共 18 个字段均为 NOT_REPORTED，逐字段建立 MissingnessAssessment；不从 Results 句子推断 1 month。",
+        "- Study.countries 保留 Chinese patients 来源，并补充 PDF 第 5 页通讯地址 Second Hospital, Jiaxing University, Jiaxing 314000, China 的直接证据。",
+        "","## Denominator 最终人工裁决与 derivation policy","",
+        "- 已接受 deterministic derived：三个 bladder balance ArmResult.denominator 均为 PRESENT，并从待审队列移除。",
+        "- A01：21 / 0.600 = 35；raw_value 保留 \"21 (60.0)\"。",
+        "- A02：29 / 0.8529 ≈ 34；raw_value 保留 \"29 (85.29)\"。",
+        "- A03：23 / 0.605 ≈ 38；raw_value 保留 \"23 (60.5)\"。",
+        "- 仅使用当前 Table 2 单元格的事件数和百分比：相除后取最近整数，并核对该整数计算出的百分比在原表精度下与印刷值一致。百分比已舍入，因此 A02/A03 使用近似符号。每个字段链接独立的 support_type=derived evidence，保存完整推导、页码、表格、行及组别单元格坐标。",
+        "- derived outcome denominator does not adjudicate randomized_n SOURCE_CONFLICT. 不按人数求和、Methods/Table 1 或组别角色消解 A02/A03 randomized_n 的来源冲突。",
+        "","## 待人工决定","",
+        "- 最终 REVIEW_REQUIRED 仅剩 2 项：centre_count 和 participant_blinding；value=null。Gold 暂仍保持 DRAFT。",
+        "","## 保留的解释与限制","",
         "- Bladder balance 定义见 Outcome O01.legacy_fields.definition：低压充分排尿、残余尿约100 ml或以下、无感染。",
         "- A02/A03 randomized_n 各保留 Methods/Table 1 两候选，不依据百分比裁决。",
         "- Sham frequency 未明确单独报告，不复制 EA once/day。CIC 固定频次不适用，不能与 CIC frequency 结局混淆。",
@@ -336,7 +371,7 @@ def main():
         "","## Legacy workbook reconciliation","",
         "| Workbook item | Gold interpretation | Reason |","|---|---|---|",
         "| Sheet1 rows 10–11 的两条比较记录 | 一个 Article、三臂、三项明确比较 | 不是两篇文章；编号不进入 Gold truth |",
-        "| total_sessions=90 | REVIEW_REQUIRED | once/day × 3 months 不等于原文报告90次 |",
+        "| total_sessions=90 | I02/I03 NOT_REPORTED，value=null | Workbook 90 仅留在本 reconciliation note；once/day × 3 months 不等于原文报告总次数，不进入 Gold value |",
         "| centre_count=1 | REVIEW_REQUIRED | Acknowledgements另提第二家医院 |",
         "| Group2/3 n=34/38 | SOURCE_CONFLICT | Methods写38/34，Table1写34/38 |",
         "| analyzed n 复制随机人数、dropout=0 | NOT_REPORTED | 原文未明确对应 flow counts |",

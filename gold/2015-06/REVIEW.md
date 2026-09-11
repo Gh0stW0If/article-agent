@@ -13,147 +13,37 @@
 ### Study 2015-06-S1.centre_count
 
 Methods gives one recruiting hospital; Acknowledgements names two hospitals where the study was finished. Centre definition requires review; no explicit contradictory centre counts.
-- E0011: PDF p.5: We thank Second Hospital Affiliated Jiaxing University and Sir Runrun Hospital of Zhejiang University where the study was finished.
-- E0012: PDF p.2: which was performed in the Department of Rehabilitation Medicine, Affiliated Second Hospital of Jiaxing University
+- E0012: PDF p.5: We thank Second Hospital Affiliated Jiaxing University and Sir Runrun Hospital of Zhejiang University where the study was finished.
+- E0013: PDF p.2: which was performed in the Department of Rehabilitation Medicine, Affiliated Second Hospital of Jiaxing University
 
 ### Study 2015-06-S1.participant_blinding
 
 Source says single blind and describes a mock device to facilitate blinding, but does not explicitly identify the blinded party.
-- E0015: PDF p.3: To facilitate blinding, a mock EA therapeutic instrument, emitted a sound and a blinking light, was attached to the needles
-
-### Study 2015-06-S1.practitioner_blinding
-
-Source says single blind and describes a mock device to facilitate blinding, but does not explicitly identify the blinded party.
 - E0016: PDF p.3: To facilitate blinding, a mock EA therapeutic instrument, emitted a sound and a blinking light, was attached to the needles
 
-### Study 2015-06-S1.outcome_assessor_blinding
+## 已接受的人工审核决策
 
-Source says single blind and describes a mock device to facilitate blinding, but does not explicitly identify the blinded party.
-- E0017: PDF p.3: To facilitate blinding, a mock EA therapeutic instrument, emitted a sound and a blinking light, was attached to the needles
+- Baseline inclusion：accepted policy。保留 Table 1 的 3 个 baseline residual urine ArmResults，并关联已有 Outcome；不再作为待裁决项。
+- participant_blinding 保持 REVIEW_REQUIRED；practitioner / outcome assessor / statistician blinding 改为 NOT_REPORTED，各自建立完整 MissingnessAssessment，不从 single blind 推断角色。
+- I02/I03.total_sessions 改为 NOT_REPORTED；不由频次和月数计算 Gold 总次数。Workbook 数值仅留在下方 reconciliation note。
+- Bladder balance 的 3 个 ArmResult 和 3 个 ComparisonResult，其 timepoint / timepoint_value / timepoint_unit 共 18 个字段均为 NOT_REPORTED，逐字段建立 MissingnessAssessment；不从 Results 句子推断 1 month。
+- Study.countries 保留 Chinese patients 来源，并补充 PDF 第 5 页通讯地址 Second Hospital, Jiaxing University, Jiaxing 314000, China 的直接证据。
 
-### Study 2015-06-S1.statistician_blinding
+## Denominator 最终人工裁决与 derivation policy
 
-Source says single blind and describes a mock device to facilitate blinding, but does not explicitly identify the blinded party.
-- E0018: PDF p.3: To facilitate blinding, a mock EA therapeutic instrument, emitted a sound and a blinking light, was attached to the needles
+- 已接受 deterministic derived：三个 bladder balance ArmResult.denominator 均为 PRESENT，并从待审队列移除。
+- A01：21 / 0.600 = 35；raw_value 保留 "21 (60.0)"。
+- A02：29 / 0.8529 ≈ 34；raw_value 保留 "29 (85.29)"。
+- A03：23 / 0.605 ≈ 38；raw_value 保留 "23 (60.5)"。
+- 仅使用当前 Table 2 单元格的事件数和百分比：相除后取最近整数，并核对该整数计算出的百分比在原表精度下与印刷值一致。百分比已舍入，因此 A02/A03 使用近似符号。每个字段链接独立的 support_type=derived evidence，保存完整推导、页码、表格、行及组别单元格坐标。
+- derived outcome denominator does not adjudicate randomized_n SOURCE_CONFLICT. 不按人数求和、Methods/Table 1 或组别角色消解 A02/A03 randomized_n 的来源冲突。
 
-### Intervention 2015-06-S1-I02.total_sessions
+## 待人工决定
 
-Legacy workbook gives 90 from once/day × 3 months; months have variable length and no explicit 90 sessions are printed.
-- E0058: PDF p.2: These treatments lasted for 3 months.
+- 最终 REVIEW_REQUIRED 仅剩 2 项：centre_count 和 participant_blinding；value=null。Gold 暂仍保持 DRAFT。
 
-### Intervention 2015-06-S1-I03.total_sessions
+## 保留的解释与限制
 
-Sham total treatment count is not reported; do not inherit 90 from EA/legacy workbook.
-- E0069: PDF p.2: These treatments lasted for 3 months.
-
-### ArmResult 2015-06-S1-AR01.timepoint
-
-Table 2 gives no timepoint; Results mentions the 1st month in a sentence also naming voided volume. Scope of the time qualifier is ambiguous; no inheritance from adjacent rows.
-- E0088: PDF p.4: there were no significant differences between group 1 and 3 in number of bladder balance patients and voided volume (ml) at the 1st month
-
-### ArmResult 2015-06-S1-AR01.timepoint_value
-
-Table 2 gives no timepoint; Results mentions the 1st month in a sentence also naming voided volume. Scope of the time qualifier is ambiguous; no inheritance from adjacent rows.
-- E0089: PDF p.4: there were no significant differences between group 1 and 3 in number of bladder balance patients and voided volume (ml) at the 1st month
-
-### ArmResult 2015-06-S1-AR01.timepoint_unit
-
-Table 2 gives no timepoint; Results mentions the 1st month in a sentence also naming voided volume. Scope of the time qualifier is ambiguous; no inheritance from adjacent rows.
-- E0090: PDF p.4: there were no significant differences between group 1 and 3 in number of bladder balance patients and voided volume (ml) at the 1st month
-
-### ArmResult 2015-06-S1-AR01.denominator
-
-Percentages imply 35/34/38 but explicit outcome denominators are not given; Methods allocation conflicts with Table 1. No denominator inferred from percentages.
-- E0093: PDF p.4: 21 (60.0)
-
-### ArmResult 2015-06-S1-AR02.timepoint
-
-Table 2 gives no timepoint; Results mentions the 1st month in a sentence also naming voided volume. Scope of the time qualifier is ambiguous; no inheritance from adjacent rows.
-- E0095: PDF p.4: there were no significant differences between group 1 and 3 in number of bladder balance patients and voided volume (ml) at the 1st month
-
-### ArmResult 2015-06-S1-AR02.timepoint_value
-
-Table 2 gives no timepoint; Results mentions the 1st month in a sentence also naming voided volume. Scope of the time qualifier is ambiguous; no inheritance from adjacent rows.
-- E0096: PDF p.4: there were no significant differences between group 1 and 3 in number of bladder balance patients and voided volume (ml) at the 1st month
-
-### ArmResult 2015-06-S1-AR02.timepoint_unit
-
-Table 2 gives no timepoint; Results mentions the 1st month in a sentence also naming voided volume. Scope of the time qualifier is ambiguous; no inheritance from adjacent rows.
-- E0097: PDF p.4: there were no significant differences between group 1 and 3 in number of bladder balance patients and voided volume (ml) at the 1st month
-
-### ArmResult 2015-06-S1-AR02.denominator
-
-Percentages imply 35/34/38 but explicit outcome denominators are not given; Methods allocation conflicts with Table 1. No denominator inferred from percentages.
-- E0100: PDF p.4: 29 (85.29)
-
-### ArmResult 2015-06-S1-AR03.timepoint
-
-Table 2 gives no timepoint; Results mentions the 1st month in a sentence also naming voided volume. Scope of the time qualifier is ambiguous; no inheritance from adjacent rows.
-- E0102: PDF p.4: there were no significant differences between group 1 and 3 in number of bladder balance patients and voided volume (ml) at the 1st month
-
-### ArmResult 2015-06-S1-AR03.timepoint_value
-
-Table 2 gives no timepoint; Results mentions the 1st month in a sentence also naming voided volume. Scope of the time qualifier is ambiguous; no inheritance from adjacent rows.
-- E0103: PDF p.4: there were no significant differences between group 1 and 3 in number of bladder balance patients and voided volume (ml) at the 1st month
-
-### ArmResult 2015-06-S1-AR03.timepoint_unit
-
-Table 2 gives no timepoint; Results mentions the 1st month in a sentence also naming voided volume. Scope of the time qualifier is ambiguous; no inheritance from adjacent rows.
-- E0104: PDF p.4: there were no significant differences between group 1 and 3 in number of bladder balance patients and voided volume (ml) at the 1st month
-
-### ArmResult 2015-06-S1-AR03.denominator
-
-Percentages imply 35/34/38 but explicit outcome denominators are not given; Methods allocation conflicts with Table 1. No denominator inferred from percentages.
-- E0107: PDF p.4: 23 (60.5)
-
-### ComparisonResult 2015-06-S1-CR01.timepoint
-
-Table 2 gives no timepoint; Results mentions the 1st month in a sentence also naming voided volume. Scope of the time qualifier is ambiguous; no inheritance from adjacent rows.
-- E0111: PDF p.4: there were no significant differences between group 1 and 3 in number of bladder balance patients and voided volume (ml) at the 1st month
-
-### ComparisonResult 2015-06-S1-CR01.timepoint_value
-
-Table 2 gives no timepoint; Results mentions the 1st month in a sentence also naming voided volume. Scope of the time qualifier is ambiguous; no inheritance from adjacent rows.
-- E0112: PDF p.4: there were no significant differences between group 1 and 3 in number of bladder balance patients and voided volume (ml) at the 1st month
-
-### ComparisonResult 2015-06-S1-CR01.timepoint_unit
-
-Table 2 gives no timepoint; Results mentions the 1st month in a sentence also naming voided volume. Scope of the time qualifier is ambiguous; no inheritance from adjacent rows.
-- E0113: PDF p.4: there were no significant differences between group 1 and 3 in number of bladder balance patients and voided volume (ml) at the 1st month
-
-### ComparisonResult 2015-06-S1-CR02.timepoint
-
-Table 2 gives no timepoint; Results mentions the 1st month in a sentence also naming voided volume. Scope of the time qualifier is ambiguous; no inheritance from adjacent rows.
-- E0117: PDF p.4: there were no significant differences between group 1 and 3 in number of bladder balance patients and voided volume (ml) at the 1st month
-
-### ComparisonResult 2015-06-S1-CR02.timepoint_value
-
-Table 2 gives no timepoint; Results mentions the 1st month in a sentence also naming voided volume. Scope of the time qualifier is ambiguous; no inheritance from adjacent rows.
-- E0118: PDF p.4: there were no significant differences between group 1 and 3 in number of bladder balance patients and voided volume (ml) at the 1st month
-
-### ComparisonResult 2015-06-S1-CR02.timepoint_unit
-
-Table 2 gives no timepoint; Results mentions the 1st month in a sentence also naming voided volume. Scope of the time qualifier is ambiguous; no inheritance from adjacent rows.
-- E0119: PDF p.4: there were no significant differences between group 1 and 3 in number of bladder balance patients and voided volume (ml) at the 1st month
-
-### ComparisonResult 2015-06-S1-CR03.timepoint
-
-Table 2 gives no timepoint; Results mentions the 1st month in a sentence also naming voided volume. Scope of the time qualifier is ambiguous; no inheritance from adjacent rows.
-- E0123: PDF p.4: there were no significant differences between group 1 and 3 in number of bladder balance patients and voided volume (ml) at the 1st month
-
-### ComparisonResult 2015-06-S1-CR03.timepoint_value
-
-Table 2 gives no timepoint; Results mentions the 1st month in a sentence also naming voided volume. Scope of the time qualifier is ambiguous; no inheritance from adjacent rows.
-- E0124: PDF p.4: there were no significant differences between group 1 and 3 in number of bladder balance patients and voided volume (ml) at the 1st month
-
-### ComparisonResult 2015-06-S1-CR03.timepoint_unit
-
-Table 2 gives no timepoint; Results mentions the 1st month in a sentence also naming voided volume. Scope of the time qualifier is ambiguous; no inheritance from adjacent rows.
-- E0125: PDF p.4: there were no significant differences between group 1 and 3 in number of bladder balance patients and voided volume (ml) at the 1st month
-
-## 额外人工审阅项目
-
-- 已保留 Table 1 的 3 个 baseline residual urine ArmResults；不新建 Outcome。请确认 baseline inclusion policy。
 - Bladder balance 定义见 Outcome O01.legacy_fields.definition：低压充分排尿、残余尿约100 ml或以下、无感染。
 - A02/A03 randomized_n 各保留 Methods/Table 1 两候选，不依据百分比裁决。
 - Sham frequency 未明确单独报告，不复制 EA once/day。CIC 固定频次不适用，不能与 CIC frequency 结局混淆。
@@ -165,7 +55,7 @@ Table 2 gives no timepoint; Results mentions the 1st month in a sentence also na
 | Workbook item | Gold interpretation | Reason |
 |---|---|---|
 | Sheet1 rows 10–11 的两条比较记录 | 一个 Article、三臂、三项明确比较 | 不是两篇文章；编号不进入 Gold truth |
-| total_sessions=90 | REVIEW_REQUIRED | once/day × 3 months 不等于原文报告90次 |
+| total_sessions=90 | I02/I03 NOT_REPORTED，value=null | Workbook 90 仅留在本 reconciliation note；once/day × 3 months 不等于原文报告总次数，不进入 Gold value |
 | centre_count=1 | REVIEW_REQUIRED | Acknowledgements另提第二家医院 |
 | Group2/3 n=34/38 | SOURCE_CONFLICT | Methods写38/34，Table1写34/38 |
 | analyzed n 复制随机人数、dropout=0 | NOT_REPORTED | 原文未明确对应 flow counts |

@@ -1,0 +1,1576 @@
+[
+  {
+    "entity_type": "Arm",
+    "entity_id": "2015-06-S1-A01",
+    "field": "received_n",
+    "before_status": "UNRESOLVED",
+    "after_status": "UNRESOLVED",
+    "resolution_status": "UNRESOLVED",
+    "changed": false,
+    "decision_type": "KEEP",
+    "rule": "COMPLETE_NON_TARGETED_FIELD_SCOPE_WITH_NO_POSITIVE_OR_UNRESOLVED_SOURCE",
+    "reason_code": "INSUFFICIENT_COVERAGE_KEEP_UNRESOLVED",
+    "applicability_evidence": {
+      "status": "APPLICABLE",
+      "rule": "FIELD_SEMANTICS_APPLICABLE",
+      "evidence_ids": [],
+      "contract": "ARTICLE_EXTRACTION/2.0"
+    },
+    "coverage_proof_id": "MP-7A8D6DE019885949833473F53B8F14CC1E3DC367B030B4C5A056B5C30EEA8D64"
+  },
+  {
+    "entity_type": "Arm",
+    "entity_id": "2015-06-S1-A01",
+    "field": "analyzed_n",
+    "before_status": "UNRESOLVED",
+    "after_status": "UNRESOLVED",
+    "resolution_status": "UNRESOLVED",
+    "changed": false,
+    "decision_type": "KEEP",
+    "rule": "COMPLETE_NON_TARGETED_FIELD_SCOPE_WITH_NO_POSITIVE_OR_UNRESOLVED_SOURCE",
+    "reason_code": "INSUFFICIENT_COVERAGE_KEEP_UNRESOLVED",
+    "applicability_evidence": {
+      "status": "APPLICABLE",
+      "rule": "FIELD_SEMANTICS_APPLICABLE",
+      "evidence_ids": [],
+      "contract": "ARTICLE_EXTRACTION/2.0"
+    },
+    "coverage_proof_id": "MP-E69A2DEDA83BB4160E799DFBFC12CD842A2A017F90AB626AC40ECE07F217C0A5"
+  },
+  {
+    "entity_type": "Arm",
+    "entity_id": "2015-06-S1-A01",
+    "field": "dropout_n",
+    "before_status": "UNRESOLVED",
+    "after_status": "UNRESOLVED",
+    "resolution_status": "UNRESOLVED",
+    "changed": false,
+    "decision_type": "KEEP",
+    "rule": "COMPLETE_NON_TARGETED_FIELD_SCOPE_WITH_NO_POSITIVE_OR_UNRESOLVED_SOURCE",
+    "reason_code": "INSUFFICIENT_COVERAGE_KEEP_UNRESOLVED",
+    "applicability_evidence": {
+      "status": "APPLICABLE",
+      "rule": "FIELD_SEMANTICS_APPLICABLE",
+      "evidence_ids": [],
+      "contract": "ARTICLE_EXTRACTION/2.0"
+    },
+    "coverage_proof_id": "MP-1A2095317F70745D3F9944A71BF378703FB92FB245E45445972257C4392541AD"
+  },
+  {
+    "entity_type": "Arm",
+    "entity_id": "2015-06-S1-A02",
+    "field": "received_n",
+    "before_status": "UNRESOLVED",
+    "after_status": "UNRESOLVED",
+    "resolution_status": "UNRESOLVED",
+    "changed": false,
+    "decision_type": "KEEP",
+    "rule": "COMPLETE_NON_TARGETED_FIELD_SCOPE_WITH_NO_POSITIVE_OR_UNRESOLVED_SOURCE",
+    "reason_code": "INSUFFICIENT_COVERAGE_KEEP_UNRESOLVED",
+    "applicability_evidence": {
+      "status": "APPLICABLE",
+      "rule": "FIELD_SEMANTICS_APPLICABLE",
+      "evidence_ids": [],
+      "contract": "ARTICLE_EXTRACTION/2.0"
+    },
+    "coverage_proof_id": "MP-8AC1BCF0490450906803E4FD06396C8B37CDAF9057072DE3E8450AC0F46E314B"
+  },
+  {
+    "entity_type": "Arm",
+    "entity_id": "2015-06-S1-A02",
+    "field": "analyzed_n",
+    "before_status": "UNRESOLVED",
+    "after_status": "UNRESOLVED",
+    "resolution_status": "UNRESOLVED",
+    "changed": false,
+    "decision_type": "KEEP",
+    "rule": "COMPLETE_NON_TARGETED_FIELD_SCOPE_WITH_NO_POSITIVE_OR_UNRESOLVED_SOURCE",
+    "reason_code": "INSUFFICIENT_COVERAGE_KEEP_UNRESOLVED",
+    "applicability_evidence": {
+      "status": "APPLICABLE",
+      "rule": "FIELD_SEMANTICS_APPLICABLE",
+      "evidence_ids": [],
+      "contract": "ARTICLE_EXTRACTION/2.0"
+    },
+    "coverage_proof_id": "MP-CC10563EA74444EEB766C9979E0326C9881E0174FEAD11DD53E6244733793AAD"
+  },
+  {
+    "entity_type": "Arm",
+    "entity_id": "2015-06-S1-A02",
+    "field": "dropout_n",
+    "before_status": "UNRESOLVED",
+    "after_status": "UNRESOLVED",
+    "resolution_status": "UNRESOLVED",
+    "changed": false,
+    "decision_type": "KEEP",
+    "rule": "COMPLETE_NON_TARGETED_FIELD_SCOPE_WITH_NO_POSITIVE_OR_UNRESOLVED_SOURCE",
+    "reason_code": "INSUFFICIENT_COVERAGE_KEEP_UNRESOLVED",
+    "applicability_evidence": {
+      "status": "APPLICABLE",
+      "rule": "FIELD_SEMANTICS_APPLICABLE",
+      "evidence_ids": [],
+      "contract": "ARTICLE_EXTRACTION/2.0"
+    },
+    "coverage_proof_id": "MP-E57D5966ECB76B5394326ABDBAB658F742C8EADF98A988D0B270F95BD3FEA734"
+  },
+  {
+    "entity_type": "Arm",
+    "entity_id": "2015-06-S1-A03",
+    "field": "received_n",
+    "before_status": "UNRESOLVED",
+    "after_status": "UNRESOLVED",
+    "resolution_status": "UNRESOLVED",
+    "changed": false,
+    "decision_type": "KEEP",
+    "rule": "COMPLETE_NON_TARGETED_FIELD_SCOPE_WITH_NO_POSITIVE_OR_UNRESOLVED_SOURCE",
+    "reason_code": "INSUFFICIENT_COVERAGE_KEEP_UNRESOLVED",
+    "applicability_evidence": {
+      "status": "APPLICABLE",
+      "rule": "FIELD_SEMANTICS_APPLICABLE",
+      "evidence_ids": [],
+      "contract": "ARTICLE_EXTRACTION/2.0"
+    },
+    "coverage_proof_id": "MP-976B20F3642413030291FAB68F16385AAAA3A51C760008C71F6E37A380D57880"
+  },
+  {
+    "entity_type": "Arm",
+    "entity_id": "2015-06-S1-A03",
+    "field": "analyzed_n",
+    "before_status": "UNRESOLVED",
+    "after_status": "UNRESOLVED",
+    "resolution_status": "UNRESOLVED",
+    "changed": false,
+    "decision_type": "KEEP",
+    "rule": "COMPLETE_NON_TARGETED_FIELD_SCOPE_WITH_NO_POSITIVE_OR_UNRESOLVED_SOURCE",
+    "reason_code": "INSUFFICIENT_COVERAGE_KEEP_UNRESOLVED",
+    "applicability_evidence": {
+      "status": "APPLICABLE",
+      "rule": "FIELD_SEMANTICS_APPLICABLE",
+      "evidence_ids": [],
+      "contract": "ARTICLE_EXTRACTION/2.0"
+    },
+    "coverage_proof_id": "MP-5F81C3C317EE050DA547065A91B93E72C2A27F3237A07CB89977F4DCF8C910D8"
+  },
+  {
+    "entity_type": "Arm",
+    "entity_id": "2015-06-S1-A03",
+    "field": "dropout_n",
+    "before_status": "UNRESOLVED",
+    "after_status": "UNRESOLVED",
+    "resolution_status": "UNRESOLVED",
+    "changed": false,
+    "decision_type": "KEEP",
+    "rule": "COMPLETE_NON_TARGETED_FIELD_SCOPE_WITH_NO_POSITIVE_OR_UNRESOLVED_SOURCE",
+    "reason_code": "INSUFFICIENT_COVERAGE_KEEP_UNRESOLVED",
+    "applicability_evidence": {
+      "status": "APPLICABLE",
+      "rule": "FIELD_SEMANTICS_APPLICABLE",
+      "evidence_ids": [],
+      "contract": "ARTICLE_EXTRACTION/2.0"
+    },
+    "coverage_proof_id": "MP-26186F85278EB36E40353B1A204528A8AD2757BCF3DB4BF789B1440C0788FB3B"
+  },
+  {
+    "entity_type": "Outcome",
+    "entity_id": "2015-06-S1-O01",
+    "field": "role",
+    "before_status": "UNRESOLVED",
+    "after_status": "UNRESOLVED",
+    "resolution_status": "UNRESOLVED",
+    "changed": false,
+    "decision_type": "KEEP",
+    "rule": "COMPLETE_NON_TARGETED_FIELD_SCOPE_WITH_NO_POSITIVE_OR_UNRESOLVED_SOURCE",
+    "reason_code": "INSUFFICIENT_COVERAGE_KEEP_UNRESOLVED",
+    "applicability_evidence": {
+      "status": "APPLICABLE",
+      "rule": "FIELD_SEMANTICS_APPLICABLE",
+      "evidence_ids": [],
+      "contract": "ARTICLE_EXTRACTION/2.0"
+    },
+    "coverage_proof_id": "MP-9342198557727F1D70695FB02907BE9C33480168FB8A8B09A06DD9E73CD41DC4"
+  },
+  {
+    "entity_type": "Outcome",
+    "entity_id": "2015-06-S1-O02",
+    "field": "role",
+    "before_status": "UNRESOLVED",
+    "after_status": "UNRESOLVED",
+    "resolution_status": "UNRESOLVED",
+    "changed": false,
+    "decision_type": "KEEP",
+    "rule": "COMPLETE_NON_TARGETED_FIELD_SCOPE_WITH_NO_POSITIVE_OR_UNRESOLVED_SOURCE",
+    "reason_code": "INSUFFICIENT_COVERAGE_KEEP_UNRESOLVED",
+    "applicability_evidence": {
+      "status": "APPLICABLE",
+      "rule": "FIELD_SEMANTICS_APPLICABLE",
+      "evidence_ids": [],
+      "contract": "ARTICLE_EXTRACTION/2.0"
+    },
+    "coverage_proof_id": "MP-D001F77165F62E8A05BF2E48B5F1E89E10B3C1EF1114BF6EEE9CF03BC6D37308"
+  },
+  {
+    "entity_type": "Outcome",
+    "entity_id": "2015-06-S1-O03",
+    "field": "role",
+    "before_status": "UNRESOLVED",
+    "after_status": "UNRESOLVED",
+    "resolution_status": "UNRESOLVED",
+    "changed": false,
+    "decision_type": "KEEP",
+    "rule": "COMPLETE_NON_TARGETED_FIELD_SCOPE_WITH_NO_POSITIVE_OR_UNRESOLVED_SOURCE",
+    "reason_code": "INSUFFICIENT_COVERAGE_KEEP_UNRESOLVED",
+    "applicability_evidence": {
+      "status": "APPLICABLE",
+      "rule": "FIELD_SEMANTICS_APPLICABLE",
+      "evidence_ids": [],
+      "contract": "ARTICLE_EXTRACTION/2.0"
+    },
+    "coverage_proof_id": "MP-BCBC059400B971C7A343EEA57B95F0F0466D86C9A148FEACCED7CFDFA8E89743"
+  },
+  {
+    "entity_type": "Outcome",
+    "entity_id": "2015-06-S1-O04",
+    "field": "role",
+    "before_status": "UNRESOLVED",
+    "after_status": "UNRESOLVED",
+    "resolution_status": "UNRESOLVED",
+    "changed": false,
+    "decision_type": "KEEP",
+    "rule": "COMPLETE_NON_TARGETED_FIELD_SCOPE_WITH_NO_POSITIVE_OR_UNRESOLVED_SOURCE",
+    "reason_code": "INSUFFICIENT_COVERAGE_KEEP_UNRESOLVED",
+    "applicability_evidence": {
+      "status": "APPLICABLE",
+      "rule": "FIELD_SEMANTICS_APPLICABLE",
+      "evidence_ids": [],
+      "contract": "ARTICLE_EXTRACTION/2.0"
+    },
+    "coverage_proof_id": "MP-C7A0C7CAB727A9370CAA196AFCBCF8DA1065BCC43208BB5406AE63B8D8B5765E"
+  },
+  {
+    "entity_type": "Outcome",
+    "entity_id": "2015-06-S1-O05",
+    "field": "role",
+    "before_status": "UNRESOLVED",
+    "after_status": "UNRESOLVED",
+    "resolution_status": "UNRESOLVED",
+    "changed": false,
+    "decision_type": "KEEP",
+    "rule": "COMPLETE_NON_TARGETED_FIELD_SCOPE_WITH_NO_POSITIVE_OR_UNRESOLVED_SOURCE",
+    "reason_code": "INSUFFICIENT_COVERAGE_KEEP_UNRESOLVED",
+    "applicability_evidence": {
+      "status": "APPLICABLE",
+      "rule": "FIELD_SEMANTICS_APPLICABLE",
+      "evidence_ids": [],
+      "contract": "ARTICLE_EXTRACTION/2.0"
+    },
+    "coverage_proof_id": "MP-C1C8D9E41B7208C9E04829607CCC92AD80F58DBF99745B74BCFD645ADD483514"
+  },
+  {
+    "entity_type": "ArmResult",
+    "entity_id": "2015-06-S1-AR001",
+    "field": "event_count",
+    "before_status": "UNRESOLVED",
+    "after_status": "UNRESOLVED",
+    "resolution_status": "UNRESOLVED",
+    "changed": false,
+    "decision_type": "KEEP",
+    "rule": "NO_SUPPORTED_RESULT_TYPE_APPLICABILITY",
+    "reason_code": "APPLICABILITY_UNRESOLVED",
+    "applicability_evidence": {
+      "status": "UNKNOWN",
+      "rule": "NO_SUPPORTED_RESULT_TYPE_APPLICABILITY",
+      "evidence_ids": [],
+      "contract": "ARTICLE_EXTRACTION/2.0"
+    },
+    "coverage_proof_id": null
+  },
+  {
+    "entity_type": "ArmResult",
+    "entity_id": "2015-06-S1-AR001",
+    "field": "denominator",
+    "before_status": "UNRESOLVED",
+    "after_status": "UNRESOLVED",
+    "resolution_status": "UNRESOLVED",
+    "changed": false,
+    "decision_type": "KEEP",
+    "rule": "NO_SUPPORTED_RESULT_TYPE_APPLICABILITY",
+    "reason_code": "APPLICABILITY_UNRESOLVED",
+    "applicability_evidence": {
+      "status": "UNKNOWN",
+      "rule": "NO_SUPPORTED_RESULT_TYPE_APPLICABILITY",
+      "evidence_ids": [],
+      "contract": "ARTICLE_EXTRACTION/2.0"
+    },
+    "coverage_proof_id": null
+  },
+  {
+    "entity_type": "ArmResult",
+    "entity_id": "2015-06-S1-AR001",
+    "field": "n",
+    "before_status": "PRESENT",
+    "after_status": "PRESENT",
+    "resolution_status": "PRESENT",
+    "changed": false,
+    "decision_type": "KEEP",
+    "rule": "NEVER_DOWNGRADE_PRESENT",
+    "reason_code": "POSITIVE_EVIDENCE_KEEP_PRESENT",
+    "applicability_evidence": null,
+    "coverage_proof_id": null
+  },
+  {
+    "entity_type": "ArmResult",
+    "entity_id": "2015-06-S1-AR002",
+    "field": "event_count",
+    "before_status": "UNRESOLVED",
+    "after_status": "UNRESOLVED",
+    "resolution_status": "UNRESOLVED",
+    "changed": false,
+    "decision_type": "KEEP",
+    "rule": "NO_SUPPORTED_RESULT_TYPE_APPLICABILITY",
+    "reason_code": "APPLICABILITY_UNRESOLVED",
+    "applicability_evidence": {
+      "status": "UNKNOWN",
+      "rule": "NO_SUPPORTED_RESULT_TYPE_APPLICABILITY",
+      "evidence_ids": [],
+      "contract": "ARTICLE_EXTRACTION/2.0"
+    },
+    "coverage_proof_id": null
+  },
+  {
+    "entity_type": "ArmResult",
+    "entity_id": "2015-06-S1-AR002",
+    "field": "denominator",
+    "before_status": "UNRESOLVED",
+    "after_status": "UNRESOLVED",
+    "resolution_status": "UNRESOLVED",
+    "changed": false,
+    "decision_type": "KEEP",
+    "rule": "NO_SUPPORTED_RESULT_TYPE_APPLICABILITY",
+    "reason_code": "APPLICABILITY_UNRESOLVED",
+    "applicability_evidence": {
+      "status": "UNKNOWN",
+      "rule": "NO_SUPPORTED_RESULT_TYPE_APPLICABILITY",
+      "evidence_ids": [],
+      "contract": "ARTICLE_EXTRACTION/2.0"
+    },
+    "coverage_proof_id": null
+  },
+  {
+    "entity_type": "ArmResult",
+    "entity_id": "2015-06-S1-AR002",
+    "field": "n",
+    "before_status": "PRESENT",
+    "after_status": "PRESENT",
+    "resolution_status": "PRESENT",
+    "changed": false,
+    "decision_type": "KEEP",
+    "rule": "NEVER_DOWNGRADE_PRESENT",
+    "reason_code": "POSITIVE_EVIDENCE_KEEP_PRESENT",
+    "applicability_evidence": null,
+    "coverage_proof_id": null
+  },
+  {
+    "entity_type": "ArmResult",
+    "entity_id": "2015-06-S1-AR003",
+    "field": "event_count",
+    "before_status": "UNRESOLVED",
+    "after_status": "UNRESOLVED",
+    "resolution_status": "UNRESOLVED",
+    "changed": false,
+    "decision_type": "KEEP",
+    "rule": "NO_SUPPORTED_RESULT_TYPE_APPLICABILITY",
+    "reason_code": "APPLICABILITY_UNRESOLVED",
+    "applicability_evidence": {
+      "status": "UNKNOWN",
+      "rule": "NO_SUPPORTED_RESULT_TYPE_APPLICABILITY",
+      "evidence_ids": [],
+      "contract": "ARTICLE_EXTRACTION/2.0"
+    },
+    "coverage_proof_id": null
+  },
+  {
+    "entity_type": "ArmResult",
+    "entity_id": "2015-06-S1-AR003",
+    "field": "denominator",
+    "before_status": "UNRESOLVED",
+    "after_status": "UNRESOLVED",
+    "resolution_status": "UNRESOLVED",
+    "changed": false,
+    "decision_type": "KEEP",
+    "rule": "NO_SUPPORTED_RESULT_TYPE_APPLICABILITY",
+    "reason_code": "APPLICABILITY_UNRESOLVED",
+    "applicability_evidence": {
+      "status": "UNKNOWN",
+      "rule": "NO_SUPPORTED_RESULT_TYPE_APPLICABILITY",
+      "evidence_ids": [],
+      "contract": "ARTICLE_EXTRACTION/2.0"
+    },
+    "coverage_proof_id": null
+  },
+  {
+    "entity_type": "ArmResult",
+    "entity_id": "2015-06-S1-AR003",
+    "field": "n",
+    "before_status": "PRESENT",
+    "after_status": "PRESENT",
+    "resolution_status": "PRESENT",
+    "changed": false,
+    "decision_type": "KEEP",
+    "rule": "NEVER_DOWNGRADE_PRESENT",
+    "reason_code": "POSITIVE_EVIDENCE_KEEP_PRESENT",
+    "applicability_evidence": null,
+    "coverage_proof_id": null
+  },
+  {
+    "entity_type": "ArmResult",
+    "entity_id": "2015-06-S1-AR004",
+    "field": "event_count",
+    "before_status": "UNRESOLVED",
+    "after_status": "NOT_APPLICABLE",
+    "resolution_status": "NOT_APPLICABLE",
+    "changed": true,
+    "decision_type": "APPLICABILITY",
+    "rule": "MEAN_SD_RESULT_HAS_SAMPLE_N_NOT_EVENT_DENOMINATOR",
+    "reason_code": "NOT_APPLICABLE_BY_RESULT_TYPE",
+    "applicability_evidence": {
+      "status": "NOT_APPLICABLE",
+      "rule": "MEAN_SD_RESULT_HAS_SAMPLE_N_NOT_EVENT_DENOMINATOR",
+      "evidence_ids": [
+        "2015-06-S1-O-E00011",
+        "2015-06-S1-O-E00012",
+        "2015-06-S1-O-E00013",
+        "2015-06-S1-O-E00014",
+        "RS-1d87268c4cf2329690488a616f5827ca815bff99f343d7f758d056c3b2e336ed"
+      ],
+      "contract": "ARTICLE_EXTRACTION/2.0",
+      "statistic_type": "mean",
+      "sample_size_field": "n"
+    },
+    "coverage_proof_id": null
+  },
+  {
+    "entity_type": "ArmResult",
+    "entity_id": "2015-06-S1-AR004",
+    "field": "denominator",
+    "before_status": "UNRESOLVED",
+    "after_status": "NOT_APPLICABLE",
+    "resolution_status": "NOT_APPLICABLE",
+    "changed": true,
+    "decision_type": "APPLICABILITY",
+    "rule": "MEAN_SD_RESULT_HAS_SAMPLE_N_NOT_EVENT_DENOMINATOR",
+    "reason_code": "NOT_APPLICABLE_BY_RESULT_TYPE",
+    "applicability_evidence": {
+      "status": "NOT_APPLICABLE",
+      "rule": "MEAN_SD_RESULT_HAS_SAMPLE_N_NOT_EVENT_DENOMINATOR",
+      "evidence_ids": [
+        "2015-06-S1-O-E00011",
+        "2015-06-S1-O-E00012",
+        "2015-06-S1-O-E00013",
+        "2015-06-S1-O-E00014",
+        "RS-1d87268c4cf2329690488a616f5827ca815bff99f343d7f758d056c3b2e336ed"
+      ],
+      "contract": "ARTICLE_EXTRACTION/2.0",
+      "statistic_type": "mean",
+      "sample_size_field": "n"
+    },
+    "coverage_proof_id": null
+  },
+  {
+    "entity_type": "ArmResult",
+    "entity_id": "2015-06-S1-AR004",
+    "field": "n",
+    "before_status": "UNRESOLVED",
+    "after_status": "UNRESOLVED",
+    "resolution_status": "UNRESOLVED",
+    "changed": false,
+    "decision_type": "KEEP",
+    "rule": "COMPLETE_NON_TARGETED_FIELD_SCOPE_WITH_NO_POSITIVE_OR_UNRESOLVED_SOURCE",
+    "reason_code": "INSUFFICIENT_COVERAGE_KEEP_UNRESOLVED",
+    "applicability_evidence": {
+      "status": "APPLICABLE",
+      "rule": "FIELD_SEMANTICS_APPLICABLE",
+      "evidence_ids": [],
+      "contract": "ARTICLE_EXTRACTION/2.0"
+    },
+    "coverage_proof_id": "MP-8F05A0C31283AB7F72979F03A7035A2F211EFDF221F9CE52F868B9E5C97936CD"
+  },
+  {
+    "entity_type": "ArmResult",
+    "entity_id": "2015-06-S1-AR005",
+    "field": "event_count",
+    "before_status": "UNRESOLVED",
+    "after_status": "NOT_APPLICABLE",
+    "resolution_status": "NOT_APPLICABLE",
+    "changed": true,
+    "decision_type": "APPLICABILITY",
+    "rule": "MEAN_SD_RESULT_HAS_SAMPLE_N_NOT_EVENT_DENOMINATOR",
+    "reason_code": "NOT_APPLICABLE_BY_RESULT_TYPE",
+    "applicability_evidence": {
+      "status": "NOT_APPLICABLE",
+      "rule": "MEAN_SD_RESULT_HAS_SAMPLE_N_NOT_EVENT_DENOMINATOR",
+      "evidence_ids": [
+        "2015-06-S1-O-E00016",
+        "2015-06-S1-O-E00017",
+        "2015-06-S1-O-E00018",
+        "2015-06-S1-O-E00019",
+        "RS-4deae1928398e8c74a8ebfaa40124366d4af8721f7c016933a1597c409ee187e"
+      ],
+      "contract": "ARTICLE_EXTRACTION/2.0",
+      "statistic_type": "mean",
+      "sample_size_field": "n"
+    },
+    "coverage_proof_id": null
+  },
+  {
+    "entity_type": "ArmResult",
+    "entity_id": "2015-06-S1-AR005",
+    "field": "denominator",
+    "before_status": "UNRESOLVED",
+    "after_status": "NOT_APPLICABLE",
+    "resolution_status": "NOT_APPLICABLE",
+    "changed": true,
+    "decision_type": "APPLICABILITY",
+    "rule": "MEAN_SD_RESULT_HAS_SAMPLE_N_NOT_EVENT_DENOMINATOR",
+    "reason_code": "NOT_APPLICABLE_BY_RESULT_TYPE",
+    "applicability_evidence": {
+      "status": "NOT_APPLICABLE",
+      "rule": "MEAN_SD_RESULT_HAS_SAMPLE_N_NOT_EVENT_DENOMINATOR",
+      "evidence_ids": [
+        "2015-06-S1-O-E00016",
+        "2015-06-S1-O-E00017",
+        "2015-06-S1-O-E00018",
+        "2015-06-S1-O-E00019",
+        "RS-4deae1928398e8c74a8ebfaa40124366d4af8721f7c016933a1597c409ee187e"
+      ],
+      "contract": "ARTICLE_EXTRACTION/2.0",
+      "statistic_type": "mean",
+      "sample_size_field": "n"
+    },
+    "coverage_proof_id": null
+  },
+  {
+    "entity_type": "ArmResult",
+    "entity_id": "2015-06-S1-AR005",
+    "field": "n",
+    "before_status": "UNRESOLVED",
+    "after_status": "UNRESOLVED",
+    "resolution_status": "UNRESOLVED",
+    "changed": false,
+    "decision_type": "KEEP",
+    "rule": "COMPLETE_NON_TARGETED_FIELD_SCOPE_WITH_NO_POSITIVE_OR_UNRESOLVED_SOURCE",
+    "reason_code": "INSUFFICIENT_COVERAGE_KEEP_UNRESOLVED",
+    "applicability_evidence": {
+      "status": "APPLICABLE",
+      "rule": "FIELD_SEMANTICS_APPLICABLE",
+      "evidence_ids": [],
+      "contract": "ARTICLE_EXTRACTION/2.0"
+    },
+    "coverage_proof_id": "MP-82B46AD43E5A66392676C34933EB3382F6FF6E280D8A4E0A9E144AB09B78D32E"
+  },
+  {
+    "entity_type": "ArmResult",
+    "entity_id": "2015-06-S1-AR006",
+    "field": "event_count",
+    "before_status": "UNRESOLVED",
+    "after_status": "NOT_APPLICABLE",
+    "resolution_status": "NOT_APPLICABLE",
+    "changed": true,
+    "decision_type": "APPLICABILITY",
+    "rule": "MEAN_SD_RESULT_HAS_SAMPLE_N_NOT_EVENT_DENOMINATOR",
+    "reason_code": "NOT_APPLICABLE_BY_RESULT_TYPE",
+    "applicability_evidence": {
+      "status": "NOT_APPLICABLE",
+      "rule": "MEAN_SD_RESULT_HAS_SAMPLE_N_NOT_EVENT_DENOMINATOR",
+      "evidence_ids": [
+        "2015-06-S1-O-E00021",
+        "2015-06-S1-O-E00022",
+        "2015-06-S1-O-E00023",
+        "2015-06-S1-O-E00024",
+        "RS-8b26c84336f6bc800f9006d2dedcde94defea4918d410d39b73d3ff84dc1de66"
+      ],
+      "contract": "ARTICLE_EXTRACTION/2.0",
+      "statistic_type": "mean",
+      "sample_size_field": "n"
+    },
+    "coverage_proof_id": null
+  },
+  {
+    "entity_type": "ArmResult",
+    "entity_id": "2015-06-S1-AR006",
+    "field": "denominator",
+    "before_status": "UNRESOLVED",
+    "after_status": "NOT_APPLICABLE",
+    "resolution_status": "NOT_APPLICABLE",
+    "changed": true,
+    "decision_type": "APPLICABILITY",
+    "rule": "MEAN_SD_RESULT_HAS_SAMPLE_N_NOT_EVENT_DENOMINATOR",
+    "reason_code": "NOT_APPLICABLE_BY_RESULT_TYPE",
+    "applicability_evidence": {
+      "status": "NOT_APPLICABLE",
+      "rule": "MEAN_SD_RESULT_HAS_SAMPLE_N_NOT_EVENT_DENOMINATOR",
+      "evidence_ids": [
+        "2015-06-S1-O-E00021",
+        "2015-06-S1-O-E00022",
+        "2015-06-S1-O-E00023",
+        "2015-06-S1-O-E00024",
+        "RS-8b26c84336f6bc800f9006d2dedcde94defea4918d410d39b73d3ff84dc1de66"
+      ],
+      "contract": "ARTICLE_EXTRACTION/2.0",
+      "statistic_type": "mean",
+      "sample_size_field": "n"
+    },
+    "coverage_proof_id": null
+  },
+  {
+    "entity_type": "ArmResult",
+    "entity_id": "2015-06-S1-AR006",
+    "field": "n",
+    "before_status": "UNRESOLVED",
+    "after_status": "UNRESOLVED",
+    "resolution_status": "UNRESOLVED",
+    "changed": false,
+    "decision_type": "KEEP",
+    "rule": "COMPLETE_NON_TARGETED_FIELD_SCOPE_WITH_NO_POSITIVE_OR_UNRESOLVED_SOURCE",
+    "reason_code": "INSUFFICIENT_COVERAGE_KEEP_UNRESOLVED",
+    "applicability_evidence": {
+      "status": "APPLICABLE",
+      "rule": "FIELD_SEMANTICS_APPLICABLE",
+      "evidence_ids": [],
+      "contract": "ARTICLE_EXTRACTION/2.0"
+    },
+    "coverage_proof_id": "MP-B4E34A176D1184552C37FF05CB7D636BFDDAE61D00971648C992E3EC33DB6F0C"
+  },
+  {
+    "entity_type": "ArmResult",
+    "entity_id": "2015-06-S1-AR007",
+    "field": "event_count",
+    "before_status": "UNRESOLVED",
+    "after_status": "NOT_APPLICABLE",
+    "resolution_status": "NOT_APPLICABLE",
+    "changed": true,
+    "decision_type": "APPLICABILITY",
+    "rule": "MEAN_SD_RESULT_HAS_SAMPLE_N_NOT_EVENT_DENOMINATOR",
+    "reason_code": "NOT_APPLICABLE_BY_RESULT_TYPE",
+    "applicability_evidence": {
+      "status": "NOT_APPLICABLE",
+      "rule": "MEAN_SD_RESULT_HAS_SAMPLE_N_NOT_EVENT_DENOMINATOR",
+      "evidence_ids": [
+        "2015-06-S1-O-E00033",
+        "2015-06-S1-O-E00034",
+        "2015-06-S1-O-E00035",
+        "2015-06-S1-O-E00036",
+        "2015-06-S1-O-E00053",
+        "2015-06-S1-O-E00054",
+        "2015-06-S1-O-E00055",
+        "2015-06-S1-O-E00056",
+        "2015-06-S1-O-E00073",
+        "2015-06-S1-O-E00074",
+        "2015-06-S1-O-E00075",
+        "2015-06-S1-O-E00076",
+        "RS-38e2911d6cbc41ff49052ebcbf3a7c813a13696a2d2bf8acc0ca2f8086a51e81"
+      ],
+      "contract": "ARTICLE_EXTRACTION/2.0",
+      "statistic_type": "mean",
+      "sample_size_field": "n"
+    },
+    "coverage_proof_id": null
+  },
+  {
+    "entity_type": "ArmResult",
+    "entity_id": "2015-06-S1-AR007",
+    "field": "denominator",
+    "before_status": "UNRESOLVED",
+    "after_status": "NOT_APPLICABLE",
+    "resolution_status": "NOT_APPLICABLE",
+    "changed": true,
+    "decision_type": "APPLICABILITY",
+    "rule": "MEAN_SD_RESULT_HAS_SAMPLE_N_NOT_EVENT_DENOMINATOR",
+    "reason_code": "NOT_APPLICABLE_BY_RESULT_TYPE",
+    "applicability_evidence": {
+      "status": "NOT_APPLICABLE",
+      "rule": "MEAN_SD_RESULT_HAS_SAMPLE_N_NOT_EVENT_DENOMINATOR",
+      "evidence_ids": [
+        "2015-06-S1-O-E00033",
+        "2015-06-S1-O-E00034",
+        "2015-06-S1-O-E00035",
+        "2015-06-S1-O-E00036",
+        "2015-06-S1-O-E00053",
+        "2015-06-S1-O-E00054",
+        "2015-06-S1-O-E00055",
+        "2015-06-S1-O-E00056",
+        "2015-06-S1-O-E00073",
+        "2015-06-S1-O-E00074",
+        "2015-06-S1-O-E00075",
+        "2015-06-S1-O-E00076",
+        "RS-38e2911d6cbc41ff49052ebcbf3a7c813a13696a2d2bf8acc0ca2f8086a51e81"
+      ],
+      "contract": "ARTICLE_EXTRACTION/2.0",
+      "statistic_type": "mean",
+      "sample_size_field": "n"
+    },
+    "coverage_proof_id": null
+  },
+  {
+    "entity_type": "ArmResult",
+    "entity_id": "2015-06-S1-AR007",
+    "field": "n",
+    "before_status": "UNRESOLVED",
+    "after_status": "UNRESOLVED",
+    "resolution_status": "UNRESOLVED",
+    "changed": false,
+    "decision_type": "KEEP",
+    "rule": "COMPLETE_NON_TARGETED_FIELD_SCOPE_WITH_NO_POSITIVE_OR_UNRESOLVED_SOURCE",
+    "reason_code": "INSUFFICIENT_COVERAGE_KEEP_UNRESOLVED",
+    "applicability_evidence": {
+      "status": "APPLICABLE",
+      "rule": "FIELD_SEMANTICS_APPLICABLE",
+      "evidence_ids": [],
+      "contract": "ARTICLE_EXTRACTION/2.0"
+    },
+    "coverage_proof_id": "MP-3B07B81E3BB353BD367DEBBAE6B2159023889EB216AFF8A20D9B786C043E3669"
+  },
+  {
+    "entity_type": "ArmResult",
+    "entity_id": "2015-06-S1-AR008",
+    "field": "event_count",
+    "before_status": "UNRESOLVED",
+    "after_status": "NOT_APPLICABLE",
+    "resolution_status": "NOT_APPLICABLE",
+    "changed": true,
+    "decision_type": "APPLICABILITY",
+    "rule": "MEAN_SD_RESULT_HAS_SAMPLE_N_NOT_EVENT_DENOMINATOR",
+    "reason_code": "NOT_APPLICABLE_BY_RESULT_TYPE",
+    "applicability_evidence": {
+      "status": "NOT_APPLICABLE",
+      "rule": "MEAN_SD_RESULT_HAS_SAMPLE_N_NOT_EVENT_DENOMINATOR",
+      "evidence_ids": [
+        "2015-06-S1-O-E00038",
+        "2015-06-S1-O-E00039",
+        "2015-06-S1-O-E00040",
+        "2015-06-S1-O-E00041",
+        "2015-06-S1-O-E00058",
+        "2015-06-S1-O-E00059",
+        "2015-06-S1-O-E00060",
+        "2015-06-S1-O-E00061",
+        "2015-06-S1-O-E00078",
+        "2015-06-S1-O-E00079",
+        "2015-06-S1-O-E00080",
+        "2015-06-S1-O-E00081",
+        "RS-945612600cc8ac694ad36b22f8b73379356215460f868a368faa72880426cb16"
+      ],
+      "contract": "ARTICLE_EXTRACTION/2.0",
+      "statistic_type": "mean",
+      "sample_size_field": "n"
+    },
+    "coverage_proof_id": null
+  },
+  {
+    "entity_type": "ArmResult",
+    "entity_id": "2015-06-S1-AR008",
+    "field": "denominator",
+    "before_status": "UNRESOLVED",
+    "after_status": "NOT_APPLICABLE",
+    "resolution_status": "NOT_APPLICABLE",
+    "changed": true,
+    "decision_type": "APPLICABILITY",
+    "rule": "MEAN_SD_RESULT_HAS_SAMPLE_N_NOT_EVENT_DENOMINATOR",
+    "reason_code": "NOT_APPLICABLE_BY_RESULT_TYPE",
+    "applicability_evidence": {
+      "status": "NOT_APPLICABLE",
+      "rule": "MEAN_SD_RESULT_HAS_SAMPLE_N_NOT_EVENT_DENOMINATOR",
+      "evidence_ids": [
+        "2015-06-S1-O-E00038",
+        "2015-06-S1-O-E00039",
+        "2015-06-S1-O-E00040",
+        "2015-06-S1-O-E00041",
+        "2015-06-S1-O-E00058",
+        "2015-06-S1-O-E00059",
+        "2015-06-S1-O-E00060",
+        "2015-06-S1-O-E00061",
+        "2015-06-S1-O-E00078",
+        "2015-06-S1-O-E00079",
+        "2015-06-S1-O-E00080",
+        "2015-06-S1-O-E00081",
+        "RS-945612600cc8ac694ad36b22f8b73379356215460f868a368faa72880426cb16"
+      ],
+      "contract": "ARTICLE_EXTRACTION/2.0",
+      "statistic_type": "mean",
+      "sample_size_field": "n"
+    },
+    "coverage_proof_id": null
+  },
+  {
+    "entity_type": "ArmResult",
+    "entity_id": "2015-06-S1-AR008",
+    "field": "n",
+    "before_status": "UNRESOLVED",
+    "after_status": "UNRESOLVED",
+    "resolution_status": "UNRESOLVED",
+    "changed": false,
+    "decision_type": "KEEP",
+    "rule": "COMPLETE_NON_TARGETED_FIELD_SCOPE_WITH_NO_POSITIVE_OR_UNRESOLVED_SOURCE",
+    "reason_code": "INSUFFICIENT_COVERAGE_KEEP_UNRESOLVED",
+    "applicability_evidence": {
+      "status": "APPLICABLE",
+      "rule": "FIELD_SEMANTICS_APPLICABLE",
+      "evidence_ids": [],
+      "contract": "ARTICLE_EXTRACTION/2.0"
+    },
+    "coverage_proof_id": "MP-20C09102412FA2DA707A61542882515D8633BF3760F9CA967CDAEC20865BC694"
+  },
+  {
+    "entity_type": "ArmResult",
+    "entity_id": "2015-06-S1-AR009",
+    "field": "event_count",
+    "before_status": "UNRESOLVED",
+    "after_status": "NOT_APPLICABLE",
+    "resolution_status": "NOT_APPLICABLE",
+    "changed": true,
+    "decision_type": "APPLICABILITY",
+    "rule": "MEAN_SD_RESULT_HAS_SAMPLE_N_NOT_EVENT_DENOMINATOR",
+    "reason_code": "NOT_APPLICABLE_BY_RESULT_TYPE",
+    "applicability_evidence": {
+      "status": "NOT_APPLICABLE",
+      "rule": "MEAN_SD_RESULT_HAS_SAMPLE_N_NOT_EVENT_DENOMINATOR",
+      "evidence_ids": [
+        "2015-06-S1-O-E00043",
+        "2015-06-S1-O-E00044",
+        "2015-06-S1-O-E00045",
+        "2015-06-S1-O-E00046",
+        "2015-06-S1-O-E00063",
+        "2015-06-S1-O-E00064",
+        "2015-06-S1-O-E00065",
+        "2015-06-S1-O-E00066",
+        "2015-06-S1-O-E00083",
+        "2015-06-S1-O-E00084",
+        "2015-06-S1-O-E00085",
+        "2015-06-S1-O-E00086",
+        "RS-ffd169cc06ad417392f10822ae0ce841e9b45bbcdea15a10d22d4b46d0a926c2"
+      ],
+      "contract": "ARTICLE_EXTRACTION/2.0",
+      "statistic_type": "mean",
+      "sample_size_field": "n"
+    },
+    "coverage_proof_id": null
+  },
+  {
+    "entity_type": "ArmResult",
+    "entity_id": "2015-06-S1-AR009",
+    "field": "denominator",
+    "before_status": "UNRESOLVED",
+    "after_status": "NOT_APPLICABLE",
+    "resolution_status": "NOT_APPLICABLE",
+    "changed": true,
+    "decision_type": "APPLICABILITY",
+    "rule": "MEAN_SD_RESULT_HAS_SAMPLE_N_NOT_EVENT_DENOMINATOR",
+    "reason_code": "NOT_APPLICABLE_BY_RESULT_TYPE",
+    "applicability_evidence": {
+      "status": "NOT_APPLICABLE",
+      "rule": "MEAN_SD_RESULT_HAS_SAMPLE_N_NOT_EVENT_DENOMINATOR",
+      "evidence_ids": [
+        "2015-06-S1-O-E00043",
+        "2015-06-S1-O-E00044",
+        "2015-06-S1-O-E00045",
+        "2015-06-S1-O-E00046",
+        "2015-06-S1-O-E00063",
+        "2015-06-S1-O-E00064",
+        "2015-06-S1-O-E00065",
+        "2015-06-S1-O-E00066",
+        "2015-06-S1-O-E00083",
+        "2015-06-S1-O-E00084",
+        "2015-06-S1-O-E00085",
+        "2015-06-S1-O-E00086",
+        "RS-ffd169cc06ad417392f10822ae0ce841e9b45bbcdea15a10d22d4b46d0a926c2"
+      ],
+      "contract": "ARTICLE_EXTRACTION/2.0",
+      "statistic_type": "mean",
+      "sample_size_field": "n"
+    },
+    "coverage_proof_id": null
+  },
+  {
+    "entity_type": "ArmResult",
+    "entity_id": "2015-06-S1-AR009",
+    "field": "n",
+    "before_status": "UNRESOLVED",
+    "after_status": "UNRESOLVED",
+    "resolution_status": "UNRESOLVED",
+    "changed": false,
+    "decision_type": "KEEP",
+    "rule": "COMPLETE_NON_TARGETED_FIELD_SCOPE_WITH_NO_POSITIVE_OR_UNRESOLVED_SOURCE",
+    "reason_code": "INSUFFICIENT_COVERAGE_KEEP_UNRESOLVED",
+    "applicability_evidence": {
+      "status": "APPLICABLE",
+      "rule": "FIELD_SEMANTICS_APPLICABLE",
+      "evidence_ids": [],
+      "contract": "ARTICLE_EXTRACTION/2.0"
+    },
+    "coverage_proof_id": "MP-6C4B6F11287ABDF563DBAB6E68110DA2726B97140AB09D89442883F6DC44ECC1"
+  },
+  {
+    "entity_type": "ArmResult",
+    "entity_id": "2015-06-S1-AR010",
+    "field": "event_count",
+    "before_status": "UNRESOLVED",
+    "after_status": "NOT_APPLICABLE",
+    "resolution_status": "NOT_APPLICABLE",
+    "changed": true,
+    "decision_type": "APPLICABILITY",
+    "rule": "MEAN_SD_RESULT_HAS_SAMPLE_N_NOT_EVENT_DENOMINATOR",
+    "reason_code": "NOT_APPLICABLE_BY_RESULT_TYPE",
+    "applicability_evidence": {
+      "status": "NOT_APPLICABLE",
+      "rule": "MEAN_SD_RESULT_HAS_SAMPLE_N_NOT_EVENT_DENOMINATOR",
+      "evidence_ids": [
+        "2015-06-S1-O-E00093",
+        "2015-06-S1-O-E00094",
+        "2015-06-S1-O-E00095",
+        "2015-06-S1-O-E00096",
+        "RS-6b6acaf113a25a374b6744d4114aa86b25720b92b6c33d228a048713dac0b9fd"
+      ],
+      "contract": "ARTICLE_EXTRACTION/2.0",
+      "statistic_type": "mean",
+      "sample_size_field": "n"
+    },
+    "coverage_proof_id": null
+  },
+  {
+    "entity_type": "ArmResult",
+    "entity_id": "2015-06-S1-AR010",
+    "field": "denominator",
+    "before_status": "UNRESOLVED",
+    "after_status": "NOT_APPLICABLE",
+    "resolution_status": "NOT_APPLICABLE",
+    "changed": true,
+    "decision_type": "APPLICABILITY",
+    "rule": "MEAN_SD_RESULT_HAS_SAMPLE_N_NOT_EVENT_DENOMINATOR",
+    "reason_code": "NOT_APPLICABLE_BY_RESULT_TYPE",
+    "applicability_evidence": {
+      "status": "NOT_APPLICABLE",
+      "rule": "MEAN_SD_RESULT_HAS_SAMPLE_N_NOT_EVENT_DENOMINATOR",
+      "evidence_ids": [
+        "2015-06-S1-O-E00093",
+        "2015-06-S1-O-E00094",
+        "2015-06-S1-O-E00095",
+        "2015-06-S1-O-E00096",
+        "RS-6b6acaf113a25a374b6744d4114aa86b25720b92b6c33d228a048713dac0b9fd"
+      ],
+      "contract": "ARTICLE_EXTRACTION/2.0",
+      "statistic_type": "mean",
+      "sample_size_field": "n"
+    },
+    "coverage_proof_id": null
+  },
+  {
+    "entity_type": "ArmResult",
+    "entity_id": "2015-06-S1-AR010",
+    "field": "n",
+    "before_status": "UNRESOLVED",
+    "after_status": "UNRESOLVED",
+    "resolution_status": "UNRESOLVED",
+    "changed": false,
+    "decision_type": "KEEP",
+    "rule": "COMPLETE_NON_TARGETED_FIELD_SCOPE_WITH_NO_POSITIVE_OR_UNRESOLVED_SOURCE",
+    "reason_code": "INSUFFICIENT_COVERAGE_KEEP_UNRESOLVED",
+    "applicability_evidence": {
+      "status": "APPLICABLE",
+      "rule": "FIELD_SEMANTICS_APPLICABLE",
+      "evidence_ids": [],
+      "contract": "ARTICLE_EXTRACTION/2.0"
+    },
+    "coverage_proof_id": "MP-FA3007351158CEA59CE5EFF20F507CA5F092445986CAF48A1A401D6072646AAC"
+  },
+  {
+    "entity_type": "ArmResult",
+    "entity_id": "2015-06-S1-AR011",
+    "field": "event_count",
+    "before_status": "UNRESOLVED",
+    "after_status": "NOT_APPLICABLE",
+    "resolution_status": "NOT_APPLICABLE",
+    "changed": true,
+    "decision_type": "APPLICABILITY",
+    "rule": "MEAN_SD_RESULT_HAS_SAMPLE_N_NOT_EVENT_DENOMINATOR",
+    "reason_code": "NOT_APPLICABLE_BY_RESULT_TYPE",
+    "applicability_evidence": {
+      "status": "NOT_APPLICABLE",
+      "rule": "MEAN_SD_RESULT_HAS_SAMPLE_N_NOT_EVENT_DENOMINATOR",
+      "evidence_ids": [
+        "2015-06-S1-O-E00098",
+        "2015-06-S1-O-E00099",
+        "2015-06-S1-O-E00100",
+        "2015-06-S1-O-E00101",
+        "RS-fdccae1e651837981866a850cfb37d808a2ed6da6715e239ff292edd43440a34"
+      ],
+      "contract": "ARTICLE_EXTRACTION/2.0",
+      "statistic_type": "mean",
+      "sample_size_field": "n"
+    },
+    "coverage_proof_id": null
+  },
+  {
+    "entity_type": "ArmResult",
+    "entity_id": "2015-06-S1-AR011",
+    "field": "denominator",
+    "before_status": "UNRESOLVED",
+    "after_status": "NOT_APPLICABLE",
+    "resolution_status": "NOT_APPLICABLE",
+    "changed": true,
+    "decision_type": "APPLICABILITY",
+    "rule": "MEAN_SD_RESULT_HAS_SAMPLE_N_NOT_EVENT_DENOMINATOR",
+    "reason_code": "NOT_APPLICABLE_BY_RESULT_TYPE",
+    "applicability_evidence": {
+      "status": "NOT_APPLICABLE",
+      "rule": "MEAN_SD_RESULT_HAS_SAMPLE_N_NOT_EVENT_DENOMINATOR",
+      "evidence_ids": [
+        "2015-06-S1-O-E00098",
+        "2015-06-S1-O-E00099",
+        "2015-06-S1-O-E00100",
+        "2015-06-S1-O-E00101",
+        "RS-fdccae1e651837981866a850cfb37d808a2ed6da6715e239ff292edd43440a34"
+      ],
+      "contract": "ARTICLE_EXTRACTION/2.0",
+      "statistic_type": "mean",
+      "sample_size_field": "n"
+    },
+    "coverage_proof_id": null
+  },
+  {
+    "entity_type": "ArmResult",
+    "entity_id": "2015-06-S1-AR011",
+    "field": "n",
+    "before_status": "UNRESOLVED",
+    "after_status": "UNRESOLVED",
+    "resolution_status": "UNRESOLVED",
+    "changed": false,
+    "decision_type": "KEEP",
+    "rule": "COMPLETE_NON_TARGETED_FIELD_SCOPE_WITH_NO_POSITIVE_OR_UNRESOLVED_SOURCE",
+    "reason_code": "INSUFFICIENT_COVERAGE_KEEP_UNRESOLVED",
+    "applicability_evidence": {
+      "status": "APPLICABLE",
+      "rule": "FIELD_SEMANTICS_APPLICABLE",
+      "evidence_ids": [],
+      "contract": "ARTICLE_EXTRACTION/2.0"
+    },
+    "coverage_proof_id": "MP-C2F7817F5F549464B3ED3B87D6E992EDD7F35FA228F6C203BD33DD046068DC08"
+  },
+  {
+    "entity_type": "ArmResult",
+    "entity_id": "2015-06-S1-AR012",
+    "field": "event_count",
+    "before_status": "UNRESOLVED",
+    "after_status": "NOT_APPLICABLE",
+    "resolution_status": "NOT_APPLICABLE",
+    "changed": true,
+    "decision_type": "APPLICABILITY",
+    "rule": "MEAN_SD_RESULT_HAS_SAMPLE_N_NOT_EVENT_DENOMINATOR",
+    "reason_code": "NOT_APPLICABLE_BY_RESULT_TYPE",
+    "applicability_evidence": {
+      "status": "NOT_APPLICABLE",
+      "rule": "MEAN_SD_RESULT_HAS_SAMPLE_N_NOT_EVENT_DENOMINATOR",
+      "evidence_ids": [
+        "2015-06-S1-O-E00103",
+        "2015-06-S1-O-E00104",
+        "2015-06-S1-O-E00105",
+        "2015-06-S1-O-E00106",
+        "RS-94d9b71a1cf1ab320a3ef900f9bc7f4831409a5e51e9d46db8a408b478126499"
+      ],
+      "contract": "ARTICLE_EXTRACTION/2.0",
+      "statistic_type": "mean",
+      "sample_size_field": "n"
+    },
+    "coverage_proof_id": null
+  },
+  {
+    "entity_type": "ArmResult",
+    "entity_id": "2015-06-S1-AR012",
+    "field": "denominator",
+    "before_status": "UNRESOLVED",
+    "after_status": "NOT_APPLICABLE",
+    "resolution_status": "NOT_APPLICABLE",
+    "changed": true,
+    "decision_type": "APPLICABILITY",
+    "rule": "MEAN_SD_RESULT_HAS_SAMPLE_N_NOT_EVENT_DENOMINATOR",
+    "reason_code": "NOT_APPLICABLE_BY_RESULT_TYPE",
+    "applicability_evidence": {
+      "status": "NOT_APPLICABLE",
+      "rule": "MEAN_SD_RESULT_HAS_SAMPLE_N_NOT_EVENT_DENOMINATOR",
+      "evidence_ids": [
+        "2015-06-S1-O-E00103",
+        "2015-06-S1-O-E00104",
+        "2015-06-S1-O-E00105",
+        "2015-06-S1-O-E00106",
+        "RS-94d9b71a1cf1ab320a3ef900f9bc7f4831409a5e51e9d46db8a408b478126499"
+      ],
+      "contract": "ARTICLE_EXTRACTION/2.0",
+      "statistic_type": "mean",
+      "sample_size_field": "n"
+    },
+    "coverage_proof_id": null
+  },
+  {
+    "entity_type": "ArmResult",
+    "entity_id": "2015-06-S1-AR012",
+    "field": "n",
+    "before_status": "UNRESOLVED",
+    "after_status": "UNRESOLVED",
+    "resolution_status": "UNRESOLVED",
+    "changed": false,
+    "decision_type": "KEEP",
+    "rule": "COMPLETE_NON_TARGETED_FIELD_SCOPE_WITH_NO_POSITIVE_OR_UNRESOLVED_SOURCE",
+    "reason_code": "INSUFFICIENT_COVERAGE_KEEP_UNRESOLVED",
+    "applicability_evidence": {
+      "status": "APPLICABLE",
+      "rule": "FIELD_SEMANTICS_APPLICABLE",
+      "evidence_ids": [],
+      "contract": "ARTICLE_EXTRACTION/2.0"
+    },
+    "coverage_proof_id": "MP-2A64635E6F9282804973F419CCBDFE51FEE48112ED9E008AF837EEAC602EE971"
+  },
+  {
+    "entity_type": "ArmResult",
+    "entity_id": "2015-06-S1-AR013",
+    "field": "event_count",
+    "before_status": "UNRESOLVED",
+    "after_status": "NOT_APPLICABLE",
+    "resolution_status": "NOT_APPLICABLE",
+    "changed": true,
+    "decision_type": "APPLICABILITY",
+    "rule": "MEAN_SD_RESULT_HAS_SAMPLE_N_NOT_EVENT_DENOMINATOR",
+    "reason_code": "NOT_APPLICABLE_BY_RESULT_TYPE",
+    "applicability_evidence": {
+      "status": "NOT_APPLICABLE",
+      "rule": "MEAN_SD_RESULT_HAS_SAMPLE_N_NOT_EVENT_DENOMINATOR",
+      "evidence_ids": [
+        "2015-06-S1-O-E00109",
+        "2015-06-S1-O-E00110",
+        "2015-06-S1-O-E00111",
+        "2015-06-S1-O-E00112",
+        "RS-86c6d5dfe22f7a173a94d2d993d664f753c9c7a851a75d01296a835cdf873363"
+      ],
+      "contract": "ARTICLE_EXTRACTION/2.0",
+      "statistic_type": "mean",
+      "sample_size_field": "n"
+    },
+    "coverage_proof_id": null
+  },
+  {
+    "entity_type": "ArmResult",
+    "entity_id": "2015-06-S1-AR013",
+    "field": "denominator",
+    "before_status": "UNRESOLVED",
+    "after_status": "NOT_APPLICABLE",
+    "resolution_status": "NOT_APPLICABLE",
+    "changed": true,
+    "decision_type": "APPLICABILITY",
+    "rule": "MEAN_SD_RESULT_HAS_SAMPLE_N_NOT_EVENT_DENOMINATOR",
+    "reason_code": "NOT_APPLICABLE_BY_RESULT_TYPE",
+    "applicability_evidence": {
+      "status": "NOT_APPLICABLE",
+      "rule": "MEAN_SD_RESULT_HAS_SAMPLE_N_NOT_EVENT_DENOMINATOR",
+      "evidence_ids": [
+        "2015-06-S1-O-E00109",
+        "2015-06-S1-O-E00110",
+        "2015-06-S1-O-E00111",
+        "2015-06-S1-O-E00112",
+        "RS-86c6d5dfe22f7a173a94d2d993d664f753c9c7a851a75d01296a835cdf873363"
+      ],
+      "contract": "ARTICLE_EXTRACTION/2.0",
+      "statistic_type": "mean",
+      "sample_size_field": "n"
+    },
+    "coverage_proof_id": null
+  },
+  {
+    "entity_type": "ArmResult",
+    "entity_id": "2015-06-S1-AR013",
+    "field": "n",
+    "before_status": "UNRESOLVED",
+    "after_status": "UNRESOLVED",
+    "resolution_status": "UNRESOLVED",
+    "changed": false,
+    "decision_type": "KEEP",
+    "rule": "COMPLETE_NON_TARGETED_FIELD_SCOPE_WITH_NO_POSITIVE_OR_UNRESOLVED_SOURCE",
+    "reason_code": "INSUFFICIENT_COVERAGE_KEEP_UNRESOLVED",
+    "applicability_evidence": {
+      "status": "APPLICABLE",
+      "rule": "FIELD_SEMANTICS_APPLICABLE",
+      "evidence_ids": [],
+      "contract": "ARTICLE_EXTRACTION/2.0"
+    },
+    "coverage_proof_id": "MP-B7C3F39D21ED62C0CDEE4D7A0703E6BD7F3375726B5372B0B8AC4747ADA07ABE"
+  },
+  {
+    "entity_type": "ArmResult",
+    "entity_id": "2015-06-S1-AR014",
+    "field": "event_count",
+    "before_status": "UNRESOLVED",
+    "after_status": "NOT_APPLICABLE",
+    "resolution_status": "NOT_APPLICABLE",
+    "changed": true,
+    "decision_type": "APPLICABILITY",
+    "rule": "MEAN_SD_RESULT_HAS_SAMPLE_N_NOT_EVENT_DENOMINATOR",
+    "reason_code": "NOT_APPLICABLE_BY_RESULT_TYPE",
+    "applicability_evidence": {
+      "status": "NOT_APPLICABLE",
+      "rule": "MEAN_SD_RESULT_HAS_SAMPLE_N_NOT_EVENT_DENOMINATOR",
+      "evidence_ids": [
+        "2015-06-S1-O-E00114",
+        "2015-06-S1-O-E00115",
+        "2015-06-S1-O-E00116",
+        "2015-06-S1-O-E00117",
+        "RS-a3829e359008cd91232dd3fbe42e75e7ec8fc0d04f4bc031feb1cb253e479ac7"
+      ],
+      "contract": "ARTICLE_EXTRACTION/2.0",
+      "statistic_type": "mean",
+      "sample_size_field": "n"
+    },
+    "coverage_proof_id": null
+  },
+  {
+    "entity_type": "ArmResult",
+    "entity_id": "2015-06-S1-AR014",
+    "field": "denominator",
+    "before_status": "UNRESOLVED",
+    "after_status": "NOT_APPLICABLE",
+    "resolution_status": "NOT_APPLICABLE",
+    "changed": true,
+    "decision_type": "APPLICABILITY",
+    "rule": "MEAN_SD_RESULT_HAS_SAMPLE_N_NOT_EVENT_DENOMINATOR",
+    "reason_code": "NOT_APPLICABLE_BY_RESULT_TYPE",
+    "applicability_evidence": {
+      "status": "NOT_APPLICABLE",
+      "rule": "MEAN_SD_RESULT_HAS_SAMPLE_N_NOT_EVENT_DENOMINATOR",
+      "evidence_ids": [
+        "2015-06-S1-O-E00114",
+        "2015-06-S1-O-E00115",
+        "2015-06-S1-O-E00116",
+        "2015-06-S1-O-E00117",
+        "RS-a3829e359008cd91232dd3fbe42e75e7ec8fc0d04f4bc031feb1cb253e479ac7"
+      ],
+      "contract": "ARTICLE_EXTRACTION/2.0",
+      "statistic_type": "mean",
+      "sample_size_field": "n"
+    },
+    "coverage_proof_id": null
+  },
+  {
+    "entity_type": "ArmResult",
+    "entity_id": "2015-06-S1-AR014",
+    "field": "n",
+    "before_status": "UNRESOLVED",
+    "after_status": "UNRESOLVED",
+    "resolution_status": "UNRESOLVED",
+    "changed": false,
+    "decision_type": "KEEP",
+    "rule": "COMPLETE_NON_TARGETED_FIELD_SCOPE_WITH_NO_POSITIVE_OR_UNRESOLVED_SOURCE",
+    "reason_code": "INSUFFICIENT_COVERAGE_KEEP_UNRESOLVED",
+    "applicability_evidence": {
+      "status": "APPLICABLE",
+      "rule": "FIELD_SEMANTICS_APPLICABLE",
+      "evidence_ids": [],
+      "contract": "ARTICLE_EXTRACTION/2.0"
+    },
+    "coverage_proof_id": "MP-83CAF08A7EE93B26501F47F4537DF36E0CB153D020CC1E22E23AFE74B709D2E5"
+  },
+  {
+    "entity_type": "ArmResult",
+    "entity_id": "2015-06-S1-AR015",
+    "field": "event_count",
+    "before_status": "UNRESOLVED",
+    "after_status": "NOT_APPLICABLE",
+    "resolution_status": "NOT_APPLICABLE",
+    "changed": true,
+    "decision_type": "APPLICABILITY",
+    "rule": "MEAN_SD_RESULT_HAS_SAMPLE_N_NOT_EVENT_DENOMINATOR",
+    "reason_code": "NOT_APPLICABLE_BY_RESULT_TYPE",
+    "applicability_evidence": {
+      "status": "NOT_APPLICABLE",
+      "rule": "MEAN_SD_RESULT_HAS_SAMPLE_N_NOT_EVENT_DENOMINATOR",
+      "evidence_ids": [
+        "2015-06-S1-O-E00119",
+        "2015-06-S1-O-E00120",
+        "2015-06-S1-O-E00121",
+        "2015-06-S1-O-E00122",
+        "RS-b0a6ff70a9b55d68d78c25496769ab8dd3a291d4dc916547bc99002f6858d29f"
+      ],
+      "contract": "ARTICLE_EXTRACTION/2.0",
+      "statistic_type": "mean",
+      "sample_size_field": "n"
+    },
+    "coverage_proof_id": null
+  },
+  {
+    "entity_type": "ArmResult",
+    "entity_id": "2015-06-S1-AR015",
+    "field": "denominator",
+    "before_status": "UNRESOLVED",
+    "after_status": "NOT_APPLICABLE",
+    "resolution_status": "NOT_APPLICABLE",
+    "changed": true,
+    "decision_type": "APPLICABILITY",
+    "rule": "MEAN_SD_RESULT_HAS_SAMPLE_N_NOT_EVENT_DENOMINATOR",
+    "reason_code": "NOT_APPLICABLE_BY_RESULT_TYPE",
+    "applicability_evidence": {
+      "status": "NOT_APPLICABLE",
+      "rule": "MEAN_SD_RESULT_HAS_SAMPLE_N_NOT_EVENT_DENOMINATOR",
+      "evidence_ids": [
+        "2015-06-S1-O-E00119",
+        "2015-06-S1-O-E00120",
+        "2015-06-S1-O-E00121",
+        "2015-06-S1-O-E00122",
+        "RS-b0a6ff70a9b55d68d78c25496769ab8dd3a291d4dc916547bc99002f6858d29f"
+      ],
+      "contract": "ARTICLE_EXTRACTION/2.0",
+      "statistic_type": "mean",
+      "sample_size_field": "n"
+    },
+    "coverage_proof_id": null
+  },
+  {
+    "entity_type": "ArmResult",
+    "entity_id": "2015-06-S1-AR015",
+    "field": "n",
+    "before_status": "UNRESOLVED",
+    "after_status": "UNRESOLVED",
+    "resolution_status": "UNRESOLVED",
+    "changed": false,
+    "decision_type": "KEEP",
+    "rule": "COMPLETE_NON_TARGETED_FIELD_SCOPE_WITH_NO_POSITIVE_OR_UNRESOLVED_SOURCE",
+    "reason_code": "INSUFFICIENT_COVERAGE_KEEP_UNRESOLVED",
+    "applicability_evidence": {
+      "status": "APPLICABLE",
+      "rule": "FIELD_SEMANTICS_APPLICABLE",
+      "evidence_ids": [],
+      "contract": "ARTICLE_EXTRACTION/2.0"
+    },
+    "coverage_proof_id": "MP-A652E26405900044F3F6917FDE73270DF3F4D3D72F5720B24B1B866CC7EFA424"
+  },
+  {
+    "entity_type": "ComparisonResult",
+    "entity_id": "2015-06-S1-CR001",
+    "field": "estimate",
+    "before_status": "UNRESOLVED",
+    "after_status": "UNRESOLVED",
+    "resolution_status": "UNRESOLVED",
+    "changed": false,
+    "decision_type": "KEEP",
+    "rule": "COMPLETE_NON_TARGETED_FIELD_SCOPE_WITH_NO_POSITIVE_OR_UNRESOLVED_SOURCE",
+    "reason_code": "INSUFFICIENT_COVERAGE_KEEP_UNRESOLVED",
+    "applicability_evidence": {
+      "status": "APPLICABLE",
+      "rule": "FIELD_SEMANTICS_APPLICABLE",
+      "evidence_ids": [],
+      "contract": "ARTICLE_EXTRACTION/2.0"
+    },
+    "coverage_proof_id": "MP-0E68C1AA7A80F36335874FE84968AD825BFF2C9477835E5DBD5D1A363E8D717C"
+  },
+  {
+    "entity_type": "ComparisonResult",
+    "entity_id": "2015-06-S1-CR002",
+    "field": "estimate",
+    "before_status": "UNRESOLVED",
+    "after_status": "UNRESOLVED",
+    "resolution_status": "UNRESOLVED",
+    "changed": false,
+    "decision_type": "KEEP",
+    "rule": "COMPLETE_NON_TARGETED_FIELD_SCOPE_WITH_NO_POSITIVE_OR_UNRESOLVED_SOURCE",
+    "reason_code": "INSUFFICIENT_COVERAGE_KEEP_UNRESOLVED",
+    "applicability_evidence": {
+      "status": "APPLICABLE",
+      "rule": "FIELD_SEMANTICS_APPLICABLE",
+      "evidence_ids": [],
+      "contract": "ARTICLE_EXTRACTION/2.0"
+    },
+    "coverage_proof_id": "MP-30B6C50B6B4EC0D94AC15B8EA8FE50F7DBE02F5974092FE0FBC24851136DE415"
+  },
+  {
+    "entity_type": "ComparisonResult",
+    "entity_id": "2015-06-S1-CR003",
+    "field": "estimate",
+    "before_status": "UNRESOLVED",
+    "after_status": "UNRESOLVED",
+    "resolution_status": "UNRESOLVED",
+    "changed": false,
+    "decision_type": "KEEP",
+    "rule": "COMPLETE_NON_TARGETED_FIELD_SCOPE_WITH_NO_POSITIVE_OR_UNRESOLVED_SOURCE",
+    "reason_code": "INSUFFICIENT_COVERAGE_KEEP_UNRESOLVED",
+    "applicability_evidence": {
+      "status": "APPLICABLE",
+      "rule": "FIELD_SEMANTICS_APPLICABLE",
+      "evidence_ids": [],
+      "contract": "ARTICLE_EXTRACTION/2.0"
+    },
+    "coverage_proof_id": "MP-FAAAF819823AA34AA3300FE2E9600A993D08178267F8CBDD6BCED01405B945BB"
+  },
+  {
+    "entity_type": "ComparisonResult",
+    "entity_id": "2015-06-S1-CR004",
+    "field": "estimate",
+    "before_status": "UNRESOLVED",
+    "after_status": "UNRESOLVED",
+    "resolution_status": "UNRESOLVED",
+    "changed": false,
+    "decision_type": "KEEP",
+    "rule": "COMPLETE_NON_TARGETED_FIELD_SCOPE_WITH_NO_POSITIVE_OR_UNRESOLVED_SOURCE",
+    "reason_code": "INSUFFICIENT_COVERAGE_KEEP_UNRESOLVED",
+    "applicability_evidence": {
+      "status": "APPLICABLE",
+      "rule": "FIELD_SEMANTICS_APPLICABLE",
+      "evidence_ids": [],
+      "contract": "ARTICLE_EXTRACTION/2.0"
+    },
+    "coverage_proof_id": "MP-0DFFCF7C0C9689CA08BD56E97E444AA0FBB36ABB72CD0DC6D8E7D0E915F8D5FC"
+  },
+  {
+    "entity_type": "ComparisonResult",
+    "entity_id": "2015-06-S1-CR005",
+    "field": "estimate",
+    "before_status": "UNRESOLVED",
+    "after_status": "UNRESOLVED",
+    "resolution_status": "UNRESOLVED",
+    "changed": false,
+    "decision_type": "KEEP",
+    "rule": "COMPLETE_NON_TARGETED_FIELD_SCOPE_WITH_NO_POSITIVE_OR_UNRESOLVED_SOURCE",
+    "reason_code": "INSUFFICIENT_COVERAGE_KEEP_UNRESOLVED",
+    "applicability_evidence": {
+      "status": "APPLICABLE",
+      "rule": "FIELD_SEMANTICS_APPLICABLE",
+      "evidence_ids": [],
+      "contract": "ARTICLE_EXTRACTION/2.0"
+    },
+    "coverage_proof_id": "MP-9D37D1312E6FE03000D98699593FC050780E4A854ECC5F95D34565555E61EBDF"
+  },
+  {
+    "entity_type": "ComparisonResult",
+    "entity_id": "2015-06-S1-CR006",
+    "field": "estimate",
+    "before_status": "UNRESOLVED",
+    "after_status": "UNRESOLVED",
+    "resolution_status": "UNRESOLVED",
+    "changed": false,
+    "decision_type": "KEEP",
+    "rule": "COMPLETE_NON_TARGETED_FIELD_SCOPE_WITH_NO_POSITIVE_OR_UNRESOLVED_SOURCE",
+    "reason_code": "INSUFFICIENT_COVERAGE_KEEP_UNRESOLVED",
+    "applicability_evidence": {
+      "status": "APPLICABLE",
+      "rule": "FIELD_SEMANTICS_APPLICABLE",
+      "evidence_ids": [],
+      "contract": "ARTICLE_EXTRACTION/2.0"
+    },
+    "coverage_proof_id": "MP-D55B2BEB6EC3079E4C5CD7C53AD0402A3B5B6F848729A32D9C5FC383F8DB5AD4"
+  },
+  {
+    "entity_type": "ComparisonResult",
+    "entity_id": "2015-06-S1-CR007",
+    "field": "estimate",
+    "before_status": "UNRESOLVED",
+    "after_status": "UNRESOLVED",
+    "resolution_status": "UNRESOLVED",
+    "changed": false,
+    "decision_type": "KEEP",
+    "rule": "COMPLETE_NON_TARGETED_FIELD_SCOPE_WITH_NO_POSITIVE_OR_UNRESOLVED_SOURCE",
+    "reason_code": "INSUFFICIENT_COVERAGE_KEEP_UNRESOLVED",
+    "applicability_evidence": {
+      "status": "APPLICABLE",
+      "rule": "FIELD_SEMANTICS_APPLICABLE",
+      "evidence_ids": [],
+      "contract": "ARTICLE_EXTRACTION/2.0"
+    },
+    "coverage_proof_id": "MP-F834353FE921AC34118AFF13B107E58F8423F2AE424175EFF7DFC46CB6483843"
+  },
+  {
+    "entity_type": "ComparisonResult",
+    "entity_id": "2015-06-S1-CR008",
+    "field": "estimate",
+    "before_status": "UNRESOLVED",
+    "after_status": "UNRESOLVED",
+    "resolution_status": "UNRESOLVED",
+    "changed": false,
+    "decision_type": "KEEP",
+    "rule": "COMPLETE_NON_TARGETED_FIELD_SCOPE_WITH_NO_POSITIVE_OR_UNRESOLVED_SOURCE",
+    "reason_code": "INSUFFICIENT_COVERAGE_KEEP_UNRESOLVED",
+    "applicability_evidence": {
+      "status": "APPLICABLE",
+      "rule": "FIELD_SEMANTICS_APPLICABLE",
+      "evidence_ids": [],
+      "contract": "ARTICLE_EXTRACTION/2.0"
+    },
+    "coverage_proof_id": "MP-EC85A25CE41DB7099216FE1C24739F5923382228E62E6E9436EE578436730E7D"
+  },
+  {
+    "entity_type": "ComparisonResult",
+    "entity_id": "2015-06-S1-CR009",
+    "field": "estimate",
+    "before_status": "UNRESOLVED",
+    "after_status": "UNRESOLVED",
+    "resolution_status": "UNRESOLVED",
+    "changed": false,
+    "decision_type": "KEEP",
+    "rule": "COMPLETE_NON_TARGETED_FIELD_SCOPE_WITH_NO_POSITIVE_OR_UNRESOLVED_SOURCE",
+    "reason_code": "INSUFFICIENT_COVERAGE_KEEP_UNRESOLVED",
+    "applicability_evidence": {
+      "status": "APPLICABLE",
+      "rule": "FIELD_SEMANTICS_APPLICABLE",
+      "evidence_ids": [],
+      "contract": "ARTICLE_EXTRACTION/2.0"
+    },
+    "coverage_proof_id": "MP-979E4761A79C76DB0090E4F360C0324E2A0A2BC87376C2E105FFE376E25AD824"
+  },
+  {
+    "entity_type": "ComparisonResult",
+    "entity_id": "2015-06-S1-CR010",
+    "field": "estimate",
+    "before_status": "UNRESOLVED",
+    "after_status": "UNRESOLVED",
+    "resolution_status": "UNRESOLVED",
+    "changed": false,
+    "decision_type": "KEEP",
+    "rule": "COMPLETE_NON_TARGETED_FIELD_SCOPE_WITH_NO_POSITIVE_OR_UNRESOLVED_SOURCE",
+    "reason_code": "INSUFFICIENT_COVERAGE_KEEP_UNRESOLVED",
+    "applicability_evidence": {
+      "status": "APPLICABLE",
+      "rule": "FIELD_SEMANTICS_APPLICABLE",
+      "evidence_ids": [],
+      "contract": "ARTICLE_EXTRACTION/2.0"
+    },
+    "coverage_proof_id": "MP-977E33152DDBCEFFC9489AD7D2D1EFC314261F4D2464946EE366F19312F8659B"
+  },
+  {
+    "entity_type": "ComparisonResult",
+    "entity_id": "2015-06-S1-CR011",
+    "field": "estimate",
+    "before_status": "UNRESOLVED",
+    "after_status": "UNRESOLVED",
+    "resolution_status": "UNRESOLVED",
+    "changed": false,
+    "decision_type": "KEEP",
+    "rule": "COMPLETE_NON_TARGETED_FIELD_SCOPE_WITH_NO_POSITIVE_OR_UNRESOLVED_SOURCE",
+    "reason_code": "INSUFFICIENT_COVERAGE_KEEP_UNRESOLVED",
+    "applicability_evidence": {
+      "status": "APPLICABLE",
+      "rule": "FIELD_SEMANTICS_APPLICABLE",
+      "evidence_ids": [],
+      "contract": "ARTICLE_EXTRACTION/2.0"
+    },
+    "coverage_proof_id": "MP-D29229D14FBBEF84F7ECECE8A354BD67E0C3B0A78BBCEFE528E756C047A8B839"
+  },
+  {
+    "entity_type": "ComparisonResult",
+    "entity_id": "2015-06-S1-CR012",
+    "field": "estimate",
+    "before_status": "UNRESOLVED",
+    "after_status": "UNRESOLVED",
+    "resolution_status": "UNRESOLVED",
+    "changed": false,
+    "decision_type": "KEEP",
+    "rule": "COMPLETE_NON_TARGETED_FIELD_SCOPE_WITH_NO_POSITIVE_OR_UNRESOLVED_SOURCE",
+    "reason_code": "INSUFFICIENT_COVERAGE_KEEP_UNRESOLVED",
+    "applicability_evidence": {
+      "status": "APPLICABLE",
+      "rule": "FIELD_SEMANTICS_APPLICABLE",
+      "evidence_ids": [],
+      "contract": "ARTICLE_EXTRACTION/2.0"
+    },
+    "coverage_proof_id": "MP-84CA3F5C880C602588D79B9716E6029FC35B797D5AC83E7BA8A293E0AE58AAE1"
+  }
+]

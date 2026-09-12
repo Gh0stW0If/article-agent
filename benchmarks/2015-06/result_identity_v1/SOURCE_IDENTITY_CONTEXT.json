@@ -1,0 +1,190 @@
+{
+  "rows": [
+    {
+      "table_id": "table-1",
+      "row_id": "table-1:r002",
+      "row_label": "Gender (male/female)",
+      "statistic_kind": null,
+      "construct_label": null,
+      "measurement_definition": null,
+      "source_refs": [
+        "production/article.md#table-1:r002"
+      ],
+      "rules": []
+    },
+    {
+      "table_id": "table-1",
+      "row_id": "table-1:r003",
+      "row_label": "Age (years)",
+      "statistic_kind": "mean",
+      "construct_label": null,
+      "measurement_definition": null,
+      "source_refs": [
+        "production/article.md#table-1:r003",
+        "production/article.md#statistical-analysis"
+      ],
+      "rules": [
+        "STATISTIC_KIND_FROM_MEAN_SD_STRUCTURE"
+      ]
+    },
+    {
+      "table_id": "table-1",
+      "row_id": "table-1:r004",
+      "row_label": "Duration of SCI (days)",
+      "statistic_kind": "mean",
+      "construct_label": null,
+      "measurement_definition": null,
+      "source_refs": [
+        "production/article.md#table-1:r004",
+        "production/article.md#statistical-analysis"
+      ],
+      "rules": [
+        "STATISTIC_KIND_FROM_MEAN_SD_STRUCTURE"
+      ]
+    },
+    {
+      "table_id": "table-1",
+      "row_id": "table-1:r005",
+      "row_label": "Residual urine volume (ml)",
+      "statistic_kind": "mean",
+      "construct_label": null,
+      "measurement_definition": null,
+      "source_refs": [
+        "production/article.md#table-1:r005",
+        "production/article.md#statistical-analysis"
+      ],
+      "rules": [
+        "STATISTIC_KIND_FROM_MEAN_SD_STRUCTURE"
+      ]
+    },
+    {
+      "table_id": "table-1",
+      "row_id": "table-1:r006",
+      "row_label": "ASIA grade B (n)",
+      "statistic_kind": null,
+      "construct_label": null,
+      "measurement_definition": null,
+      "source_refs": [
+        "production/article.md#table-1:r006"
+      ],
+      "rules": []
+    },
+    {
+      "table_id": "table-1",
+      "row_id": "table-1:r007",
+      "row_label": "ASIA grade C (n)",
+      "statistic_kind": null,
+      "construct_label": null,
+      "measurement_definition": null,
+      "source_refs": [
+        "production/article.md#table-1:r007"
+      ],
+      "rules": []
+    },
+    {
+      "table_id": "table-1",
+      "row_id": "table-1:r008",
+      "row_label": "ASIA grade D (n)",
+      "statistic_kind": null,
+      "construct_label": null,
+      "measurement_definition": null,
+      "source_refs": [
+        "production/article.md#table-1:r008"
+      ],
+      "rules": []
+    },
+    {
+      "table_id": "table-2",
+      "row_id": "table-2:r002",
+      "row_label": "The number of bladder balance patients (n, %)*",
+      "statistic_kind": "event_count",
+      "construct_label": null,
+      "measurement_definition": null,
+      "source_refs": [
+        "production/article.md#table-2:r002"
+      ],
+      "rules": [
+        "STATISTIC_KIND_FROM_COUNT_PERCENT_STRUCTURE"
+      ]
+    },
+    {
+      "table_id": "table-2",
+      "row_id": "table-2:r003",
+      "row_label": "CIC frequency (times/day)",
+      "statistic_kind": "mean",
+      "construct_label": null,
+      "measurement_definition": null,
+      "source_refs": [
+        "production/article.md#table-2:r003",
+        "production/article.md#statistical-analysis"
+      ],
+      "rules": [
+        "STATISTIC_KIND_FROM_MEAN_SD_STRUCTURE"
+      ]
+    },
+    {
+      "table_id": "table-2",
+      "row_id": "table-2:r004",
+      "row_label": "Residual urine volume (ml) in the 1st month",
+      "statistic_kind": "mean",
+      "construct_label": null,
+      "measurement_definition": null,
+      "source_refs": [
+        "production/article.md#table-2:r004",
+        "production/article.md#statistical-analysis"
+      ],
+      "rules": [
+        "STATISTIC_KIND_FROM_MEAN_SD_STRUCTURE"
+      ]
+    },
+    {
+      "table_id": "table-2",
+      "row_id": "table-2:r005",
+      "row_label": "Voided volume (ml) in the 1st month",
+      "statistic_kind": "mean",
+      "construct_label": null,
+      "measurement_definition": null,
+      "source_refs": [
+        "production/article.md#table-2:r005",
+        "production/article.md#statistical-analysis"
+      ],
+      "rules": [
+        "STATISTIC_KIND_FROM_MEAN_SD_STRUCTURE"
+      ]
+    },
+    {
+      "table_id": "table-2",
+      "row_id": "table-2:r006",
+      "row_label": "Residual urine volume (ml) in the 3rd month",
+      "statistic_kind": "mean",
+      "construct_label": null,
+      "measurement_definition": null,
+      "source_refs": [
+        "production/article.md#table-2:r006",
+        "production/article.md#statistical-analysis"
+      ],
+      "rules": [
+        "STATISTIC_KIND_FROM_MEAN_SD_STRUCTURE"
+      ]
+    },
+    {
+      "table_id": "table-2",
+      "row_id": "table-2:r007",
+      "row_label": "Voided volume (ml) in the 3d month",
+      "statistic_kind": "mean",
+      "construct_label": null,
+      "measurement_definition": null,
+      "source_refs": [
+        "production/article.md#table-2:r007",
+        "production/article.md#statistical-analysis"
+      ],
+      "rules": [
+        "STATISTIC_KIND_FROM_MEAN_SD_STRUCTURE"
+      ]
+    }
+  ],
+  "reporting_statements": [
+    "Quantitative data were expressed as mean ± standard deviation (SD)."
+  ],
+  "source_document_sha256": "60c3b417f8054d43cf53d321564c02815ae0d4901d2aa40165aeea7b412b4b42"
+}

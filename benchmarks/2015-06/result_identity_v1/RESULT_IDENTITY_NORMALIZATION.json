@@ -1,0 +1,4893 @@
+{
+  "results": [
+    {
+      "side": "Prediction",
+      "entity_type": "ArmResult",
+      "entity_id": "2015-06-S1-AR001",
+      "parent_type": "Arm",
+      "parent_id": "2015-06-S1-A01",
+      "raw_outcome_id": "2015-06-S1-O01",
+      "canonical_outcome_id": "2015-06-S1-O01",
+      "raw_timepoint": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "raw_timepoint_value": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "raw_timepoint_unit": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_timepoint": {
+        "kind": "unknown",
+        "value": null,
+        "unit": null,
+        "anchor": null,
+        "relation": null,
+        "blockers": []
+      },
+      "raw_analysis_set": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_analysis_set": null,
+      "raw_statistic_kind": {
+        "status": "PRESENT",
+        "value": "other",
+        "raw_value": "other",
+        "evidence_ids": [
+          "2015-06-S1-O-E00003"
+        ]
+      },
+      "canonical_statistic_kind": "event_count",
+      "derived": false,
+      "source_refs": [
+        "table-2|table-2:r002"
+      ],
+      "normalization_events": [
+        {
+          "field": "statistic_kind",
+          "rule": "STATISTIC_KIND_FROM_COUNT_PERCENT_STRUCTURE",
+          "explanation": "Source reporting structure, never numeric agreement.",
+          "source_refs": [
+            "production/article.md#table-2:r002"
+          ],
+          "deterministic": true
+        }
+      ],
+      "identity_blockers": [],
+      "deterministic_status": "DETERMINISTIC",
+      "mapping_changed": false
+    },
+    {
+      "side": "Prediction",
+      "entity_type": "ArmResult",
+      "entity_id": "2015-06-S1-AR002",
+      "parent_type": "Arm",
+      "parent_id": "2015-06-S1-A02",
+      "raw_outcome_id": "2015-06-S1-O01",
+      "canonical_outcome_id": "2015-06-S1-O01",
+      "raw_timepoint": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "raw_timepoint_value": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "raw_timepoint_unit": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_timepoint": {
+        "kind": "unknown",
+        "value": null,
+        "unit": null,
+        "anchor": null,
+        "relation": null,
+        "blockers": []
+      },
+      "raw_analysis_set": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_analysis_set": null,
+      "raw_statistic_kind": {
+        "status": "PRESENT",
+        "value": "other",
+        "raw_value": "other",
+        "evidence_ids": [
+          "2015-06-S1-O-E00005"
+        ]
+      },
+      "canonical_statistic_kind": "event_count",
+      "derived": false,
+      "source_refs": [
+        "table-2|table-2:r002"
+      ],
+      "normalization_events": [
+        {
+          "field": "statistic_kind",
+          "rule": "STATISTIC_KIND_FROM_COUNT_PERCENT_STRUCTURE",
+          "explanation": "Source reporting structure, never numeric agreement.",
+          "source_refs": [
+            "production/article.md#table-2:r002"
+          ],
+          "deterministic": true
+        }
+      ],
+      "identity_blockers": [],
+      "deterministic_status": "DETERMINISTIC",
+      "mapping_changed": false
+    },
+    {
+      "side": "Prediction",
+      "entity_type": "ArmResult",
+      "entity_id": "2015-06-S1-AR003",
+      "parent_type": "Arm",
+      "parent_id": "2015-06-S1-A03",
+      "raw_outcome_id": "2015-06-S1-O01",
+      "canonical_outcome_id": "2015-06-S1-O01",
+      "raw_timepoint": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "raw_timepoint_value": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "raw_timepoint_unit": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_timepoint": {
+        "kind": "unknown",
+        "value": null,
+        "unit": null,
+        "anchor": null,
+        "relation": null,
+        "blockers": []
+      },
+      "raw_analysis_set": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_analysis_set": null,
+      "raw_statistic_kind": {
+        "status": "PRESENT",
+        "value": "other",
+        "raw_value": "other",
+        "evidence_ids": [
+          "2015-06-S1-O-E00007"
+        ]
+      },
+      "canonical_statistic_kind": "event_count",
+      "derived": false,
+      "source_refs": [
+        "table-2|table-2:r002"
+      ],
+      "normalization_events": [
+        {
+          "field": "statistic_kind",
+          "rule": "STATISTIC_KIND_FROM_COUNT_PERCENT_STRUCTURE",
+          "explanation": "Source reporting structure, never numeric agreement.",
+          "source_refs": [
+            "production/article.md#table-2:r002"
+          ],
+          "deterministic": true
+        }
+      ],
+      "identity_blockers": [],
+      "deterministic_status": "DETERMINISTIC",
+      "mapping_changed": false
+    },
+    {
+      "side": "Prediction",
+      "entity_type": "ArmResult",
+      "entity_id": "2015-06-S1-AR004",
+      "parent_type": "Arm",
+      "parent_id": "2015-06-S1-A01",
+      "raw_outcome_id": "2015-06-S1-O03",
+      "canonical_outcome_id": "2015-06-S1-O03",
+      "raw_timepoint": {
+        "status": "PRESENT",
+        "value": "1st month",
+        "raw_value": "1st month",
+        "evidence_ids": [
+          "2015-06-S1-O-E00010"
+        ]
+      },
+      "raw_timepoint_value": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "raw_timepoint_unit": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_timepoint": {
+        "kind": "follow_up",
+        "value": 1.0,
+        "unit": "month",
+        "anchor": null,
+        "relation": null,
+        "blockers": []
+      },
+      "raw_analysis_set": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_analysis_set": null,
+      "raw_statistic_kind": {
+        "status": "PRESENT",
+        "value": "other",
+        "raw_value": "other",
+        "evidence_ids": [
+          "2015-06-S1-O-E00014"
+        ]
+      },
+      "canonical_statistic_kind": "mean",
+      "derived": false,
+      "source_refs": [
+        "table-2|table-2:r004"
+      ],
+      "normalization_events": [
+        {
+          "field": "timepoint",
+          "rule": "TIMEPOINT_ORDINAL_FORMAT_NORMALIZED",
+          "explanation": "Generic ordinal/OCR suffix normalized; raw text retained.",
+          "source_refs": [],
+          "deterministic": true
+        },
+        {
+          "field": "timepoint",
+          "rule": "TIMEPOINT_CANONICAL_DURATION",
+          "explanation": "Duration parsed without changing its reference event.",
+          "source_refs": [],
+          "deterministic": true
+        },
+        {
+          "field": "statistic_kind",
+          "rule": "STATISTIC_KIND_FROM_MEAN_SD_STRUCTURE",
+          "explanation": "Source reporting structure, never numeric agreement.",
+          "source_refs": [
+            "production/article.md#statistical-analysis",
+            "production/article.md#table-2:r004"
+          ],
+          "deterministic": true
+        }
+      ],
+      "identity_blockers": [],
+      "deterministic_status": "DETERMINISTIC",
+      "mapping_changed": true
+    },
+    {
+      "side": "Prediction",
+      "entity_type": "ArmResult",
+      "entity_id": "2015-06-S1-AR005",
+      "parent_type": "Arm",
+      "parent_id": "2015-06-S1-A02",
+      "raw_outcome_id": "2015-06-S1-O03",
+      "canonical_outcome_id": "2015-06-S1-O03",
+      "raw_timepoint": {
+        "status": "PRESENT",
+        "value": "1st month",
+        "raw_value": "1st month",
+        "evidence_ids": [
+          "2015-06-S1-O-E00015"
+        ]
+      },
+      "raw_timepoint_value": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "raw_timepoint_unit": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_timepoint": {
+        "kind": "follow_up",
+        "value": 1.0,
+        "unit": "month",
+        "anchor": null,
+        "relation": null,
+        "blockers": []
+      },
+      "raw_analysis_set": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_analysis_set": null,
+      "raw_statistic_kind": {
+        "status": "PRESENT",
+        "value": "other",
+        "raw_value": "other",
+        "evidence_ids": [
+          "2015-06-S1-O-E00019"
+        ]
+      },
+      "canonical_statistic_kind": "mean",
+      "derived": false,
+      "source_refs": [
+        "table-2|table-2:r004"
+      ],
+      "normalization_events": [
+        {
+          "field": "timepoint",
+          "rule": "TIMEPOINT_ORDINAL_FORMAT_NORMALIZED",
+          "explanation": "Generic ordinal/OCR suffix normalized; raw text retained.",
+          "source_refs": [],
+          "deterministic": true
+        },
+        {
+          "field": "timepoint",
+          "rule": "TIMEPOINT_CANONICAL_DURATION",
+          "explanation": "Duration parsed without changing its reference event.",
+          "source_refs": [],
+          "deterministic": true
+        },
+        {
+          "field": "statistic_kind",
+          "rule": "STATISTIC_KIND_FROM_MEAN_SD_STRUCTURE",
+          "explanation": "Source reporting structure, never numeric agreement.",
+          "source_refs": [
+            "production/article.md#statistical-analysis",
+            "production/article.md#table-2:r004"
+          ],
+          "deterministic": true
+        }
+      ],
+      "identity_blockers": [],
+      "deterministic_status": "DETERMINISTIC",
+      "mapping_changed": true
+    },
+    {
+      "side": "Prediction",
+      "entity_type": "ArmResult",
+      "entity_id": "2015-06-S1-AR006",
+      "parent_type": "Arm",
+      "parent_id": "2015-06-S1-A03",
+      "raw_outcome_id": "2015-06-S1-O03",
+      "canonical_outcome_id": "2015-06-S1-O03",
+      "raw_timepoint": {
+        "status": "PRESENT",
+        "value": "1st month",
+        "raw_value": "1st month",
+        "evidence_ids": [
+          "2015-06-S1-O-E00020"
+        ]
+      },
+      "raw_timepoint_value": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "raw_timepoint_unit": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_timepoint": {
+        "kind": "follow_up",
+        "value": 1.0,
+        "unit": "month",
+        "anchor": null,
+        "relation": null,
+        "blockers": []
+      },
+      "raw_analysis_set": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_analysis_set": null,
+      "raw_statistic_kind": {
+        "status": "PRESENT",
+        "value": "other",
+        "raw_value": "other",
+        "evidence_ids": [
+          "2015-06-S1-O-E00024"
+        ]
+      },
+      "canonical_statistic_kind": "mean",
+      "derived": false,
+      "source_refs": [
+        "table-2|table-2:r004"
+      ],
+      "normalization_events": [
+        {
+          "field": "timepoint",
+          "rule": "TIMEPOINT_ORDINAL_FORMAT_NORMALIZED",
+          "explanation": "Generic ordinal/OCR suffix normalized; raw text retained.",
+          "source_refs": [],
+          "deterministic": true
+        },
+        {
+          "field": "timepoint",
+          "rule": "TIMEPOINT_CANONICAL_DURATION",
+          "explanation": "Duration parsed without changing its reference event.",
+          "source_refs": [],
+          "deterministic": true
+        },
+        {
+          "field": "statistic_kind",
+          "rule": "STATISTIC_KIND_FROM_MEAN_SD_STRUCTURE",
+          "explanation": "Source reporting structure, never numeric agreement.",
+          "source_refs": [
+            "production/article.md#statistical-analysis",
+            "production/article.md#table-2:r004"
+          ],
+          "deterministic": true
+        }
+      ],
+      "identity_blockers": [],
+      "deterministic_status": "DETERMINISTIC",
+      "mapping_changed": true
+    },
+    {
+      "side": "Prediction",
+      "entity_type": "ArmResult",
+      "entity_id": "2015-06-S1-AR007",
+      "parent_type": "Arm",
+      "parent_id": "2015-06-S1-A01",
+      "raw_outcome_id": "2015-06-S1-O04",
+      "canonical_outcome_id": "2015-06-S1-O04",
+      "raw_timepoint": {
+        "status": "PRESENT",
+        "value": "1st month",
+        "raw_value": "1st month",
+        "evidence_ids": [
+          "2015-06-S1-O-E00032",
+          "2015-06-S1-O-E00052",
+          "2015-06-S1-O-E00072"
+        ]
+      },
+      "raw_timepoint_value": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "raw_timepoint_unit": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_timepoint": {
+        "kind": "follow_up",
+        "value": 1.0,
+        "unit": "month",
+        "anchor": null,
+        "relation": null,
+        "blockers": []
+      },
+      "raw_analysis_set": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_analysis_set": null,
+      "raw_statistic_kind": {
+        "status": "PRESENT",
+        "value": "other",
+        "raw_value": "other",
+        "evidence_ids": [
+          "2015-06-S1-O-E00036",
+          "2015-06-S1-O-E00056",
+          "2015-06-S1-O-E00076"
+        ]
+      },
+      "canonical_statistic_kind": "mean",
+      "derived": false,
+      "source_refs": [
+        "table-2|table-2:r005"
+      ],
+      "normalization_events": [
+        {
+          "field": "timepoint",
+          "rule": "TIMEPOINT_ORDINAL_FORMAT_NORMALIZED",
+          "explanation": "Generic ordinal/OCR suffix normalized; raw text retained.",
+          "source_refs": [],
+          "deterministic": true
+        },
+        {
+          "field": "timepoint",
+          "rule": "TIMEPOINT_CANONICAL_DURATION",
+          "explanation": "Duration parsed without changing its reference event.",
+          "source_refs": [],
+          "deterministic": true
+        },
+        {
+          "field": "statistic_kind",
+          "rule": "STATISTIC_KIND_FROM_MEAN_SD_STRUCTURE",
+          "explanation": "Source reporting structure, never numeric agreement.",
+          "source_refs": [
+            "production/article.md#statistical-analysis",
+            "production/article.md#table-2:r005"
+          ],
+          "deterministic": true
+        }
+      ],
+      "identity_blockers": [],
+      "deterministic_status": "DETERMINISTIC",
+      "mapping_changed": true
+    },
+    {
+      "side": "Prediction",
+      "entity_type": "ArmResult",
+      "entity_id": "2015-06-S1-AR008",
+      "parent_type": "Arm",
+      "parent_id": "2015-06-S1-A02",
+      "raw_outcome_id": "2015-06-S1-O04",
+      "canonical_outcome_id": "2015-06-S1-O04",
+      "raw_timepoint": {
+        "status": "PRESENT",
+        "value": "1st month",
+        "raw_value": "1st month",
+        "evidence_ids": [
+          "2015-06-S1-O-E00037",
+          "2015-06-S1-O-E00057",
+          "2015-06-S1-O-E00077"
+        ]
+      },
+      "raw_timepoint_value": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "raw_timepoint_unit": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_timepoint": {
+        "kind": "follow_up",
+        "value": 1.0,
+        "unit": "month",
+        "anchor": null,
+        "relation": null,
+        "blockers": []
+      },
+      "raw_analysis_set": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_analysis_set": null,
+      "raw_statistic_kind": {
+        "status": "PRESENT",
+        "value": "other",
+        "raw_value": "other",
+        "evidence_ids": [
+          "2015-06-S1-O-E00041",
+          "2015-06-S1-O-E00061",
+          "2015-06-S1-O-E00081"
+        ]
+      },
+      "canonical_statistic_kind": "mean",
+      "derived": false,
+      "source_refs": [
+        "table-2|table-2:r005"
+      ],
+      "normalization_events": [
+        {
+          "field": "timepoint",
+          "rule": "TIMEPOINT_ORDINAL_FORMAT_NORMALIZED",
+          "explanation": "Generic ordinal/OCR suffix normalized; raw text retained.",
+          "source_refs": [],
+          "deterministic": true
+        },
+        {
+          "field": "timepoint",
+          "rule": "TIMEPOINT_CANONICAL_DURATION",
+          "explanation": "Duration parsed without changing its reference event.",
+          "source_refs": [],
+          "deterministic": true
+        },
+        {
+          "field": "statistic_kind",
+          "rule": "STATISTIC_KIND_FROM_MEAN_SD_STRUCTURE",
+          "explanation": "Source reporting structure, never numeric agreement.",
+          "source_refs": [
+            "production/article.md#statistical-analysis",
+            "production/article.md#table-2:r005"
+          ],
+          "deterministic": true
+        }
+      ],
+      "identity_blockers": [],
+      "deterministic_status": "DETERMINISTIC",
+      "mapping_changed": true
+    },
+    {
+      "side": "Prediction",
+      "entity_type": "ArmResult",
+      "entity_id": "2015-06-S1-AR009",
+      "parent_type": "Arm",
+      "parent_id": "2015-06-S1-A03",
+      "raw_outcome_id": "2015-06-S1-O04",
+      "canonical_outcome_id": "2015-06-S1-O04",
+      "raw_timepoint": {
+        "status": "PRESENT",
+        "value": "1st month",
+        "raw_value": "1st month",
+        "evidence_ids": [
+          "2015-06-S1-O-E00042",
+          "2015-06-S1-O-E00062",
+          "2015-06-S1-O-E00082"
+        ]
+      },
+      "raw_timepoint_value": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "raw_timepoint_unit": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_timepoint": {
+        "kind": "follow_up",
+        "value": 1.0,
+        "unit": "month",
+        "anchor": null,
+        "relation": null,
+        "blockers": []
+      },
+      "raw_analysis_set": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_analysis_set": null,
+      "raw_statistic_kind": {
+        "status": "PRESENT",
+        "value": "other",
+        "raw_value": "other",
+        "evidence_ids": [
+          "2015-06-S1-O-E00046",
+          "2015-06-S1-O-E00066",
+          "2015-06-S1-O-E00086"
+        ]
+      },
+      "canonical_statistic_kind": "mean",
+      "derived": false,
+      "source_refs": [
+        "table-2|table-2:r005"
+      ],
+      "normalization_events": [
+        {
+          "field": "timepoint",
+          "rule": "TIMEPOINT_ORDINAL_FORMAT_NORMALIZED",
+          "explanation": "Generic ordinal/OCR suffix normalized; raw text retained.",
+          "source_refs": [],
+          "deterministic": true
+        },
+        {
+          "field": "timepoint",
+          "rule": "TIMEPOINT_CANONICAL_DURATION",
+          "explanation": "Duration parsed without changing its reference event.",
+          "source_refs": [],
+          "deterministic": true
+        },
+        {
+          "field": "statistic_kind",
+          "rule": "STATISTIC_KIND_FROM_MEAN_SD_STRUCTURE",
+          "explanation": "Source reporting structure, never numeric agreement.",
+          "source_refs": [
+            "production/article.md#statistical-analysis",
+            "production/article.md#table-2:r005"
+          ],
+          "deterministic": true
+        }
+      ],
+      "identity_blockers": [],
+      "deterministic_status": "DETERMINISTIC",
+      "mapping_changed": true
+    },
+    {
+      "side": "Prediction",
+      "entity_type": "ArmResult",
+      "entity_id": "2015-06-S1-AR010",
+      "parent_type": "Arm",
+      "parent_id": "2015-06-S1-A01",
+      "raw_outcome_id": "2015-06-S1-O03",
+      "canonical_outcome_id": "2015-06-S1-O03",
+      "raw_timepoint": {
+        "status": "PRESENT",
+        "value": "3rd month",
+        "raw_value": "3rd month",
+        "evidence_ids": [
+          "2015-06-S1-O-E00092"
+        ]
+      },
+      "raw_timepoint_value": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "raw_timepoint_unit": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_timepoint": {
+        "kind": "follow_up",
+        "value": 3.0,
+        "unit": "month",
+        "anchor": null,
+        "relation": null,
+        "blockers": []
+      },
+      "raw_analysis_set": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_analysis_set": null,
+      "raw_statistic_kind": {
+        "status": "PRESENT",
+        "value": "other",
+        "raw_value": "other",
+        "evidence_ids": [
+          "2015-06-S1-O-E00096"
+        ]
+      },
+      "canonical_statistic_kind": "mean",
+      "derived": false,
+      "source_refs": [
+        "table-2|table-2:r006"
+      ],
+      "normalization_events": [
+        {
+          "field": "timepoint",
+          "rule": "TIMEPOINT_ORDINAL_FORMAT_NORMALIZED",
+          "explanation": "Generic ordinal/OCR suffix normalized; raw text retained.",
+          "source_refs": [],
+          "deterministic": true
+        },
+        {
+          "field": "timepoint",
+          "rule": "TIMEPOINT_CANONICAL_DURATION",
+          "explanation": "Duration parsed without changing its reference event.",
+          "source_refs": [],
+          "deterministic": true
+        },
+        {
+          "field": "statistic_kind",
+          "rule": "STATISTIC_KIND_FROM_MEAN_SD_STRUCTURE",
+          "explanation": "Source reporting structure, never numeric agreement.",
+          "source_refs": [
+            "production/article.md#statistical-analysis",
+            "production/article.md#table-2:r006"
+          ],
+          "deterministic": true
+        }
+      ],
+      "identity_blockers": [],
+      "deterministic_status": "DETERMINISTIC",
+      "mapping_changed": true
+    },
+    {
+      "side": "Prediction",
+      "entity_type": "ArmResult",
+      "entity_id": "2015-06-S1-AR011",
+      "parent_type": "Arm",
+      "parent_id": "2015-06-S1-A02",
+      "raw_outcome_id": "2015-06-S1-O03",
+      "canonical_outcome_id": "2015-06-S1-O03",
+      "raw_timepoint": {
+        "status": "PRESENT",
+        "value": "3rd month",
+        "raw_value": "3rd month",
+        "evidence_ids": [
+          "2015-06-S1-O-E00097"
+        ]
+      },
+      "raw_timepoint_value": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "raw_timepoint_unit": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_timepoint": {
+        "kind": "follow_up",
+        "value": 3.0,
+        "unit": "month",
+        "anchor": null,
+        "relation": null,
+        "blockers": []
+      },
+      "raw_analysis_set": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_analysis_set": null,
+      "raw_statistic_kind": {
+        "status": "PRESENT",
+        "value": "other",
+        "raw_value": "other",
+        "evidence_ids": [
+          "2015-06-S1-O-E00101"
+        ]
+      },
+      "canonical_statistic_kind": "mean",
+      "derived": false,
+      "source_refs": [
+        "table-2|table-2:r006"
+      ],
+      "normalization_events": [
+        {
+          "field": "timepoint",
+          "rule": "TIMEPOINT_ORDINAL_FORMAT_NORMALIZED",
+          "explanation": "Generic ordinal/OCR suffix normalized; raw text retained.",
+          "source_refs": [],
+          "deterministic": true
+        },
+        {
+          "field": "timepoint",
+          "rule": "TIMEPOINT_CANONICAL_DURATION",
+          "explanation": "Duration parsed without changing its reference event.",
+          "source_refs": [],
+          "deterministic": true
+        },
+        {
+          "field": "statistic_kind",
+          "rule": "STATISTIC_KIND_FROM_MEAN_SD_STRUCTURE",
+          "explanation": "Source reporting structure, never numeric agreement.",
+          "source_refs": [
+            "production/article.md#statistical-analysis",
+            "production/article.md#table-2:r006"
+          ],
+          "deterministic": true
+        }
+      ],
+      "identity_blockers": [],
+      "deterministic_status": "DETERMINISTIC",
+      "mapping_changed": true
+    },
+    {
+      "side": "Prediction",
+      "entity_type": "ArmResult",
+      "entity_id": "2015-06-S1-AR012",
+      "parent_type": "Arm",
+      "parent_id": "2015-06-S1-A03",
+      "raw_outcome_id": "2015-06-S1-O03",
+      "canonical_outcome_id": "2015-06-S1-O03",
+      "raw_timepoint": {
+        "status": "PRESENT",
+        "value": "3rd month",
+        "raw_value": "3rd month",
+        "evidence_ids": [
+          "2015-06-S1-O-E00102"
+        ]
+      },
+      "raw_timepoint_value": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "raw_timepoint_unit": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_timepoint": {
+        "kind": "follow_up",
+        "value": 3.0,
+        "unit": "month",
+        "anchor": null,
+        "relation": null,
+        "blockers": []
+      },
+      "raw_analysis_set": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_analysis_set": null,
+      "raw_statistic_kind": {
+        "status": "PRESENT",
+        "value": "other",
+        "raw_value": "other",
+        "evidence_ids": [
+          "2015-06-S1-O-E00106"
+        ]
+      },
+      "canonical_statistic_kind": "mean",
+      "derived": false,
+      "source_refs": [
+        "table-2|table-2:r006"
+      ],
+      "normalization_events": [
+        {
+          "field": "timepoint",
+          "rule": "TIMEPOINT_ORDINAL_FORMAT_NORMALIZED",
+          "explanation": "Generic ordinal/OCR suffix normalized; raw text retained.",
+          "source_refs": [],
+          "deterministic": true
+        },
+        {
+          "field": "timepoint",
+          "rule": "TIMEPOINT_CANONICAL_DURATION",
+          "explanation": "Duration parsed without changing its reference event.",
+          "source_refs": [],
+          "deterministic": true
+        },
+        {
+          "field": "statistic_kind",
+          "rule": "STATISTIC_KIND_FROM_MEAN_SD_STRUCTURE",
+          "explanation": "Source reporting structure, never numeric agreement.",
+          "source_refs": [
+            "production/article.md#statistical-analysis",
+            "production/article.md#table-2:r006"
+          ],
+          "deterministic": true
+        }
+      ],
+      "identity_blockers": [],
+      "deterministic_status": "DETERMINISTIC",
+      "mapping_changed": true
+    },
+    {
+      "side": "Prediction",
+      "entity_type": "ArmResult",
+      "entity_id": "2015-06-S1-AR013",
+      "parent_type": "Arm",
+      "parent_id": "2015-06-S1-A01",
+      "raw_outcome_id": "2015-06-S1-O04",
+      "canonical_outcome_id": "2015-06-S1-O04",
+      "raw_timepoint": {
+        "status": "PRESENT",
+        "value": "3d month",
+        "raw_value": "3d month",
+        "evidence_ids": [
+          "2015-06-S1-O-E00108"
+        ]
+      },
+      "raw_timepoint_value": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "raw_timepoint_unit": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_timepoint": {
+        "kind": "follow_up",
+        "value": 3.0,
+        "unit": "month",
+        "anchor": null,
+        "relation": null,
+        "blockers": []
+      },
+      "raw_analysis_set": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_analysis_set": null,
+      "raw_statistic_kind": {
+        "status": "PRESENT",
+        "value": "other",
+        "raw_value": "other",
+        "evidence_ids": [
+          "2015-06-S1-O-E00112"
+        ]
+      },
+      "canonical_statistic_kind": "mean",
+      "derived": false,
+      "source_refs": [
+        "table-2|table-2:r007"
+      ],
+      "normalization_events": [
+        {
+          "field": "timepoint",
+          "rule": "TIMEPOINT_ORDINAL_FORMAT_NORMALIZED",
+          "explanation": "Generic ordinal/OCR suffix normalized; raw text retained.",
+          "source_refs": [],
+          "deterministic": true
+        },
+        {
+          "field": "timepoint",
+          "rule": "TIMEPOINT_CANONICAL_DURATION",
+          "explanation": "Duration parsed without changing its reference event.",
+          "source_refs": [],
+          "deterministic": true
+        },
+        {
+          "field": "statistic_kind",
+          "rule": "STATISTIC_KIND_FROM_MEAN_SD_STRUCTURE",
+          "explanation": "Source reporting structure, never numeric agreement.",
+          "source_refs": [
+            "production/article.md#statistical-analysis",
+            "production/article.md#table-2:r007"
+          ],
+          "deterministic": true
+        }
+      ],
+      "identity_blockers": [],
+      "deterministic_status": "DETERMINISTIC",
+      "mapping_changed": true
+    },
+    {
+      "side": "Prediction",
+      "entity_type": "ArmResult",
+      "entity_id": "2015-06-S1-AR014",
+      "parent_type": "Arm",
+      "parent_id": "2015-06-S1-A02",
+      "raw_outcome_id": "2015-06-S1-O04",
+      "canonical_outcome_id": "2015-06-S1-O04",
+      "raw_timepoint": {
+        "status": "PRESENT",
+        "value": "3d month",
+        "raw_value": "3d month",
+        "evidence_ids": [
+          "2015-06-S1-O-E00113"
+        ]
+      },
+      "raw_timepoint_value": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "raw_timepoint_unit": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_timepoint": {
+        "kind": "follow_up",
+        "value": 3.0,
+        "unit": "month",
+        "anchor": null,
+        "relation": null,
+        "blockers": []
+      },
+      "raw_analysis_set": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_analysis_set": null,
+      "raw_statistic_kind": {
+        "status": "PRESENT",
+        "value": "other",
+        "raw_value": "other",
+        "evidence_ids": [
+          "2015-06-S1-O-E00117"
+        ]
+      },
+      "canonical_statistic_kind": "mean",
+      "derived": false,
+      "source_refs": [
+        "table-2|table-2:r007"
+      ],
+      "normalization_events": [
+        {
+          "field": "timepoint",
+          "rule": "TIMEPOINT_ORDINAL_FORMAT_NORMALIZED",
+          "explanation": "Generic ordinal/OCR suffix normalized; raw text retained.",
+          "source_refs": [],
+          "deterministic": true
+        },
+        {
+          "field": "timepoint",
+          "rule": "TIMEPOINT_CANONICAL_DURATION",
+          "explanation": "Duration parsed without changing its reference event.",
+          "source_refs": [],
+          "deterministic": true
+        },
+        {
+          "field": "statistic_kind",
+          "rule": "STATISTIC_KIND_FROM_MEAN_SD_STRUCTURE",
+          "explanation": "Source reporting structure, never numeric agreement.",
+          "source_refs": [
+            "production/article.md#statistical-analysis",
+            "production/article.md#table-2:r007"
+          ],
+          "deterministic": true
+        }
+      ],
+      "identity_blockers": [],
+      "deterministic_status": "DETERMINISTIC",
+      "mapping_changed": true
+    },
+    {
+      "side": "Prediction",
+      "entity_type": "ArmResult",
+      "entity_id": "2015-06-S1-AR015",
+      "parent_type": "Arm",
+      "parent_id": "2015-06-S1-A03",
+      "raw_outcome_id": "2015-06-S1-O04",
+      "canonical_outcome_id": "2015-06-S1-O04",
+      "raw_timepoint": {
+        "status": "PRESENT",
+        "value": "3d month",
+        "raw_value": "3d month",
+        "evidence_ids": [
+          "2015-06-S1-O-E00118"
+        ]
+      },
+      "raw_timepoint_value": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "raw_timepoint_unit": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_timepoint": {
+        "kind": "follow_up",
+        "value": 3.0,
+        "unit": "month",
+        "anchor": null,
+        "relation": null,
+        "blockers": []
+      },
+      "raw_analysis_set": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_analysis_set": null,
+      "raw_statistic_kind": {
+        "status": "PRESENT",
+        "value": "other",
+        "raw_value": "other",
+        "evidence_ids": [
+          "2015-06-S1-O-E00122"
+        ]
+      },
+      "canonical_statistic_kind": "mean",
+      "derived": false,
+      "source_refs": [
+        "table-2|table-2:r007"
+      ],
+      "normalization_events": [
+        {
+          "field": "timepoint",
+          "rule": "TIMEPOINT_ORDINAL_FORMAT_NORMALIZED",
+          "explanation": "Generic ordinal/OCR suffix normalized; raw text retained.",
+          "source_refs": [],
+          "deterministic": true
+        },
+        {
+          "field": "timepoint",
+          "rule": "TIMEPOINT_CANONICAL_DURATION",
+          "explanation": "Duration parsed without changing its reference event.",
+          "source_refs": [],
+          "deterministic": true
+        },
+        {
+          "field": "statistic_kind",
+          "rule": "STATISTIC_KIND_FROM_MEAN_SD_STRUCTURE",
+          "explanation": "Source reporting structure, never numeric agreement.",
+          "source_refs": [
+            "production/article.md#statistical-analysis",
+            "production/article.md#table-2:r007"
+          ],
+          "deterministic": true
+        }
+      ],
+      "identity_blockers": [],
+      "deterministic_status": "DETERMINISTIC",
+      "mapping_changed": true
+    },
+    {
+      "side": "Prediction",
+      "entity_type": "ComparisonResult",
+      "entity_id": "2015-06-S1-CR001",
+      "parent_type": "Comparison",
+      "parent_id": "2015-06-S1-C01",
+      "raw_outcome_id": "2015-06-S1-O03",
+      "canonical_outcome_id": "2015-06-S1-O03",
+      "raw_timepoint": {
+        "status": "PRESENT",
+        "value": "1st month",
+        "raw_value": "1st month",
+        "evidence_ids": [
+          "2015-06-S1-O-E00026"
+        ]
+      },
+      "raw_timepoint_value": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "raw_timepoint_unit": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_timepoint": {
+        "kind": "follow_up",
+        "value": 1.0,
+        "unit": "month",
+        "anchor": null,
+        "relation": null,
+        "blockers": []
+      },
+      "raw_analysis_set": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_analysis_set": null,
+      "raw_statistic_kind": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_statistic_kind": null,
+      "derived": false,
+      "source_refs": [
+        "table-2|table-2:r004"
+      ],
+      "normalization_events": [
+        {
+          "field": "timepoint",
+          "rule": "TIMEPOINT_ORDINAL_FORMAT_NORMALIZED",
+          "explanation": "Generic ordinal/OCR suffix normalized; raw text retained.",
+          "source_refs": [],
+          "deterministic": true
+        },
+        {
+          "field": "timepoint",
+          "rule": "TIMEPOINT_CANONICAL_DURATION",
+          "explanation": "Duration parsed without changing its reference event.",
+          "source_refs": [],
+          "deterministic": true
+        }
+      ],
+      "identity_blockers": [],
+      "deterministic_status": "DETERMINISTIC",
+      "mapping_changed": true
+    },
+    {
+      "side": "Prediction",
+      "entity_type": "ComparisonResult",
+      "entity_id": "2015-06-S1-CR002",
+      "parent_type": "Comparison",
+      "parent_id": "2015-06-S1-C02",
+      "raw_outcome_id": "2015-06-S1-O03",
+      "canonical_outcome_id": "2015-06-S1-O03",
+      "raw_timepoint": {
+        "status": "PRESENT",
+        "value": "1st month",
+        "raw_value": "1st month",
+        "evidence_ids": [
+          "2015-06-S1-O-E00028"
+        ]
+      },
+      "raw_timepoint_value": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "raw_timepoint_unit": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_timepoint": {
+        "kind": "follow_up",
+        "value": 1.0,
+        "unit": "month",
+        "anchor": null,
+        "relation": null,
+        "blockers": []
+      },
+      "raw_analysis_set": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_analysis_set": null,
+      "raw_statistic_kind": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_statistic_kind": null,
+      "derived": false,
+      "source_refs": [
+        "table-2|table-2:r004"
+      ],
+      "normalization_events": [
+        {
+          "field": "timepoint",
+          "rule": "TIMEPOINT_ORDINAL_FORMAT_NORMALIZED",
+          "explanation": "Generic ordinal/OCR suffix normalized; raw text retained.",
+          "source_refs": [],
+          "deterministic": true
+        },
+        {
+          "field": "timepoint",
+          "rule": "TIMEPOINT_CANONICAL_DURATION",
+          "explanation": "Duration parsed without changing its reference event.",
+          "source_refs": [],
+          "deterministic": true
+        }
+      ],
+      "identity_blockers": [],
+      "deterministic_status": "DETERMINISTIC",
+      "mapping_changed": true
+    },
+    {
+      "side": "Prediction",
+      "entity_type": "ComparisonResult",
+      "entity_id": "2015-06-S1-CR003",
+      "parent_type": "Comparison",
+      "parent_id": "2015-06-S1-C03",
+      "raw_outcome_id": "2015-06-S1-O03",
+      "canonical_outcome_id": "2015-06-S1-O03",
+      "raw_timepoint": {
+        "status": "PRESENT",
+        "value": "1st month",
+        "raw_value": "1st month",
+        "evidence_ids": [
+          "2015-06-S1-O-E00030"
+        ]
+      },
+      "raw_timepoint_value": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "raw_timepoint_unit": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_timepoint": {
+        "kind": "follow_up",
+        "value": 1.0,
+        "unit": "month",
+        "anchor": null,
+        "relation": null,
+        "blockers": []
+      },
+      "raw_analysis_set": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_analysis_set": null,
+      "raw_statistic_kind": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_statistic_kind": null,
+      "derived": false,
+      "source_refs": [
+        "table-2|table-2:r004"
+      ],
+      "normalization_events": [
+        {
+          "field": "timepoint",
+          "rule": "TIMEPOINT_ORDINAL_FORMAT_NORMALIZED",
+          "explanation": "Generic ordinal/OCR suffix normalized; raw text retained.",
+          "source_refs": [],
+          "deterministic": true
+        },
+        {
+          "field": "timepoint",
+          "rule": "TIMEPOINT_CANONICAL_DURATION",
+          "explanation": "Duration parsed without changing its reference event.",
+          "source_refs": [],
+          "deterministic": true
+        }
+      ],
+      "identity_blockers": [],
+      "deterministic_status": "DETERMINISTIC",
+      "mapping_changed": true
+    },
+    {
+      "side": "Prediction",
+      "entity_type": "ComparisonResult",
+      "entity_id": "2015-06-S1-CR004",
+      "parent_type": "Comparison",
+      "parent_id": "2015-06-S1-C01",
+      "raw_outcome_id": "2015-06-S1-O04",
+      "canonical_outcome_id": "2015-06-S1-O04",
+      "raw_timepoint": {
+        "status": "PRESENT",
+        "value": "1st month",
+        "raw_value": "1st month",
+        "evidence_ids": [
+          "2015-06-S1-O-E00048"
+        ]
+      },
+      "raw_timepoint_value": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "raw_timepoint_unit": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_timepoint": {
+        "kind": "follow_up",
+        "value": 1.0,
+        "unit": "month",
+        "anchor": null,
+        "relation": null,
+        "blockers": []
+      },
+      "raw_analysis_set": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_analysis_set": null,
+      "raw_statistic_kind": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_statistic_kind": null,
+      "derived": false,
+      "source_refs": [
+        "table-2|table-2:r005"
+      ],
+      "normalization_events": [
+        {
+          "field": "timepoint",
+          "rule": "TIMEPOINT_ORDINAL_FORMAT_NORMALIZED",
+          "explanation": "Generic ordinal/OCR suffix normalized; raw text retained.",
+          "source_refs": [],
+          "deterministic": true
+        },
+        {
+          "field": "timepoint",
+          "rule": "TIMEPOINT_CANONICAL_DURATION",
+          "explanation": "Duration parsed without changing its reference event.",
+          "source_refs": [],
+          "deterministic": true
+        }
+      ],
+      "identity_blockers": [],
+      "deterministic_status": "DETERMINISTIC",
+      "mapping_changed": true
+    },
+    {
+      "side": "Prediction",
+      "entity_type": "ComparisonResult",
+      "entity_id": "2015-06-S1-CR005",
+      "parent_type": "Comparison",
+      "parent_id": "2015-06-S1-C02",
+      "raw_outcome_id": "2015-06-S1-O04",
+      "canonical_outcome_id": "2015-06-S1-O04",
+      "raw_timepoint": {
+        "status": "PRESENT",
+        "value": "1st month",
+        "raw_value": "1st month",
+        "evidence_ids": [
+          "2015-06-S1-O-E00068"
+        ]
+      },
+      "raw_timepoint_value": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "raw_timepoint_unit": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_timepoint": {
+        "kind": "follow_up",
+        "value": 1.0,
+        "unit": "month",
+        "anchor": null,
+        "relation": null,
+        "blockers": []
+      },
+      "raw_analysis_set": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_analysis_set": null,
+      "raw_statistic_kind": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_statistic_kind": null,
+      "derived": false,
+      "source_refs": [
+        "table-2|table-2:r005"
+      ],
+      "normalization_events": [
+        {
+          "field": "timepoint",
+          "rule": "TIMEPOINT_ORDINAL_FORMAT_NORMALIZED",
+          "explanation": "Generic ordinal/OCR suffix normalized; raw text retained.",
+          "source_refs": [],
+          "deterministic": true
+        },
+        {
+          "field": "timepoint",
+          "rule": "TIMEPOINT_CANONICAL_DURATION",
+          "explanation": "Duration parsed without changing its reference event.",
+          "source_refs": [],
+          "deterministic": true
+        }
+      ],
+      "identity_blockers": [],
+      "deterministic_status": "DETERMINISTIC",
+      "mapping_changed": true
+    },
+    {
+      "side": "Prediction",
+      "entity_type": "ComparisonResult",
+      "entity_id": "2015-06-S1-CR006",
+      "parent_type": "Comparison",
+      "parent_id": "2015-06-S1-C03",
+      "raw_outcome_id": "2015-06-S1-O04",
+      "canonical_outcome_id": "2015-06-S1-O04",
+      "raw_timepoint": {
+        "status": "PRESENT",
+        "value": "1st month",
+        "raw_value": "1st month",
+        "evidence_ids": [
+          "2015-06-S1-O-E00088"
+        ]
+      },
+      "raw_timepoint_value": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "raw_timepoint_unit": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_timepoint": {
+        "kind": "follow_up",
+        "value": 1.0,
+        "unit": "month",
+        "anchor": null,
+        "relation": null,
+        "blockers": []
+      },
+      "raw_analysis_set": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_analysis_set": null,
+      "raw_statistic_kind": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_statistic_kind": null,
+      "derived": false,
+      "source_refs": [
+        "table-2|table-2:r005"
+      ],
+      "normalization_events": [
+        {
+          "field": "timepoint",
+          "rule": "TIMEPOINT_ORDINAL_FORMAT_NORMALIZED",
+          "explanation": "Generic ordinal/OCR suffix normalized; raw text retained.",
+          "source_refs": [],
+          "deterministic": true
+        },
+        {
+          "field": "timepoint",
+          "rule": "TIMEPOINT_CANONICAL_DURATION",
+          "explanation": "Duration parsed without changing its reference event.",
+          "source_refs": [],
+          "deterministic": true
+        }
+      ],
+      "identity_blockers": [],
+      "deterministic_status": "DETERMINISTIC",
+      "mapping_changed": true
+    },
+    {
+      "side": "Prediction",
+      "entity_type": "ComparisonResult",
+      "entity_id": "2015-06-S1-CR007",
+      "parent_type": "Comparison",
+      "parent_id": "2015-06-S1-C01",
+      "raw_outcome_id": "2015-06-S1-O05",
+      "canonical_outcome_id": "2015-06-S1-O05",
+      "raw_timepoint": {
+        "status": "PRESENT",
+        "value": "the 1 st month",
+        "raw_value": "the 1 st month",
+        "evidence_ids": [
+          "2015-06-S1-O-E00125"
+        ]
+      },
+      "raw_timepoint_value": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "raw_timepoint_unit": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_timepoint": {
+        "kind": "follow_up",
+        "value": 1.0,
+        "unit": "month",
+        "anchor": null,
+        "relation": null,
+        "blockers": []
+      },
+      "raw_analysis_set": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_analysis_set": null,
+      "raw_statistic_kind": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_statistic_kind": null,
+      "derived": false,
+      "source_refs": [
+        "narrative-results:p006-p007|narrative-results:r007"
+      ],
+      "normalization_events": [
+        {
+          "field": "timepoint",
+          "rule": "TIMEPOINT_ORDINAL_FORMAT_NORMALIZED",
+          "explanation": "Generic ordinal/OCR suffix normalized; raw text retained.",
+          "source_refs": [],
+          "deterministic": true
+        },
+        {
+          "field": "timepoint",
+          "rule": "TIMEPOINT_CANONICAL_DURATION",
+          "explanation": "Duration parsed without changing its reference event.",
+          "source_refs": [],
+          "deterministic": true
+        }
+      ],
+      "identity_blockers": [],
+      "deterministic_status": "DETERMINISTIC",
+      "mapping_changed": false
+    },
+    {
+      "side": "Prediction",
+      "entity_type": "ComparisonResult",
+      "entity_id": "2015-06-S1-CR008",
+      "parent_type": "Comparison",
+      "parent_id": "2015-06-S1-C03",
+      "raw_outcome_id": "2015-06-S1-O05",
+      "canonical_outcome_id": "2015-06-S1-O05",
+      "raw_timepoint": {
+        "status": "PRESENT",
+        "value": "the 1 st month",
+        "raw_value": "the 1 st month",
+        "evidence_ids": [
+          "2015-06-S1-O-E00130"
+        ]
+      },
+      "raw_timepoint_value": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "raw_timepoint_unit": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_timepoint": {
+        "kind": "follow_up",
+        "value": 1.0,
+        "unit": "month",
+        "anchor": null,
+        "relation": null,
+        "blockers": []
+      },
+      "raw_analysis_set": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_analysis_set": null,
+      "raw_statistic_kind": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_statistic_kind": null,
+      "derived": false,
+      "source_refs": [
+        "narrative-results:p006-p007|narrative-results:r007"
+      ],
+      "normalization_events": [
+        {
+          "field": "timepoint",
+          "rule": "TIMEPOINT_ORDINAL_FORMAT_NORMALIZED",
+          "explanation": "Generic ordinal/OCR suffix normalized; raw text retained.",
+          "source_refs": [],
+          "deterministic": true
+        },
+        {
+          "field": "timepoint",
+          "rule": "TIMEPOINT_CANONICAL_DURATION",
+          "explanation": "Duration parsed without changing its reference event.",
+          "source_refs": [],
+          "deterministic": true
+        }
+      ],
+      "identity_blockers": [],
+      "deterministic_status": "DETERMINISTIC",
+      "mapping_changed": false
+    },
+    {
+      "side": "Prediction",
+      "entity_type": "ComparisonResult",
+      "entity_id": "2015-06-S1-CR009",
+      "parent_type": "Comparison",
+      "parent_id": "2015-06-S1-C01",
+      "raw_outcome_id": "2015-06-S1-O03",
+      "canonical_outcome_id": "2015-06-S1-O03",
+      "raw_timepoint": {
+        "status": "PRESENT",
+        "value": "3 months after surgery",
+        "raw_value": "3 months after surgery",
+        "evidence_ids": [
+          "2015-06-S1-O-E00135"
+        ]
+      },
+      "raw_timepoint_value": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "raw_timepoint_unit": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_timepoint": {
+        "kind": "follow_up",
+        "value": 3.0,
+        "unit": "month",
+        "anchor": "surgery",
+        "relation": "after",
+        "blockers": []
+      },
+      "raw_analysis_set": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_analysis_set": null,
+      "raw_statistic_kind": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_statistic_kind": null,
+      "derived": false,
+      "source_refs": [
+        "narrative-results:p006-p007|narrative-results:r007"
+      ],
+      "normalization_events": [
+        {
+          "field": "timepoint",
+          "rule": "TIMEPOINT_CANONICAL_DURATION",
+          "explanation": "Duration parsed without changing its reference event.",
+          "source_refs": [],
+          "deterministic": true
+        }
+      ],
+      "identity_blockers": [],
+      "deterministic_status": "DETERMINISTIC",
+      "mapping_changed": true
+    },
+    {
+      "side": "Prediction",
+      "entity_type": "ComparisonResult",
+      "entity_id": "2015-06-S1-CR010",
+      "parent_type": "Comparison",
+      "parent_id": "2015-06-S1-C03",
+      "raw_outcome_id": "2015-06-S1-O03",
+      "canonical_outcome_id": "2015-06-S1-O03",
+      "raw_timepoint": {
+        "status": "PRESENT",
+        "value": "3 months after surgery",
+        "raw_value": "3 months after surgery",
+        "evidence_ids": [
+          "2015-06-S1-O-E00140"
+        ]
+      },
+      "raw_timepoint_value": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "raw_timepoint_unit": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_timepoint": {
+        "kind": "follow_up",
+        "value": 3.0,
+        "unit": "month",
+        "anchor": "surgery",
+        "relation": "after",
+        "blockers": []
+      },
+      "raw_analysis_set": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_analysis_set": null,
+      "raw_statistic_kind": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_statistic_kind": null,
+      "derived": false,
+      "source_refs": [
+        "narrative-results:p006-p007|narrative-results:r007"
+      ],
+      "normalization_events": [
+        {
+          "field": "timepoint",
+          "rule": "TIMEPOINT_CANONICAL_DURATION",
+          "explanation": "Duration parsed without changing its reference event.",
+          "source_refs": [],
+          "deterministic": true
+        }
+      ],
+      "identity_blockers": [],
+      "deterministic_status": "DETERMINISTIC",
+      "mapping_changed": true
+    },
+    {
+      "side": "Prediction",
+      "entity_type": "ComparisonResult",
+      "entity_id": "2015-06-S1-CR011",
+      "parent_type": "Comparison",
+      "parent_id": "2015-06-S1-C01",
+      "raw_outcome_id": "2015-06-S1-O04",
+      "canonical_outcome_id": "2015-06-S1-O04",
+      "raw_timepoint": {
+        "status": "PRESENT",
+        "value": "3 months after surgery",
+        "raw_value": "3 months after surgery",
+        "evidence_ids": [
+          "2015-06-S1-O-E00145"
+        ]
+      },
+      "raw_timepoint_value": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "raw_timepoint_unit": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_timepoint": {
+        "kind": "follow_up",
+        "value": 3.0,
+        "unit": "month",
+        "anchor": "surgery",
+        "relation": "after",
+        "blockers": []
+      },
+      "raw_analysis_set": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_analysis_set": null,
+      "raw_statistic_kind": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_statistic_kind": null,
+      "derived": false,
+      "source_refs": [
+        "narrative-results:p006-p007|narrative-results:r007"
+      ],
+      "normalization_events": [
+        {
+          "field": "timepoint",
+          "rule": "TIMEPOINT_CANONICAL_DURATION",
+          "explanation": "Duration parsed without changing its reference event.",
+          "source_refs": [],
+          "deterministic": true
+        }
+      ],
+      "identity_blockers": [],
+      "deterministic_status": "DETERMINISTIC",
+      "mapping_changed": true
+    },
+    {
+      "side": "Prediction",
+      "entity_type": "ComparisonResult",
+      "entity_id": "2015-06-S1-CR012",
+      "parent_type": "Comparison",
+      "parent_id": "2015-06-S1-C03",
+      "raw_outcome_id": "2015-06-S1-O04",
+      "canonical_outcome_id": "2015-06-S1-O04",
+      "raw_timepoint": {
+        "status": "PRESENT",
+        "value": "3 months after surgery",
+        "raw_value": "3 months after surgery",
+        "evidence_ids": [
+          "2015-06-S1-O-E00150"
+        ]
+      },
+      "raw_timepoint_value": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "raw_timepoint_unit": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_timepoint": {
+        "kind": "follow_up",
+        "value": 3.0,
+        "unit": "month",
+        "anchor": "surgery",
+        "relation": "after",
+        "blockers": []
+      },
+      "raw_analysis_set": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_analysis_set": null,
+      "raw_statistic_kind": {
+        "status": "UNRESOLVED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_statistic_kind": null,
+      "derived": false,
+      "source_refs": [
+        "narrative-results:p006-p007|narrative-results:r007"
+      ],
+      "normalization_events": [
+        {
+          "field": "timepoint",
+          "rule": "TIMEPOINT_CANONICAL_DURATION",
+          "explanation": "Duration parsed without changing its reference event.",
+          "source_refs": [],
+          "deterministic": true
+        }
+      ],
+      "identity_blockers": [],
+      "deterministic_status": "DETERMINISTIC",
+      "mapping_changed": true
+    },
+    {
+      "side": "Gold",
+      "entity_type": "ArmResult",
+      "entity_id": "2015-06-S1-AR01",
+      "parent_type": "Arm",
+      "parent_id": "2015-06-S1-A01",
+      "raw_outcome_id": "2015-06-S1-O01",
+      "canonical_outcome_id": "2015-06-S1-O01",
+      "raw_timepoint": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "raw_timepoint_value": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "raw_timepoint_unit": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_timepoint": {
+        "kind": "unknown",
+        "value": null,
+        "unit": null,
+        "anchor": null,
+        "relation": null,
+        "blockers": []
+      },
+      "raw_analysis_set": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_analysis_set": null,
+      "raw_statistic_kind": {
+        "status": "PRESENT",
+        "value": "event_count",
+        "raw_value": "The number of bladder balance patients (n, %)*",
+        "evidence_ids": [
+          "E0084"
+        ]
+      },
+      "canonical_statistic_kind": "event_count",
+      "derived": false,
+      "source_refs": [
+        "Table 2|bladder-balance"
+      ],
+      "normalization_events": [],
+      "identity_blockers": [],
+      "deterministic_status": "DETERMINISTIC",
+      "mapping_changed": false
+    },
+    {
+      "side": "Gold",
+      "entity_type": "ArmResult",
+      "entity_id": "2015-06-S1-AR02",
+      "parent_type": "Arm",
+      "parent_id": "2015-06-S1-A02",
+      "raw_outcome_id": "2015-06-S1-O01",
+      "canonical_outcome_id": "2015-06-S1-O01",
+      "raw_timepoint": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "raw_timepoint_value": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "raw_timepoint_unit": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_timepoint": {
+        "kind": "unknown",
+        "value": null,
+        "unit": null,
+        "anchor": null,
+        "relation": null,
+        "blockers": []
+      },
+      "raw_analysis_set": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_analysis_set": null,
+      "raw_statistic_kind": {
+        "status": "PRESENT",
+        "value": "event_count",
+        "raw_value": "The number of bladder balance patients (n, %)*",
+        "evidence_ids": [
+          "E0088"
+        ]
+      },
+      "canonical_statistic_kind": "event_count",
+      "derived": false,
+      "source_refs": [
+        "Table 2|bladder-balance"
+      ],
+      "normalization_events": [],
+      "identity_blockers": [],
+      "deterministic_status": "DETERMINISTIC",
+      "mapping_changed": false
+    },
+    {
+      "side": "Gold",
+      "entity_type": "ArmResult",
+      "entity_id": "2015-06-S1-AR03",
+      "parent_type": "Arm",
+      "parent_id": "2015-06-S1-A03",
+      "raw_outcome_id": "2015-06-S1-O01",
+      "canonical_outcome_id": "2015-06-S1-O01",
+      "raw_timepoint": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "raw_timepoint_value": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "raw_timepoint_unit": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_timepoint": {
+        "kind": "unknown",
+        "value": null,
+        "unit": null,
+        "anchor": null,
+        "relation": null,
+        "blockers": []
+      },
+      "raw_analysis_set": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_analysis_set": null,
+      "raw_statistic_kind": {
+        "status": "PRESENT",
+        "value": "event_count",
+        "raw_value": "The number of bladder balance patients (n, %)*",
+        "evidence_ids": [
+          "E0092"
+        ]
+      },
+      "canonical_statistic_kind": "event_count",
+      "derived": false,
+      "source_refs": [
+        "Table 2|bladder-balance"
+      ],
+      "normalization_events": [],
+      "identity_blockers": [],
+      "deterministic_status": "DETERMINISTIC",
+      "mapping_changed": false
+    },
+    {
+      "side": "Gold",
+      "entity_type": "ArmResult",
+      "entity_id": "2015-06-S1-AR04",
+      "parent_type": "Arm",
+      "parent_id": "2015-06-S1-A01",
+      "raw_outcome_id": "2015-06-S1-O02",
+      "canonical_outcome_id": "2015-06-S1-O02",
+      "raw_timepoint": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "raw_timepoint_value": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "raw_timepoint_unit": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_timepoint": {
+        "kind": "unknown",
+        "value": null,
+        "unit": null,
+        "anchor": null,
+        "relation": null,
+        "blockers": []
+      },
+      "raw_analysis_set": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_analysis_set": null,
+      "raw_statistic_kind": {
+        "status": "PRESENT",
+        "value": "mean",
+        "raw_value": "Quantitative data were expressed as mean ± standard deviation (SD).",
+        "evidence_ids": [
+          "E0105"
+        ]
+      },
+      "canonical_statistic_kind": "mean",
+      "derived": false,
+      "source_refs": [
+        "Table 2|cic-frequency"
+      ],
+      "normalization_events": [],
+      "identity_blockers": [],
+      "deterministic_status": "DETERMINISTIC",
+      "mapping_changed": false
+    },
+    {
+      "side": "Gold",
+      "entity_type": "ArmResult",
+      "entity_id": "2015-06-S1-AR05",
+      "parent_type": "Arm",
+      "parent_id": "2015-06-S1-A02",
+      "raw_outcome_id": "2015-06-S1-O02",
+      "canonical_outcome_id": "2015-06-S1-O02",
+      "raw_timepoint": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "raw_timepoint_value": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "raw_timepoint_unit": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_timepoint": {
+        "kind": "unknown",
+        "value": null,
+        "unit": null,
+        "anchor": null,
+        "relation": null,
+        "blockers": []
+      },
+      "raw_analysis_set": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_analysis_set": null,
+      "raw_statistic_kind": {
+        "status": "PRESENT",
+        "value": "mean",
+        "raw_value": "Quantitative data were expressed as mean ± standard deviation (SD).",
+        "evidence_ids": [
+          "E0109"
+        ]
+      },
+      "canonical_statistic_kind": "mean",
+      "derived": false,
+      "source_refs": [
+        "Table 2|cic-frequency"
+      ],
+      "normalization_events": [],
+      "identity_blockers": [],
+      "deterministic_status": "DETERMINISTIC",
+      "mapping_changed": false
+    },
+    {
+      "side": "Gold",
+      "entity_type": "ArmResult",
+      "entity_id": "2015-06-S1-AR06",
+      "parent_type": "Arm",
+      "parent_id": "2015-06-S1-A03",
+      "raw_outcome_id": "2015-06-S1-O02",
+      "canonical_outcome_id": "2015-06-S1-O02",
+      "raw_timepoint": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "raw_timepoint_value": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "raw_timepoint_unit": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_timepoint": {
+        "kind": "unknown",
+        "value": null,
+        "unit": null,
+        "anchor": null,
+        "relation": null,
+        "blockers": []
+      },
+      "raw_analysis_set": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_analysis_set": null,
+      "raw_statistic_kind": {
+        "status": "PRESENT",
+        "value": "mean",
+        "raw_value": "Quantitative data were expressed as mean ± standard deviation (SD).",
+        "evidence_ids": [
+          "E0113"
+        ]
+      },
+      "canonical_statistic_kind": "mean",
+      "derived": false,
+      "source_refs": [
+        "Table 2|cic-frequency"
+      ],
+      "normalization_events": [],
+      "identity_blockers": [],
+      "deterministic_status": "DETERMINISTIC",
+      "mapping_changed": false
+    },
+    {
+      "side": "Gold",
+      "entity_type": "ArmResult",
+      "entity_id": "2015-06-S1-AR07",
+      "parent_type": "Arm",
+      "parent_id": "2015-06-S1-A01",
+      "raw_outcome_id": "2015-06-S1-O03",
+      "canonical_outcome_id": "2015-06-S1-O03",
+      "raw_timepoint": {
+        "status": "PRESENT",
+        "value": "1 month",
+        "raw_value": "Residual urine volume (ml) in the 1st month",
+        "evidence_ids": [
+          "E0126"
+        ]
+      },
+      "raw_timepoint_value": {
+        "status": "PRESENT",
+        "value": 1.0,
+        "raw_value": "Residual urine volume (ml) in the 1st month",
+        "evidence_ids": [
+          "E0127"
+        ]
+      },
+      "raw_timepoint_unit": {
+        "status": "PRESENT",
+        "value": "months",
+        "raw_value": "Residual urine volume (ml) in the 1st month",
+        "evidence_ids": [
+          "E0128"
+        ]
+      },
+      "canonical_timepoint": {
+        "kind": "follow_up",
+        "value": 1.0,
+        "unit": "month",
+        "anchor": null,
+        "relation": null,
+        "blockers": []
+      },
+      "raw_analysis_set": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_analysis_set": null,
+      "raw_statistic_kind": {
+        "status": "PRESENT",
+        "value": "mean",
+        "raw_value": "Quantitative data were expressed as mean ± standard deviation (SD).",
+        "evidence_ids": [
+          "E0129"
+        ]
+      },
+      "canonical_statistic_kind": "mean",
+      "derived": false,
+      "source_refs": [
+        "Table 2|residual-1-month"
+      ],
+      "normalization_events": [
+        {
+          "field": "timepoint",
+          "rule": "TIMEPOINT_CANONICAL_DURATION",
+          "explanation": "Duration parsed without changing its reference event.",
+          "source_refs": [],
+          "deterministic": true
+        }
+      ],
+      "identity_blockers": [],
+      "deterministic_status": "DETERMINISTIC",
+      "mapping_changed": true
+    },
+    {
+      "side": "Gold",
+      "entity_type": "ArmResult",
+      "entity_id": "2015-06-S1-AR08",
+      "parent_type": "Arm",
+      "parent_id": "2015-06-S1-A02",
+      "raw_outcome_id": "2015-06-S1-O03",
+      "canonical_outcome_id": "2015-06-S1-O03",
+      "raw_timepoint": {
+        "status": "PRESENT",
+        "value": "1 month",
+        "raw_value": "Residual urine volume (ml) in the 1st month",
+        "evidence_ids": [
+          "E0133"
+        ]
+      },
+      "raw_timepoint_value": {
+        "status": "PRESENT",
+        "value": 1.0,
+        "raw_value": "Residual urine volume (ml) in the 1st month",
+        "evidence_ids": [
+          "E0134"
+        ]
+      },
+      "raw_timepoint_unit": {
+        "status": "PRESENT",
+        "value": "months",
+        "raw_value": "Residual urine volume (ml) in the 1st month",
+        "evidence_ids": [
+          "E0135"
+        ]
+      },
+      "canonical_timepoint": {
+        "kind": "follow_up",
+        "value": 1.0,
+        "unit": "month",
+        "anchor": null,
+        "relation": null,
+        "blockers": []
+      },
+      "raw_analysis_set": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_analysis_set": null,
+      "raw_statistic_kind": {
+        "status": "PRESENT",
+        "value": "mean",
+        "raw_value": "Quantitative data were expressed as mean ± standard deviation (SD).",
+        "evidence_ids": [
+          "E0136"
+        ]
+      },
+      "canonical_statistic_kind": "mean",
+      "derived": false,
+      "source_refs": [
+        "Table 2|residual-1-month"
+      ],
+      "normalization_events": [
+        {
+          "field": "timepoint",
+          "rule": "TIMEPOINT_CANONICAL_DURATION",
+          "explanation": "Duration parsed without changing its reference event.",
+          "source_refs": [],
+          "deterministic": true
+        }
+      ],
+      "identity_blockers": [],
+      "deterministic_status": "DETERMINISTIC",
+      "mapping_changed": true
+    },
+    {
+      "side": "Gold",
+      "entity_type": "ArmResult",
+      "entity_id": "2015-06-S1-AR09",
+      "parent_type": "Arm",
+      "parent_id": "2015-06-S1-A03",
+      "raw_outcome_id": "2015-06-S1-O03",
+      "canonical_outcome_id": "2015-06-S1-O03",
+      "raw_timepoint": {
+        "status": "PRESENT",
+        "value": "1 month",
+        "raw_value": "Residual urine volume (ml) in the 1st month",
+        "evidence_ids": [
+          "E0140"
+        ]
+      },
+      "raw_timepoint_value": {
+        "status": "PRESENT",
+        "value": 1.0,
+        "raw_value": "Residual urine volume (ml) in the 1st month",
+        "evidence_ids": [
+          "E0141"
+        ]
+      },
+      "raw_timepoint_unit": {
+        "status": "PRESENT",
+        "value": "months",
+        "raw_value": "Residual urine volume (ml) in the 1st month",
+        "evidence_ids": [
+          "E0142"
+        ]
+      },
+      "canonical_timepoint": {
+        "kind": "follow_up",
+        "value": 1.0,
+        "unit": "month",
+        "anchor": null,
+        "relation": null,
+        "blockers": []
+      },
+      "raw_analysis_set": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_analysis_set": null,
+      "raw_statistic_kind": {
+        "status": "PRESENT",
+        "value": "mean",
+        "raw_value": "Quantitative data were expressed as mean ± standard deviation (SD).",
+        "evidence_ids": [
+          "E0143"
+        ]
+      },
+      "canonical_statistic_kind": "mean",
+      "derived": false,
+      "source_refs": [
+        "Table 2|residual-1-month"
+      ],
+      "normalization_events": [
+        {
+          "field": "timepoint",
+          "rule": "TIMEPOINT_CANONICAL_DURATION",
+          "explanation": "Duration parsed without changing its reference event.",
+          "source_refs": [],
+          "deterministic": true
+        }
+      ],
+      "identity_blockers": [],
+      "deterministic_status": "DETERMINISTIC",
+      "mapping_changed": true
+    },
+    {
+      "side": "Gold",
+      "entity_type": "ArmResult",
+      "entity_id": "2015-06-S1-AR10",
+      "parent_type": "Arm",
+      "parent_id": "2015-06-S1-A01",
+      "raw_outcome_id": "2015-06-S1-O04",
+      "canonical_outcome_id": "2015-06-S1-O04",
+      "raw_timepoint": {
+        "status": "PRESENT",
+        "value": "1 month",
+        "raw_value": "Voided volume (ml) in the 1st month",
+        "evidence_ids": [
+          "E0165"
+        ]
+      },
+      "raw_timepoint_value": {
+        "status": "PRESENT",
+        "value": 1.0,
+        "raw_value": "Voided volume (ml) in the 1st month",
+        "evidence_ids": [
+          "E0166"
+        ]
+      },
+      "raw_timepoint_unit": {
+        "status": "PRESENT",
+        "value": "months",
+        "raw_value": "Voided volume (ml) in the 1st month",
+        "evidence_ids": [
+          "E0167"
+        ]
+      },
+      "canonical_timepoint": {
+        "kind": "follow_up",
+        "value": 1.0,
+        "unit": "month",
+        "anchor": null,
+        "relation": null,
+        "blockers": []
+      },
+      "raw_analysis_set": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_analysis_set": null,
+      "raw_statistic_kind": {
+        "status": "PRESENT",
+        "value": "mean",
+        "raw_value": "Quantitative data were expressed as mean ± standard deviation (SD).",
+        "evidence_ids": [
+          "E0168"
+        ]
+      },
+      "canonical_statistic_kind": "mean",
+      "derived": false,
+      "source_refs": [
+        "Table 2|voided-1-month"
+      ],
+      "normalization_events": [
+        {
+          "field": "timepoint",
+          "rule": "TIMEPOINT_CANONICAL_DURATION",
+          "explanation": "Duration parsed without changing its reference event.",
+          "source_refs": [],
+          "deterministic": true
+        }
+      ],
+      "identity_blockers": [],
+      "deterministic_status": "DETERMINISTIC",
+      "mapping_changed": true
+    },
+    {
+      "side": "Gold",
+      "entity_type": "ArmResult",
+      "entity_id": "2015-06-S1-AR11",
+      "parent_type": "Arm",
+      "parent_id": "2015-06-S1-A02",
+      "raw_outcome_id": "2015-06-S1-O04",
+      "canonical_outcome_id": "2015-06-S1-O04",
+      "raw_timepoint": {
+        "status": "PRESENT",
+        "value": "1 month",
+        "raw_value": "Voided volume (ml) in the 1st month",
+        "evidence_ids": [
+          "E0172"
+        ]
+      },
+      "raw_timepoint_value": {
+        "status": "PRESENT",
+        "value": 1.0,
+        "raw_value": "Voided volume (ml) in the 1st month",
+        "evidence_ids": [
+          "E0173"
+        ]
+      },
+      "raw_timepoint_unit": {
+        "status": "PRESENT",
+        "value": "months",
+        "raw_value": "Voided volume (ml) in the 1st month",
+        "evidence_ids": [
+          "E0174"
+        ]
+      },
+      "canonical_timepoint": {
+        "kind": "follow_up",
+        "value": 1.0,
+        "unit": "month",
+        "anchor": null,
+        "relation": null,
+        "blockers": []
+      },
+      "raw_analysis_set": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_analysis_set": null,
+      "raw_statistic_kind": {
+        "status": "PRESENT",
+        "value": "mean",
+        "raw_value": "Quantitative data were expressed as mean ± standard deviation (SD).",
+        "evidence_ids": [
+          "E0175"
+        ]
+      },
+      "canonical_statistic_kind": "mean",
+      "derived": false,
+      "source_refs": [
+        "Table 2|voided-1-month"
+      ],
+      "normalization_events": [
+        {
+          "field": "timepoint",
+          "rule": "TIMEPOINT_CANONICAL_DURATION",
+          "explanation": "Duration parsed without changing its reference event.",
+          "source_refs": [],
+          "deterministic": true
+        }
+      ],
+      "identity_blockers": [],
+      "deterministic_status": "DETERMINISTIC",
+      "mapping_changed": true
+    },
+    {
+      "side": "Gold",
+      "entity_type": "ArmResult",
+      "entity_id": "2015-06-S1-AR12",
+      "parent_type": "Arm",
+      "parent_id": "2015-06-S1-A03",
+      "raw_outcome_id": "2015-06-S1-O04",
+      "canonical_outcome_id": "2015-06-S1-O04",
+      "raw_timepoint": {
+        "status": "PRESENT",
+        "value": "1 month",
+        "raw_value": "Voided volume (ml) in the 1st month",
+        "evidence_ids": [
+          "E0179"
+        ]
+      },
+      "raw_timepoint_value": {
+        "status": "PRESENT",
+        "value": 1.0,
+        "raw_value": "Voided volume (ml) in the 1st month",
+        "evidence_ids": [
+          "E0180"
+        ]
+      },
+      "raw_timepoint_unit": {
+        "status": "PRESENT",
+        "value": "months",
+        "raw_value": "Voided volume (ml) in the 1st month",
+        "evidence_ids": [
+          "E0181"
+        ]
+      },
+      "canonical_timepoint": {
+        "kind": "follow_up",
+        "value": 1.0,
+        "unit": "month",
+        "anchor": null,
+        "relation": null,
+        "blockers": []
+      },
+      "raw_analysis_set": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_analysis_set": null,
+      "raw_statistic_kind": {
+        "status": "PRESENT",
+        "value": "mean",
+        "raw_value": "Quantitative data were expressed as mean ± standard deviation (SD).",
+        "evidence_ids": [
+          "E0182"
+        ]
+      },
+      "canonical_statistic_kind": "mean",
+      "derived": false,
+      "source_refs": [
+        "Table 2|voided-1-month"
+      ],
+      "normalization_events": [
+        {
+          "field": "timepoint",
+          "rule": "TIMEPOINT_CANONICAL_DURATION",
+          "explanation": "Duration parsed without changing its reference event.",
+          "source_refs": [],
+          "deterministic": true
+        }
+      ],
+      "identity_blockers": [],
+      "deterministic_status": "DETERMINISTIC",
+      "mapping_changed": true
+    },
+    {
+      "side": "Gold",
+      "entity_type": "ArmResult",
+      "entity_id": "2015-06-S1-AR13",
+      "parent_type": "Arm",
+      "parent_id": "2015-06-S1-A01",
+      "raw_outcome_id": "2015-06-S1-O03",
+      "canonical_outcome_id": "2015-06-S1-O03",
+      "raw_timepoint": {
+        "status": "PRESENT",
+        "value": "3 months",
+        "raw_value": "Residual urine volume (ml) in the 3rd month",
+        "evidence_ids": [
+          "E0204"
+        ]
+      },
+      "raw_timepoint_value": {
+        "status": "PRESENT",
+        "value": 3.0,
+        "raw_value": "Residual urine volume (ml) in the 3rd month",
+        "evidence_ids": [
+          "E0205"
+        ]
+      },
+      "raw_timepoint_unit": {
+        "status": "PRESENT",
+        "value": "months",
+        "raw_value": "Residual urine volume (ml) in the 3rd month",
+        "evidence_ids": [
+          "E0206"
+        ]
+      },
+      "canonical_timepoint": {
+        "kind": "follow_up",
+        "value": 3.0,
+        "unit": "month",
+        "anchor": null,
+        "relation": null,
+        "blockers": []
+      },
+      "raw_analysis_set": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_analysis_set": null,
+      "raw_statistic_kind": {
+        "status": "PRESENT",
+        "value": "mean",
+        "raw_value": "Quantitative data were expressed as mean ± standard deviation (SD).",
+        "evidence_ids": [
+          "E0207"
+        ]
+      },
+      "canonical_statistic_kind": "mean",
+      "derived": false,
+      "source_refs": [
+        "Table 2|residual-3-months"
+      ],
+      "normalization_events": [
+        {
+          "field": "timepoint",
+          "rule": "TIMEPOINT_CANONICAL_DURATION",
+          "explanation": "Duration parsed without changing its reference event.",
+          "source_refs": [],
+          "deterministic": true
+        }
+      ],
+      "identity_blockers": [],
+      "deterministic_status": "DETERMINISTIC",
+      "mapping_changed": true
+    },
+    {
+      "side": "Gold",
+      "entity_type": "ArmResult",
+      "entity_id": "2015-06-S1-AR14",
+      "parent_type": "Arm",
+      "parent_id": "2015-06-S1-A02",
+      "raw_outcome_id": "2015-06-S1-O03",
+      "canonical_outcome_id": "2015-06-S1-O03",
+      "raw_timepoint": {
+        "status": "PRESENT",
+        "value": "3 months",
+        "raw_value": "Residual urine volume (ml) in the 3rd month",
+        "evidence_ids": [
+          "E0211"
+        ]
+      },
+      "raw_timepoint_value": {
+        "status": "PRESENT",
+        "value": 3.0,
+        "raw_value": "Residual urine volume (ml) in the 3rd month",
+        "evidence_ids": [
+          "E0212"
+        ]
+      },
+      "raw_timepoint_unit": {
+        "status": "PRESENT",
+        "value": "months",
+        "raw_value": "Residual urine volume (ml) in the 3rd month",
+        "evidence_ids": [
+          "E0213"
+        ]
+      },
+      "canonical_timepoint": {
+        "kind": "follow_up",
+        "value": 3.0,
+        "unit": "month",
+        "anchor": null,
+        "relation": null,
+        "blockers": []
+      },
+      "raw_analysis_set": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_analysis_set": null,
+      "raw_statistic_kind": {
+        "status": "PRESENT",
+        "value": "mean",
+        "raw_value": "Quantitative data were expressed as mean ± standard deviation (SD).",
+        "evidence_ids": [
+          "E0214"
+        ]
+      },
+      "canonical_statistic_kind": "mean",
+      "derived": false,
+      "source_refs": [
+        "Table 2|residual-3-months"
+      ],
+      "normalization_events": [
+        {
+          "field": "timepoint",
+          "rule": "TIMEPOINT_CANONICAL_DURATION",
+          "explanation": "Duration parsed without changing its reference event.",
+          "source_refs": [],
+          "deterministic": true
+        }
+      ],
+      "identity_blockers": [],
+      "deterministic_status": "DETERMINISTIC",
+      "mapping_changed": true
+    },
+    {
+      "side": "Gold",
+      "entity_type": "ArmResult",
+      "entity_id": "2015-06-S1-AR15",
+      "parent_type": "Arm",
+      "parent_id": "2015-06-S1-A03",
+      "raw_outcome_id": "2015-06-S1-O03",
+      "canonical_outcome_id": "2015-06-S1-O03",
+      "raw_timepoint": {
+        "status": "PRESENT",
+        "value": "3 months",
+        "raw_value": "Residual urine volume (ml) in the 3rd month",
+        "evidence_ids": [
+          "E0218"
+        ]
+      },
+      "raw_timepoint_value": {
+        "status": "PRESENT",
+        "value": 3.0,
+        "raw_value": "Residual urine volume (ml) in the 3rd month",
+        "evidence_ids": [
+          "E0219"
+        ]
+      },
+      "raw_timepoint_unit": {
+        "status": "PRESENT",
+        "value": "months",
+        "raw_value": "Residual urine volume (ml) in the 3rd month",
+        "evidence_ids": [
+          "E0220"
+        ]
+      },
+      "canonical_timepoint": {
+        "kind": "follow_up",
+        "value": 3.0,
+        "unit": "month",
+        "anchor": null,
+        "relation": null,
+        "blockers": []
+      },
+      "raw_analysis_set": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_analysis_set": null,
+      "raw_statistic_kind": {
+        "status": "PRESENT",
+        "value": "mean",
+        "raw_value": "Quantitative data were expressed as mean ± standard deviation (SD).",
+        "evidence_ids": [
+          "E0221"
+        ]
+      },
+      "canonical_statistic_kind": "mean",
+      "derived": false,
+      "source_refs": [
+        "Table 2|residual-3-months"
+      ],
+      "normalization_events": [
+        {
+          "field": "timepoint",
+          "rule": "TIMEPOINT_CANONICAL_DURATION",
+          "explanation": "Duration parsed without changing its reference event.",
+          "source_refs": [],
+          "deterministic": true
+        }
+      ],
+      "identity_blockers": [],
+      "deterministic_status": "DETERMINISTIC",
+      "mapping_changed": true
+    },
+    {
+      "side": "Gold",
+      "entity_type": "ArmResult",
+      "entity_id": "2015-06-S1-AR16",
+      "parent_type": "Arm",
+      "parent_id": "2015-06-S1-A01",
+      "raw_outcome_id": "2015-06-S1-O04",
+      "canonical_outcome_id": "2015-06-S1-O04",
+      "raw_timepoint": {
+        "status": "PRESENT",
+        "value": "3 months",
+        "raw_value": "Voided volume (ml) in the 3rd month",
+        "evidence_ids": [
+          "E0243"
+        ]
+      },
+      "raw_timepoint_value": {
+        "status": "PRESENT",
+        "value": 3.0,
+        "raw_value": "Voided volume (ml) in the 3rd month",
+        "evidence_ids": [
+          "E0244"
+        ]
+      },
+      "raw_timepoint_unit": {
+        "status": "PRESENT",
+        "value": "months",
+        "raw_value": "Voided volume (ml) in the 3rd month",
+        "evidence_ids": [
+          "E0245"
+        ]
+      },
+      "canonical_timepoint": {
+        "kind": "follow_up",
+        "value": 3.0,
+        "unit": "month",
+        "anchor": null,
+        "relation": null,
+        "blockers": []
+      },
+      "raw_analysis_set": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_analysis_set": null,
+      "raw_statistic_kind": {
+        "status": "PRESENT",
+        "value": "mean",
+        "raw_value": "Quantitative data were expressed as mean ± standard deviation (SD).",
+        "evidence_ids": [
+          "E0246"
+        ]
+      },
+      "canonical_statistic_kind": "mean",
+      "derived": false,
+      "source_refs": [
+        "Table 2|voided-3-months"
+      ],
+      "normalization_events": [
+        {
+          "field": "timepoint",
+          "rule": "TIMEPOINT_CANONICAL_DURATION",
+          "explanation": "Duration parsed without changing its reference event.",
+          "source_refs": [],
+          "deterministic": true
+        }
+      ],
+      "identity_blockers": [],
+      "deterministic_status": "DETERMINISTIC",
+      "mapping_changed": true
+    },
+    {
+      "side": "Gold",
+      "entity_type": "ArmResult",
+      "entity_id": "2015-06-S1-AR17",
+      "parent_type": "Arm",
+      "parent_id": "2015-06-S1-A02",
+      "raw_outcome_id": "2015-06-S1-O04",
+      "canonical_outcome_id": "2015-06-S1-O04",
+      "raw_timepoint": {
+        "status": "PRESENT",
+        "value": "3 months",
+        "raw_value": "Voided volume (ml) in the 3rd month",
+        "evidence_ids": [
+          "E0250"
+        ]
+      },
+      "raw_timepoint_value": {
+        "status": "PRESENT",
+        "value": 3.0,
+        "raw_value": "Voided volume (ml) in the 3rd month",
+        "evidence_ids": [
+          "E0251"
+        ]
+      },
+      "raw_timepoint_unit": {
+        "status": "PRESENT",
+        "value": "months",
+        "raw_value": "Voided volume (ml) in the 3rd month",
+        "evidence_ids": [
+          "E0252"
+        ]
+      },
+      "canonical_timepoint": {
+        "kind": "follow_up",
+        "value": 3.0,
+        "unit": "month",
+        "anchor": null,
+        "relation": null,
+        "blockers": []
+      },
+      "raw_analysis_set": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_analysis_set": null,
+      "raw_statistic_kind": {
+        "status": "PRESENT",
+        "value": "mean",
+        "raw_value": "Quantitative data were expressed as mean ± standard deviation (SD).",
+        "evidence_ids": [
+          "E0253"
+        ]
+      },
+      "canonical_statistic_kind": "mean",
+      "derived": false,
+      "source_refs": [
+        "Table 2|voided-3-months"
+      ],
+      "normalization_events": [
+        {
+          "field": "timepoint",
+          "rule": "TIMEPOINT_CANONICAL_DURATION",
+          "explanation": "Duration parsed without changing its reference event.",
+          "source_refs": [],
+          "deterministic": true
+        }
+      ],
+      "identity_blockers": [],
+      "deterministic_status": "DETERMINISTIC",
+      "mapping_changed": true
+    },
+    {
+      "side": "Gold",
+      "entity_type": "ArmResult",
+      "entity_id": "2015-06-S1-AR18",
+      "parent_type": "Arm",
+      "parent_id": "2015-06-S1-A03",
+      "raw_outcome_id": "2015-06-S1-O04",
+      "canonical_outcome_id": "2015-06-S1-O04",
+      "raw_timepoint": {
+        "status": "PRESENT",
+        "value": "3 months",
+        "raw_value": "Voided volume (ml) in the 3rd month",
+        "evidence_ids": [
+          "E0257"
+        ]
+      },
+      "raw_timepoint_value": {
+        "status": "PRESENT",
+        "value": 3.0,
+        "raw_value": "Voided volume (ml) in the 3rd month",
+        "evidence_ids": [
+          "E0258"
+        ]
+      },
+      "raw_timepoint_unit": {
+        "status": "PRESENT",
+        "value": "months",
+        "raw_value": "Voided volume (ml) in the 3rd month",
+        "evidence_ids": [
+          "E0259"
+        ]
+      },
+      "canonical_timepoint": {
+        "kind": "follow_up",
+        "value": 3.0,
+        "unit": "month",
+        "anchor": null,
+        "relation": null,
+        "blockers": []
+      },
+      "raw_analysis_set": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_analysis_set": null,
+      "raw_statistic_kind": {
+        "status": "PRESENT",
+        "value": "mean",
+        "raw_value": "Quantitative data were expressed as mean ± standard deviation (SD).",
+        "evidence_ids": [
+          "E0260"
+        ]
+      },
+      "canonical_statistic_kind": "mean",
+      "derived": false,
+      "source_refs": [
+        "Table 2|voided-3-months"
+      ],
+      "normalization_events": [
+        {
+          "field": "timepoint",
+          "rule": "TIMEPOINT_CANONICAL_DURATION",
+          "explanation": "Duration parsed without changing its reference event.",
+          "source_refs": [],
+          "deterministic": true
+        }
+      ],
+      "identity_blockers": [],
+      "deterministic_status": "DETERMINISTIC",
+      "mapping_changed": true
+    },
+    {
+      "side": "Gold",
+      "entity_type": "ArmResult",
+      "entity_id": "2015-06-S1-AR19",
+      "parent_type": "Arm",
+      "parent_id": "2015-06-S1-A01",
+      "raw_outcome_id": "2015-06-S1-O03",
+      "canonical_outcome_id": "2015-06-S1-O03",
+      "raw_timepoint": {
+        "status": "PRESENT",
+        "value": "baseline",
+        "raw_value": "Table 1. The clinical state of patients with spinal cord injury (SCI) induced urinary retention",
+        "evidence_ids": [
+          "E0281"
+        ]
+      },
+      "raw_timepoint_value": {
+        "status": "NOT_APPLICABLE",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "raw_timepoint_unit": {
+        "status": "NOT_APPLICABLE",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_timepoint": {
+        "kind": "baseline",
+        "value": null,
+        "unit": null,
+        "anchor": null,
+        "relation": null,
+        "blockers": []
+      },
+      "raw_analysis_set": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_analysis_set": null,
+      "raw_statistic_kind": {
+        "status": "PRESENT",
+        "value": "mean",
+        "raw_value": "Quantitative data were expressed as mean ± standard deviation (SD).",
+        "evidence_ids": [
+          "E0283"
+        ]
+      },
+      "canonical_statistic_kind": "mean",
+      "derived": false,
+      "source_refs": [
+        "Table 1|residual-baseline"
+      ],
+      "normalization_events": [
+        {
+          "field": "timepoint",
+          "rule": "TIMEPOINT_BASELINE_NORMALIZED",
+          "explanation": "Explicit pretreatment/baseline identity.",
+          "source_refs": [],
+          "deterministic": true
+        }
+      ],
+      "identity_blockers": [],
+      "deterministic_status": "DETERMINISTIC",
+      "mapping_changed": false
+    },
+    {
+      "side": "Gold",
+      "entity_type": "ArmResult",
+      "entity_id": "2015-06-S1-AR20",
+      "parent_type": "Arm",
+      "parent_id": "2015-06-S1-A02",
+      "raw_outcome_id": "2015-06-S1-O03",
+      "canonical_outcome_id": "2015-06-S1-O03",
+      "raw_timepoint": {
+        "status": "PRESENT",
+        "value": "baseline",
+        "raw_value": "Table 1. The clinical state of patients with spinal cord injury (SCI) induced urinary retention",
+        "evidence_ids": [
+          "E0286"
+        ]
+      },
+      "raw_timepoint_value": {
+        "status": "NOT_APPLICABLE",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "raw_timepoint_unit": {
+        "status": "NOT_APPLICABLE",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_timepoint": {
+        "kind": "baseline",
+        "value": null,
+        "unit": null,
+        "anchor": null,
+        "relation": null,
+        "blockers": []
+      },
+      "raw_analysis_set": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_analysis_set": null,
+      "raw_statistic_kind": {
+        "status": "PRESENT",
+        "value": "mean",
+        "raw_value": "Quantitative data were expressed as mean ± standard deviation (SD).",
+        "evidence_ids": [
+          "E0288"
+        ]
+      },
+      "canonical_statistic_kind": "mean",
+      "derived": false,
+      "source_refs": [
+        "Table 1|residual-baseline"
+      ],
+      "normalization_events": [
+        {
+          "field": "timepoint",
+          "rule": "TIMEPOINT_BASELINE_NORMALIZED",
+          "explanation": "Explicit pretreatment/baseline identity.",
+          "source_refs": [],
+          "deterministic": true
+        }
+      ],
+      "identity_blockers": [],
+      "deterministic_status": "DETERMINISTIC",
+      "mapping_changed": false
+    },
+    {
+      "side": "Gold",
+      "entity_type": "ArmResult",
+      "entity_id": "2015-06-S1-AR21",
+      "parent_type": "Arm",
+      "parent_id": "2015-06-S1-A03",
+      "raw_outcome_id": "2015-06-S1-O03",
+      "canonical_outcome_id": "2015-06-S1-O03",
+      "raw_timepoint": {
+        "status": "PRESENT",
+        "value": "baseline",
+        "raw_value": "Table 1. The clinical state of patients with spinal cord injury (SCI) induced urinary retention",
+        "evidence_ids": [
+          "E0291"
+        ]
+      },
+      "raw_timepoint_value": {
+        "status": "NOT_APPLICABLE",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "raw_timepoint_unit": {
+        "status": "NOT_APPLICABLE",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_timepoint": {
+        "kind": "baseline",
+        "value": null,
+        "unit": null,
+        "anchor": null,
+        "relation": null,
+        "blockers": []
+      },
+      "raw_analysis_set": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_analysis_set": null,
+      "raw_statistic_kind": {
+        "status": "PRESENT",
+        "value": "mean",
+        "raw_value": "Quantitative data were expressed as mean ± standard deviation (SD).",
+        "evidence_ids": [
+          "E0293"
+        ]
+      },
+      "canonical_statistic_kind": "mean",
+      "derived": false,
+      "source_refs": [
+        "Table 1|residual-baseline"
+      ],
+      "normalization_events": [
+        {
+          "field": "timepoint",
+          "rule": "TIMEPOINT_BASELINE_NORMALIZED",
+          "explanation": "Explicit pretreatment/baseline identity.",
+          "source_refs": [],
+          "deterministic": true
+        }
+      ],
+      "identity_blockers": [],
+      "deterministic_status": "DETERMINISTIC",
+      "mapping_changed": false
+    },
+    {
+      "side": "Gold",
+      "entity_type": "ComparisonResult",
+      "entity_id": "2015-06-S1-CR01",
+      "parent_type": "Comparison",
+      "parent_id": "2015-06-S1-C01",
+      "raw_outcome_id": "2015-06-S1-O01",
+      "canonical_outcome_id": "2015-06-S1-O01",
+      "raw_timepoint": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "raw_timepoint_value": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "raw_timepoint_unit": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_timepoint": {
+        "kind": "unknown",
+        "value": null,
+        "unit": null,
+        "anchor": null,
+        "relation": null,
+        "blockers": []
+      },
+      "raw_analysis_set": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_analysis_set": null,
+      "raw_statistic_kind": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_statistic_kind": null,
+      "derived": false,
+      "source_refs": [],
+      "normalization_events": [],
+      "identity_blockers": [],
+      "deterministic_status": "DETERMINISTIC",
+      "mapping_changed": false
+    },
+    {
+      "side": "Gold",
+      "entity_type": "ComparisonResult",
+      "entity_id": "2015-06-S1-CR02",
+      "parent_type": "Comparison",
+      "parent_id": "2015-06-S1-C02",
+      "raw_outcome_id": "2015-06-S1-O01",
+      "canonical_outcome_id": "2015-06-S1-O01",
+      "raw_timepoint": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "raw_timepoint_value": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "raw_timepoint_unit": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_timepoint": {
+        "kind": "unknown",
+        "value": null,
+        "unit": null,
+        "anchor": null,
+        "relation": null,
+        "blockers": []
+      },
+      "raw_analysis_set": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_analysis_set": null,
+      "raw_statistic_kind": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_statistic_kind": null,
+      "derived": false,
+      "source_refs": [],
+      "normalization_events": [],
+      "identity_blockers": [],
+      "deterministic_status": "DETERMINISTIC",
+      "mapping_changed": false
+    },
+    {
+      "side": "Gold",
+      "entity_type": "ComparisonResult",
+      "entity_id": "2015-06-S1-CR03",
+      "parent_type": "Comparison",
+      "parent_id": "2015-06-S1-C03",
+      "raw_outcome_id": "2015-06-S1-O01",
+      "canonical_outcome_id": "2015-06-S1-O01",
+      "raw_timepoint": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "raw_timepoint_value": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "raw_timepoint_unit": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_timepoint": {
+        "kind": "unknown",
+        "value": null,
+        "unit": null,
+        "anchor": null,
+        "relation": null,
+        "blockers": []
+      },
+      "raw_analysis_set": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_analysis_set": null,
+      "raw_statistic_kind": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_statistic_kind": null,
+      "derived": false,
+      "source_refs": [],
+      "normalization_events": [],
+      "identity_blockers": [],
+      "deterministic_status": "DETERMINISTIC",
+      "mapping_changed": false
+    },
+    {
+      "side": "Gold",
+      "entity_type": "ComparisonResult",
+      "entity_id": "2015-06-S1-CR04",
+      "parent_type": "Comparison",
+      "parent_id": "2015-06-S1-C01",
+      "raw_outcome_id": "2015-06-S1-O02",
+      "canonical_outcome_id": "2015-06-S1-O02",
+      "raw_timepoint": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "raw_timepoint_value": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "raw_timepoint_unit": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_timepoint": {
+        "kind": "unknown",
+        "value": null,
+        "unit": null,
+        "anchor": null,
+        "relation": null,
+        "blockers": []
+      },
+      "raw_analysis_set": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_analysis_set": null,
+      "raw_statistic_kind": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_statistic_kind": null,
+      "derived": false,
+      "source_refs": [],
+      "normalization_events": [],
+      "identity_blockers": [],
+      "deterministic_status": "DETERMINISTIC",
+      "mapping_changed": false
+    },
+    {
+      "side": "Gold",
+      "entity_type": "ComparisonResult",
+      "entity_id": "2015-06-S1-CR05",
+      "parent_type": "Comparison",
+      "parent_id": "2015-06-S1-C02",
+      "raw_outcome_id": "2015-06-S1-O02",
+      "canonical_outcome_id": "2015-06-S1-O02",
+      "raw_timepoint": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "raw_timepoint_value": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "raw_timepoint_unit": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_timepoint": {
+        "kind": "unknown",
+        "value": null,
+        "unit": null,
+        "anchor": null,
+        "relation": null,
+        "blockers": []
+      },
+      "raw_analysis_set": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_analysis_set": null,
+      "raw_statistic_kind": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_statistic_kind": null,
+      "derived": false,
+      "source_refs": [],
+      "normalization_events": [],
+      "identity_blockers": [],
+      "deterministic_status": "DETERMINISTIC",
+      "mapping_changed": false
+    },
+    {
+      "side": "Gold",
+      "entity_type": "ComparisonResult",
+      "entity_id": "2015-06-S1-CR06",
+      "parent_type": "Comparison",
+      "parent_id": "2015-06-S1-C03",
+      "raw_outcome_id": "2015-06-S1-O02",
+      "canonical_outcome_id": "2015-06-S1-O02",
+      "raw_timepoint": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "raw_timepoint_value": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "raw_timepoint_unit": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_timepoint": {
+        "kind": "unknown",
+        "value": null,
+        "unit": null,
+        "anchor": null,
+        "relation": null,
+        "blockers": []
+      },
+      "raw_analysis_set": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_analysis_set": null,
+      "raw_statistic_kind": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_statistic_kind": null,
+      "derived": false,
+      "source_refs": [],
+      "normalization_events": [],
+      "identity_blockers": [],
+      "deterministic_status": "DETERMINISTIC",
+      "mapping_changed": false
+    },
+    {
+      "side": "Gold",
+      "entity_type": "ComparisonResult",
+      "entity_id": "2015-06-S1-CR07",
+      "parent_type": "Comparison",
+      "parent_id": "2015-06-S1-C01",
+      "raw_outcome_id": "2015-06-S1-O03",
+      "canonical_outcome_id": "2015-06-S1-O03",
+      "raw_timepoint": {
+        "status": "PRESENT",
+        "value": "1 month",
+        "raw_value": "Residual urine volume (ml) in the 1st month",
+        "evidence_ids": [
+          "E0149"
+        ]
+      },
+      "raw_timepoint_value": {
+        "status": "PRESENT",
+        "value": 1.0,
+        "raw_value": "Residual urine volume (ml) in the 1st month",
+        "evidence_ids": [
+          "E0150"
+        ]
+      },
+      "raw_timepoint_unit": {
+        "status": "PRESENT",
+        "value": "months",
+        "raw_value": "Residual urine volume (ml) in the 1st month",
+        "evidence_ids": [
+          "E0151"
+        ]
+      },
+      "canonical_timepoint": {
+        "kind": "follow_up",
+        "value": 1.0,
+        "unit": "month",
+        "anchor": null,
+        "relation": null,
+        "blockers": []
+      },
+      "raw_analysis_set": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_analysis_set": null,
+      "raw_statistic_kind": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_statistic_kind": null,
+      "derived": false,
+      "source_refs": [],
+      "normalization_events": [
+        {
+          "field": "timepoint",
+          "rule": "TIMEPOINT_CANONICAL_DURATION",
+          "explanation": "Duration parsed without changing its reference event.",
+          "source_refs": [],
+          "deterministic": true
+        }
+      ],
+      "identity_blockers": [],
+      "deterministic_status": "DETERMINISTIC",
+      "mapping_changed": true
+    },
+    {
+      "side": "Gold",
+      "entity_type": "ComparisonResult",
+      "entity_id": "2015-06-S1-CR08",
+      "parent_type": "Comparison",
+      "parent_id": "2015-06-S1-C02",
+      "raw_outcome_id": "2015-06-S1-O03",
+      "canonical_outcome_id": "2015-06-S1-O03",
+      "raw_timepoint": {
+        "status": "PRESENT",
+        "value": "1 month",
+        "raw_value": "Residual urine volume (ml) in the 1st month",
+        "evidence_ids": [
+          "E0155"
+        ]
+      },
+      "raw_timepoint_value": {
+        "status": "PRESENT",
+        "value": 1.0,
+        "raw_value": "Residual urine volume (ml) in the 1st month",
+        "evidence_ids": [
+          "E0156"
+        ]
+      },
+      "raw_timepoint_unit": {
+        "status": "PRESENT",
+        "value": "months",
+        "raw_value": "Residual urine volume (ml) in the 1st month",
+        "evidence_ids": [
+          "E0157"
+        ]
+      },
+      "canonical_timepoint": {
+        "kind": "follow_up",
+        "value": 1.0,
+        "unit": "month",
+        "anchor": null,
+        "relation": null,
+        "blockers": []
+      },
+      "raw_analysis_set": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_analysis_set": null,
+      "raw_statistic_kind": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_statistic_kind": null,
+      "derived": false,
+      "source_refs": [],
+      "normalization_events": [
+        {
+          "field": "timepoint",
+          "rule": "TIMEPOINT_CANONICAL_DURATION",
+          "explanation": "Duration parsed without changing its reference event.",
+          "source_refs": [],
+          "deterministic": true
+        }
+      ],
+      "identity_blockers": [],
+      "deterministic_status": "DETERMINISTIC",
+      "mapping_changed": true
+    },
+    {
+      "side": "Gold",
+      "entity_type": "ComparisonResult",
+      "entity_id": "2015-06-S1-CR09",
+      "parent_type": "Comparison",
+      "parent_id": "2015-06-S1-C03",
+      "raw_outcome_id": "2015-06-S1-O03",
+      "canonical_outcome_id": "2015-06-S1-O03",
+      "raw_timepoint": {
+        "status": "PRESENT",
+        "value": "1 month",
+        "raw_value": "Residual urine volume (ml) in the 1st month",
+        "evidence_ids": [
+          "E0161"
+        ]
+      },
+      "raw_timepoint_value": {
+        "status": "PRESENT",
+        "value": 1.0,
+        "raw_value": "Residual urine volume (ml) in the 1st month",
+        "evidence_ids": [
+          "E0162"
+        ]
+      },
+      "raw_timepoint_unit": {
+        "status": "PRESENT",
+        "value": "months",
+        "raw_value": "Residual urine volume (ml) in the 1st month",
+        "evidence_ids": [
+          "E0163"
+        ]
+      },
+      "canonical_timepoint": {
+        "kind": "follow_up",
+        "value": 1.0,
+        "unit": "month",
+        "anchor": null,
+        "relation": null,
+        "blockers": []
+      },
+      "raw_analysis_set": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_analysis_set": null,
+      "raw_statistic_kind": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_statistic_kind": null,
+      "derived": false,
+      "source_refs": [],
+      "normalization_events": [
+        {
+          "field": "timepoint",
+          "rule": "TIMEPOINT_CANONICAL_DURATION",
+          "explanation": "Duration parsed without changing its reference event.",
+          "source_refs": [],
+          "deterministic": true
+        }
+      ],
+      "identity_blockers": [],
+      "deterministic_status": "DETERMINISTIC",
+      "mapping_changed": true
+    },
+    {
+      "side": "Gold",
+      "entity_type": "ComparisonResult",
+      "entity_id": "2015-06-S1-CR10",
+      "parent_type": "Comparison",
+      "parent_id": "2015-06-S1-C01",
+      "raw_outcome_id": "2015-06-S1-O04",
+      "canonical_outcome_id": "2015-06-S1-O04",
+      "raw_timepoint": {
+        "status": "PRESENT",
+        "value": "1 month",
+        "raw_value": "Voided volume (ml) in the 1st month",
+        "evidence_ids": [
+          "E0188"
+        ]
+      },
+      "raw_timepoint_value": {
+        "status": "PRESENT",
+        "value": 1.0,
+        "raw_value": "Voided volume (ml) in the 1st month",
+        "evidence_ids": [
+          "E0189"
+        ]
+      },
+      "raw_timepoint_unit": {
+        "status": "PRESENT",
+        "value": "months",
+        "raw_value": "Voided volume (ml) in the 1st month",
+        "evidence_ids": [
+          "E0190"
+        ]
+      },
+      "canonical_timepoint": {
+        "kind": "follow_up",
+        "value": 1.0,
+        "unit": "month",
+        "anchor": null,
+        "relation": null,
+        "blockers": []
+      },
+      "raw_analysis_set": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_analysis_set": null,
+      "raw_statistic_kind": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_statistic_kind": null,
+      "derived": false,
+      "source_refs": [],
+      "normalization_events": [
+        {
+          "field": "timepoint",
+          "rule": "TIMEPOINT_CANONICAL_DURATION",
+          "explanation": "Duration parsed without changing its reference event.",
+          "source_refs": [],
+          "deterministic": true
+        }
+      ],
+      "identity_blockers": [],
+      "deterministic_status": "DETERMINISTIC",
+      "mapping_changed": true
+    },
+    {
+      "side": "Gold",
+      "entity_type": "ComparisonResult",
+      "entity_id": "2015-06-S1-CR11",
+      "parent_type": "Comparison",
+      "parent_id": "2015-06-S1-C02",
+      "raw_outcome_id": "2015-06-S1-O04",
+      "canonical_outcome_id": "2015-06-S1-O04",
+      "raw_timepoint": {
+        "status": "PRESENT",
+        "value": "1 month",
+        "raw_value": "Voided volume (ml) in the 1st month",
+        "evidence_ids": [
+          "E0194"
+        ]
+      },
+      "raw_timepoint_value": {
+        "status": "PRESENT",
+        "value": 1.0,
+        "raw_value": "Voided volume (ml) in the 1st month",
+        "evidence_ids": [
+          "E0195"
+        ]
+      },
+      "raw_timepoint_unit": {
+        "status": "PRESENT",
+        "value": "months",
+        "raw_value": "Voided volume (ml) in the 1st month",
+        "evidence_ids": [
+          "E0196"
+        ]
+      },
+      "canonical_timepoint": {
+        "kind": "follow_up",
+        "value": 1.0,
+        "unit": "month",
+        "anchor": null,
+        "relation": null,
+        "blockers": []
+      },
+      "raw_analysis_set": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_analysis_set": null,
+      "raw_statistic_kind": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_statistic_kind": null,
+      "derived": false,
+      "source_refs": [],
+      "normalization_events": [
+        {
+          "field": "timepoint",
+          "rule": "TIMEPOINT_CANONICAL_DURATION",
+          "explanation": "Duration parsed without changing its reference event.",
+          "source_refs": [],
+          "deterministic": true
+        }
+      ],
+      "identity_blockers": [],
+      "deterministic_status": "DETERMINISTIC",
+      "mapping_changed": true
+    },
+    {
+      "side": "Gold",
+      "entity_type": "ComparisonResult",
+      "entity_id": "2015-06-S1-CR12",
+      "parent_type": "Comparison",
+      "parent_id": "2015-06-S1-C03",
+      "raw_outcome_id": "2015-06-S1-O04",
+      "canonical_outcome_id": "2015-06-S1-O04",
+      "raw_timepoint": {
+        "status": "PRESENT",
+        "value": "1 month",
+        "raw_value": "Voided volume (ml) in the 1st month",
+        "evidence_ids": [
+          "E0200"
+        ]
+      },
+      "raw_timepoint_value": {
+        "status": "PRESENT",
+        "value": 1.0,
+        "raw_value": "Voided volume (ml) in the 1st month",
+        "evidence_ids": [
+          "E0201"
+        ]
+      },
+      "raw_timepoint_unit": {
+        "status": "PRESENT",
+        "value": "months",
+        "raw_value": "Voided volume (ml) in the 1st month",
+        "evidence_ids": [
+          "E0202"
+        ]
+      },
+      "canonical_timepoint": {
+        "kind": "follow_up",
+        "value": 1.0,
+        "unit": "month",
+        "anchor": null,
+        "relation": null,
+        "blockers": []
+      },
+      "raw_analysis_set": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_analysis_set": null,
+      "raw_statistic_kind": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_statistic_kind": null,
+      "derived": false,
+      "source_refs": [],
+      "normalization_events": [
+        {
+          "field": "timepoint",
+          "rule": "TIMEPOINT_CANONICAL_DURATION",
+          "explanation": "Duration parsed without changing its reference event.",
+          "source_refs": [],
+          "deterministic": true
+        }
+      ],
+      "identity_blockers": [],
+      "deterministic_status": "DETERMINISTIC",
+      "mapping_changed": true
+    },
+    {
+      "side": "Gold",
+      "entity_type": "ComparisonResult",
+      "entity_id": "2015-06-S1-CR13",
+      "parent_type": "Comparison",
+      "parent_id": "2015-06-S1-C01",
+      "raw_outcome_id": "2015-06-S1-O03",
+      "canonical_outcome_id": "2015-06-S1-O03",
+      "raw_timepoint": {
+        "status": "PRESENT",
+        "value": "3 months",
+        "raw_value": "Residual urine volume (ml) in the 3rd month",
+        "evidence_ids": [
+          "E0227"
+        ]
+      },
+      "raw_timepoint_value": {
+        "status": "PRESENT",
+        "value": 3.0,
+        "raw_value": "Residual urine volume (ml) in the 3rd month",
+        "evidence_ids": [
+          "E0228"
+        ]
+      },
+      "raw_timepoint_unit": {
+        "status": "PRESENT",
+        "value": "months",
+        "raw_value": "Residual urine volume (ml) in the 3rd month",
+        "evidence_ids": [
+          "E0229"
+        ]
+      },
+      "canonical_timepoint": {
+        "kind": "follow_up",
+        "value": 3.0,
+        "unit": "month",
+        "anchor": null,
+        "relation": null,
+        "blockers": []
+      },
+      "raw_analysis_set": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_analysis_set": null,
+      "raw_statistic_kind": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_statistic_kind": null,
+      "derived": false,
+      "source_refs": [],
+      "normalization_events": [
+        {
+          "field": "timepoint",
+          "rule": "TIMEPOINT_CANONICAL_DURATION",
+          "explanation": "Duration parsed without changing its reference event.",
+          "source_refs": [],
+          "deterministic": true
+        }
+      ],
+      "identity_blockers": [],
+      "deterministic_status": "DETERMINISTIC",
+      "mapping_changed": true
+    },
+    {
+      "side": "Gold",
+      "entity_type": "ComparisonResult",
+      "entity_id": "2015-06-S1-CR14",
+      "parent_type": "Comparison",
+      "parent_id": "2015-06-S1-C02",
+      "raw_outcome_id": "2015-06-S1-O03",
+      "canonical_outcome_id": "2015-06-S1-O03",
+      "raw_timepoint": {
+        "status": "PRESENT",
+        "value": "3 months",
+        "raw_value": "Residual urine volume (ml) in the 3rd month",
+        "evidence_ids": [
+          "E0233"
+        ]
+      },
+      "raw_timepoint_value": {
+        "status": "PRESENT",
+        "value": 3.0,
+        "raw_value": "Residual urine volume (ml) in the 3rd month",
+        "evidence_ids": [
+          "E0234"
+        ]
+      },
+      "raw_timepoint_unit": {
+        "status": "PRESENT",
+        "value": "months",
+        "raw_value": "Residual urine volume (ml) in the 3rd month",
+        "evidence_ids": [
+          "E0235"
+        ]
+      },
+      "canonical_timepoint": {
+        "kind": "follow_up",
+        "value": 3.0,
+        "unit": "month",
+        "anchor": null,
+        "relation": null,
+        "blockers": []
+      },
+      "raw_analysis_set": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_analysis_set": null,
+      "raw_statistic_kind": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_statistic_kind": null,
+      "derived": false,
+      "source_refs": [],
+      "normalization_events": [
+        {
+          "field": "timepoint",
+          "rule": "TIMEPOINT_CANONICAL_DURATION",
+          "explanation": "Duration parsed without changing its reference event.",
+          "source_refs": [],
+          "deterministic": true
+        }
+      ],
+      "identity_blockers": [],
+      "deterministic_status": "DETERMINISTIC",
+      "mapping_changed": false
+    },
+    {
+      "side": "Gold",
+      "entity_type": "ComparisonResult",
+      "entity_id": "2015-06-S1-CR15",
+      "parent_type": "Comparison",
+      "parent_id": "2015-06-S1-C03",
+      "raw_outcome_id": "2015-06-S1-O03",
+      "canonical_outcome_id": "2015-06-S1-O03",
+      "raw_timepoint": {
+        "status": "PRESENT",
+        "value": "3 months",
+        "raw_value": "Residual urine volume (ml) in the 3rd month",
+        "evidence_ids": [
+          "E0239"
+        ]
+      },
+      "raw_timepoint_value": {
+        "status": "PRESENT",
+        "value": 3.0,
+        "raw_value": "Residual urine volume (ml) in the 3rd month",
+        "evidence_ids": [
+          "E0240"
+        ]
+      },
+      "raw_timepoint_unit": {
+        "status": "PRESENT",
+        "value": "months",
+        "raw_value": "Residual urine volume (ml) in the 3rd month",
+        "evidence_ids": [
+          "E0241"
+        ]
+      },
+      "canonical_timepoint": {
+        "kind": "follow_up",
+        "value": 3.0,
+        "unit": "month",
+        "anchor": null,
+        "relation": null,
+        "blockers": []
+      },
+      "raw_analysis_set": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_analysis_set": null,
+      "raw_statistic_kind": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_statistic_kind": null,
+      "derived": false,
+      "source_refs": [],
+      "normalization_events": [
+        {
+          "field": "timepoint",
+          "rule": "TIMEPOINT_CANONICAL_DURATION",
+          "explanation": "Duration parsed without changing its reference event.",
+          "source_refs": [],
+          "deterministic": true
+        }
+      ],
+      "identity_blockers": [],
+      "deterministic_status": "DETERMINISTIC",
+      "mapping_changed": true
+    },
+    {
+      "side": "Gold",
+      "entity_type": "ComparisonResult",
+      "entity_id": "2015-06-S1-CR16",
+      "parent_type": "Comparison",
+      "parent_id": "2015-06-S1-C01",
+      "raw_outcome_id": "2015-06-S1-O04",
+      "canonical_outcome_id": "2015-06-S1-O04",
+      "raw_timepoint": {
+        "status": "PRESENT",
+        "value": "3 months",
+        "raw_value": "Voided volume (ml) in the 3rd month",
+        "evidence_ids": [
+          "E0266"
+        ]
+      },
+      "raw_timepoint_value": {
+        "status": "PRESENT",
+        "value": 3.0,
+        "raw_value": "Voided volume (ml) in the 3rd month",
+        "evidence_ids": [
+          "E0267"
+        ]
+      },
+      "raw_timepoint_unit": {
+        "status": "PRESENT",
+        "value": "months",
+        "raw_value": "Voided volume (ml) in the 3rd month",
+        "evidence_ids": [
+          "E0268"
+        ]
+      },
+      "canonical_timepoint": {
+        "kind": "follow_up",
+        "value": 3.0,
+        "unit": "month",
+        "anchor": null,
+        "relation": null,
+        "blockers": []
+      },
+      "raw_analysis_set": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_analysis_set": null,
+      "raw_statistic_kind": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_statistic_kind": null,
+      "derived": false,
+      "source_refs": [],
+      "normalization_events": [
+        {
+          "field": "timepoint",
+          "rule": "TIMEPOINT_CANONICAL_DURATION",
+          "explanation": "Duration parsed without changing its reference event.",
+          "source_refs": [],
+          "deterministic": true
+        }
+      ],
+      "identity_blockers": [],
+      "deterministic_status": "DETERMINISTIC",
+      "mapping_changed": true
+    },
+    {
+      "side": "Gold",
+      "entity_type": "ComparisonResult",
+      "entity_id": "2015-06-S1-CR17",
+      "parent_type": "Comparison",
+      "parent_id": "2015-06-S1-C02",
+      "raw_outcome_id": "2015-06-S1-O04",
+      "canonical_outcome_id": "2015-06-S1-O04",
+      "raw_timepoint": {
+        "status": "PRESENT",
+        "value": "3 months",
+        "raw_value": "Voided volume (ml) in the 3rd month",
+        "evidence_ids": [
+          "E0272"
+        ]
+      },
+      "raw_timepoint_value": {
+        "status": "PRESENT",
+        "value": 3.0,
+        "raw_value": "Voided volume (ml) in the 3rd month",
+        "evidence_ids": [
+          "E0273"
+        ]
+      },
+      "raw_timepoint_unit": {
+        "status": "PRESENT",
+        "value": "months",
+        "raw_value": "Voided volume (ml) in the 3rd month",
+        "evidence_ids": [
+          "E0274"
+        ]
+      },
+      "canonical_timepoint": {
+        "kind": "follow_up",
+        "value": 3.0,
+        "unit": "month",
+        "anchor": null,
+        "relation": null,
+        "blockers": []
+      },
+      "raw_analysis_set": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_analysis_set": null,
+      "raw_statistic_kind": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_statistic_kind": null,
+      "derived": false,
+      "source_refs": [],
+      "normalization_events": [
+        {
+          "field": "timepoint",
+          "rule": "TIMEPOINT_CANONICAL_DURATION",
+          "explanation": "Duration parsed without changing its reference event.",
+          "source_refs": [],
+          "deterministic": true
+        }
+      ],
+      "identity_blockers": [],
+      "deterministic_status": "DETERMINISTIC",
+      "mapping_changed": false
+    },
+    {
+      "side": "Gold",
+      "entity_type": "ComparisonResult",
+      "entity_id": "2015-06-S1-CR18",
+      "parent_type": "Comparison",
+      "parent_id": "2015-06-S1-C03",
+      "raw_outcome_id": "2015-06-S1-O04",
+      "canonical_outcome_id": "2015-06-S1-O04",
+      "raw_timepoint": {
+        "status": "PRESENT",
+        "value": "3 months",
+        "raw_value": "Voided volume (ml) in the 3rd month",
+        "evidence_ids": [
+          "E0278"
+        ]
+      },
+      "raw_timepoint_value": {
+        "status": "PRESENT",
+        "value": 3.0,
+        "raw_value": "Voided volume (ml) in the 3rd month",
+        "evidence_ids": [
+          "E0279"
+        ]
+      },
+      "raw_timepoint_unit": {
+        "status": "PRESENT",
+        "value": "months",
+        "raw_value": "Voided volume (ml) in the 3rd month",
+        "evidence_ids": [
+          "E0280"
+        ]
+      },
+      "canonical_timepoint": {
+        "kind": "follow_up",
+        "value": 3.0,
+        "unit": "month",
+        "anchor": null,
+        "relation": null,
+        "blockers": []
+      },
+      "raw_analysis_set": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_analysis_set": null,
+      "raw_statistic_kind": {
+        "status": "NOT_REPORTED",
+        "value": null,
+        "raw_value": null,
+        "evidence_ids": []
+      },
+      "canonical_statistic_kind": null,
+      "derived": false,
+      "source_refs": [],
+      "normalization_events": [
+        {
+          "field": "timepoint",
+          "rule": "TIMEPOINT_CANONICAL_DURATION",
+          "explanation": "Duration parsed without changing its reference event.",
+          "source_refs": [],
+          "deterministic": true
+        }
+      ],
+      "identity_blockers": [],
+      "deterministic_status": "DETERMINISTIC",
+      "mapping_changed": true
+    }
+  ],
+  "outcomes": {
+    "projections": [
+      {
+        "outcome_id": "2015-06-S1-O01",
+        "study_id": "2015-06-S1",
+        "raw_name": {
+          "status": "PRESENT",
+          "value": "Bladder balance patients",
+          "raw_value": "Bladder balance patients",
+          "evidence_ids": [
+            "2015-06-S1-O-E00001"
+          ]
+        },
+        "canonical_concept": "bladder balance",
+        "statistic_wrapper": "event_count",
+        "instrument": null,
+        "unit": null,
+        "definition": null,
+        "source_blocks": [
+          "table-2|table-2:r002"
+        ],
+        "normalization_events": [
+          {
+            "field": "outcome",
+            "rule": "OUTCOME_STATISTIC_WRAPPER_SEPARATED",
+            "explanation": "Explicit source row separates construct from statistical presentation.",
+            "source_refs": [
+              "production/article.md#table-2:r002"
+            ],
+            "deterministic": true
+          }
+        ],
+        "identity_blockers": []
+      },
+      {
+        "outcome_id": "2015-06-S1-O02",
+        "study_id": "2015-06-S1",
+        "raw_name": {
+          "status": "PRESENT",
+          "value": "CIC frequency",
+          "raw_value": "CIC frequency",
+          "evidence_ids": [
+            "2015-06-S1-O-E00008"
+          ]
+        },
+        "canonical_concept": "cic frequency",
+        "statistic_wrapper": null,
+        "instrument": null,
+        "unit": null,
+        "definition": null,
+        "source_blocks": [
+          "table-2|table-2:r003"
+        ],
+        "normalization_events": [],
+        "identity_blockers": []
+      },
+      {
+        "outcome_id": "2015-06-S1-O03",
+        "study_id": "2015-06-S1",
+        "raw_name": {
+          "status": "PRESENT",
+          "value": "Residual urine volume",
+          "raw_value": "Residual urine volume",
+          "evidence_ids": [
+            "2015-06-S1-O-E00009",
+            "2015-06-S1-O-E00091",
+            "2015-06-S1-O-E00133",
+            "2015-06-S1-O-E00138"
+          ]
+        },
+        "canonical_concept": "residual urine volume",
+        "statistic_wrapper": null,
+        "instrument": null,
+        "unit": null,
+        "definition": null,
+        "source_blocks": [
+          "narrative-results:p006-p007|narrative-results:r007",
+          "table-2|table-2:r004",
+          "table-2|table-2:r006"
+        ],
+        "normalization_events": [],
+        "identity_blockers": []
+      },
+      {
+        "outcome_id": "2015-06-S1-O04",
+        "study_id": "2015-06-S1",
+        "raw_name": {
+          "status": "PRESENT",
+          "value": "Voided volume",
+          "raw_value": "Voided volume",
+          "evidence_ids": [
+            "2015-06-S1-O-E00031",
+            "2015-06-S1-O-E00051",
+            "2015-06-S1-O-E00071",
+            "2015-06-S1-O-E00107",
+            "2015-06-S1-O-E00143",
+            "2015-06-S1-O-E00148"
+          ]
+        },
+        "canonical_concept": "voided volume",
+        "statistic_wrapper": null,
+        "instrument": null,
+        "unit": null,
+        "definition": null,
+        "source_blocks": [
+          "narrative-results:p006-p007|narrative-results:r007",
+          "table-2|table-2:r005",
+          "table-2|table-2:r007"
+        ],
+        "normalization_events": [],
+        "identity_blockers": []
+      },
+      {
+        "outcome_id": "2015-06-S1-O05",
+        "study_id": "2015-06-S1",
+        "raw_name": {
+          "status": "PRESENT",
+          "value": "Rate of bladder balance patients",
+          "raw_value": "Rate of bladder balance patients",
+          "evidence_ids": [
+            "2015-06-S1-O-E00123",
+            "2015-06-S1-O-E00128"
+          ]
+        },
+        "canonical_concept": "bladder balance",
+        "statistic_wrapper": "proportion",
+        "instrument": null,
+        "unit": null,
+        "definition": null,
+        "source_blocks": [
+          "narrative-results:p006-p007|narrative-results:r007"
+        ],
+        "normalization_events": [
+          {
+            "field": "outcome",
+            "rule": "OUTCOME_STATISTIC_WRAPPER_SEPARATED",
+            "explanation": "Literal source-backed statistic wrapper; no synonym expansion.",
+            "source_refs": [
+              "2015-06-S1-O-E00123",
+              "2015-06-S1-O-E00128"
+            ],
+            "deterministic": true
+          }
+        ],
+        "identity_blockers": []
+      }
+    ],
+    "canonical_ids": {
+      "2015-06-S1-O01": "2015-06-S1-O01",
+      "2015-06-S1-O02": "2015-06-S1-O02",
+      "2015-06-S1-O03": "2015-06-S1-O03",
+      "2015-06-S1-O04": "2015-06-S1-O04",
+      "2015-06-S1-O05": "2015-06-S1-O05"
+    },
+    "groups": {
+      "2015-06-S1-O01": [
+        "2015-06-S1-O01"
+      ],
+      "2015-06-S1-O02": [
+        "2015-06-S1-O02"
+      ],
+      "2015-06-S1-O03": [
+        "2015-06-S1-O03"
+      ],
+      "2015-06-S1-O04": [
+        "2015-06-S1-O04"
+      ],
+      "2015-06-S1-O05": [
+        "2015-06-S1-O05"
+      ]
+    },
+    "decisions": [
+      {
+        "outcome_ids": [
+          "2015-06-S1-O01",
+          "2015-06-S1-O05"
+        ],
+        "merge": false,
+        "reason": "OUTCOME_NO_SHARED_SOURCE_BLOCK",
+        "shared_source_blocks": []
+      }
+    ]
+  }
+}

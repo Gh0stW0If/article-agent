@@ -5,7 +5,7 @@ import hashlib
 from ..engine import ORDINARY, candidate_set_match, classify, evaluate_article, grounded, ratio, validate_contract
 from ..entity_matcher import GROUPS, entities
 from .entity_matcher import match_entities_hybrid
-from .models import HybridEvaluationReportV1, HybridFieldResult, SemanticGrade
+from .models import HybridEvaluationReportV1, HybridFieldResult, HybridEntityMatchResult, SemanticGrade
 from .prompts import SEMANTIC_PROMPT_SHA256, SEMANTIC_PROMPT_VERSION
 from .registry import SemanticRegistryV1
 from .semantic_judge import JudgeSession, field_representation, field_request
@@ -63,7 +63,7 @@ def failure_decomposition(fields):
 
 
 def evaluate_article_hybrid(prediction, gold, deterministic_registry, semantic_registry, semantic_judge,
-                            *, prediction_sha256=None, gold_sha256=None):
+                            *, prediction_sha256=None, gold_sha256=None, precomputed_matches=None):
     prediction, gold, registry = validate_contract(prediction, gold, deterministic_registry)
     semantic_registry = SemanticRegistryV1.model_validate_json(semantic_registry.model_dump_json())
     overlay = semantic_registry.by_id()
@@ -73,7 +73,25 @@ def evaluate_article_hybrid(prediction, gold, deterministic_registry, semantic_r
     reference = evaluate_article(prediction, gold, registry)
     old = {f.target_id: f for f in reference.field_results}
     judge = JudgeSession(semantic_judge)
-    matches = match_entities_hybrid(prediction, gold, registry, semantic_registry, judge, reference.entity_matches)
+    if precomputed_matches is None:
+        matches = match_entities_hybrid(prediction, gold, registry, semantic_registry, judge, reference.entity_matches)
+    else:
+        # Identity-only PR5F linking is opt-in. All field/status/grading code below is unchanged.
+        matches = [HybridEntityMatchResult.model_validate(
+            m.model_dump(mode="json") if hasattr(m, "model_dump") else m) for m in precomputed_matches]
+        seen_g, seen_p = set(), set()
+        for match in matches:
+            if match.entity_type not in GROUPS:
+                raise ValueError("Unknown linked entity type")
+            if match.match_status != "MATCHED":
+                continue
+            gkey, pkey = (match.entity_type, match.gold_entity_id), (match.entity_type, match.prediction_entity_id)
+            if (gkey in seen_g or pkey in seen_p
+                or match.gold_entity_id not in entities(gold.truth, match.entity_type)
+                or match.prediction_entity_id not in entities(prediction, match.entity_type)):
+                raise ValueError("Precomputed identity links must be real one-to-one entity references")
+            seen_g.add(gkey)
+            seen_p.add(pkey)
     matched = {(m.entity_type, m.gold_entity_id): m.prediction_entity_id
                for m in matches if m.match_status == "MATCHED"}
     fields, conflicts = [], []

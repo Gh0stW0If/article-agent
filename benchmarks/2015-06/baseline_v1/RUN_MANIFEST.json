@@ -1,0 +1,151 @@
+{
+  "benchmark_id": "2015-06-baseline-v1",
+  "article_id": "2015-06",
+  "status": "BENCHMARK_COMPLETE",
+  "production_git_sha": "eefa90ff85935af980c2fedcc2917d4771a94e5e",
+  "tracked_git_status_at_start": " M .env.example\n M README.md\n M src/article_agent/models.py\n M tests/test_models.py\n",
+  "source_pdf_sha256": "d8cf9cb33d4156ea3ce299d05958fc4ef476c2e5d2ef2ca0ef36440b52271fd0",
+  "requested_parser": "auto",
+  "production_command": [
+    "D:\\Application\\Anaconda\\envs\\Agent\\python.exe",
+    "MinerU method/run.py",
+    "--pdf",
+    "datas/articles/2015/-2015-06.pdf",
+    "--parser",
+    "auto",
+    "--use-api",
+    "--output-root",
+    "D:\\work\\Article Agent\\outputs\\pr5d1_2015_06_production_retry06"
+  ],
+  "production_output_root": "D:\\work\\Article Agent\\outputs\\pr5d1_2015_06_production_retry06",
+  "input_isolation": "isolated hashed source snapshot; no Gold/labels; declared transport patch only",
+  "authorized_transport_patch": {
+    "path": "src/article_agent/models.py",
+    "sha256": "3adee63389441d527f4e558e61b633118ff9ca29e09cd8ff4576356ce7f726f4",
+    "changed_files": [
+      ".env.example",
+      "README.md",
+      "src/article_agent/models.py",
+      "tests/test_models.py"
+    ],
+    "authorization": "User authorized Responses endpoint switch and all-sol full retry",
+    "extraction_prompts_and_algorithms_changed": false
+  },
+  "source_files_sha256": "e6f585225789f93bd33816b75c0dfedc27a31d2406fe47d93fee9e87bf5be676",
+  "attempt": 6,
+  "previous_failed_attempts": [
+    {
+      "attempt": 1,
+      "manifest": "outputs\\pr5d1_2015_06_benchmark\\PRODUCTION_RUN.json",
+      "sha256": "e4ecb24acfb0386a9285cf22835fd94606e9e11f74ce92cf6d4e0f14988ec9e6",
+      "status": "BENCHMARK_NOT_RUN"
+    },
+    {
+      "attempt": 2,
+      "manifest": "outputs\\pr5d1_2015_06_benchmark_retry02\\PRODUCTION_RUN.json",
+      "sha256": "5047e2e9c96123630d83c355f810fe1343a7fa979b12e19945914ce3b7a02cb0",
+      "status": "BENCHMARK_NOT_RUN"
+    },
+    {
+      "attempt": 3,
+      "manifest": "outputs\\pr5d1_2015_06_benchmark_retry03\\PRODUCTION_RUN.json",
+      "sha256": "2d511164abf91c17f991285603bfc3c24a81c953486a2e42ba16a131c70d01a9",
+      "status": "BENCHMARK_NOT_RUN"
+    },
+    {
+      "attempt": 4,
+      "manifest": "outputs\\pr5d1_2015_06_benchmark_retry04\\PRODUCTION_RUN.json",
+      "sha256": "61640adbdb5c90c030b8b07b495af923b85672e9d8d1d02be4185135a5a46d5f",
+      "status": "BENCHMARK_NOT_RUN"
+    },
+    {
+      "attempt": 5,
+      "manifest": "outputs\\pr5d1_2015_06_benchmark_retry05\\PRODUCTION_RUN.json",
+      "sha256": "793827c621728b8685af60ced5e7e805d8d0263ac3927efaa2e300bbfe1ecd6b",
+      "status": "BENCHMARK_NOT_RUN"
+    }
+  ],
+  "authorized_configuration_change": {
+    "attempt": 6,
+    "authorization": "User requested retrying the full pending PR5D-1 workflow with gpt-5.6-sol for all model roles, following the authorized Responses endpoint switch.",
+    "base_url": "https://api.lvping.cloud/v1",
+    "api_mode": "responses",
+    "fallback_urls": [],
+    "model_configuration": {
+      "ARTICLE_AGENT_MODEL": "gpt-5.6-sol",
+      "ARTICLE_AGENT_TOPOLOGY_MODEL": "gpt-5.6-sol",
+      "ARTICLE_AGENT_ARM_DETAILS_MODEL": "gpt-5.6-sol",
+      "ARTICLE_AGENT_STRUCTURED_MODEL": "gpt-5.6-sol",
+      "ARTICLE_AGENT_TABLE_CLASSIFIER_MODEL": "gpt-5.6-sol",
+      "ARTICLE_AGENT_VISION_MODEL": "gpt-5.6-sol",
+      "ARTICLE_AGENT_BASIC_MATCH_MODEL": "gpt-5.6-sol",
+      "ARTICLE_AGENT_RETRY_MODEL": "gpt-5.6-sol"
+    },
+    "authorized_transport_file": "src/article_agent/models.py",
+    "authorized_transport_sha256": "3adee63389441d527f4e558e61b633118ff9ca29e09cd8ff4576356ce7f726f4",
+    "production_source_unchanged": false,
+    "extraction_algorithms_and_prompts_unchanged": true,
+    "gold_registry_evaluator_unchanged": true,
+    "request_delay_seconds": 0.01,
+    "serial": true,
+    "credential_recorded": false,
+    "previous_artifacts_preserved": true
+  },
+  "exit_code": 0,
+  "prediction_sha256": "ebe87d48a43c065f866b136854da65532d90dcf644e74fc2b33a68eb7cf53ffb",
+  "article_schema_version": "ARTICLE_EXTRACTION/2.0",
+  "assembly_input_sha256": {
+    "extraction.json": "fda9be2b458530a6c3f7ba36dd0ac9c96b817af0f5fdb0d59b2563f277a825d0",
+    "trial_topology/trial_topology.json": "5ff2d1fd85a06d428a8ef8d8f5f018605dfc05b5262050396513f43980cbf0de",
+    "arm_details/arm_details.canonical.json": "38457a3a5e1d2dce437525f916c84de3ba8ede83cc10f3c0a378200999570007"
+  },
+  "model_configuration": {
+    "default": "gpt-5.6-sol",
+    "trial_topology": "gpt-5.6-sol",
+    "arm_details": "gpt-5.6-sol",
+    "structured_metadata_protocol_risk": "gpt-5.6-sol",
+    "table_classification": "gpt-5.6-sol",
+    "outcomes_postprocess": "gpt-5.6-sol",
+    "vlm": "gpt-5.6-sol",
+    "retry": "gpt-5.6-sol"
+  },
+  "forbidden_read_attempts": [],
+  "assembly_functions": [
+    "normalize_outcome_sources",
+    "canonicalize_outcomes",
+    "legacy_bundle_to_canonical",
+    "merge_field_observation"
+  ],
+  "prediction_frozen_before_evaluation": true,
+  "gold_id": "2015-06-gold-v1",
+  "gold_version": "GOLD_STANDARD/2.0.0",
+  "gold_json_sha256": "8f22600fd6b2ac701a1477946a8023060afcdca4acc93ea21d459d4dd09347db",
+  "registry_version": "EVALUATOR_FIELD_REGISTRY/3.0.0",
+  "registry_sha256": "d10fe9dfc5cb224e8705b981124ec1613c31d2fe645e55792d3ad3f2e21278cc",
+  "evaluation_report_version": "EVALUATION_REPORT/2.0.0",
+  "evaluator_byte_identical": true,
+  "actual_parser_backend": "mineru:pipeline",
+  "source_integrity": {
+    "verified_files": 90,
+    "mismatches": []
+  },
+  "requests": {
+    "documented_outcome_request_operations": 12,
+    "outcome_request_status_counts": {
+      "failed": 2,
+      "success": 10
+    },
+    "outcome_row_fallback_operations": 9,
+    "topology_requests": 2,
+    "topology_validation_or_transport_failures": 1,
+    "arm_details_requests": 1,
+    "arm_details_failures": 0,
+    "postprocessing_part_status_counts": {
+      "success": 2
+    },
+    "complete_http_request_total": null,
+    "request_count_note": "Counts are persisted stage operations, not a complete wire-level request trace; unrecorded transport attempts cannot be reconstructed."
+  },
+  "evaluation_sha256": "4899ebde62cd0d4f4c42ecebdf2e387a82b518bf118f59293a5397f8bb64e73d",
+  "api_mode": "responses"
+}

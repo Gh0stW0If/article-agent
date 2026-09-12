@@ -162,6 +162,89 @@ def _content_json(body: dict[str, Any], *, label: str = "API") -> dict[str, Any]
     return parsed
 
 
+def _responses_content_json(body: dict[str, Any], *, label: str = "API") -> dict[str, Any]:
+    """Read only complete Responses output; never accept a partial JSON result."""
+
+    if not isinstance(body, dict):
+        raise RuntimeError(f"{label} Responses payload is not an object")
+    if body.get("error"):
+        raise RuntimeError(f"{label} Responses error: {body['error']}")
+    if body.get("status") != "completed" or body.get("incomplete_details") is not None:
+        raise RuntimeError(
+            f"{label} Responses result is not complete: status={body.get('status')}, "
+            f"incomplete_details={body.get('incomplete_details')}"
+        )
+    output = body.get("output")
+    if not isinstance(output, list):
+        raise RuntimeError(f"{label} Responses payload has no output array")
+    texts: list[str] = []
+    for item in output:
+        if not isinstance(item, dict):
+            raise RuntimeError(f"{label} Responses output item is not an object")
+        if item.get("type") != "message":
+            # Reasoning items may precede the assistant message.
+            continue
+        if item.get("role") != "assistant" or item.get("status") not in {None, "completed"}:
+            raise RuntimeError(f"{label} Responses message is not a completed assistant message")
+        parts = item.get("content")
+        if not isinstance(parts, list):
+            raise RuntimeError(f"{label} Responses message has no content array")
+        for part in parts:
+            if not isinstance(part, dict):
+                raise RuntimeError(f"{label} Responses content part is not an object")
+            if part.get("type") == "refusal":
+                raise RuntimeError(f"{label} Responses refusal: {part.get('refusal', '')}")
+            if part.get("type") != "output_text" or not isinstance(part.get("text"), str):
+                raise RuntimeError(f"{label} Responses content is not output_text")
+            texts.append(part["text"])
+    content = "".join(texts)
+    if not content.strip():
+        raise RuntimeError(f"{label} Responses result contains no output text")
+    try:
+        parsed = json.loads(content)
+    except json.JSONDecodeError as exc:
+        raise RuntimeError(f"{label} Responses returned non-JSON content: {content}") from exc
+    if not isinstance(parsed, dict):
+        raise RuntimeError(f"{label} Responses returned a non-object JSON content payload")
+    return parsed
+
+
+def _responses_input(messages: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Translate existing text/image messages without changing their content."""
+
+    inputs: list[dict[str, Any]] = []
+    for message in messages:
+        if set(message) - {"role", "content"}:
+            raise ValueError("Responses input supports only role/content messages")
+        role = message.get("role")
+        if role not in {"system", "developer", "user", "assistant"}:
+            raise ValueError(f"Unsupported Responses input role: {role}")
+        content = message.get("content")
+        if isinstance(content, str):
+            inputs.append({"role": role, "content": content})
+            continue
+        if not isinstance(content, list):
+            raise ValueError("Responses input content must be text or a content list")
+        parts: list[dict[str, Any]] = []
+        for part in content:
+            if not isinstance(part, dict):
+                raise ValueError("Responses input content part must be an object")
+            if part.get("type") == "text" and isinstance(part.get("text"), str):
+                parts.append({"type": "input_text", "text": part["text"]})
+            elif part.get("type") == "image_url":
+                image = part.get("image_url")
+                if not isinstance(image, dict) or not isinstance(image.get("url"), str):
+                    raise ValueError("Responses image input requires an image URL")
+                converted = {"type": "input_image", "image_url": image["url"]}
+                if "detail" in image:
+                    converted["detail"] = image["detail"]
+                parts.append(converted)
+            else:
+                raise ValueError(f"Unsupported Responses input content type: {part.get('type')}")
+        inputs.append({"role": role, "content": parts})
+    return inputs
+
+
 def _prefer_curl_transport() -> bool:
     """Use Windows curl/Schannel when available unless explicitly disabled."""
 
@@ -193,8 +276,16 @@ def _urllib_ssl_context(endpoint: str) -> ssl.SSLContext | None:
 
 
 class OpenAICompatibleClient:
-    def __init__(self, api_key: str | None = None, base_url: str | None = None, model: str | None = None, timeout: int = 90):
+    def __init__(
+        self, api_key: str | None = None, base_url: str | None = None,
+        model: str | None = None, timeout: int = 90, *, api_mode: str | None = None,
+    ):
         load_env_file(Path(__file__).resolve().parents[2] / ".env")
+        self.api_mode = (
+            api_mode if api_mode is not None else os.getenv("ARTICLE_AGENT_API_MODE", "chat_completions")
+        ).strip().lower()
+        if self.api_mode not in {"chat_completions", "responses"}:
+            raise ValueError("ARTICLE_AGENT_API_MODE must be chat_completions or responses")
         self.api_key = api_key or os.getenv("ARTICLE_AGENT_API_KEY") or os.getenv("NEWAPI_API_KEY") or os.getenv("OPENAI_API_KEY")
         configured_base_url = base_url or os.getenv("ARTICLE_AGENT_API_BASE_URL") or os.getenv("OPENAI_BASE_URL") or "https://api.openai.com/v1"
         fallback_values = (
@@ -224,7 +315,8 @@ class OpenAICompatibleClient:
         candidates = self._ordered_base_urls()
         errors: list[str] = []
         for candidate in candidates:
-            endpoint = f"{candidate}/chat/completions"
+            suffix = "responses" if self.api_mode == "responses" else "chat/completions"
+            endpoint = f"{candidate}/{suffix}"
             try:
                 result = request(endpoint)
             except Exception as exc:
@@ -239,10 +331,28 @@ class OpenAICompatibleClient:
         detail = " | ".join(errors) or "no endpoints configured"
         raise RuntimeError(f"{label} failed on all base URLs ({len(candidates)}): {detail}")
 
+    def _parse_content(self, body: dict[str, Any], *, label: str) -> dict[str, Any]:
+        if self.api_mode == "responses":
+            return _responses_content_json(body, label=label)
+        return _content_json(body, label=label)
+
+    def _as_responses_payload(self, payload: dict[str, Any]) -> dict[str, Any]:
+        converted = {
+            "model": payload["model"],
+            "input": _responses_input(payload["messages"]),
+            "temperature": payload["temperature"],
+            "text": {"format": {"type": "json_object"}},
+            "store": False,
+            "truncation": "disabled",
+        }
+        if "reasoning_effort" in payload:
+            converted["reasoning"] = {"effort": payload["reasoning_effort"]}
+        return converted
+
     def _chat_json_once(self, endpoint: str, payload: dict[str, Any]) -> dict[str, Any]:
         if _prefer_curl_transport():
             body = _curl_json(endpoint, payload, self.api_key, self.timeout, label="API")
-            return _content_json(body, label="API")
+            return self._parse_content(body, label="API")
         request = urllib.request.Request(
             endpoint,
             data=json.dumps(payload).encode("utf-8"),
@@ -264,9 +374,9 @@ class OpenAICompatibleClient:
             if not _is_tls_error(exc) or os.getenv("ARTICLE_AGENT_HTTP_TRANSPORT", "auto").strip().lower() in {"urllib", "python"}:
                 raise RuntimeError(f"API connection failed: {exc}") from exc
             body = _curl_json(endpoint, payload, self.api_key, self.timeout, label="API")
-        return _content_json(body, label="API")
+        return self._parse_content(body, label="API")
 
-    def chat_json(self, messages: list[dict[str, str]], temperature: float = 0.0) -> dict[str, Any]:
+    def chat_json(self, messages: list[dict[str, Any]], temperature: float = 0.0) -> dict[str, Any]:
         payload = {
             "model": self.model,
             "messages": messages,
@@ -279,12 +389,14 @@ class OpenAICompatibleClient:
         reasoning_effort = os.getenv("ARTICLE_AGENT_REASONING_EFFORT")
         if reasoning_effort:
             payload["reasoning_effort"] = reasoning_effort.strip()
+        if self.api_mode == "responses":
+            payload = self._as_responses_payload(payload)
         return self._with_failover("API", lambda endpoint: self._chat_json_once(endpoint, payload))
 
     def _chat_vision_json_once(self, endpoint: str, payload: dict[str, Any]) -> dict[str, Any]:
         if _prefer_curl_transport():
             body = _curl_json(endpoint, payload, self.api_key, self.timeout, label="Vision API")
-            return _content_json(body, label="Vision API")
+            return self._parse_content(body, label="Vision API")
         request = urllib.request.Request(
             endpoint,
             data=json.dumps(payload).encode("utf-8"),
@@ -301,7 +413,7 @@ class OpenAICompatibleClient:
             if not _is_tls_error(exc) or os.getenv("ARTICLE_AGENT_HTTP_TRANSPORT", "auto").strip().lower() in {"urllib", "python"}:
                 raise RuntimeError(f"Vision API connection failed: {exc}") from exc
             body = _curl_json(endpoint, payload, self.api_key, self.timeout, label="Vision API")
-        return _content_json(body, label="Vision API")
+        return self._parse_content(body, label="Vision API")
 
     def chat_vision_json(self, prompt: str, image_bytes: bytes, mime_type: str = "image/png", temperature: float = 0.0) -> dict[str, Any]:
         model = os.getenv("ARTICLE_AGENT_VISION_MODEL") or self.model
@@ -320,4 +432,6 @@ class OpenAICompatibleClient:
             "temperature": temperature,
             "response_format": {"type": "json_object"},
         }
+        if self.api_mode == "responses":
+            payload = self._as_responses_payload(payload)
         return self._with_failover("Vision API", lambda endpoint: self._chat_vision_json_once(endpoint, payload))

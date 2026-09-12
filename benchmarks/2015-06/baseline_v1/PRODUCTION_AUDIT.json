@@ -1,0 +1,102 @@
+{
+  "source_integrity": {
+    "verified_files": 90,
+    "mismatches": []
+  },
+  "raw_source_bundle_preserved": true,
+  "arm_intervention_sample_flow_unchanged": true,
+  "raw_outcome_count": 14,
+  "table_outcome_count": 8,
+  "narrative_outcome_count": 6,
+  "row_coverage": [
+    {
+      "table_id": "table-1",
+      "category": "baseline",
+      "status": "skipped",
+      "selected_rows": 0,
+      "covered_row_ids": [],
+      "missing_row_ids": [],
+      "outcomes": 0,
+      "column_map_count": 5
+    },
+    {
+      "table_id": "table-2",
+      "category": "outcome",
+      "status": "success",
+      "selected_rows": 7,
+      "covered_row_ids": [
+        "table-2:r001",
+        "table-2:r002",
+        "table-2:r003",
+        "table-2:r004",
+        "table-2:r005",
+        "table-2:r006",
+        "table-2:r007"
+      ],
+      "missing_row_ids": [],
+      "outcomes": 8,
+      "column_map_count": 0
+    },
+    {
+      "table_id": "narrative-results:p002-p005",
+      "category": "outcome",
+      "status": "success",
+      "selected_rows": 4,
+      "covered_row_ids": [
+        "narrative-results:r002",
+        "narrative-results:r003",
+        "narrative-results:r004",
+        "narrative-results:r005"
+      ],
+      "missing_row_ids": [],
+      "outcomes": 0,
+      "column_map_count": 0
+    },
+    {
+      "table_id": "narrative-results:p006-p007",
+      "category": "outcome",
+      "status": "success",
+      "selected_rows": 2,
+      "covered_row_ids": [
+        "narrative-results:r006",
+        "narrative-results:r007"
+      ],
+      "missing_row_ids": [],
+      "outcomes": 6,
+      "column_map_count": 0
+    }
+  ],
+  "coverage_note": "Coverage means selected rows acknowledged, not clinical completeness or correct values. Baseline table was skipped.",
+  "documented_outcome_request_operations": 12,
+  "outcome_request_status_counts": {
+    "failed": 2,
+    "success": 10
+  },
+  "outcome_row_fallback_operations": 9,
+  "topology_requests": 2,
+  "topology_validation_or_transport_failures": 1,
+  "arm_details_requests": 1,
+  "arm_details_failures": 0,
+  "postprocessed_records": 14,
+  "postprocessing_part_status_counts": {
+    "success": 2
+  },
+  "complete_http_request_total": null,
+  "request_count_note": "Counts are persisted stage operations, not a complete wire-level request trace; unrecorded transport attempts cannot be reconstructed.",
+  "request_run_ids": [
+    "NR"
+  ],
+  "run_id_note": "Production manifest identifies retry06; row request manifests retain the production-written NR. Original artifacts were not edited.",
+  "model_configuration": {
+    "default": "gpt-5.6-sol",
+    "trial_topology": "gpt-5.6-sol",
+    "arm_details": "gpt-5.6-sol",
+    "structured_metadata_protocol_risk": "gpt-5.6-sol",
+    "table_classification": "gpt-5.6-sol",
+    "outcomes_postprocess": "gpt-5.6-sol",
+    "vlm": "gpt-5.6-sol",
+    "retry": "gpt-5.6-sol"
+  },
+  "api_mode": "responses",
+  "gold_used_for_postprocess_comparison": false
+}

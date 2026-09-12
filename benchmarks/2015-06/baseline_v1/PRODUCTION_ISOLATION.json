@@ -1,0 +1,18 @@
+{
+  "forbidden_read_attempts": [],
+  "model_configuration": {
+    "default": "gpt-5.6-sol",
+    "trial_topology": "gpt-5.6-sol",
+    "arm_details": "gpt-5.6-sol",
+    "structured_metadata_protocol_risk": "gpt-5.6-sol",
+    "table_classification": "gpt-5.6-sol",
+    "outcomes_postprocess": "gpt-5.6-sol",
+    "vlm": "gpt-5.6-sol",
+    "retry": "gpt-5.6-sol"
+  },
+  "api_mode": "responses",
+  "gold_or_label_inputs_present": false,
+  "loader_monkeypatched": false,
+  "unchanged_entrypoint": "MinerU method/run.py",
+  "child_exit_code": 0
+}

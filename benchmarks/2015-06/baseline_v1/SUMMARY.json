@@ -1,0 +1,494 @@
+{
+  "benchmark_id": "2015-06-baseline-v1",
+  "article_id": "2015-06",
+  "gold_id": "2015-06-gold-v1",
+  "prediction_sha256": "ebe87d48a43c065f866b136854da65532d90dcf644e74fc2b33a68eb7cf53ffb",
+  "metrics": {
+    "hard_exact": {
+      "numerator": 6,
+      "denominator": 271,
+      "rate": 0.02214022140221402
+    },
+    "production_coverage": {
+      "numerator": 6,
+      "denominator": 165,
+      "rate": 0.03636363636363636
+    },
+    "supported_value_accuracy": {
+      "numerator": 6,
+      "denominator": 6,
+      "rate": 1.0
+    },
+    "status_accuracy": {
+      "numerator": 15,
+      "denominator": 595,
+      "rate": 0.025210084033613446
+    },
+    "evidence_grounding": {
+      "numerator": 17,
+      "denominator": 17,
+      "rate": 1.0
+    }
+  },
+  "entities": {
+    "Article": {
+      "gold": 1,
+      "prediction": 1,
+      "matched": 1,
+      "missing": 0,
+      "extra": 0,
+      "ambiguous_gold": 0,
+      "ambiguous_prediction": 0,
+      "recall": {
+        "numerator": 1,
+        "denominator": 1,
+        "rate": 1.0
+      },
+      "precision": {
+        "numerator": 1,
+        "denominator": 1,
+        "rate": 1.0
+      }
+    },
+    "Study": {
+      "gold": 1,
+      "prediction": 1,
+      "matched": 1,
+      "missing": 0,
+      "extra": 0,
+      "ambiguous_gold": 0,
+      "ambiguous_prediction": 0,
+      "recall": {
+        "numerator": 1,
+        "denominator": 1,
+        "rate": 1.0
+      },
+      "precision": {
+        "numerator": 1,
+        "denominator": 1,
+        "rate": 1.0
+      }
+    },
+    "Arm": {
+      "gold": 3,
+      "prediction": 3,
+      "matched": 3,
+      "missing": 0,
+      "extra": 0,
+      "ambiguous_gold": 0,
+      "ambiguous_prediction": 0,
+      "recall": {
+        "numerator": 3,
+        "denominator": 3,
+        "rate": 1.0
+      },
+      "precision": {
+        "numerator": 3,
+        "denominator": 3,
+        "rate": 1.0
+      }
+    },
+    "Intervention": {
+      "gold": 3,
+      "prediction": 3,
+      "matched": 1,
+      "missing": 2,
+      "extra": 2,
+      "ambiguous_gold": 0,
+      "ambiguous_prediction": 0,
+      "recall": {
+        "numerator": 1,
+        "denominator": 3,
+        "rate": 0.3333333333333333
+      },
+      "precision": {
+        "numerator": 1,
+        "denominator": 3,
+        "rate": 0.3333333333333333
+      }
+    },
+    "Outcome": {
+      "gold": 4,
+      "prediction": 5,
+      "matched": 0,
+      "missing": 4,
+      "extra": 5,
+      "ambiguous_gold": 0,
+      "ambiguous_prediction": 0,
+      "recall": {
+        "numerator": 0,
+        "denominator": 4,
+        "rate": 0.0
+      },
+      "precision": {
+        "numerator": 0,
+        "denominator": 5,
+        "rate": 0.0
+      }
+    },
+    "Comparison": {
+      "gold": 3,
+      "prediction": 3,
+      "matched": 0,
+      "missing": 3,
+      "extra": 3,
+      "ambiguous_gold": 0,
+      "ambiguous_prediction": 0,
+      "recall": {
+        "numerator": 0,
+        "denominator": 3,
+        "rate": 0.0
+      },
+      "precision": {
+        "numerator": 0,
+        "denominator": 3,
+        "rate": 0.0
+      }
+    },
+    "ArmResult": {
+      "gold": 21,
+      "prediction": 15,
+      "matched": 0,
+      "missing": 21,
+      "extra": 15,
+      "ambiguous_gold": 0,
+      "ambiguous_prediction": 0,
+      "recall": {
+        "numerator": 0,
+        "denominator": 21,
+        "rate": 0.0
+      },
+      "precision": {
+        "numerator": 0,
+        "denominator": 15,
+        "rate": 0.0
+      }
+    },
+    "ComparisonResult": {
+      "gold": 18,
+      "prediction": 12,
+      "matched": 0,
+      "missing": 18,
+      "extra": 12,
+      "ambiguous_gold": 0,
+      "ambiguous_prediction": 0,
+      "recall": {
+        "numerator": 0,
+        "denominator": 18,
+        "rate": 0.0
+      },
+      "precision": {
+        "numerator": 0,
+        "denominator": 12,
+        "rate": 0.0
+      }
+    }
+  },
+  "conflicts": {
+    "gold_conflict_total": 2,
+    "conflict_detected": 2,
+    "conflict_missed": 0,
+    "conflict_detection_rate": {
+      "numerator": 2,
+      "denominator": 2,
+      "rate": 1.0
+    },
+    "spurious_conflict_count": 0,
+    "candidate_set_exact": 2,
+    "candidate_set_evaluated": 2,
+    "candidate_set_accuracy": {
+      "numerator": 2,
+      "denominator": 2,
+      "rate": 1.0
+    }
+  },
+  "field_failure_counts": {
+    "ENTITY_MISSING": 548,
+    "NOT_EXTRACTED": 32,
+    "SOURCE_CONFLICT_DETECTED": 2,
+    "VALUE_WRONG": 4
+  },
+  "entity_failure_counts": {
+    "COMPARATOR_SCOPE_UNRESOLVED": 12,
+    "ENTITY_EXTRA": 10,
+    "ENTITY_MISSING": 63
+  },
+  "root_cause_groups": {
+    "STRUCTURE": {
+      "entity_failure_events": 85,
+      "cascaded_field_losses": 548
+    },
+    "COVERAGE": 32,
+    "VALUE": 4,
+    "STATUS": 0,
+    "CONFLICT": 0,
+    "EVIDENCE": 0
+  },
+  "field_layers": {
+    "Article": {
+      "ordinary_targets": 7,
+      "exact": 3,
+      "wrong_value": 1,
+      "wrong_status": 0,
+      "not_extracted": 3,
+      "entity_missing_cascade": 0
+    },
+    "Study": {
+      "ordinary_targets": 13,
+      "exact": 3,
+      "wrong_value": 1,
+      "wrong_status": 0,
+      "not_extracted": 9,
+      "entity_missing_cascade": 0
+    },
+    "Arm": {
+      "ordinary_targets": 16,
+      "exact": 4,
+      "wrong_value": 0,
+      "wrong_status": 0,
+      "not_extracted": 12,
+      "entity_missing_cascade": 0
+    },
+    "Intervention": {
+      "ordinary_targets": 33,
+      "exact": 1,
+      "wrong_value": 2,
+      "wrong_status": 0,
+      "not_extracted": 8,
+      "entity_missing_cascade": 22
+    },
+    "Outcome": {
+      "ordinary_targets": 28,
+      "exact": 0,
+      "wrong_value": 0,
+      "wrong_status": 0,
+      "not_extracted": 0,
+      "entity_missing_cascade": 28
+    },
+    "Comparison": {
+      "ordinary_targets": 6,
+      "exact": 0,
+      "wrong_value": 0,
+      "wrong_status": 0,
+      "not_extracted": 0,
+      "entity_missing_cascade": 6
+    },
+    "ArmResult": {
+      "ordinary_targets": 294,
+      "exact": 0,
+      "wrong_value": 0,
+      "wrong_status": 0,
+      "not_extracted": 0,
+      "entity_missing_cascade": 294
+    },
+    "ComparisonResult": {
+      "ordinary_targets": 198,
+      "exact": 0,
+      "wrong_value": 0,
+      "wrong_status": 0,
+      "not_extracted": 0,
+      "entity_missing_cascade": 198
+    }
+  },
+  "matched_entity_field_classifications": {
+    "EXACT": 11,
+    "NOT_EXTRACTED": 32,
+    "SOURCE_CONFLICT_DETECTED": 2,
+    "VALUE_WRONG": 4
+  },
+  "cascaded_field_losses": 548,
+  "false_present_by_field": {},
+  "abstention": {
+    "not_extracted": 32,
+    "hard_not_extracted": 12,
+    "supported_present_not_extracted": 3,
+    "by_field": {
+      "arm.analyzed_n": 3,
+      "arm.dropout_n": 3,
+      "arm.received_n": 3,
+      "arm.role": 3,
+      "article.correspondence": 1,
+      "article.doi": 1,
+      "article.journal": 1,
+      "study.allocation_concealment": 1,
+      "study.allocation_concealment_code": 1,
+      "study.countries": 1,
+      "study.design": 1,
+      "study.missing_data_method": 1,
+      "study.outcome_assessor_blinding": 1,
+      "study.practitioner_blinding": 1,
+      "study.primary_analysis_set": 1,
+      "study.statistician_blinding": 1,
+      "intervention.components": 1,
+      "intervention.duration_raw": 1,
+      "intervention.duration_unit": 1,
+      "intervention.duration_value": 1,
+      "intervention.frequency_raw": 1,
+      "intervention.frequency_unit": 1,
+      "intervention.frequency_value": 1,
+      "intervention.total_sessions": 1
+    }
+  },
+  "reviewed_uncertainty_excluded": [
+    "Study:2015-06-S1:centre_count",
+    "Study:2015-06-S1:participant_blinding"
+  ],
+  "performance_threshold": null,
+  "possible_gold_issue": null,
+  "top_bottlenecks": [
+    "STRUCTURE / Outcome: 9 entity failure events; 28 cascading field losses (not independent extraction bugs).",
+    "STRUCTURE / Comparison: 6 entity failure events; 6 cascading field losses (not independent extraction bugs).",
+    "STRUCTURE / Intervention: 4 entity failure events; 22 cascading field losses (not independent extraction bugs).",
+    "STRUCTURE / ArmResult: 36 entity failure events; 294 cascading field losses (not independent extraction bugs).",
+    "STRUCTURE / ComparisonResult: 30 entity failure events; 198 cascading field losses (not independent extraction bugs)."
+  ],
+  "authorized_transport_patch": {
+    "path": "src/article_agent/models.py",
+    "sha256": "3adee63389441d527f4e558e61b633118ff9ca29e09cd8ff4576356ce7f726f4",
+    "changed_files": [
+      ".env.example",
+      "README.md",
+      "src/article_agent/models.py",
+      "tests/test_models.py"
+    ],
+    "authorization": "User authorized Responses endpoint switch and all-sol full retry",
+    "extraction_prompts_and_algorithms_changed": false
+  },
+  "authorized_configuration_change": {
+    "attempt": 6,
+    "authorization": "User requested retrying the full pending PR5D-1 workflow with gpt-5.6-sol for all model roles, following the authorized Responses endpoint switch.",
+    "base_url": "https://api.lvping.cloud/v1",
+    "api_mode": "responses",
+    "fallback_urls": [],
+    "model_configuration": {
+      "ARTICLE_AGENT_MODEL": "gpt-5.6-sol",
+      "ARTICLE_AGENT_TOPOLOGY_MODEL": "gpt-5.6-sol",
+      "ARTICLE_AGENT_ARM_DETAILS_MODEL": "gpt-5.6-sol",
+      "ARTICLE_AGENT_STRUCTURED_MODEL": "gpt-5.6-sol",
+      "ARTICLE_AGENT_TABLE_CLASSIFIER_MODEL": "gpt-5.6-sol",
+      "ARTICLE_AGENT_VISION_MODEL": "gpt-5.6-sol",
+      "ARTICLE_AGENT_BASIC_MATCH_MODEL": "gpt-5.6-sol",
+      "ARTICLE_AGENT_RETRY_MODEL": "gpt-5.6-sol"
+    },
+    "authorized_transport_file": "src/article_agent/models.py",
+    "authorized_transport_sha256": "3adee63389441d527f4e558e61b633118ff9ca29e09cd8ff4576356ce7f726f4",
+    "production_source_unchanged": false,
+    "extraction_algorithms_and_prompts_unchanged": true,
+    "gold_registry_evaluator_unchanged": true,
+    "request_delay_seconds": 0.01,
+    "serial": true,
+    "credential_recorded": false,
+    "previous_artifacts_preserved": true
+  },
+  "acceptance": {
+    "status": "PASS",
+    "evaluator_byte_identical": true,
+    "production_unmodified": false,
+    "extraction_algorithms_unmodified": true,
+    "prediction_unchanged_after_evaluation": true,
+    "no_performance_threshold": true,
+    "protocol_note": "PASS under explicit Responses/model-change authorization; original clean-main-only condition is not claimed."
+  },
+  "production_audit": {
+    "source_integrity": {
+      "verified_files": 90,
+      "mismatches": []
+    },
+    "raw_source_bundle_preserved": true,
+    "arm_intervention_sample_flow_unchanged": true,
+    "raw_outcome_count": 14,
+    "table_outcome_count": 8,
+    "narrative_outcome_count": 6,
+    "row_coverage": [
+      {
+        "table_id": "table-1",
+        "category": "baseline",
+        "status": "skipped",
+        "selected_rows": 0,
+        "covered_row_ids": [],
+        "missing_row_ids": [],
+        "outcomes": 0,
+        "column_map_count": 5
+      },
+      {
+        "table_id": "table-2",
+        "category": "outcome",
+        "status": "success",
+        "selected_rows": 7,
+        "covered_row_ids": [
+          "table-2:r001",
+          "table-2:r002",
+          "table-2:r003",
+          "table-2:r004",
+          "table-2:r005",
+          "table-2:r006",
+          "table-2:r007"
+        ],
+        "missing_row_ids": [],
+        "outcomes": 8,
+        "column_map_count": 0
+      },
+      {
+        "table_id": "narrative-results:p002-p005",
+        "category": "outcome",
+        "status": "success",
+        "selected_rows": 4,
+        "covered_row_ids": [
+          "narrative-results:r002",
+          "narrative-results:r003",
+          "narrative-results:r004",
+          "narrative-results:r005"
+        ],
+        "missing_row_ids": [],
+        "outcomes": 0,
+        "column_map_count": 0
+      },
+      {
+        "table_id": "narrative-results:p006-p007",
+        "category": "outcome",
+        "status": "success",
+        "selected_rows": 2,
+        "covered_row_ids": [
+          "narrative-results:r006",
+          "narrative-results:r007"
+        ],
+        "missing_row_ids": [],
+        "outcomes": 6,
+        "column_map_count": 0
+      }
+    ],
+    "coverage_note": "Coverage means selected rows acknowledged, not clinical completeness or correct values. Baseline table was skipped.",
+    "documented_outcome_request_operations": 12,
+    "outcome_request_status_counts": {
+      "failed": 2,
+      "success": 10
+    },
+    "outcome_row_fallback_operations": 9,
+    "topology_requests": 2,
+    "topology_validation_or_transport_failures": 1,
+    "arm_details_requests": 1,
+    "arm_details_failures": 0,
+    "postprocessed_records": 14,
+    "postprocessing_part_status_counts": {
+      "success": 2
+    },
+    "complete_http_request_total": null,
+    "request_count_note": "Counts are persisted stage operations, not a complete wire-level request trace; unrecorded transport attempts cannot be reconstructed.",
+    "request_run_ids": [
+      "NR"
+    ],
+    "run_id_note": "Production manifest identifies retry06; row request manifests retain the production-written NR. Original artifacts were not edited.",
+    "model_configuration": {
+      "default": "gpt-5.6-sol",
+      "trial_topology": "gpt-5.6-sol",
+      "arm_details": "gpt-5.6-sol",
+      "structured_metadata_protocol_risk": "gpt-5.6-sol",
+      "table_classification": "gpt-5.6-sol",
+      "outcomes_postprocess": "gpt-5.6-sol",
+      "vlm": "gpt-5.6-sol",
+      "retry": "gpt-5.6-sol"
+    },
+    "api_mode": "responses",
+    "gold_used_for_postprocess_comparison": false
+  }
+}

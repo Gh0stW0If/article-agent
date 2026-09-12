@@ -1,0 +1,2 @@
+# Frozen artifacts must retain the exact bytes recorded in their SHA256 manifests.
+/benchmarks/2015-06/baseline_v1/** -text

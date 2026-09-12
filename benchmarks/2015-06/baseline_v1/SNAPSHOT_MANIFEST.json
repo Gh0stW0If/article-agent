@@ -1,0 +1,18 @@
+{
+  "benchmark_id": "2015-06-baseline-v1",
+  "files": {
+    "prediction.json": "ebe87d48a43c065f866b136854da65532d90dcf644e74fc2b33a68eb7cf53ffb",
+    "evaluation.json": "4899ebde62cd0d4f4c42ecebdf2e387a82b518bf118f59293a5397f8bb64e73d",
+    "SUMMARY.json": "ed0aad588c82f748dc4753cb233ca968a98ae396aabcac8c79517bbdc0110350",
+    "REPORT.md": "d541893afd18ef7b592b8c274950923d80d466237a0eed513234524144db4668",
+    "FAILURE_ANALYSIS.md": "cb53c085d419e374a964ae4971405af3f7e150f21a0f6d2c6f351bd7ca444e9a",
+    "RUN_MANIFEST.json": "2a91edb9d1294aa6e82d5437169a627f6ed7ec490d3d7a6c31c426bfe284228a",
+    "HARD_TARGETS.md": "a35bc35d61e131d0ca31d3822ea839b9eee1ff80ea34d174ae86957cc0862352",
+    "PRODUCTION_AUDIT.json": "3145f53c26b018b55135e0e1960b02c4316d49a357e4071b1818aa5c00ea4837",
+    "ROOT_CAUSE_NOTES.md": "5fc8924e0ff052f072fec3e277b04353aba1e756d882937901712cb680301f86",
+    "ASSEMBLY.json": "8c830c194b243fafc3172180d417cd0d6cadb5bcb701f4113dad196b660a8ca3",
+    "ISOLATED_SOURCE_MANIFEST.json": "a37eb94293a307949cc40c10c9b78a599cf049c566ac813310d504d49cde4884",
+    "PRODUCTION_ISOLATION.json": "37df534669e282e2e8d2da6ecbb548b4026759400fe7a2def248295cd51256b4"
+  },
+  "publication_status": "local snapshot; not yet committed or pushed"
+}

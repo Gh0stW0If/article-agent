@@ -28,6 +28,17 @@ python -m pip install -r "MinerU method/requirements-baml.txt"
 
 复制 `.env.example` 为 `.env`，填入自己的 OpenAI-compatible API 配置。`.env`、原始论文、Excel 标签、模型缓存和运行输出均已由 `.gitignore` 排除。
 
+### API 协议
+
+默认使用 `ARTICLE_AGENT_API_MODE=chat_completions`。如需使用 Responses，在本地 `.env` 中设置：
+
+```dotenv
+ARTICLE_AGENT_API_BASE_URL=https://api.lvping.cloud/v1
+ARTICLE_AGENT_API_MODE=responses
+```
+
+客户端会请求 `/v1/responses`，将文本和图片转换为 Responses 的 `input`，使用 `text.format` 保留 JSON 输出约束。完整输入不会被裁剪，服务端截断关闭，不完整或拒绝响应会作为失败处理。配置的备用地址沿用同一协议，不会自动回退到 Chat Completions。该选项不更改模型、提取提示词或评分逻辑；原生 BAML 客户端不经过此适配器。
+
 ## 运行
 
 ```powershell

@@ -1,0 +1,29 @@
+{
+  "article_id": "2015-06",
+  "record_count": 14,
+  "warnings": [
+    {
+      "index": 1,
+      "type": "ARM_BINDING",
+      "message": "non-unique source arm labels: ['NR (arm column 1)']"
+    },
+    {
+      "index": 1,
+      "type": "ARM_BINDING",
+      "message": "non-unique source arm labels: ['NR (arm column 2)']"
+    },
+    {
+      "index": 1,
+      "type": "ARM_BINDING",
+      "message": "non-unique source arm labels: ['NR (arm column 3)']"
+    }
+  ],
+  "counters": {
+    "statistic/value_kind": 0,
+    "timepoint": 0,
+    "unit": 0,
+    "arm_bindings": 21,
+    "comparator_mappings": 0,
+    "ambiguous_unchanged": 3
+  }
+}

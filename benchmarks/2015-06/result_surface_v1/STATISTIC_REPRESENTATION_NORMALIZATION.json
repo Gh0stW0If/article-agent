@@ -1,0 +1,536 @@
+[
+  {
+    "entity_id": "2015-06-S1-AR001",
+    "entity_type": "ArmResult",
+    "field": "value_kind",
+    "raw_value_kind": "other",
+    "canonical_value_kind": "other",
+    "raw_field": {
+      "status": "PRESENT",
+      "value": "other",
+      "raw_value": "other",
+      "evidence_ids": [
+        "2015-06-S1-O-E00003"
+      ],
+      "conflict_candidates": []
+    },
+    "changed": false,
+    "rule": null,
+    "blocker": "EXPLICIT_MEAN_SD_SUPPORT_ABSENT",
+    "source_cue": null,
+    "source_evidence_reference": [
+      "2015-06-S1-O-E00003"
+    ],
+    "table_id": "table-2",
+    "row_id": "table-2:r002",
+    "column_index": 1,
+    "header_path": [
+      "Group 1"
+    ],
+    "source_ref": "production/article.md"
+  },
+  {
+    "entity_id": "2015-06-S1-AR002",
+    "entity_type": "ArmResult",
+    "field": "value_kind",
+    "raw_value_kind": "other",
+    "canonical_value_kind": "other",
+    "raw_field": {
+      "status": "PRESENT",
+      "value": "other",
+      "raw_value": "other",
+      "evidence_ids": [
+        "2015-06-S1-O-E00005"
+      ],
+      "conflict_candidates": []
+    },
+    "changed": false,
+    "rule": null,
+    "blocker": "EXPLICIT_MEAN_SD_SUPPORT_ABSENT",
+    "source_cue": null,
+    "source_evidence_reference": [
+      "2015-06-S1-O-E00005"
+    ],
+    "table_id": "table-2",
+    "row_id": "table-2:r002",
+    "column_index": 2,
+    "header_path": [
+      "Group 2"
+    ],
+    "source_ref": "production/article.md"
+  },
+  {
+    "entity_id": "2015-06-S1-AR003",
+    "entity_type": "ArmResult",
+    "field": "value_kind",
+    "raw_value_kind": "other",
+    "canonical_value_kind": "other",
+    "raw_field": {
+      "status": "PRESENT",
+      "value": "other",
+      "raw_value": "other",
+      "evidence_ids": [
+        "2015-06-S1-O-E00007"
+      ],
+      "conflict_candidates": []
+    },
+    "changed": false,
+    "rule": null,
+    "blocker": "EXPLICIT_MEAN_SD_SUPPORT_ABSENT",
+    "source_cue": null,
+    "source_evidence_reference": [
+      "2015-06-S1-O-E00007"
+    ],
+    "table_id": "table-2",
+    "row_id": "table-2:r002",
+    "column_index": 3,
+    "header_path": [
+      "Group 3"
+    ],
+    "source_ref": "production/article.md"
+  },
+  {
+    "entity_id": "2015-06-S1-AR004",
+    "entity_type": "ArmResult",
+    "field": "value_kind",
+    "raw_value_kind": "other",
+    "canonical_value_kind": "mean",
+    "raw_field": {
+      "status": "PRESENT",
+      "value": "other",
+      "raw_value": "other",
+      "evidence_ids": [
+        "2015-06-S1-O-E00014"
+      ],
+      "conflict_candidates": []
+    },
+    "changed": true,
+    "rule": "STATISTIC_KIND_MEAN_FROM_MEAN_SD_STRUCTURE",
+    "blocker": null,
+    "source_cue": {
+      "header": "Group 1",
+      "reporting_statement": "Quantitative data were expressed as mean ± standard deviation (SD).",
+      "raw_cell": "301.0±8.48",
+      "mean_scalar": "301.0",
+      "sd_scalar": "8.48"
+    },
+    "source_evidence_reference": [
+      "2015-06-S1-O-E00014"
+    ],
+    "table_id": "table-2",
+    "row_id": "table-2:r004",
+    "column_index": 1,
+    "header_path": [
+      "Group 1"
+    ],
+    "source_ref": "production/article.md"
+  },
+  {
+    "entity_id": "2015-06-S1-AR005",
+    "entity_type": "ArmResult",
+    "field": "value_kind",
+    "raw_value_kind": "other",
+    "canonical_value_kind": "mean",
+    "raw_field": {
+      "status": "PRESENT",
+      "value": "other",
+      "raw_value": "other",
+      "evidence_ids": [
+        "2015-06-S1-O-E00019"
+      ],
+      "conflict_candidates": []
+    },
+    "changed": true,
+    "rule": "STATISTIC_KIND_MEAN_FROM_MEAN_SD_STRUCTURE",
+    "blocker": null,
+    "source_cue": {
+      "header": "Group 2",
+      "reporting_statement": "Quantitative data were expressed as mean ± standard deviation (SD).",
+      "raw_cell": "213.0±9.19",
+      "mean_scalar": "213.0",
+      "sd_scalar": "9.19"
+    },
+    "source_evidence_reference": [
+      "2015-06-S1-O-E00019"
+    ],
+    "table_id": "table-2",
+    "row_id": "table-2:r004",
+    "column_index": 2,
+    "header_path": [
+      "Group 2"
+    ],
+    "source_ref": "production/article.md"
+  },
+  {
+    "entity_id": "2015-06-S1-AR006",
+    "entity_type": "ArmResult",
+    "field": "value_kind",
+    "raw_value_kind": "other",
+    "canonical_value_kind": "mean",
+    "raw_field": {
+      "status": "PRESENT",
+      "value": "other",
+      "raw_value": "other",
+      "evidence_ids": [
+        "2015-06-S1-O-E00024"
+      ],
+      "conflict_candidates": []
+    },
+    "changed": true,
+    "rule": "STATISTIC_KIND_MEAN_FROM_MEAN_SD_STRUCTURE",
+    "blocker": null,
+    "source_cue": {
+      "header": "Group 3",
+      "reporting_statement": "Quantitative data were expressed as mean ± standard deviation (SD).",
+      "raw_cell": "295.0±9.89",
+      "mean_scalar": "295.0",
+      "sd_scalar": "9.89"
+    },
+    "source_evidence_reference": [
+      "2015-06-S1-O-E00024"
+    ],
+    "table_id": "table-2",
+    "row_id": "table-2:r004",
+    "column_index": 3,
+    "header_path": [
+      "Group 3"
+    ],
+    "source_ref": "production/article.md"
+  },
+  {
+    "entity_id": "2015-06-S1-AR007",
+    "entity_type": "ArmResult",
+    "field": "value_kind",
+    "raw_value_kind": "other",
+    "canonical_value_kind": "mean",
+    "raw_field": {
+      "status": "PRESENT",
+      "value": "other",
+      "raw_value": "other",
+      "evidence_ids": [
+        "2015-06-S1-O-E00036",
+        "2015-06-S1-O-E00056",
+        "2015-06-S1-O-E00076"
+      ],
+      "conflict_candidates": []
+    },
+    "changed": true,
+    "rule": "STATISTIC_KIND_MEAN_FROM_MEAN_SD_STRUCTURE",
+    "blocker": null,
+    "source_cue": {
+      "header": "Group 1",
+      "reporting_statement": "Quantitative data were expressed as mean ± standard deviation (SD).",
+      "raw_cell": "271.5±12.06",
+      "mean_scalar": "271.5",
+      "sd_scalar": "12.06"
+    },
+    "source_evidence_reference": [
+      "2015-06-S1-O-E00036",
+      "2015-06-S1-O-E00056",
+      "2015-06-S1-O-E00076"
+    ],
+    "table_id": "table-2",
+    "row_id": "table-2:r005",
+    "column_index": 1,
+    "header_path": [
+      "Group 1"
+    ],
+    "source_ref": "production/article.md"
+  },
+  {
+    "entity_id": "2015-06-S1-AR008",
+    "entity_type": "ArmResult",
+    "field": "value_kind",
+    "raw_value_kind": "other",
+    "canonical_value_kind": "mean",
+    "raw_field": {
+      "status": "PRESENT",
+      "value": "other",
+      "raw_value": "other",
+      "evidence_ids": [
+        "2015-06-S1-O-E00041",
+        "2015-06-S1-O-E00061",
+        "2015-06-S1-O-E00081"
+      ],
+      "conflict_candidates": []
+    },
+    "changed": true,
+    "rule": "STATISTIC_KIND_MEAN_FROM_MEAN_SD_STRUCTURE",
+    "blocker": null,
+    "source_cue": {
+      "header": "Group 2",
+      "reporting_statement": "Quantitative data were expressed as mean ± standard deviation (SD).",
+      "raw_cell": "375.5±10.06",
+      "mean_scalar": "375.5",
+      "sd_scalar": "10.06"
+    },
+    "source_evidence_reference": [
+      "2015-06-S1-O-E00041",
+      "2015-06-S1-O-E00061",
+      "2015-06-S1-O-E00081"
+    ],
+    "table_id": "table-2",
+    "row_id": "table-2:r005",
+    "column_index": 2,
+    "header_path": [
+      "Group 2"
+    ],
+    "source_ref": "production/article.md"
+  },
+  {
+    "entity_id": "2015-06-S1-AR009",
+    "entity_type": "ArmResult",
+    "field": "value_kind",
+    "raw_value_kind": "other",
+    "canonical_value_kind": "mean",
+    "raw_field": {
+      "status": "PRESENT",
+      "value": "other",
+      "raw_value": "other",
+      "evidence_ids": [
+        "2015-06-S1-O-E00046",
+        "2015-06-S1-O-E00066",
+        "2015-06-S1-O-E00086"
+      ],
+      "conflict_candidates": []
+    },
+    "changed": true,
+    "rule": "STATISTIC_KIND_MEAN_FROM_MEAN_SD_STRUCTURE",
+    "blocker": null,
+    "source_cue": {
+      "header": "Group 3",
+      "reporting_statement": "Quantitative data were expressed as mean ± standard deviation (SD).",
+      "raw_cell": "276.5±9.09",
+      "mean_scalar": "276.5",
+      "sd_scalar": "9.09"
+    },
+    "source_evidence_reference": [
+      "2015-06-S1-O-E00046",
+      "2015-06-S1-O-E00066",
+      "2015-06-S1-O-E00086"
+    ],
+    "table_id": "table-2",
+    "row_id": "table-2:r005",
+    "column_index": 3,
+    "header_path": [
+      "Group 3"
+    ],
+    "source_ref": "production/article.md"
+  },
+  {
+    "entity_id": "2015-06-S1-AR010",
+    "entity_type": "ArmResult",
+    "field": "value_kind",
+    "raw_value_kind": "other",
+    "canonical_value_kind": "mean",
+    "raw_field": {
+      "status": "PRESENT",
+      "value": "other",
+      "raw_value": "other",
+      "evidence_ids": [
+        "2015-06-S1-O-E00096"
+      ],
+      "conflict_candidates": []
+    },
+    "changed": true,
+    "rule": "STATISTIC_KIND_MEAN_FROM_MEAN_SD_STRUCTURE",
+    "blocker": null,
+    "source_cue": {
+      "header": "Group 1",
+      "reporting_statement": "Quantitative data were expressed as mean ± standard deviation (SD).",
+      "raw_cell": "193.5±10.6",
+      "mean_scalar": "193.5",
+      "sd_scalar": "10.6"
+    },
+    "source_evidence_reference": [
+      "2015-06-S1-O-E00096"
+    ],
+    "table_id": "table-2",
+    "row_id": "table-2:r006",
+    "column_index": 1,
+    "header_path": [
+      "Group 1"
+    ],
+    "source_ref": "production/article.md"
+  },
+  {
+    "entity_id": "2015-06-S1-AR011",
+    "entity_type": "ArmResult",
+    "field": "value_kind",
+    "raw_value_kind": "other",
+    "canonical_value_kind": "mean",
+    "raw_field": {
+      "status": "PRESENT",
+      "value": "other",
+      "raw_value": "other",
+      "evidence_ids": [
+        "2015-06-S1-O-E00101"
+      ],
+      "conflict_candidates": []
+    },
+    "changed": true,
+    "rule": "STATISTIC_KIND_MEAN_FROM_MEAN_SD_STRUCTURE",
+    "blocker": null,
+    "source_cue": {
+      "header": "Group 2",
+      "reporting_statement": "Quantitative data were expressed as mean ± standard deviation (SD).",
+      "raw_cell": "113.5±12.02",
+      "mean_scalar": "113.5",
+      "sd_scalar": "12.02"
+    },
+    "source_evidence_reference": [
+      "2015-06-S1-O-E00101"
+    ],
+    "table_id": "table-2",
+    "row_id": "table-2:r006",
+    "column_index": 2,
+    "header_path": [
+      "Group 2"
+    ],
+    "source_ref": "production/article.md"
+  },
+  {
+    "entity_id": "2015-06-S1-AR012",
+    "entity_type": "ArmResult",
+    "field": "value_kind",
+    "raw_value_kind": "other",
+    "canonical_value_kind": "mean",
+    "raw_field": {
+      "status": "PRESENT",
+      "value": "other",
+      "raw_value": "other",
+      "evidence_ids": [
+        "2015-06-S1-O-E00106"
+      ],
+      "conflict_candidates": []
+    },
+    "changed": true,
+    "rule": "STATISTIC_KIND_MEAN_FROM_MEAN_SD_STRUCTURE",
+    "blocker": null,
+    "source_cue": {
+      "header": "Group 3",
+      "reporting_statement": "Quantitative data were expressed as mean ± standard deviation (SD).",
+      "raw_cell": "176.5±9.19",
+      "mean_scalar": "176.5",
+      "sd_scalar": "9.19"
+    },
+    "source_evidence_reference": [
+      "2015-06-S1-O-E00106"
+    ],
+    "table_id": "table-2",
+    "row_id": "table-2:r006",
+    "column_index": 3,
+    "header_path": [
+      "Group 3"
+    ],
+    "source_ref": "production/article.md"
+  },
+  {
+    "entity_id": "2015-06-S1-AR013",
+    "entity_type": "ArmResult",
+    "field": "value_kind",
+    "raw_value_kind": "other",
+    "canonical_value_kind": "mean",
+    "raw_field": {
+      "status": "PRESENT",
+      "value": "other",
+      "raw_value": "other",
+      "evidence_ids": [
+        "2015-06-S1-O-E00112"
+      ],
+      "conflict_candidates": []
+    },
+    "changed": true,
+    "rule": "STATISTIC_KIND_MEAN_FROM_MEAN_SD_STRUCTURE",
+    "blocker": null,
+    "source_cue": {
+      "header": "Group 1",
+      "reporting_statement": "Quantitative data were expressed as mean ± standard deviation (SD).",
+      "raw_cell": "360.0±14.14",
+      "mean_scalar": "360.0",
+      "sd_scalar": "14.14"
+    },
+    "source_evidence_reference": [
+      "2015-06-S1-O-E00112"
+    ],
+    "table_id": "table-2",
+    "row_id": "table-2:r007",
+    "column_index": 1,
+    "header_path": [
+      "Group 1"
+    ],
+    "source_ref": "production/article.md"
+  },
+  {
+    "entity_id": "2015-06-S1-AR014",
+    "entity_type": "ArmResult",
+    "field": "value_kind",
+    "raw_value_kind": "other",
+    "canonical_value_kind": "mean",
+    "raw_field": {
+      "status": "PRESENT",
+      "value": "other",
+      "raw_value": "other",
+      "evidence_ids": [
+        "2015-06-S1-O-E00117"
+      ],
+      "conflict_candidates": []
+    },
+    "changed": true,
+    "rule": "STATISTIC_KIND_MEAN_FROM_MEAN_SD_STRUCTURE",
+    "blocker": null,
+    "source_cue": {
+      "header": "Group 2",
+      "reporting_statement": "Quantitative data were expressed as mean ± standard deviation (SD).",
+      "raw_cell": "471.0±10.4",
+      "mean_scalar": "471.0",
+      "sd_scalar": "10.4"
+    },
+    "source_evidence_reference": [
+      "2015-06-S1-O-E00117"
+    ],
+    "table_id": "table-2",
+    "row_id": "table-2:r007",
+    "column_index": 2,
+    "header_path": [
+      "Group 2"
+    ],
+    "source_ref": "production/article.md"
+  },
+  {
+    "entity_id": "2015-06-S1-AR015",
+    "entity_type": "ArmResult",
+    "field": "value_kind",
+    "raw_value_kind": "other",
+    "canonical_value_kind": "mean",
+    "raw_field": {
+      "status": "PRESENT",
+      "value": "other",
+      "raw_value": "other",
+      "evidence_ids": [
+        "2015-06-S1-O-E00122"
+      ],
+      "conflict_candidates": []
+    },
+    "changed": true,
+    "rule": "STATISTIC_KIND_MEAN_FROM_MEAN_SD_STRUCTURE",
+    "blocker": null,
+    "source_cue": {
+      "header": "Group 3",
+      "reporting_statement": "Quantitative data were expressed as mean ± standard deviation (SD).",
+      "raw_cell": "382.5±10.2",
+      "mean_scalar": "382.5",
+      "sd_scalar": "10.2"
+    },
+    "source_evidence_reference": [
+      "2015-06-S1-O-E00122"
+    ],
+    "table_id": "table-2",
+    "row_id": "table-2:r007",
+    "column_index": 3,
+    "header_path": [
+      "Group 3"
+    ],
+    "source_ref": "production/article.md"
+  }
+]

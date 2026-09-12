@@ -1,0 +1,1123 @@
+{
+  "tables": [
+    {
+      "table_id": "table-1",
+      "caption": "Table 1. The clinical state of patients with spinal cord injury (SCI) induced urinary retention",
+      "raw_table": "<table><tr><td></td><td>Group 1 (n=35)</td><td>Group 2 (n=34)</td><td>Group 3 (n=38)</td><td>P value</td></tr><tr><td>Gender (male/female)</td><td>1:4</td><td>1:4</td><td>1:3</td><td>0.979</td></tr><tr><td>Age (years)</td><td>40.6±9.8</td><td>39.6±7.6</td><td>40.75±12.5</td><td>0.987</td></tr><tr><td>Duration of SCI (days)</td><td>22.2±2.4</td><td>25.8±2.4</td><td>25.5±2.5</td><td>0.888</td></tr><tr><td>Residual urine volume (ml)</td><td>566.0±8.9</td><td>591.0±9.4</td><td>575.0±10.5</td><td>0.496</td></tr><tr><td>ASIA grade B (n)</td><td>11</td><td>13</td><td>13</td><td>0.985</td></tr><tr><td>ASIA grade C (n)</td><td>18</td><td>16</td><td>19</td><td></td></tr><tr><td>ASIA grade D (n)</td><td>6</td><td>5</td><td>6</td><td></td></tr></table>",
+      "header_rows": [
+        "<tr><td></td><td>Group 1 (n=35)</td><td>Group 2 (n=34)</td><td>Group 3 (n=38)</td><td>P value</td></tr>"
+      ],
+      "column_map": [
+        {
+          "column_index": 0,
+          "header_path": [],
+          "raw_header": "column_1",
+          "arm_label": "NR",
+          "timepoint_raw": "NR",
+          "statistic": "value",
+          "analysis_set": "NR",
+          "header_evidence": "NR",
+          "source_cells": [
+            {
+              "row_index": 0,
+              "row_id": "table-1:r002",
+              "column_index": 0,
+              "raw_value": "Gender (male/female)",
+              "colspan": 1,
+              "rowspan": 1,
+              "coordinate": {
+                "row": 0,
+                "column": 0
+              }
+            },
+            {
+              "row_index": 1,
+              "row_id": "table-1:r003",
+              "column_index": 0,
+              "raw_value": "Age (years)",
+              "colspan": 1,
+              "rowspan": 1,
+              "coordinate": {
+                "row": 1,
+                "column": 0
+              }
+            },
+            {
+              "row_index": 2,
+              "row_id": "table-1:r004",
+              "column_index": 0,
+              "raw_value": "Duration of SCI (days)",
+              "colspan": 1,
+              "rowspan": 1,
+              "coordinate": {
+                "row": 2,
+                "column": 0
+              }
+            },
+            {
+              "row_index": 3,
+              "row_id": "table-1:r005",
+              "column_index": 0,
+              "raw_value": "Residual urine volume (ml)",
+              "colspan": 1,
+              "rowspan": 1,
+              "coordinate": {
+                "row": 3,
+                "column": 0
+              }
+            },
+            {
+              "row_index": 4,
+              "row_id": "table-1:r006",
+              "column_index": 0,
+              "raw_value": "ASIA grade B (n)",
+              "colspan": 1,
+              "rowspan": 1,
+              "coordinate": {
+                "row": 4,
+                "column": 0
+              }
+            },
+            {
+              "row_index": 5,
+              "row_id": "table-1:r007",
+              "column_index": 0,
+              "raw_value": "ASIA grade C (n)",
+              "colspan": 1,
+              "rowspan": 1,
+              "coordinate": {
+                "row": 5,
+                "column": 0
+              }
+            },
+            {
+              "row_index": 6,
+              "row_id": "table-1:r008",
+              "column_index": 0,
+              "raw_value": "ASIA grade D (n)",
+              "colspan": 1,
+              "rowspan": 1,
+              "coordinate": {
+                "row": 6,
+                "column": 0
+              }
+            }
+          ]
+        },
+        {
+          "column_index": 1,
+          "header_path": [
+            "Group 1 (n=35)"
+          ],
+          "raw_header": "Group 1 (n=35)",
+          "arm_label": "Group 1 (n=35)",
+          "timepoint_raw": "NR",
+          "statistic": "n",
+          "analysis_set": "NR",
+          "header_evidence": "Group 1 (n=35)",
+          "source_cells": [
+            {
+              "row_index": 0,
+              "row_id": "table-1:r002",
+              "column_index": 1,
+              "raw_value": "1:4",
+              "colspan": 1,
+              "rowspan": 1,
+              "coordinate": {
+                "row": 0,
+                "column": 1
+              }
+            },
+            {
+              "row_index": 1,
+              "row_id": "table-1:r003",
+              "column_index": 1,
+              "raw_value": "40.6±9.8",
+              "colspan": 1,
+              "rowspan": 1,
+              "coordinate": {
+                "row": 1,
+                "column": 1
+              }
+            },
+            {
+              "row_index": 2,
+              "row_id": "table-1:r004",
+              "column_index": 1,
+              "raw_value": "22.2±2.4",
+              "colspan": 1,
+              "rowspan": 1,
+              "coordinate": {
+                "row": 2,
+                "column": 1
+              }
+            },
+            {
+              "row_index": 3,
+              "row_id": "table-1:r005",
+              "column_index": 1,
+              "raw_value": "566.0±8.9",
+              "colspan": 1,
+              "rowspan": 1,
+              "coordinate": {
+                "row": 3,
+                "column": 1
+              }
+            },
+            {
+              "row_index": 4,
+              "row_id": "table-1:r006",
+              "column_index": 1,
+              "raw_value": "11",
+              "colspan": 1,
+              "rowspan": 1,
+              "coordinate": {
+                "row": 4,
+                "column": 1
+              }
+            },
+            {
+              "row_index": 5,
+              "row_id": "table-1:r007",
+              "column_index": 1,
+              "raw_value": "18",
+              "colspan": 1,
+              "rowspan": 1,
+              "coordinate": {
+                "row": 5,
+                "column": 1
+              }
+            },
+            {
+              "row_index": 6,
+              "row_id": "table-1:r008",
+              "column_index": 1,
+              "raw_value": "6",
+              "colspan": 1,
+              "rowspan": 1,
+              "coordinate": {
+                "row": 6,
+                "column": 1
+              }
+            }
+          ]
+        },
+        {
+          "column_index": 2,
+          "header_path": [
+            "Group 2 (n=34)"
+          ],
+          "raw_header": "Group 2 (n=34)",
+          "arm_label": "Group 2 (n=34)",
+          "timepoint_raw": "NR",
+          "statistic": "n",
+          "analysis_set": "NR",
+          "header_evidence": "Group 2 (n=34)",
+          "source_cells": [
+            {
+              "row_index": 0,
+              "row_id": "table-1:r002",
+              "column_index": 2,
+              "raw_value": "1:4",
+              "colspan": 1,
+              "rowspan": 1,
+              "coordinate": {
+                "row": 0,
+                "column": 2
+              }
+            },
+            {
+              "row_index": 1,
+              "row_id": "table-1:r003",
+              "column_index": 2,
+              "raw_value": "39.6±7.6",
+              "colspan": 1,
+              "rowspan": 1,
+              "coordinate": {
+                "row": 1,
+                "column": 2
+              }
+            },
+            {
+              "row_index": 2,
+              "row_id": "table-1:r004",
+              "column_index": 2,
+              "raw_value": "25.8±2.4",
+              "colspan": 1,
+              "rowspan": 1,
+              "coordinate": {
+                "row": 2,
+                "column": 2
+              }
+            },
+            {
+              "row_index": 3,
+              "row_id": "table-1:r005",
+              "column_index": 2,
+              "raw_value": "591.0±9.4",
+              "colspan": 1,
+              "rowspan": 1,
+              "coordinate": {
+                "row": 3,
+                "column": 2
+              }
+            },
+            {
+              "row_index": 4,
+              "row_id": "table-1:r006",
+              "column_index": 2,
+              "raw_value": "13",
+              "colspan": 1,
+              "rowspan": 1,
+              "coordinate": {
+                "row": 4,
+                "column": 2
+              }
+            },
+            {
+              "row_index": 5,
+              "row_id": "table-1:r007",
+              "column_index": 2,
+              "raw_value": "16",
+              "colspan": 1,
+              "rowspan": 1,
+              "coordinate": {
+                "row": 5,
+                "column": 2
+              }
+            },
+            {
+              "row_index": 6,
+              "row_id": "table-1:r008",
+              "column_index": 2,
+              "raw_value": "5",
+              "colspan": 1,
+              "rowspan": 1,
+              "coordinate": {
+                "row": 6,
+                "column": 2
+              }
+            }
+          ]
+        },
+        {
+          "column_index": 3,
+          "header_path": [
+            "Group 3 (n=38)"
+          ],
+          "raw_header": "Group 3 (n=38)",
+          "arm_label": "Group 3 (n=38)",
+          "timepoint_raw": "NR",
+          "statistic": "n",
+          "analysis_set": "NR",
+          "header_evidence": "Group 3 (n=38)",
+          "source_cells": [
+            {
+              "row_index": 0,
+              "row_id": "table-1:r002",
+              "column_index": 3,
+              "raw_value": "1:3",
+              "colspan": 1,
+              "rowspan": 1,
+              "coordinate": {
+                "row": 0,
+                "column": 3
+              }
+            },
+            {
+              "row_index": 1,
+              "row_id": "table-1:r003",
+              "column_index": 3,
+              "raw_value": "40.75±12.5",
+              "colspan": 1,
+              "rowspan": 1,
+              "coordinate": {
+                "row": 1,
+                "column": 3
+              }
+            },
+            {
+              "row_index": 2,
+              "row_id": "table-1:r004",
+              "column_index": 3,
+              "raw_value": "25.5±2.5",
+              "colspan": 1,
+              "rowspan": 1,
+              "coordinate": {
+                "row": 2,
+                "column": 3
+              }
+            },
+            {
+              "row_index": 3,
+              "row_id": "table-1:r005",
+              "column_index": 3,
+              "raw_value": "575.0±10.5",
+              "colspan": 1,
+              "rowspan": 1,
+              "coordinate": {
+                "row": 3,
+                "column": 3
+              }
+            },
+            {
+              "row_index": 4,
+              "row_id": "table-1:r006",
+              "column_index": 3,
+              "raw_value": "13",
+              "colspan": 1,
+              "rowspan": 1,
+              "coordinate": {
+                "row": 4,
+                "column": 3
+              }
+            },
+            {
+              "row_index": 5,
+              "row_id": "table-1:r007",
+              "column_index": 3,
+              "raw_value": "19",
+              "colspan": 1,
+              "rowspan": 1,
+              "coordinate": {
+                "row": 5,
+                "column": 3
+              }
+            },
+            {
+              "row_index": 6,
+              "row_id": "table-1:r008",
+              "column_index": 3,
+              "raw_value": "6",
+              "colspan": 1,
+              "rowspan": 1,
+              "coordinate": {
+                "row": 6,
+                "column": 3
+              }
+            }
+          ]
+        },
+        {
+          "column_index": 4,
+          "header_path": [
+            "P value"
+          ],
+          "raw_header": "P value",
+          "arm_label": "NR",
+          "timepoint_raw": "NR",
+          "statistic": "p_value",
+          "analysis_set": "NR",
+          "header_evidence": "P value",
+          "source_cells": [
+            {
+              "row_index": 0,
+              "row_id": "table-1:r002",
+              "column_index": 4,
+              "raw_value": "0.979",
+              "colspan": 1,
+              "rowspan": 1,
+              "coordinate": {
+                "row": 0,
+                "column": 4
+              }
+            },
+            {
+              "row_index": 1,
+              "row_id": "table-1:r003",
+              "column_index": 4,
+              "raw_value": "0.987",
+              "colspan": 1,
+              "rowspan": 1,
+              "coordinate": {
+                "row": 1,
+                "column": 4
+              }
+            },
+            {
+              "row_index": 2,
+              "row_id": "table-1:r004",
+              "column_index": 4,
+              "raw_value": "0.888",
+              "colspan": 1,
+              "rowspan": 1,
+              "coordinate": {
+                "row": 2,
+                "column": 4
+              }
+            },
+            {
+              "row_index": 3,
+              "row_id": "table-1:r005",
+              "column_index": 4,
+              "raw_value": "0.496",
+              "colspan": 1,
+              "rowspan": 1,
+              "coordinate": {
+                "row": 3,
+                "column": 4
+              }
+            },
+            {
+              "row_index": 4,
+              "row_id": "table-1:r006",
+              "column_index": 4,
+              "raw_value": "0.985",
+              "colspan": 1,
+              "rowspan": 1,
+              "coordinate": {
+                "row": 4,
+                "column": 4
+              }
+            },
+            {
+              "row_index": 5,
+              "row_id": "table-1:r007",
+              "column_index": 4,
+              "raw_value": "",
+              "colspan": 1,
+              "rowspan": 1,
+              "coordinate": {
+                "row": 5,
+                "column": 4
+              }
+            },
+            {
+              "row_index": 6,
+              "row_id": "table-1:r008",
+              "column_index": 4,
+              "raw_value": "",
+              "colspan": 1,
+              "rowspan": 1,
+              "coordinate": {
+                "row": 6,
+                "column": 4
+              }
+            }
+          ]
+        }
+      ],
+      "footnote": "ASIA: American Spinal Injury Association. Group 1: clean intermittent catheterization (CIC) treatment; Group 2: electroacupunc ture (EA) combined with CIC treatment; Group 3: sham acupuncture combined with CIC treatment",
+      "source_ref": "production/article.md",
+      "source_offset": 11505
+    },
+    {
+      "table_id": "table-2",
+      "caption": "Table 2. Outcomes of patients with spinal cord injury (SCI) induced urinary retention by different treatments",
+      "raw_table": "<table><tr><td></td><td>Group 1</td><td>Group 2</td><td>Group 3</td><td>P1</td><td>P2</td><td>P3</td></tr><tr><td>The number of bladder balance patients (n, %)*</td><td>21 (60.0)</td><td>29 (85.29)</td><td>23 (60.5)</td><td>0.019</td><td>0.963</td><td>0.019</td></tr><tr><td>CIC frequency (times/day)</td><td>1.7±0.14</td><td>0.35±0.07</td><td>1.35±0.21</td><td>&lt;0.001</td><td>&lt;0.01</td><td>&lt;0.001</td></tr><tr><td>Residual urine volume (ml) in the 1st month</td><td>301.0±8.48</td><td>213.0±9.19</td><td>295.0±9.89</td><td>&lt;0.001</td><td>0.018</td><td>&lt;0.001</td></tr><tr><td>Voided volume (ml) in the 1st month</td><td>271.5±12.06</td><td>375.5±10.06</td><td>276.5±9.09</td><td>&lt;0.001</td><td>0.107</td><td>&lt;0.001</td></tr><tr><td>Residual urine volume (ml) in the 3rd month</td><td>193.5±10.6</td><td>113.5±12.02</td><td>176.5±9.19</td><td>&lt;0.001</td><td>&lt;0.001</td><td>&lt;0.001</td></tr><tr><td>Voided volume (ml) in the 3d month</td><td>360.0±14.14</td><td>471.0±10.4</td><td>382.5±10.2</td><td>&lt;0.001</td><td>&lt;0.001</td><td>&lt;0.001</td></tr></table>",
+      "header_rows": [
+        "<tr><td></td><td>Group 1</td><td>Group 2</td><td>Group 3</td><td>P1</td><td>P2</td><td>P3</td></tr>"
+      ],
+      "column_map": [
+        {
+          "column_index": 0,
+          "header_path": [],
+          "raw_header": "column_1",
+          "arm_label": "NR",
+          "timepoint_raw": "NR",
+          "statistic": "value",
+          "analysis_set": "NR",
+          "header_evidence": "NR",
+          "source_cells": [
+            {
+              "row_index": 0,
+              "row_id": "table-2:r002",
+              "column_index": 0,
+              "raw_value": "The number of bladder balance patients (n, %)*",
+              "colspan": 1,
+              "rowspan": 1,
+              "coordinate": {
+                "row": 0,
+                "column": 0
+              }
+            },
+            {
+              "row_index": 1,
+              "row_id": "table-2:r003",
+              "column_index": 0,
+              "raw_value": "CIC frequency (times/day)",
+              "colspan": 1,
+              "rowspan": 1,
+              "coordinate": {
+                "row": 1,
+                "column": 0
+              }
+            },
+            {
+              "row_index": 2,
+              "row_id": "table-2:r004",
+              "column_index": 0,
+              "raw_value": "Residual urine volume (ml) in the 1st month",
+              "colspan": 1,
+              "rowspan": 1,
+              "coordinate": {
+                "row": 2,
+                "column": 0
+              }
+            },
+            {
+              "row_index": 3,
+              "row_id": "table-2:r005",
+              "column_index": 0,
+              "raw_value": "Voided volume (ml) in the 1st month",
+              "colspan": 1,
+              "rowspan": 1,
+              "coordinate": {
+                "row": 3,
+                "column": 0
+              }
+            },
+            {
+              "row_index": 4,
+              "row_id": "table-2:r006",
+              "column_index": 0,
+              "raw_value": "Residual urine volume (ml) in the 3rd month",
+              "colspan": 1,
+              "rowspan": 1,
+              "coordinate": {
+                "row": 4,
+                "column": 0
+              }
+            },
+            {
+              "row_index": 5,
+              "row_id": "table-2:r007",
+              "column_index": 0,
+              "raw_value": "Voided volume (ml) in the 3d month",
+              "colspan": 1,
+              "rowspan": 1,
+              "coordinate": {
+                "row": 5,
+                "column": 0
+              }
+            }
+          ]
+        },
+        {
+          "column_index": 1,
+          "header_path": [
+            "Group 1"
+          ],
+          "raw_header": "Group 1",
+          "arm_label": "Group 1",
+          "timepoint_raw": "NR",
+          "statistic": "value",
+          "analysis_set": "NR",
+          "header_evidence": "Group 1",
+          "source_cells": [
+            {
+              "row_index": 0,
+              "row_id": "table-2:r002",
+              "column_index": 1,
+              "raw_value": "21 (60.0)",
+              "colspan": 1,
+              "rowspan": 1,
+              "coordinate": {
+                "row": 0,
+                "column": 1
+              }
+            },
+            {
+              "row_index": 1,
+              "row_id": "table-2:r003",
+              "column_index": 1,
+              "raw_value": "1.7±0.14",
+              "colspan": 1,
+              "rowspan": 1,
+              "coordinate": {
+                "row": 1,
+                "column": 1
+              }
+            },
+            {
+              "row_index": 2,
+              "row_id": "table-2:r004",
+              "column_index": 1,
+              "raw_value": "301.0±8.48",
+              "colspan": 1,
+              "rowspan": 1,
+              "coordinate": {
+                "row": 2,
+                "column": 1
+              }
+            },
+            {
+              "row_index": 3,
+              "row_id": "table-2:r005",
+              "column_index": 1,
+              "raw_value": "271.5±12.06",
+              "colspan": 1,
+              "rowspan": 1,
+              "coordinate": {
+                "row": 3,
+                "column": 1
+              }
+            },
+            {
+              "row_index": 4,
+              "row_id": "table-2:r006",
+              "column_index": 1,
+              "raw_value": "193.5±10.6",
+              "colspan": 1,
+              "rowspan": 1,
+              "coordinate": {
+                "row": 4,
+                "column": 1
+              }
+            },
+            {
+              "row_index": 5,
+              "row_id": "table-2:r007",
+              "column_index": 1,
+              "raw_value": "360.0±14.14",
+              "colspan": 1,
+              "rowspan": 1,
+              "coordinate": {
+                "row": 5,
+                "column": 1
+              }
+            }
+          ]
+        },
+        {
+          "column_index": 2,
+          "header_path": [
+            "Group 2"
+          ],
+          "raw_header": "Group 2",
+          "arm_label": "Group 2",
+          "timepoint_raw": "NR",
+          "statistic": "value",
+          "analysis_set": "NR",
+          "header_evidence": "Group 2",
+          "source_cells": [
+            {
+              "row_index": 0,
+              "row_id": "table-2:r002",
+              "column_index": 2,
+              "raw_value": "29 (85.29)",
+              "colspan": 1,
+              "rowspan": 1,
+              "coordinate": {
+                "row": 0,
+                "column": 2
+              }
+            },
+            {
+              "row_index": 1,
+              "row_id": "table-2:r003",
+              "column_index": 2,
+              "raw_value": "0.35±0.07",
+              "colspan": 1,
+              "rowspan": 1,
+              "coordinate": {
+                "row": 1,
+                "column": 2
+              }
+            },
+            {
+              "row_index": 2,
+              "row_id": "table-2:r004",
+              "column_index": 2,
+              "raw_value": "213.0±9.19",
+              "colspan": 1,
+              "rowspan": 1,
+              "coordinate": {
+                "row": 2,
+                "column": 2
+              }
+            },
+            {
+              "row_index": 3,
+              "row_id": "table-2:r005",
+              "column_index": 2,
+              "raw_value": "375.5±10.06",
+              "colspan": 1,
+              "rowspan": 1,
+              "coordinate": {
+                "row": 3,
+                "column": 2
+              }
+            },
+            {
+              "row_index": 4,
+              "row_id": "table-2:r006",
+              "column_index": 2,
+              "raw_value": "113.5±12.02",
+              "colspan": 1,
+              "rowspan": 1,
+              "coordinate": {
+                "row": 4,
+                "column": 2
+              }
+            },
+            {
+              "row_index": 5,
+              "row_id": "table-2:r007",
+              "column_index": 2,
+              "raw_value": "471.0±10.4",
+              "colspan": 1,
+              "rowspan": 1,
+              "coordinate": {
+                "row": 5,
+                "column": 2
+              }
+            }
+          ]
+        },
+        {
+          "column_index": 3,
+          "header_path": [
+            "Group 3"
+          ],
+          "raw_header": "Group 3",
+          "arm_label": "Group 3",
+          "timepoint_raw": "NR",
+          "statistic": "value",
+          "analysis_set": "NR",
+          "header_evidence": "Group 3",
+          "source_cells": [
+            {
+              "row_index": 0,
+              "row_id": "table-2:r002",
+              "column_index": 3,
+              "raw_value": "23 (60.5)",
+              "colspan": 1,
+              "rowspan": 1,
+              "coordinate": {
+                "row": 0,
+                "column": 3
+              }
+            },
+            {
+              "row_index": 1,
+              "row_id": "table-2:r003",
+              "column_index": 3,
+              "raw_value": "1.35±0.21",
+              "colspan": 1,
+              "rowspan": 1,
+              "coordinate": {
+                "row": 1,
+                "column": 3
+              }
+            },
+            {
+              "row_index": 2,
+              "row_id": "table-2:r004",
+              "column_index": 3,
+              "raw_value": "295.0±9.89",
+              "colspan": 1,
+              "rowspan": 1,
+              "coordinate": {
+                "row": 2,
+                "column": 3
+              }
+            },
+            {
+              "row_index": 3,
+              "row_id": "table-2:r005",
+              "column_index": 3,
+              "raw_value": "276.5±9.09",
+              "colspan": 1,
+              "rowspan": 1,
+              "coordinate": {
+                "row": 3,
+                "column": 3
+              }
+            },
+            {
+              "row_index": 4,
+              "row_id": "table-2:r006",
+              "column_index": 3,
+              "raw_value": "176.5±9.19",
+              "colspan": 1,
+              "rowspan": 1,
+              "coordinate": {
+                "row": 4,
+                "column": 3
+              }
+            },
+            {
+              "row_index": 5,
+              "row_id": "table-2:r007",
+              "column_index": 3,
+              "raw_value": "382.5±10.2",
+              "colspan": 1,
+              "rowspan": 1,
+              "coordinate": {
+                "row": 5,
+                "column": 3
+              }
+            }
+          ]
+        },
+        {
+          "column_index": 4,
+          "header_path": [
+            "P1"
+          ],
+          "raw_header": "P1",
+          "arm_label": "NR",
+          "timepoint_raw": "NR",
+          "statistic": "value",
+          "analysis_set": "NR",
+          "header_evidence": "P1",
+          "source_cells": [
+            {
+              "row_index": 0,
+              "row_id": "table-2:r002",
+              "column_index": 4,
+              "raw_value": "0.019",
+              "colspan": 1,
+              "rowspan": 1,
+              "coordinate": {
+                "row": 0,
+                "column": 4
+              }
+            },
+            {
+              "row_index": 1,
+              "row_id": "table-2:r003",
+              "column_index": 4,
+              "raw_value": "<0.001",
+              "colspan": 1,
+              "rowspan": 1,
+              "coordinate": {
+                "row": 1,
+                "column": 4
+              }
+            },
+            {
+              "row_index": 2,
+              "row_id": "table-2:r004",
+              "column_index": 4,
+              "raw_value": "<0.001",
+              "colspan": 1,
+              "rowspan": 1,
+              "coordinate": {
+                "row": 2,
+                "column": 4
+              }
+            },
+            {
+              "row_index": 3,
+              "row_id": "table-2:r005",
+              "column_index": 4,
+              "raw_value": "<0.001",
+              "colspan": 1,
+              "rowspan": 1,
+              "coordinate": {
+                "row": 3,
+                "column": 4
+              }
+            },
+            {
+              "row_index": 4,
+              "row_id": "table-2:r006",
+              "column_index": 4,
+              "raw_value": "<0.001",
+              "colspan": 1,
+              "rowspan": 1,
+              "coordinate": {
+                "row": 4,
+                "column": 4
+              }
+            },
+            {
+              "row_index": 5,
+              "row_id": "table-2:r007",
+              "column_index": 4,
+              "raw_value": "<0.001",
+              "colspan": 1,
+              "rowspan": 1,
+              "coordinate": {
+                "row": 5,
+                "column": 4
+              }
+            }
+          ]
+        },
+        {
+          "column_index": 5,
+          "header_path": [
+            "P2"
+          ],
+          "raw_header": "P2",
+          "arm_label": "NR",
+          "timepoint_raw": "NR",
+          "statistic": "value",
+          "analysis_set": "NR",
+          "header_evidence": "P2",
+          "source_cells": [
+            {
+              "row_index": 0,
+              "row_id": "table-2:r002",
+              "column_index": 5,
+              "raw_value": "0.963",
+              "colspan": 1,
+              "rowspan": 1,
+              "coordinate": {
+                "row": 0,
+                "column": 5
+              }
+            },
+            {
+              "row_index": 1,
+              "row_id": "table-2:r003",
+              "column_index": 5,
+              "raw_value": "<0.01",
+              "colspan": 1,
+              "rowspan": 1,
+              "coordinate": {
+                "row": 1,
+                "column": 5
+              }
+            },
+            {
+              "row_index": 2,
+              "row_id": "table-2:r004",
+              "column_index": 5,
+              "raw_value": "0.018",
+              "colspan": 1,
+              "rowspan": 1,
+              "coordinate": {
+                "row": 2,
+                "column": 5
+              }
+            },
+            {
+              "row_index": 3,
+              "row_id": "table-2:r005",
+              "column_index": 5,
+              "raw_value": "0.107",
+              "colspan": 1,
+              "rowspan": 1,
+              "coordinate": {
+                "row": 3,
+                "column": 5
+              }
+            },
+            {
+              "row_index": 4,
+              "row_id": "table-2:r006",
+              "column_index": 5,
+              "raw_value": "<0.001",
+              "colspan": 1,
+              "rowspan": 1,
+              "coordinate": {
+                "row": 4,
+                "column": 5
+              }
+            },
+            {
+              "row_index": 5,
+              "row_id": "table-2:r007",
+              "column_index": 5,
+              "raw_value": "<0.001",
+              "colspan": 1,
+              "rowspan": 1,
+              "coordinate": {
+                "row": 5,
+                "column": 5
+              }
+            }
+          ]
+        },
+        {
+          "column_index": 6,
+          "header_path": [
+            "P3"
+          ],
+          "raw_header": "P3",
+          "arm_label": "NR",
+          "timepoint_raw": "NR",
+          "statistic": "value",
+          "analysis_set": "NR",
+          "header_evidence": "P3",
+          "source_cells": [
+            {
+              "row_index": 0,
+              "row_id": "table-2:r002",
+              "column_index": 6,
+              "raw_value": "0.019",
+              "colspan": 1,
+              "rowspan": 1,
+              "coordinate": {
+                "row": 0,
+                "column": 6
+              }
+            },
+            {
+              "row_index": 1,
+              "row_id": "table-2:r003",
+              "column_index": 6,
+              "raw_value": "<0.001",
+              "colspan": 1,
+              "rowspan": 1,
+              "coordinate": {
+                "row": 1,
+                "column": 6
+              }
+            },
+            {
+              "row_index": 2,
+              "row_id": "table-2:r004",
+              "column_index": 6,
+              "raw_value": "<0.001",
+              "colspan": 1,
+              "rowspan": 1,
+              "coordinate": {
+                "row": 2,
+                "column": 6
+              }
+            },
+            {
+              "row_index": 3,
+              "row_id": "table-2:r005",
+              "column_index": 6,
+              "raw_value": "<0.001",
+              "colspan": 1,
+              "rowspan": 1,
+              "coordinate": {
+                "row": 3,
+                "column": 6
+              }
+            },
+            {
+              "row_index": 4,
+              "row_id": "table-2:r006",
+              "column_index": 6,
+              "raw_value": "<0.001",
+              "colspan": 1,
+              "rowspan": 1,
+              "coordinate": {
+                "row": 4,
+                "column": 6
+              }
+            },
+            {
+              "row_index": 5,
+              "row_id": "table-2:r007",
+              "column_index": 6,
+              "raw_value": "<0.001",
+              "colspan": 1,
+              "rowspan": 1,
+              "coordinate": {
+                "row": 5,
+                "column": 6
+              }
+            }
+          ]
+        }
+      ],
+      "footnote": "\\*: qualitative data. Group 1: clean intermittent catheterization (CIC) treatment; Group 2: electroacupuncture (EA) combined with CIC treatment; Group 3: sham acupuncture combined with CIC treatment. P1: group 1 vs. group 2; P2: group 1 vs. group 3; P3: group 2 vs. group 3.",
+      "source_ref": "production/article.md",
+      "source_offset": 12588
+    }
+  ],
+  "reporting_statements": [
+    "Quantitative data were expressed as mean ± standard deviation (SD)."
+  ],
+  "source_ref": "production/article.md",
+  "source_document_sha256": "60c3b417f8054d43cf53d321564c02815ae0d4901d2aa40165aeea7b412b4b42"
+}

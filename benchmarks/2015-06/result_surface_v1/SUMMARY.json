@@ -1,0 +1,636 @@
+{
+  "baseline_reproduced": true,
+  "article_id": "2015-06",
+  "before": {
+    "hybrid_hard_acceptable": {
+      "numerator": 64,
+      "denominator": 271,
+      "rate": 0.23616236162361623
+    },
+    "hybrid_production_coverage": {
+      "numerator": 72,
+      "denominator": 165,
+      "rate": 0.43636363636363634
+    },
+    "hybrid_supported_value_accuracy": {
+      "numerator": 64,
+      "denominator": 72,
+      "rate": 0.8888888888888888
+    },
+    "hybrid_status_accuracy": {
+      "numerator": 97,
+      "denominator": 595,
+      "rate": 0.16302521008403362
+    },
+    "hybrid_entity_metrics": {
+      "Article": {
+        "gold": 1,
+        "prediction": 1,
+        "matched": 1,
+        "missing": 0,
+        "extra": 0,
+        "ambiguous_gold": 0,
+        "ambiguous_prediction": 0,
+        "recall": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0
+        },
+        "precision": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0
+        }
+      },
+      "Study": {
+        "gold": 1,
+        "prediction": 1,
+        "matched": 1,
+        "missing": 0,
+        "extra": 0,
+        "ambiguous_gold": 0,
+        "ambiguous_prediction": 0,
+        "recall": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0
+        },
+        "precision": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0
+        }
+      },
+      "Arm": {
+        "gold": 3,
+        "prediction": 3,
+        "matched": 3,
+        "missing": 0,
+        "extra": 0,
+        "ambiguous_gold": 0,
+        "ambiguous_prediction": 0,
+        "recall": {
+          "numerator": 3,
+          "denominator": 3,
+          "rate": 1.0
+        },
+        "precision": {
+          "numerator": 3,
+          "denominator": 3,
+          "rate": 1.0
+        }
+      },
+      "Intervention": {
+        "gold": 3,
+        "prediction": 3,
+        "matched": 3,
+        "missing": 0,
+        "extra": 0,
+        "ambiguous_gold": 0,
+        "ambiguous_prediction": 0,
+        "recall": {
+          "numerator": 3,
+          "denominator": 3,
+          "rate": 1.0
+        },
+        "precision": {
+          "numerator": 3,
+          "denominator": 3,
+          "rate": 1.0
+        }
+      },
+      "Outcome": {
+        "gold": 4,
+        "prediction": 5,
+        "matched": 3,
+        "missing": 0,
+        "extra": 0,
+        "ambiguous_gold": 1,
+        "ambiguous_prediction": 2,
+        "recall": {
+          "numerator": 3,
+          "denominator": 4,
+          "rate": 0.75
+        },
+        "precision": {
+          "numerator": 3,
+          "denominator": 5,
+          "rate": 0.6
+        }
+      },
+      "Comparison": {
+        "gold": 3,
+        "prediction": 3,
+        "matched": 3,
+        "missing": 0,
+        "extra": 0,
+        "ambiguous_gold": 0,
+        "ambiguous_prediction": 0,
+        "recall": {
+          "numerator": 3,
+          "denominator": 3,
+          "rate": 1.0
+        },
+        "precision": {
+          "numerator": 3,
+          "denominator": 3,
+          "rate": 1.0
+        }
+      },
+      "ArmResult": {
+        "gold": 21,
+        "prediction": 15,
+        "matched": 12,
+        "missing": 9,
+        "extra": 3,
+        "ambiguous_gold": 0,
+        "ambiguous_prediction": 0,
+        "recall": {
+          "numerator": 12,
+          "denominator": 21,
+          "rate": 0.5714285714285714
+        },
+        "precision": {
+          "numerator": 12,
+          "denominator": 15,
+          "rate": 0.8
+        }
+      },
+      "ComparisonResult": {
+        "gold": 18,
+        "prediction": 12,
+        "matched": 10,
+        "missing": 8,
+        "extra": 2,
+        "ambiguous_gold": 0,
+        "ambiguous_prediction": 0,
+        "recall": {
+          "numerator": 10,
+          "denominator": 18,
+          "rate": 0.5555555555555556
+        },
+        "precision": {
+          "numerator": 10,
+          "denominator": 12,
+          "rate": 0.8333333333333334
+        }
+      }
+    },
+    "conflicts": {
+      "gold_conflict_total": 2,
+      "conflict_detected": 2,
+      "conflict_detection_rate": {
+        "numerator": 2,
+        "denominator": 2,
+        "rate": 1.0
+      },
+      "candidate_set_exact": 2,
+      "candidate_set_accuracy": {
+        "numerator": 2,
+        "denominator": 2,
+        "rate": 1.0
+      }
+    }
+  },
+  "after": {
+    "hybrid_hard_acceptable": {
+      "numerator": 73,
+      "denominator": 271,
+      "rate": 0.2693726937269373
+    },
+    "hybrid_production_coverage": {
+      "numerator": 74,
+      "denominator": 165,
+      "rate": 0.4484848484848485
+    },
+    "hybrid_supported_value_accuracy": {
+      "numerator": 73,
+      "denominator": 74,
+      "rate": 0.9864864864864865
+    },
+    "hybrid_status_accuracy": {
+      "numerator": 99,
+      "denominator": 595,
+      "rate": 0.16638655462184873
+    },
+    "hybrid_entity_metrics": {
+      "Article": {
+        "gold": 1,
+        "prediction": 1,
+        "matched": 1,
+        "missing": 0,
+        "extra": 0,
+        "ambiguous_gold": 0,
+        "ambiguous_prediction": 0,
+        "recall": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0
+        },
+        "precision": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0
+        }
+      },
+      "Study": {
+        "gold": 1,
+        "prediction": 1,
+        "matched": 1,
+        "missing": 0,
+        "extra": 0,
+        "ambiguous_gold": 0,
+        "ambiguous_prediction": 0,
+        "recall": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0
+        },
+        "precision": {
+          "numerator": 1,
+          "denominator": 1,
+          "rate": 1.0
+        }
+      },
+      "Arm": {
+        "gold": 3,
+        "prediction": 3,
+        "matched": 3,
+        "missing": 0,
+        "extra": 0,
+        "ambiguous_gold": 0,
+        "ambiguous_prediction": 0,
+        "recall": {
+          "numerator": 3,
+          "denominator": 3,
+          "rate": 1.0
+        },
+        "precision": {
+          "numerator": 3,
+          "denominator": 3,
+          "rate": 1.0
+        }
+      },
+      "Intervention": {
+        "gold": 3,
+        "prediction": 3,
+        "matched": 3,
+        "missing": 0,
+        "extra": 0,
+        "ambiguous_gold": 0,
+        "ambiguous_prediction": 0,
+        "recall": {
+          "numerator": 3,
+          "denominator": 3,
+          "rate": 1.0
+        },
+        "precision": {
+          "numerator": 3,
+          "denominator": 3,
+          "rate": 1.0
+        }
+      },
+      "Outcome": {
+        "gold": 4,
+        "prediction": 5,
+        "matched": 3,
+        "missing": 0,
+        "extra": 0,
+        "ambiguous_gold": 1,
+        "ambiguous_prediction": 2,
+        "recall": {
+          "numerator": 3,
+          "denominator": 4,
+          "rate": 0.75
+        },
+        "precision": {
+          "numerator": 3,
+          "denominator": 5,
+          "rate": 0.6
+        }
+      },
+      "Comparison": {
+        "gold": 3,
+        "prediction": 3,
+        "matched": 3,
+        "missing": 0,
+        "extra": 0,
+        "ambiguous_gold": 0,
+        "ambiguous_prediction": 0,
+        "recall": {
+          "numerator": 3,
+          "denominator": 3,
+          "rate": 1.0
+        },
+        "precision": {
+          "numerator": 3,
+          "denominator": 3,
+          "rate": 1.0
+        }
+      },
+      "ArmResult": {
+        "gold": 21,
+        "prediction": 15,
+        "matched": 12,
+        "missing": 9,
+        "extra": 3,
+        "ambiguous_gold": 0,
+        "ambiguous_prediction": 0,
+        "recall": {
+          "numerator": 12,
+          "denominator": 21,
+          "rate": 0.5714285714285714
+        },
+        "precision": {
+          "numerator": 12,
+          "denominator": 15,
+          "rate": 0.8
+        }
+      },
+      "ComparisonResult": {
+        "gold": 18,
+        "prediction": 12,
+        "matched": 10,
+        "missing": 8,
+        "extra": 2,
+        "ambiguous_gold": 0,
+        "ambiguous_prediction": 0,
+        "recall": {
+          "numerator": 10,
+          "denominator": 18,
+          "rate": 0.5555555555555556
+        },
+        "precision": {
+          "numerator": 10,
+          "denominator": 12,
+          "rate": 0.8333333333333334
+        }
+      }
+    },
+    "conflicts": {
+      "gold_conflict_total": 2,
+      "conflict_detected": 2,
+      "conflict_detection_rate": {
+        "numerator": 2,
+        "denominator": 2,
+        "rate": 1.0
+      },
+      "candidate_set_exact": 2,
+      "candidate_set_accuracy": {
+        "numerator": 2,
+        "denominator": 2,
+        "rate": 1.0
+      }
+    }
+  },
+  "issue_audit": {
+    "confirmed_mean_as_other": {
+      "before": 12,
+      "after": 0,
+      "items": [
+        {
+          "target_id": "ArmResult:2015-06-S1-AR07:value_kind",
+          "prediction_entity_id": "2015-06-S1-AR004",
+          "fixed": true,
+          "before": "SEMANTIC_ERROR",
+          "after": "SEMANTIC_EXACT",
+          "reason": "SOURCE_SUPPORTED_DERIVED_REPRESENTATION"
+        },
+        {
+          "target_id": "ArmResult:2015-06-S1-AR08:value_kind",
+          "prediction_entity_id": "2015-06-S1-AR005",
+          "fixed": true,
+          "before": "SEMANTIC_WRONG",
+          "after": "SEMANTIC_EXACT",
+          "reason": "SOURCE_SUPPORTED_DERIVED_REPRESENTATION"
+        },
+        {
+          "target_id": "ArmResult:2015-06-S1-AR09:value_kind",
+          "prediction_entity_id": "2015-06-S1-AR006",
+          "fixed": true,
+          "before": "SEMANTIC_WRONG",
+          "after": "SEMANTIC_EXACT",
+          "reason": "SOURCE_SUPPORTED_DERIVED_REPRESENTATION"
+        },
+        {
+          "target_id": "ArmResult:2015-06-S1-AR10:value_kind",
+          "prediction_entity_id": "2015-06-S1-AR007",
+          "fixed": true,
+          "before": "SEMANTIC_WRONG",
+          "after": "SEMANTIC_EXACT",
+          "reason": "SOURCE_SUPPORTED_DERIVED_REPRESENTATION"
+        },
+        {
+          "target_id": "ArmResult:2015-06-S1-AR11:value_kind",
+          "prediction_entity_id": "2015-06-S1-AR008",
+          "fixed": true,
+          "before": "SEMANTIC_WRONG",
+          "after": "SEMANTIC_EXACT",
+          "reason": "SOURCE_SUPPORTED_DERIVED_REPRESENTATION"
+        },
+        {
+          "target_id": "ArmResult:2015-06-S1-AR12:value_kind",
+          "prediction_entity_id": "2015-06-S1-AR009",
+          "fixed": true,
+          "before": "SEMANTIC_ERROR",
+          "after": "SEMANTIC_EXACT",
+          "reason": "SOURCE_SUPPORTED_DERIVED_REPRESENTATION"
+        },
+        {
+          "target_id": "ArmResult:2015-06-S1-AR13:value_kind",
+          "prediction_entity_id": "2015-06-S1-AR010",
+          "fixed": true,
+          "before": "SEMANTIC_ERROR",
+          "after": "SEMANTIC_EXACT",
+          "reason": "SOURCE_SUPPORTED_DERIVED_REPRESENTATION"
+        },
+        {
+          "target_id": "ArmResult:2015-06-S1-AR14:value_kind",
+          "prediction_entity_id": "2015-06-S1-AR011",
+          "fixed": true,
+          "before": "SEMANTIC_ERROR",
+          "after": "SEMANTIC_EXACT",
+          "reason": "SOURCE_SUPPORTED_DERIVED_REPRESENTATION"
+        },
+        {
+          "target_id": "ArmResult:2015-06-S1-AR15:value_kind",
+          "prediction_entity_id": "2015-06-S1-AR012",
+          "fixed": true,
+          "before": "SEMANTIC_ERROR",
+          "after": "SEMANTIC_EXACT",
+          "reason": "SOURCE_SUPPORTED_DERIVED_REPRESENTATION"
+        },
+        {
+          "target_id": "ArmResult:2015-06-S1-AR16:value_kind",
+          "prediction_entity_id": "2015-06-S1-AR013",
+          "fixed": true,
+          "before": "SEMANTIC_WRONG",
+          "after": "SEMANTIC_EXACT",
+          "reason": "SOURCE_SUPPORTED_DERIVED_REPRESENTATION"
+        },
+        {
+          "target_id": "ArmResult:2015-06-S1-AR17:value_kind",
+          "prediction_entity_id": "2015-06-S1-AR014",
+          "fixed": true,
+          "before": "SEMANTIC_WRONG",
+          "after": "SEMANTIC_EXACT",
+          "reason": "SOURCE_SUPPORTED_DERIVED_REPRESENTATION"
+        },
+        {
+          "target_id": "ArmResult:2015-06-S1-AR18:value_kind",
+          "prediction_entity_id": "2015-06-S1-AR015",
+          "fixed": true,
+          "before": "SEMANTIC_ERROR",
+          "after": "SEMANTIC_EXACT",
+          "reason": "SOURCE_SUPPORTED_DERIVED_REPRESENTATION"
+        }
+      ]
+    },
+    "raw_deterministic_mismatch": {
+      "before": 7,
+      "after": 0,
+      "items": [
+        {
+          "target_id": "ComparisonResult:2015-06-S1-CR10:raw_value",
+          "prediction_entity_id": "2015-06-S1-CR004",
+          "fixed": true,
+          "before": "VALUE_WRONG",
+          "after": "EXACT",
+          "reason": "SOURCE_SUPPORTED_DERIVED_REPRESENTATION"
+        },
+        {
+          "target_id": "ComparisonResult:2015-06-S1-CR11:raw_value",
+          "prediction_entity_id": "2015-06-S1-CR005",
+          "fixed": true,
+          "before": "VALUE_WRONG",
+          "after": "EXACT",
+          "reason": "SOURCE_SUPPORTED_DERIVED_REPRESENTATION"
+        },
+        {
+          "target_id": "ComparisonResult:2015-06-S1-CR12:raw_value",
+          "prediction_entity_id": "2015-06-S1-CR006",
+          "fixed": true,
+          "before": "VALUE_WRONG",
+          "after": "EXACT",
+          "reason": "SOURCE_SUPPORTED_DERIVED_REPRESENTATION"
+        },
+        {
+          "target_id": "ComparisonResult:2015-06-S1-CR13:raw_value",
+          "prediction_entity_id": "2015-06-S1-CR009",
+          "fixed": true,
+          "before": "VALUE_WRONG",
+          "after": "EXACT",
+          "reason": "SOURCE_SUPPORTED_DERIVED_REPRESENTATION"
+        },
+        {
+          "target_id": "ComparisonResult:2015-06-S1-CR15:raw_value",
+          "prediction_entity_id": "2015-06-S1-CR010",
+          "fixed": true,
+          "before": "VALUE_WRONG",
+          "after": "EXACT",
+          "reason": "SOURCE_SUPPORTED_DERIVED_REPRESENTATION"
+        },
+        {
+          "target_id": "ComparisonResult:2015-06-S1-CR16:raw_value",
+          "prediction_entity_id": "2015-06-S1-CR011",
+          "fixed": true,
+          "before": "VALUE_WRONG",
+          "after": "EXACT",
+          "reason": "SOURCE_SUPPORTED_DERIVED_REPRESENTATION"
+        },
+        {
+          "target_id": "ComparisonResult:2015-06-S1-CR18:raw_value",
+          "prediction_entity_id": "2015-06-S1-CR012",
+          "fixed": true,
+          "before": "VALUE_WRONG",
+          "after": "EXACT",
+          "reason": "SOURCE_SUPPORTED_DERIVED_REPRESENTATION"
+        }
+      ]
+    },
+    "spurious_source_conflict": {
+      "before": 2,
+      "after": 0,
+      "items": [
+        {
+          "target_id": "Comparison:2015-06-S1-C01:contrast",
+          "prediction_entity_id": "2015-06-S1-C01",
+          "fixed": true,
+          "before": "SOURCE_CONFLICT_SPURIOUS",
+          "after": "SEMANTIC_EXACT",
+          "reason": "SOURCE_SUPPORTED_DERIVED_REPRESENTATION"
+        },
+        {
+          "target_id": "Comparison:2015-06-S1-C03:contrast",
+          "prediction_entity_id": "2015-06-S1-C03",
+          "fixed": true,
+          "before": "SOURCE_CONFLICT_SPURIOUS",
+          "after": "SEMANTIC_EXACT",
+          "reason": "SOURCE_SUPPORTED_DERIVED_REPRESENTATION"
+        }
+      ]
+    }
+  },
+  "hard_failures_before": {
+    "identity_unresolved": 105,
+    "field_missing": 34,
+    "status_unresolved": 58,
+    "raw_deterministic_mismatch": 7,
+    "semantic_partial": 1,
+    "semantic_error": 0,
+    "semantic_wrong": 0,
+    "source_conflict": 2,
+    "other": 0
+  },
+  "hard_failures_after": {
+    "identity_unresolved": 105,
+    "field_missing": 34,
+    "status_unresolved": 58,
+    "raw_deterministic_mismatch": 0,
+    "semantic_partial": 1,
+    "semantic_error": 0,
+    "semantic_wrong": 0,
+    "source_conflict": 0,
+    "other": 0
+  },
+  "value_denominator_before": {
+    "fully_acceptable": 64,
+    "partial": 1,
+    "deterministic_mismatch": 7,
+    "other": 0
+  },
+  "value_denominator_after": {
+    "fully_acceptable": 73,
+    "partial": 1,
+    "deterministic_mismatch": 0,
+    "other": 0
+  },
+  "normalization_events": 31,
+  "source_bindings_created": 42,
+  "ambiguous_bindings_abstained": 0,
+  "statistic_candidates_unchanged": 3,
+  "coverage_promoted_false_conflicts": [
+    "Comparison:2015-06-S1-C01:contrast",
+    "Comparison:2015-06-S1-C03:contrast"
+  ],
+  "missingness_handoff_counts": {
+    "NOT_REPORTED": 138,
+    "NOT_APPLICABLE": 33
+  },
+  "missingness_hard_counts": {
+    "NOT_REPORTED": 34,
+    "NOT_APPLICABLE": 24
+  },
+  "missingness_soft_counts": {
+    "NOT_REPORTED": 104,
+    "NOT_APPLICABLE": 9
+  },
+  "api_calls": 0,
+  "frozen_mappings_unchanged": true,
+  "frozen_judgments_unchanged": true,
+  "raw_prediction_unchanged": true,
+  "original_evidence_unchanged": true,
+  "canonical_revalidation": true,
+  "backlog_after": 0,
+  "attribution": "Deterministic source binding/statistic representation only; no new extraction, LLM judgment or PDF information"
+}

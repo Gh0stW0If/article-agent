@@ -1,0 +1,412 @@
+[
+  {
+    "target_key": "ArmResult:2015-06-S1-AR07:value_kind",
+    "entity": "ArmResult",
+    "gold_entity_id": "2015-06-S1-AR07",
+    "prediction_entity_id": "2015-06-S1-AR004",
+    "field": "armResult.value_kind",
+    "gold": "mean",
+    "prediction": "other",
+    "grade": "ERROR",
+    "reason": "The gold identifies the arm result statistic as a mean, whereas the prediction labels it as 'other'. The reported mean ± SD format directly supports mean as the value kind.",
+    "source_evidence_reference": [
+      {
+        "evidence_id": "2015-06-S1-O-E00014",
+        "quote": "Residual urine volume (ml) in the 1st month | 301.0±8.48 | 213.0±9.19 | 295.0±9.89 | <0.001 | 0.018 | <0.001",
+        "source_type": "markdown",
+        "source_id": "table-2:r004",
+        "page": null,
+        "section": null,
+        "table_id": "table-2",
+        "row_id": "table-2:r004",
+        "support_type": "direct",
+        "derivation": null
+      }
+    ],
+    "judgment_id": "J-acc074019968bd96599de7114ae8bcbde1cec96ab442e8c255c312f5e5288d1d"
+  },
+  {
+    "target_key": "ArmResult:2015-06-S1-AR08:value_kind",
+    "entity": "ArmResult",
+    "gold_entity_id": "2015-06-S1-AR08",
+    "prediction_entity_id": "2015-06-S1-AR005",
+    "field": "armResult.value_kind",
+    "gold": "mean",
+    "prediction": "other",
+    "grade": "WRONG",
+    "reason": "The prediction classifies the arm result as 'other' rather than the gold statistic type, mean.",
+    "source_evidence_reference": [
+      {
+        "evidence_id": "2015-06-S1-O-E00019",
+        "quote": "Residual urine volume (ml) in the 1st month | 301.0±8.48 | 213.0±9.19 | 295.0±9.89 | <0.001 | 0.018 | <0.001",
+        "source_type": "markdown",
+        "source_id": "table-2:r004",
+        "page": null,
+        "section": null,
+        "table_id": "table-2",
+        "row_id": "table-2:r004",
+        "support_type": "direct",
+        "derivation": null
+      }
+    ],
+    "judgment_id": "J-6c17d4997cc8dd6cf28a5da9928983ec2c90eff3ab9066585aefed87db882b8a"
+  },
+  {
+    "target_key": "ArmResult:2015-06-S1-AR09:value_kind",
+    "entity": "ArmResult",
+    "gold_entity_id": "2015-06-S1-AR09",
+    "prediction_entity_id": "2015-06-S1-AR006",
+    "field": "armResult.value_kind",
+    "gold": "mean",
+    "prediction": "other",
+    "grade": "WRONG",
+    "reason": "The gold value identifies the arm result as a mean, whereas the prediction labels it as \"other\" and does not preserve the statistic type.",
+    "source_evidence_reference": [
+      {
+        "evidence_id": "2015-06-S1-O-E00024",
+        "quote": "Residual urine volume (ml) in the 1st month | 301.0±8.48 | 213.0±9.19 | 295.0±9.89 | <0.001 | 0.018 | <0.001",
+        "source_type": "markdown",
+        "source_id": "table-2:r004",
+        "page": null,
+        "section": null,
+        "table_id": "table-2",
+        "row_id": "table-2:r004",
+        "support_type": "direct",
+        "derivation": null
+      }
+    ],
+    "judgment_id": "J-f1605cdac27a5f236040f86fe2a3633027f672e65c7fa2bbf3d2b6bef19dad7b"
+  },
+  {
+    "target_key": "ArmResult:2015-06-S1-AR10:value_kind",
+    "entity": "ArmResult",
+    "gold_entity_id": "2015-06-S1-AR10",
+    "prediction_entity_id": "2015-06-S1-AR007",
+    "field": "armResult.value_kind",
+    "gold": "mean",
+    "prediction": "other",
+    "grade": "WRONG",
+    "reason": "The gold reference specifies that the arm result is reported as a mean, whereas the prediction labels the statistic as \"other.\"",
+    "source_evidence_reference": [
+      {
+        "evidence_id": "2015-06-S1-O-E00036",
+        "quote": "Voided volume (ml) in the 1st month | 271.5±12.06 | 375.5±10.06 | 276.5±9.09 | <0.001 | 0.107 | <0.001",
+        "source_type": "markdown",
+        "source_id": "table-2:r005",
+        "page": null,
+        "section": null,
+        "table_id": "table-2",
+        "row_id": "table-2:r005",
+        "support_type": "direct",
+        "derivation": null
+      },
+      {
+        "evidence_id": "2015-06-S1-O-E00056",
+        "quote": "Voided volume (ml) in the 1st month | 271.5±12.06 | 375.5±10.06 | 276.5±9.09 | <0.001 | 0.107 | <0.001",
+        "source_type": "markdown",
+        "source_id": "table-2:r005",
+        "page": null,
+        "section": null,
+        "table_id": "table-2",
+        "row_id": "table-2:r005",
+        "support_type": "direct",
+        "derivation": null
+      },
+      {
+        "evidence_id": "2015-06-S1-O-E00076",
+        "quote": "Voided volume (ml) in the 1st month | 271.5±12.06 | 375.5±10.06 | 276.5±9.09 | <0.001 | 0.107 | <0.001",
+        "source_type": "markdown",
+        "source_id": "table-2:r005",
+        "page": null,
+        "section": null,
+        "table_id": "table-2",
+        "row_id": "table-2:r005",
+        "support_type": "direct",
+        "derivation": null
+      }
+    ],
+    "judgment_id": "J-eb2267d3d4cb01e4716261e4b024118fcb6b6e1dbc3c04c917f348279482198f"
+  },
+  {
+    "target_key": "ArmResult:2015-06-S1-AR11:value_kind",
+    "entity": "ArmResult",
+    "gold_entity_id": "2015-06-S1-AR11",
+    "prediction_entity_id": "2015-06-S1-AR008",
+    "field": "armResult.value_kind",
+    "gold": "mean",
+    "prediction": "other",
+    "grade": "WRONG",
+    "reason": "The prediction labels the arm result statistic as 'other' rather than mean, so it does not identify the statistic specified by the Gold reference.",
+    "source_evidence_reference": [
+      {
+        "evidence_id": "2015-06-S1-O-E00041",
+        "quote": "Voided volume (ml) in the 1st month | 271.5±12.06 | 375.5±10.06 | 276.5±9.09 | <0.001 | 0.107 | <0.001",
+        "source_type": "markdown",
+        "source_id": "table-2:r005",
+        "page": null,
+        "section": null,
+        "table_id": "table-2",
+        "row_id": "table-2:r005",
+        "support_type": "direct",
+        "derivation": null
+      },
+      {
+        "evidence_id": "2015-06-S1-O-E00061",
+        "quote": "Voided volume (ml) in the 1st month | 271.5±12.06 | 375.5±10.06 | 276.5±9.09 | <0.001 | 0.107 | <0.001",
+        "source_type": "markdown",
+        "source_id": "table-2:r005",
+        "page": null,
+        "section": null,
+        "table_id": "table-2",
+        "row_id": "table-2:r005",
+        "support_type": "direct",
+        "derivation": null
+      },
+      {
+        "evidence_id": "2015-06-S1-O-E00081",
+        "quote": "Voided volume (ml) in the 1st month | 271.5±12.06 | 375.5±10.06 | 276.5±9.09 | <0.001 | 0.107 | <0.001",
+        "source_type": "markdown",
+        "source_id": "table-2:r005",
+        "page": null,
+        "section": null,
+        "table_id": "table-2",
+        "row_id": "table-2:r005",
+        "support_type": "direct",
+        "derivation": null
+      }
+    ],
+    "judgment_id": "J-0102f7fe77cfa9da19a76316ac96ba150df932c1d35b78114dad60558990536a"
+  },
+  {
+    "target_key": "ArmResult:2015-06-S1-AR12:value_kind",
+    "entity": "ArmResult",
+    "gold_entity_id": "2015-06-S1-AR12",
+    "prediction_entity_id": "2015-06-S1-AR009",
+    "field": "armResult.value_kind",
+    "gold": "mean",
+    "prediction": "other",
+    "grade": "ERROR",
+    "reason": "The gold specifies that the arm result is reported as a mean, whereas the prediction classifies it as \"other,\" which is an incorrect statistic type.",
+    "source_evidence_reference": [
+      {
+        "evidence_id": "2015-06-S1-O-E00046",
+        "quote": "Voided volume (ml) in the 1st month | 271.5±12.06 | 375.5±10.06 | 276.5±9.09 | <0.001 | 0.107 | <0.001",
+        "source_type": "markdown",
+        "source_id": "table-2:r005",
+        "page": null,
+        "section": null,
+        "table_id": "table-2",
+        "row_id": "table-2:r005",
+        "support_type": "direct",
+        "derivation": null
+      },
+      {
+        "evidence_id": "2015-06-S1-O-E00066",
+        "quote": "Voided volume (ml) in the 1st month | 271.5±12.06 | 375.5±10.06 | 276.5±9.09 | <0.001 | 0.107 | <0.001",
+        "source_type": "markdown",
+        "source_id": "table-2:r005",
+        "page": null,
+        "section": null,
+        "table_id": "table-2",
+        "row_id": "table-2:r005",
+        "support_type": "direct",
+        "derivation": null
+      },
+      {
+        "evidence_id": "2015-06-S1-O-E00086",
+        "quote": "Voided volume (ml) in the 1st month | 271.5±12.06 | 375.5±10.06 | 276.5±9.09 | <0.001 | 0.107 | <0.001",
+        "source_type": "markdown",
+        "source_id": "table-2:r005",
+        "page": null,
+        "section": null,
+        "table_id": "table-2",
+        "row_id": "table-2:r005",
+        "support_type": "direct",
+        "derivation": null
+      }
+    ],
+    "judgment_id": "J-5d768e980557de324cf636ee5278b67bb99ca70680239df5f8ea5e595b7899d6"
+  },
+  {
+    "target_key": "ArmResult:2015-06-S1-AR13:value_kind",
+    "entity": "ArmResult",
+    "gold_entity_id": "2015-06-S1-AR13",
+    "prediction_entity_id": "2015-06-S1-AR010",
+    "field": "armResult.value_kind",
+    "gold": "mean",
+    "prediction": "other",
+    "grade": "ERROR",
+    "reason": "The gold identifies the arm result statistic as a mean, whereas the prediction labels it as 'other'. The reported mean ± SD format directly supports mean as the value kind.",
+    "source_evidence_reference": [
+      {
+        "evidence_id": "2015-06-S1-O-E00096",
+        "quote": "Residual urine volume (ml) in the 3rd month | 193.5±10.6 | 113.5±12.02 | 176.5±9.19 | <0.001 | <0.001 | <0.001",
+        "source_type": "markdown",
+        "source_id": "table-2:r006",
+        "page": null,
+        "section": null,
+        "table_id": "table-2",
+        "row_id": "table-2:r006",
+        "support_type": "direct",
+        "derivation": null
+      }
+    ],
+    "judgment_id": "J-0b5ccf79fbb0a5496d438576bab0024d72262b54148b4d0eec65d5e3445e88cd"
+  },
+  {
+    "target_key": "ArmResult:2015-06-S1-AR14:value_kind",
+    "entity": "ArmResult",
+    "gold_entity_id": "2015-06-S1-AR14",
+    "prediction_entity_id": "2015-06-S1-AR011",
+    "field": "armResult.value_kind",
+    "gold": "mean",
+    "prediction": "other",
+    "grade": "ERROR",
+    "reason": "The gold identifies the arm result statistic as a mean, whereas the prediction labels it as 'other'. The reported value format (estimate ± SD) does not make 'other' equivalent to mean.",
+    "source_evidence_reference": [
+      {
+        "evidence_id": "2015-06-S1-O-E00101",
+        "quote": "Residual urine volume (ml) in the 3rd month | 193.5±10.6 | 113.5±12.02 | 176.5±9.19 | <0.001 | <0.001 | <0.001",
+        "source_type": "markdown",
+        "source_id": "table-2:r006",
+        "page": null,
+        "section": null,
+        "table_id": "table-2",
+        "row_id": "table-2:r006",
+        "support_type": "direct",
+        "derivation": null
+      }
+    ],
+    "judgment_id": "J-23dd9fabadd8bde2feff99292680354b7cddfdd6f8383d99280de9785bbf25ab"
+  },
+  {
+    "target_key": "ArmResult:2015-06-S1-AR15:value_kind",
+    "entity": "ArmResult",
+    "gold_entity_id": "2015-06-S1-AR15",
+    "prediction_entity_id": "2015-06-S1-AR012",
+    "field": "armResult.value_kind",
+    "gold": "mean",
+    "prediction": "other",
+    "grade": "ERROR",
+    "reason": "The gold identifies the arm result statistic as a mean, with variability reported as standard deviation. The prediction classifies it as 'other', which is a materially incorrect statistic type despite the cited mean ± SD format.",
+    "source_evidence_reference": [
+      {
+        "evidence_id": "2015-06-S1-O-E00106",
+        "quote": "Residual urine volume (ml) in the 3rd month | 193.5±10.6 | 113.5±12.02 | 176.5±9.19 | <0.001 | <0.001 | <0.001",
+        "source_type": "markdown",
+        "source_id": "table-2:r006",
+        "page": null,
+        "section": null,
+        "table_id": "table-2",
+        "row_id": "table-2:r006",
+        "support_type": "direct",
+        "derivation": null
+      }
+    ],
+    "judgment_id": "J-f70f1dbeed0819d48d2d13ec7e9c0be9435f87a721403a13890b347954fa8650"
+  },
+  {
+    "target_key": "ArmResult:2015-06-S1-AR16:value_kind",
+    "entity": "ArmResult",
+    "gold_entity_id": "2015-06-S1-AR16",
+    "prediction_entity_id": "2015-06-S1-AR013",
+    "field": "armResult.value_kind",
+    "gold": "mean",
+    "prediction": "other",
+    "grade": "WRONG",
+    "reason": "The gold specifies that the arm result is a mean, whereas the prediction labels it as \"other,\" which does not represent the stated statistic type.",
+    "source_evidence_reference": [
+      {
+        "evidence_id": "2015-06-S1-O-E00112",
+        "quote": "Voided volume (ml) in the 3d month | 360.0±14.14 | 471.0±10.4 | 382.5±10.2 | <0.001 | <0.001 | <0.001",
+        "source_type": "markdown",
+        "source_id": "table-2:r007",
+        "page": null,
+        "section": null,
+        "table_id": "table-2",
+        "row_id": "table-2:r007",
+        "support_type": "direct",
+        "derivation": null
+      }
+    ],
+    "judgment_id": "J-16e7cc092ff89e20e1d6501e0413ee43840e3fab440ea65ab67d2a3d8a75ea71"
+  },
+  {
+    "target_key": "ArmResult:2015-06-S1-AR17:value_kind",
+    "entity": "ArmResult",
+    "gold_entity_id": "2015-06-S1-AR17",
+    "prediction_entity_id": "2015-06-S1-AR014",
+    "field": "armResult.value_kind",
+    "gold": "mean",
+    "prediction": "other",
+    "grade": "WRONG",
+    "reason": "The gold value identifies the statistic as a mean, whereas the prediction gives the unspecified category \"other\" and does not preserve the statistic type.",
+    "source_evidence_reference": [
+      {
+        "evidence_id": "2015-06-S1-O-E00117",
+        "quote": "Voided volume (ml) in the 3d month | 360.0±14.14 | 471.0±10.4 | 382.5±10.2 | <0.001 | <0.001 | <0.001",
+        "source_type": "markdown",
+        "source_id": "table-2:r007",
+        "page": null,
+        "section": null,
+        "table_id": "table-2",
+        "row_id": "table-2:r007",
+        "support_type": "direct",
+        "derivation": null
+      }
+    ],
+    "judgment_id": "J-67b946c14ae596105f7d1f23912b6cfb1ea72cfe415eb616424d3a6dc1eb9b41"
+  },
+  {
+    "target_key": "ArmResult:2015-06-S1-AR18:value_kind",
+    "entity": "ArmResult",
+    "gold_entity_id": "2015-06-S1-AR18",
+    "prediction_entity_id": "2015-06-S1-AR015",
+    "field": "armResult.value_kind",
+    "gold": "mean",
+    "prediction": "other",
+    "grade": "ERROR",
+    "reason": "The gold identifies the arm result statistic as a mean, while the prediction labels it 'other'. The prediction value does not preserve the specified statistic type.",
+    "source_evidence_reference": [
+      {
+        "evidence_id": "2015-06-S1-O-E00122",
+        "quote": "Voided volume (ml) in the 3d month | 360.0±14.14 | 471.0±10.4 | 382.5±10.2 | <0.001 | <0.001 | <0.001",
+        "source_type": "markdown",
+        "source_id": "table-2:r007",
+        "page": null,
+        "section": null,
+        "table_id": "table-2",
+        "row_id": "table-2:r007",
+        "support_type": "direct",
+        "derivation": null
+      }
+    ],
+    "judgment_id": "J-74a3632ba02e5d5af0a5cf1256b8af6ade301740a3ef0a2c82708798e16d5148"
+  },
+  {
+    "target_key": "ComparisonResult:2015-06-S1-CR18:timepoint",
+    "entity": "ComparisonResult",
+    "gold_entity_id": "2015-06-S1-CR18",
+    "prediction_entity_id": "2015-06-S1-CR012",
+    "field": "comparisonResult.timepoint",
+    "gold": "3 months",
+    "prediction": "3 months after surgery",
+    "grade": "PARTIAL",
+    "reason": "The prediction correctly identifies the 3-month timepoint but adds the specific reference event 'after surgery,' which is not stated in the gold value.",
+    "source_evidence_reference": [
+      {
+        "evidence_id": "2015-06-S1-O-E00150",
+        "quote": "and group 2 vs. group 3, P<0.001",
+        "source_type": "markdown",
+        "source_id": "narrative-results:r007",
+        "page": null,
+        "section": null,
+        "table_id": "narrative-results:p006-p007",
+        "row_id": "narrative-results:r007",
+        "support_type": "direct",
+        "derivation": null
+      }
+    ],
+    "judgment_id": "J-35427128853bbba5f2d4f1a8136c0c60b5a438c63f5c8ec19e2fb0dae1fc3e32"
+  }
+]

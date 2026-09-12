@@ -54,3 +54,34 @@ python "MinerU method/run.py" --pdf "path/to/article.pdf" --markdown "path/to/ar
 ## 数据政策
 
 仓库不包含原始 PDF、`Datas/` 中的数据、Excel 金标准、API 密钥或本地运行结果。评分脚本保留在源码中，但需要使用者自行提供有权限使用的本地标签文件。
+
+## PR5E-1：独立 Hybrid 语义评估
+
+Hybrid 是 PR5B 旁边的可选评估器，不进入提取流程。状态、数值、编码、来源冲突沿用 PR5B；
+只有 `schemas/hybrid-semantic-registry-v1.json` 中的 30 个文本字段允许语义判断。
+实体先按 Study、冻结 Arm、Outcome 和显式 Comparison 等结构生成候选，再保持一对一匹配。
+不会按结果数值寻找最相近的 Gold，也不会自动合并 split/merged Outcomes。
+
+五级判断为 EXACT / EQUIVALENT / PARTIAL / ERROR / WRONG，权重固定为 1 / 1 / 0.5 / 0.25 / 0。
+只有前两级算可接受正确。技术失败单独记为 JUDGE_UNAVAILABLE，不判 WRONG。
+
+首次在线验收只评价已冻结的 baseline prediction，不重跑 production：
+
+```powershell
+conda activate Agent
+python scripts/pr5e1_hybrid_evaluate.py --live --model gpt-5.6-sol
+```
+
+在线请求使用既有 Responses 适配器、temperature 0、串行及 10 ms 间隔。
+`ARTICLE_AGENT_SEMANTIC_JUDGE_MODEL` 只配置 Judge；成功判断按输入 SHA256 缓存，不为了分数重试。
+本地缓存位于 `outputs/pr5e1_semantic_cache/`；包含 Gold 的 Judge 输入不得用于 production extraction。
+
+离线重放与发布快照（不会创建 API 客户端）：
+
+```powershell
+python scripts/pr5e1_hybrid_evaluate.py --judgments outputs/pr5e1_2015_06_hybrid/semantic_judgments.json --output outputs/pr5e1_2015_06_hybrid_replay_check --snapshot
+```
+
+快照保存至 `benchmarks/2015-06/hybrid_eval_v1/`，保留判断理由、输入 hash、五级统计、
+实体匹配变化、获纠正项目及仍有错误的项目。原 `baseline_v1/`、Gold、Registry V3、PR5B 均不被覆盖。
+发布前要求 PR5B 字节级重放不变、Hybrid 两次离线输出 byte-identical。

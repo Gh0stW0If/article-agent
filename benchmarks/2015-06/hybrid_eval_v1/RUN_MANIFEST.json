@@ -1,0 +1,38 @@
+{
+  "experiment": "PR5E-1",
+  "mode": "frozen-judge-evaluation",
+  "production_rerun": false,
+  "semantic_judge": {
+    "model": "gpt-5.6-sol",
+    "prompt_version": "SEMANTIC_JUDGE_PROMPT/1.0.0",
+    "prompt_sha256": "1c01740f6be269269da667c5a4c01841a77008255a3df72d0fe13aef70e55d95",
+    "temperature": 0
+  },
+  "prediction_sha256": "ebe87d48a43c065f866b136854da65532d90dcf644e74fc2b33a68eb7cf53ffb",
+  "protected_input_hashes": {
+    "benchmarks/2015-06/baseline_v1/ASSEMBLY.json": "8c830c194b243fafc3172180d417cd0d6cadb5bcb701f4113dad196b660a8ca3",
+    "benchmarks/2015-06/baseline_v1/evaluation.json": "4899ebde62cd0d4f4c42ecebdf2e387a82b518bf118f59293a5397f8bb64e73d",
+    "benchmarks/2015-06/baseline_v1/FAILURE_ANALYSIS.md": "cb53c085d419e374a964ae4971405af3f7e150f21a0f6d2c6f351bd7ca444e9a",
+    "benchmarks/2015-06/baseline_v1/HARD_TARGETS.md": "a35bc35d61e131d0ca31d3822ea839b9eee1ff80ea34d174ae86957cc0862352",
+    "benchmarks/2015-06/baseline_v1/ISOLATED_SOURCE_MANIFEST.json": "a37eb94293a307949cc40c10c9b78a599cf049c566ac813310d504d49cde4884",
+    "benchmarks/2015-06/baseline_v1/prediction.json": "ebe87d48a43c065f866b136854da65532d90dcf644e74fc2b33a68eb7cf53ffb",
+    "benchmarks/2015-06/baseline_v1/PRODUCTION_AUDIT.json": "3145f53c26b018b55135e0e1960b02c4316d49a357e4071b1818aa5c00ea4837",
+    "benchmarks/2015-06/baseline_v1/PRODUCTION_ISOLATION.json": "37df534669e282e2e8d2da6ecbb548b4026759400fe7a2def248295cd51256b4",
+    "benchmarks/2015-06/baseline_v1/REPORT.md": "d541893afd18ef7b592b8c274950923d80d466237a0eed513234524144db4668",
+    "benchmarks/2015-06/baseline_v1/ROOT_CAUSE_NOTES.md": "5fc8924e0ff052f072fec3e277b04353aba1e756d882937901712cb680301f86",
+    "benchmarks/2015-06/baseline_v1/RUN_MANIFEST.json": "2a91edb9d1294aa6e82d5437169a627f6ed7ec490d3d7a6c31c426bfe284228a",
+    "benchmarks/2015-06/baseline_v1/SNAPSHOT_MANIFEST.json": "a6e6635a5f832de1bcdbd635eec2dd6152af32ec492fed1699be840ad2fb3c6f",
+    "benchmarks/2015-06/baseline_v1/SUMMARY.json": "ed0aad588c82f748dc4753cb233ca968a98ae396aabcac8c79517bbdc0110350",
+    "gold/2015-06/gold.json": "8f22600fd6b2ac701a1477946a8023060afcdca4acc93ea21d459d4dd09347db",
+    "schemas/evaluator-field-registry-v3.json": "d10fe9dfc5cb224e8705b981124ec1613c31d2fe645e55792d3ad3f2e21278cc",
+    "src/article_agent/evaluation/comparators.py": "c25c859fed238f5ba327aefdd9ca2adfe7dbbe47270a185d155bbebfda67646e",
+    "src/article_agent/evaluation/engine.py": "8ed2820235f219bcf0bb01c924e4c5dca1d1ec36d51feb4af3037450783954ca",
+    "src/article_agent/evaluation/entity_matcher.py": "fd7ecab7752c5dab30bbedd0d85f2248e4a81c72540ec3a746f3bc3e9c2e7ed3",
+    "src/article_agent/evaluation/models.py": "e55de1c7ac9a3ec3fc4e22a133386ff1495838500b061c302004d08d94499b93"
+  },
+  "semantic_registry_sha256": "cf6e2684907c35d5b186a3ce8093675d01375b93e48673b34e4c44df4bab50d6",
+  "pr5b_replay_byte_identical": true,
+  "judgment_count": 42,
+  "technical_retry_count": 0,
+  "judge_failure_count": 0
+}

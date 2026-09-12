@@ -1,0 +1,96 @@
+[
+  {
+    "entity_id": "2015-06-S1-C01",
+    "entity_type": "Comparison",
+    "field": "contrast",
+    "raw_field": {
+      "status": "SOURCE_CONFLICT",
+      "value": null,
+      "raw_value": null,
+      "evidence_ids": [
+        "2015-06-S1-O-E00025",
+        "2015-06-S1-O-E00047",
+        "2015-06-S1-O-E00124",
+        "2015-06-S1-O-E00134",
+        "2015-06-S1-O-E00144"
+      ],
+      "conflict_candidates": [
+        {
+          "value": "Group 1 vs Group 2",
+          "raw_value": "Group 1 vs Group 2",
+          "evidence_ids": [
+            "2015-06-S1-O-E00025",
+            "2015-06-S1-O-E00047"
+          ]
+        },
+        {
+          "value": "group 1 vs. group 2",
+          "raw_value": "group 1 vs. group 2",
+          "evidence_ids": [
+            "2015-06-S1-O-E00124",
+            "2015-06-S1-O-E00134",
+            "2015-06-S1-O-E00144"
+          ]
+        }
+      ]
+    },
+    "canonical_value": "group 1 vs group 2",
+    "changed": true,
+    "rule": "SURFACE_EQUIVALENT_CONTRAST_COLLAPSED",
+    "blocker": null,
+    "source_evidence_reference": [
+      "2015-06-S1-O-E00025",
+      "2015-06-S1-O-E00047",
+      "2015-06-S1-O-E00124",
+      "2015-06-S1-O-E00134",
+      "2015-06-S1-O-E00144"
+    ]
+  },
+  {
+    "entity_id": "2015-06-S1-C03",
+    "entity_type": "Comparison",
+    "field": "contrast",
+    "raw_field": {
+      "status": "SOURCE_CONFLICT",
+      "value": null,
+      "raw_value": null,
+      "evidence_ids": [
+        "2015-06-S1-O-E00029",
+        "2015-06-S1-O-E00087",
+        "2015-06-S1-O-E00129",
+        "2015-06-S1-O-E00139",
+        "2015-06-S1-O-E00149"
+      ],
+      "conflict_candidates": [
+        {
+          "value": "Group 2 vs Group 3",
+          "raw_value": "Group 2 vs Group 3",
+          "evidence_ids": [
+            "2015-06-S1-O-E00029",
+            "2015-06-S1-O-E00087"
+          ]
+        },
+        {
+          "value": "group 2 vs. group 3",
+          "raw_value": "group 2 vs. group 3",
+          "evidence_ids": [
+            "2015-06-S1-O-E00129",
+            "2015-06-S1-O-E00139",
+            "2015-06-S1-O-E00149"
+          ]
+        }
+      ]
+    },
+    "canonical_value": "group 2 vs group 3",
+    "changed": true,
+    "rule": "SURFACE_EQUIVALENT_CONTRAST_COLLAPSED",
+    "blocker": null,
+    "source_evidence_reference": [
+      "2015-06-S1-O-E00029",
+      "2015-06-S1-O-E00087",
+      "2015-06-S1-O-E00129",
+      "2015-06-S1-O-E00139",
+      "2015-06-S1-O-E00149"
+    ]
+  }
+]

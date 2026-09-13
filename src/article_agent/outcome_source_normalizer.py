@@ -66,7 +66,7 @@ def _split_name(name, record):
     return result
 
 
-def normalize_outcome_sources(article_id: str, topology, records):
+def normalize_outcome_sources(article_id: str, topology, records, *, trace=None):
     """Return normalized copies and a report; input objects are never mutated."""
     topology = TrialTopology.model_validate(topology.model_dump() if isinstance(topology, TrialTopology) else topology)
     data = deepcopy(records)
@@ -93,6 +93,16 @@ def normalize_outcome_sources(article_id: str, topology, records):
             # Derived source semantics are written to their dedicated field.
             # The original record remains under _pr41_original.
             out[field] = value
+            if trace is not None:
+                trace.global_event(
+                    stage="NORMALIZATION",
+                    event_type=f"{field.upper()}_NORMALIZED",
+                    before=name,
+                    after={"field": field, "value": value},
+                    rule_id="pr41-explicit-source-split",
+                    source_refs=[{"source_index": idx, "table_id": row.get("table_id"),
+                                  "row_id": row.get("row_id")}],
+                )
             if field == "value_kind": counters["statistic/value_kind"] += 1
             elif field == "timepoint": counters["timepoint"] += 1
             elif field == "unit": counters["unit"] += 1
@@ -115,6 +125,16 @@ def normalize_outcome_sources(article_id: str, topology, records):
                 arm["source_arm_id"] = arm_ids[next(iter(matches))]
                 arm["source_arm_binding_status"] = "RESOLVED"
                 counters["arm_bindings"] += 1
+                if trace is not None:
+                    trace.global_event(
+                        stage="PARENT_BINDING",
+                        event_type="ARM_BOUND",
+                        before=labels,
+                        after=arm["source_arm_id"],
+                        rule_id="exact-topology-alias",
+                        source_refs=[{"source_index": idx, "table_id": row.get("table_id"),
+                                      "row_id": row.get("row_id")}],
+                    )
             else:
                 arm["source_arm_id"] = None
                 arm["source_arm_binding_status"] = "UNRESOLVED"

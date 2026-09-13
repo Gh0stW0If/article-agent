@@ -3,6 +3,7 @@ from pathlib import Path
 
 from article_agent.provenance.trace import (
     TraceBuilder,
+    TraceSession,
     build_prediction_trace,
     locate_first_failure,
     stable_candidate_id,
@@ -105,3 +106,36 @@ def test_existing_prediction_replay_is_deterministic():
     first = build_prediction_trace(prediction)
     second = build_prediction_trace(prediction)
     assert first == second
+
+
+def test_trace_session_writer_failure_does_not_escape():
+    def fail(_):
+        raise OSError("trace sink unavailable")
+    session = TraceSession("a1", writer=fail)
+    candidate_id = session.create_candidate(
+        skill_name="s", skill_version="1", context_hash="ctx",
+        source_ref={"row_id": "r1"}, local_index=0,
+        raw_extraction={"raw_value": 1}, entity_type="ArmResult",
+    )
+    assert candidate_id
+    assert session.incomplete is True
+    artifact = session.artifact()
+    assert artifact["trace_incomplete"] is True
+
+
+def test_trace_session_complete_without_retrieval_requirement():
+    session = TraceSession("a1")
+    candidate_id = session.create_candidate(
+        skill_name="s", skill_version="1", context_hash="ctx",
+        source_ref={"row_id": "r1"}, local_index=0,
+        raw_extraction={"raw_value": 1}, entity_type="ArmResult",
+    )
+    session.event(candidate_id, stage="RESULT_CONSTRUCTION",
+                  event_type="RESULT_CREATED", rule_id="construct")
+    session.event(candidate_id, stage="PARENT_BINDING",
+                  event_type="ARM_BOUND", after="A1", rule_id="bind")
+    session.event(candidate_id, stage="FINAL_PROJECTION",
+                  event_type="FINAL_RESULT_EMITTED", after="R1", rule_id="final")
+    session.set_result(candidate_id, result_id="R1", parent={"arm": "A1"})
+    item = session.artifact()["candidates"][0]
+    assert item["failure_localization"]["trace_completeness"] == "COMPLETE"

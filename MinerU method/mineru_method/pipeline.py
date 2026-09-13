@@ -8,6 +8,7 @@ from pathlib import Path
 from article_agent.models import OpenAICompatibleClient
 from article_agent.trial_topology_agent import TrialTopology, run_topology
 from article_agent.arm_details_agent import run_arm_details
+from article_agent.slot_result_extraction import discover_result_slots, slot_based_enabled
 from article_agent.evidence_engine import BibliographicMetadata, MetadataResolver, inject_metadata_into_contexts
 from article_agent.document_pipeline import chunks_from_normalized_document, normalize_markdown_document, write_normalized_document
 
@@ -463,6 +464,46 @@ def run_experiment(
             outcomes = parsed_outcomes
             if not outcomes.outcomes:
                 raise
+    # Opt-in slot planning runs after the unchanged legacy extraction and
+    # before post-processing.  It is an additive experiment artifact: the
+    # free-form OutcomeExtraction remains the production source of truth until
+    # a later PR wires constrained slot filling/materialisation end-to-end.
+    slot_manifest: dict | None = None
+    if slot_based_enabled():
+        try:
+            slot_dir = output_dir / "slot_results"
+            slot_dir.mkdir(parents=True, exist_ok=True)
+            source_records = [item.model_dump(mode="json") for item in outcomes.outcomes]
+            slot_plan = discover_result_slots(article_id, topology, arm_graph, source_records)
+            (slot_dir / "STRUCTURE_PLAN.json").write_text(
+                slot_plan.model_dump_json(indent=2) + "\n", encoding="utf-8"
+            )
+            slot_manifest = {
+                "enabled": True,
+                "mode": "source-supported-structure-discovery",
+                "artifact": "slot_results/STRUCTURE_PLAN.json",
+                "slot_count": len(slot_plan.slots),
+                "warning_count": len(slot_plan.warnings),
+                "gold_used": False,
+                "registry_used": False,
+                "legacy_freeform_path": "preserved",
+            }
+        except Exception as exc:
+            slot_manifest = {
+                "enabled": True,
+                "mode": "source-supported-structure-discovery",
+                "status": "failed",
+                "error": f"{type(exc).__name__}: {exc}",
+                "gold_used": False,
+                "registry_used": False,
+                "legacy_freeform_path": "preserved",
+            }
+    else:
+        slot_manifest = {
+            "enabled": False,
+            "mode": "legacy-freeform",
+            "legacy_freeform_path": "active",
+        }
     # Combine table and Results-narrative request provenance into one root
     # manifest.  Each line is lossless and can be replayed independently.
     request_manifest_paths = [
@@ -512,6 +553,7 @@ def run_experiment(
     (output_dir / "raw_module_responses" / "outcomes.table-parser.json").write_text(
         outcomes.model_dump_json(indent=2), encoding="utf-8"
     )
+    manifest["slot_based_result_extraction"] = slot_manifest
 
     # Post-extraction outcome processing is intentionally separate from the
     # source extraction request.  It may compare to Sheet3 after extraction,

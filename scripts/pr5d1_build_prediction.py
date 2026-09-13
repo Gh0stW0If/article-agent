@@ -22,15 +22,24 @@ def sha(data):
     return hashlib.sha256(data).hexdigest()
 
 
-def assemble(bundle, topology, arm_graph):
+def assemble(bundle, topology, arm_graph, *, trace=None):
     """Pure object wiring; original modules and all original outcome records survive."""
     bundle = deepcopy(bundle)
     aid = bundle["article_id"]
     topology = TrialTopology.model_validate(topology)
     arm_graph = ArticleExtraction.model_validate(arm_graph)
     records = bundle.get("outcomes", {}).get("outcomes", [])
-    normalized, normalization = normalize_outcome_sources(aid, topology, records)
-    graph = canonicalize_outcomes(aid, topology, arm_graph, normalized)
+    if trace is not None:
+        trace.global_event(
+            stage="RETRIEVAL", event_type="RETRIEVAL_INPUT_READY",
+            after={"record_count": len(records)}, rule_id="production-input-bundle",
+        )
+        trace.global_event(
+            stage="SKILL_EXTRACTION", event_type="SKILL_OUTPUT_READY",
+            after={"record_count": len(records)}, rule_id="source-record-boundary",
+        )
+    normalized, normalization = normalize_outcome_sources(aid, topology, records, trace=trace)
+    graph = canonicalize_outcomes(aid, topology, arm_graph, normalized, trace=trace)
     # PR3 owns Arm/Intervention/flow; PR4 owns Outcome/Result/Comparison.
     # The legacy adapter is used solely for its existing Article/Study projection.
     module_input = {k: deepcopy(bundle[k]) for k in (
@@ -61,7 +70,7 @@ def assemble(bundle, topology, arm_graph):
     return graph, normalization
 
 
-def build_prediction(production_dir: Path, output: Path):
+def build_prediction(production_dir: Path, output: Path, *, provenance_trace: bool = False):
     production_dir, output = Path(production_dir), Path(output)
     run = json.loads((output / "PRODUCTION_RUN.json").read_text(encoding="utf-8"))
     isolation = json.loads((output / "PRODUCTION_ISOLATION.json").read_text(encoding="utf-8"))
@@ -71,7 +80,11 @@ def build_prediction(production_dir: Path, output: Path):
         raise FileExistsError("The baseline prediction must not be overwritten")
     names = ("extraction.json", "trial_topology/trial_topology.json", "arm_details/arm_details.canonical.json")
     payloads = [(production_dir / name).read_bytes() for name in names]
-    graph, normalization = assemble(*(json.loads(data) for data in payloads))
+    trace = None
+    if provenance_trace:
+        from article_agent.provenance import TraceSession
+        trace = TraceSession(run["article_id"], enabled=True)
+    graph, normalization = assemble(*(json.loads(data) for data in payloads), trace=trace)
     serialized = (graph.model_dump_json(indent=2) + "\n").encode("utf-8")
     ArticleExtraction.model_validate_json(serialized)
     with (output / "prediction.json").open("xb") as handle:
@@ -86,6 +99,10 @@ def build_prediction(production_dir: Path, output: Path):
                 "prediction_frozen_before_evaluation": True}
     (output / "RUN_MANIFEST.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     (output / "ASSEMBLY.json").write_text(json.dumps(normalization, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    if trace is not None:
+        (output / "PROVENANCE_TRACE.json").write_text(
+            json.dumps(trace.artifact(), ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+        )
     return manifest
 
 
@@ -93,8 +110,11 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--production-dir", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--provenance-trace", action="store_true")
     args = parser.parse_args()
-    print(json.dumps(build_prediction(args.production_dir, args.output), ensure_ascii=False, indent=2))
+    print(json.dumps(build_prediction(args.production_dir, args.output,
+                                      provenance_trace=args.provenance_trace),
+                     ensure_ascii=False, indent=2))
 
 
 if __name__ == "__main__":

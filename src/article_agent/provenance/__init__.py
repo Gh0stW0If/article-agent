@@ -3,6 +3,7 @@
 from .trace import (
     STAGES,
     TraceBuilder,
+    TraceSession,
     build_prediction_trace,
     locate_first_failure,
     stable_candidate_id,
@@ -12,6 +13,7 @@ from .trace import (
 __all__ = [
     "STAGES",
     "TraceBuilder",
+    "TraceSession",
     "build_prediction_trace",
     "locate_first_failure",
     "stable_candidate_id",

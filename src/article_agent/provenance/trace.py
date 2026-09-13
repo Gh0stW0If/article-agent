@@ -57,7 +57,8 @@ def stable_event_id(candidate_id: str, stage: str, event_type: str,
 def locate_first_failure(trace: dict[str, Any]) -> dict[str, Any]:
     """Return a conservative first-failure result for a stage trace."""
     stages = trace.get("stages", {})
-    if any(stages.get(stage, {}).get("availability") != "AVAILABLE" for stage in STAGES):
+    required = tuple(stage for stage in STAGES if stage != "RETRIEVAL")
+    if any(stages.get(stage, {}).get("availability") != "AVAILABLE" for stage in required):
         return {
             "first_failure_stage": "UNKNOWN",
             "first_failure_event": None,
@@ -120,6 +121,183 @@ class TraceBuilder:
         result["events"] = deepcopy(self.events)
         result["failure_localization"] = locate_first_failure(result)
         return result
+
+    def mark_stage(self, stage: str, availability: str = "AVAILABLE", **meta: Any) -> None:
+        if stage in self.candidate.setdefault("stages", {}):
+            self.candidate["stages"][stage] = {
+                "availability": availability,
+                **{k: deepcopy(v) for k, v in meta.items()},
+            }
+
+
+class TraceSession:
+    """Failure-isolated sink used by production callers.
+
+    The sink is deliberately side-effect-only: production objects never read
+    values from it.  Any writer error marks the artifact incomplete and is
+    swallowed so extraction can continue.
+    """
+
+    def __init__(self, article_id: str, *, enabled: bool = True, writer: Any = None):
+        self.article_id = article_id
+        self.enabled = enabled
+        self.writer = writer
+        self.builders: dict[str, TraceBuilder] = {}
+        self.global_events: list[dict[str, Any]] = []
+        self.errors: list[str] = []
+        self.incomplete = False
+
+    def _safe(self, fn, *args, **kwargs):
+        if not self.enabled:
+            return None
+        try:
+            value = fn(*args, **kwargs)
+            if self.writer is not None:
+                self.writer(value)
+            return value
+        except Exception as exc:  # tracing must never fail production
+            self.incomplete = True
+            self.errors.append(type(exc).__name__ + ": " + str(exc))
+            return None
+
+    def create_candidate(self, *, skill_name: str, skill_version: str,
+                         context_hash: str, source_ref: dict[str, Any],
+                         local_index: int, raw_extraction: dict[str, Any],
+                         entity_type: str | None = None,
+                         constructed_result_id: str | None = None) -> str | None:
+        if not self.enabled:
+            return None
+        candidate_id = stable_candidate_id(
+            article_id=self.article_id, skill_name=skill_name,
+            context_hash=context_hash, source_ref=source_ref,
+            local_index=local_index,
+            structural_identity={"entity_type": entity_type, "result_id": constructed_result_id},
+        )
+        candidate = {
+            "candidate_id": candidate_id,
+            "skill_name": skill_name,
+            "skill_version": skill_version,
+            "context_hash": context_hash,
+            "source": {"references": [deepcopy(source_ref)], "evidence": []},
+            "raw_extraction": deepcopy(raw_extraction),
+            "constructed_result_id": constructed_result_id,
+            "entity_type": entity_type,
+            "parent_state": {},
+            "merger": {"merge_candidates": [], "merge_rule": None,
+                       "merge_result": None, "survivor": None,
+                       "dropped_candidate": None, "reason": None},
+            "final": {"final_entity_id": None, "final_parent_ids": None, "final_field": None},
+            "stages": {stage: {"availability": "NOT_AVAILABLE"} for stage in STAGES},
+        }
+        self.builders[candidate_id] = TraceBuilder(candidate)
+        self._safe(
+            self.builders[candidate_id].event,
+            stage="SKILL_EXTRACTION", event_type="CANDIDATE_CREATED",
+            after=raw_extraction, rule_id="candidate-created",
+            source_refs=[source_ref],
+        )
+        self.builders[candidate_id].mark_stage("SKILL_EXTRACTION")
+        return candidate_id
+
+    def event(self, candidate_id: str | None, *, stage: str, event_type: str,
+              before: Any = None, after: Any = None, rule_id: str = "unspecified",
+              input_refs: list[str] | None = None,
+              source_refs: list[dict[str, Any]] | None = None) -> None:
+        if not self.enabled or not candidate_id:
+            return
+        builder = self.builders.get(candidate_id)
+        if builder is None:
+            self.incomplete = True
+            self.errors.append("unknown candidate_id: " + candidate_id)
+            return
+        self._safe(
+            builder.event, stage=stage, event_type=event_type, before=before,
+            after=after, rule_id=rule_id, input_refs=input_refs,
+            source_refs=source_refs,
+        )
+        builder.mark_stage(stage)
+
+    def global_event(self, *, stage: str, event_type: str, source_refs: list[dict[str, Any]] | None = None,
+                     before: Any = None, after: Any = None, rule_id: str = "unspecified") -> None:
+        if not self.enabled:
+            return
+        ordinal = len(self.global_events)
+        event_id = "evt-" + hashlib.sha256(_stable({
+            "article_id": self.article_id, "stage": stage, "event_type": event_type,
+            "before": before, "after": after, "rule_id": rule_id, "ordinal": ordinal,
+        }).encode("utf-8")).hexdigest()[:24]
+        event = {
+            "event_id": event_id, "candidate_id": None, "result_id": None,
+            "stage": stage, "event_type": event_type,
+            "before": deepcopy(before), "after": deepcopy(after),
+            "rule_id": rule_id, "input_refs": [], "source_refs": deepcopy(source_refs or []),
+            "reason_code": rule_id,
+        }
+        self._safe(self.global_events.append, event)
+
+    def set_result(self, candidate_id: str | None, *, result_id: str,
+                   parent: dict[str, Any], final_field: str = "result") -> None:
+        if not self.enabled or not candidate_id:
+            return
+        builder = self.builders.get(candidate_id)
+        if builder is None:
+            self.incomplete = True
+            return
+        builder.candidate["constructed_result_id"] = result_id
+        builder.candidate["parent_state"] = deepcopy(parent)
+        builder.candidate["final"] = {
+            "final_entity_id": result_id,
+            "final_parent_ids": deepcopy(parent),
+            "final_field": final_field,
+        }
+        builder.event(
+            stage="FINAL_PROJECTION", event_type="FINAL_RESULT_EMITTED",
+            after={"result_id": result_id, "parent": parent},
+            rule_id="final-result-emitted",
+        )
+        builder.mark_stage("FINAL_PROJECTION")
+
+    def artifact(self) -> dict[str, Any]:
+        global_stages = {event.get("stage") for event in self.global_events}
+        for builder in self.builders.values():
+            # A stage with no semantic change is still explicitly observable
+            # as NONE; this is required for COMPLETE trace semantics.
+            if "NORMALIZATION" in global_stages:
+                builder.mark_stage("NORMALIZATION", "AVAILABLE", reason="global-normalization-events")
+            else:
+                builder.mark_stage("NORMALIZATION", "AVAILABLE", reason="NONE")
+            builder.mark_stage("MERGER", "AVAILABLE", reason="NONE")
+        candidates = [builder.finish() for builder in self.builders.values()]
+        events = [*self.global_events, *(event for candidate in candidates for event in candidate["events"])]
+        lineage = [{
+            "candidate_id": candidate["candidate_id"],
+            "constructed_result_id": candidate.get("constructed_result_id"),
+            "final_entity_id": candidate.get("final", {}).get("final_entity_id"),
+            "entity_type": candidate.get("entity_type"),
+            "parent": candidate.get("parent_state"),
+        } for candidate in candidates]
+        availability = {}
+        for stage in STAGES:
+            values = [c["stages"].get(stage, {}).get("availability") for c in candidates]
+            availability[stage] = (
+                "AVAILABLE" if values and all(value == "AVAILABLE" for value in values)
+                else ("PARTIAL" if any(value in {"AVAILABLE", "PARTIAL"} for value in values)
+                      else "NOT_AVAILABLE")
+            )
+            if availability[stage] == "NOT_AVAILABLE" and stage in global_stages:
+                availability[stage] = "PARTIAL"
+        return {
+            "trace_version": "PR5R-4/1.0",
+            "article_id": self.article_id,
+            "gold_used": False,
+            "api_calls": 0,
+            "trace_incomplete": self.incomplete,
+            "trace_errors": list(self.errors),
+            "stages": availability,
+            "candidates": candidates,
+            "events": events,
+            "result_lineage": lineage,
+        }
 
 
 def _field_value(entity: Any, name: str) -> Any:

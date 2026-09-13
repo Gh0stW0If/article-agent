@@ -6,6 +6,7 @@ from __future__ import annotations
 
 import argparse
 from copy import deepcopy
+import hashlib
 import json
 import math
 from pathlib import Path
@@ -73,7 +74,7 @@ def first(data, names):
     return next((data[n] for n in names if text(data.get(n)) is not None), None)
 
 
-def canonicalize_outcomes(article_id, topology, arm_graph, source_outcomes) -> ArticleExtraction:
+def canonicalize_outcomes(article_id, topology, arm_graph, source_outcomes, *, trace=None) -> ArticleExtraction:
     """Pure replay: preserve every source record, reject uncertain arm bindings.
 
     source_outcomes is a list, an {outcomes: [...]} module, or an ExtractionBundle.
@@ -255,25 +256,69 @@ def canonicalize_outcomes(article_id, topology, arm_graph, source_outcomes) -> A
         arms = row.get("arm", row.get("arms", [])) or []
         if isinstance(arms, dict):
             arms = [arms]
-        for arm in arms:
+        for arm_index, arm in enumerate(arms):
             if not isinstance(arm, dict):
                 warn(index, "invalid arm observation shape")
                 continue
+            candidate_id = None
+            if trace is not None:
+                source_ref = {"source_index": index, "table_id": row.get("table_id"),
+                              "row_id": row.get("row_id")}
+                candidate_id = trace.create_candidate(
+                    skill_name="outcome-result",
+                    skill_version="source-record-v1",
+                    context_hash=hashlib.sha256(json.dumps(
+                        {"source": source_ref, "outcome": row.get("outcome_name")},
+                        ensure_ascii=False, sort_keys=True, default=str,
+                    ).encode("utf-8")).hexdigest(),
+                    source_ref=source_ref,
+                    local_index=index * 1000 + arm_index,
+                    raw_extraction={
+                        "raw_outcome": row.get("outcome_name"),
+                        "raw_arm": arm.get("arm_label", arm.get("label", arm.get("arm_id"))),
+                        "raw_comparison": None,
+                        "raw_timepoint": row.get("outcome_observation_timepoint_raw", row.get("timepoint")),
+                        "raw_statistic_kind": arm.get("value_kind", arm.get("statistic_type", row.get("statistic_type"))),
+                        "raw_value": arm.get("raw_value", arm.get("value", arm.get("estimate"))),
+                        "evidence": row.get("source_evidence"),
+                    },
+                    entity_type="ArmResult",
+                )
             aid = bind_arm(arm)
             if not aid:
                 warn(index, f"unknown/ambiguous arm binding {arm.get('arm_label', arm.get('label', arm.get('arm_id')))}")
                 continue
+            if trace is not None:
+                trace.event(candidate_id, stage="PARENT_BINDING", event_type="ARM_BOUND",
+                            before=arm.get("arm_label", arm.get("label", arm.get("arm_id"))),
+                            after=aid, rule_id="exact-topology-alias",
+                            source_refs=[{"source_index": index, "table_id": row.get("table_id"),
+                                          "row_id": row.get("row_id")}])
             support = derivation(row, arm, index)
             if support is None:
                 continue
             kind = first(arm, ARM_FIELDS["value_kind"]) or first(row, ARM_FIELDS["value_kind"])
             ident = result_key(oid, aid, row, arm, kind, index)
-            if ident not in arm_results:
+            was_existing = ident in arm_results
+            if not was_existing:
                 arm_results[ident] = ArmResult(arm_result_id=f"{sid}-AR{len(arm_results)+1:03d}",
                     outcome_id=oid, arm_id=aid, source_table_id=text(row.get("table_id")),
                     source_row_id=text(row.get("row_id")), **support)
+                if trace is not None:
+                    trace.event(candidate_id, stage="RESULT_CONSTRUCTION",
+                                event_type="RESULT_CREATED",
+                                after={"result_id": arm_results[ident].arm_result_id,
+                                       "entity_type": "ArmResult"},
+                                rule_id="arm-result-construction")
             result = arm_results[ident]
             rid = result.arm_result_id
+            if trace is not None and was_existing:
+                trace.event(candidate_id, stage="MERGER", event_type="RESULT_MERGE_PROPOSED",
+                            before={"result_id": rid, "parent": {"outcome": oid, "arm": aid}},
+                            after={"result_id": rid}, rule_id="deterministic-result-key")
+                trace.event(candidate_id, stage="MERGER", event_type="RESULT_MERGED",
+                            before={"result_id": rid}, after={"survivor": rid},
+                            rule_id="merge-field-observation")
             fill(result, "ArmResult", rid, TIME_FIELDS, row, timing(row, arm), index)
             fill(result, "ArmResult", rid, ARM_FIELDS, row, arm, index)
             if first(arm, ARM_FIELDS["value_kind"]) is None:
@@ -285,6 +330,16 @@ def canonicalize_outcomes(article_id, topology, arm_graph, source_outcomes) -> A
                     put(result, "ArmResult", rid, "raw_value", cells[0].get("raw_value"), row, row, index)
             result.legacy_fields.setdefault("source_observations", []).append({"source_index": index, "arm": deepcopy(arm),
                 "table_id": row.get("table_id"), "row_id": row.get("row_id")})
+            if trace is not None:
+                trace.event(candidate_id, stage="RESULT_CONSTRUCTION", event_type="PARENT_ADDED",
+                            after={"outcome": oid, "arm": aid},
+                            rule_id="result-parent-assignment")
+                trace.set_result(
+                    candidate_id, result_id=rid,
+                    parent={"outcome": oid, "arm": aid, "comparison": None,
+                            "timepoint": row.get("outcome_observation_timepoint_raw", row.get("timepoint")),
+                            "statistic_kind": arm.get("value_kind", row.get("statistic_type"))},
+                )
 
         explicit = row.get("comparisons")
         if explicit is None:
@@ -340,17 +395,67 @@ def canonicalize_outcomes(article_id, topology, arm_graph, source_outcomes) -> A
             if support is None:
                 continue
             ident = result_key(oid, cid, row, values, first(values, COMPARISON_FIELDS["effect_measure"]), index)
-            if ident not in comparison_results:
+            candidate_id = None
+            if trace is not None:
+                source_ref = {"source_index": index, "table_id": row.get("table_id"),
+                              "row_id": row.get("row_id")}
+                candidate_id = trace.create_candidate(
+                    skill_name="outcome-result",
+                    skill_version="source-record-v1",
+                    context_hash=hashlib.sha256(json.dumps(
+                        {"source": source_ref, "outcome": row.get("outcome_name"),
+                         "comparison": comparison},
+                        ensure_ascii=False, sort_keys=True, default=str,
+                    ).encode("utf-8")).hexdigest(),
+                    source_ref=source_ref,
+                    local_index=index * 1000 + 500 + len(comparison_results),
+                    raw_extraction={
+                        "raw_outcome": row.get("outcome_name"),
+                        "raw_arm": labels,
+                        "raw_comparison": comparison.get("contrast"),
+                        "raw_timepoint": row.get("outcome_observation_timepoint_raw", row.get("timepoint")),
+                        "raw_statistic_kind": first(values, COMPARISON_FIELDS["effect_measure"]),
+                        "raw_value": values.get("source_values"),
+                        "evidence": row.get("source_evidence"),
+                    },
+                    entity_type="ComparisonResult",
+                )
+            was_existing = ident in comparison_results
+            if not was_existing:
                 comparison_results[ident] = ComparisonResult(comparison_result_id=f"{sid}-CR{len(comparison_results)+1:03d}",
                     outcome_id=oid, comparison_id=cid, **support)
+                if trace is not None:
+                    trace.event(candidate_id, stage="RESULT_CONSTRUCTION",
+                                event_type="RESULT_CREATED",
+                                after={"result_id": comparison_results[ident].comparison_result_id,
+                                       "entity_type": "ComparisonResult"},
+                                rule_id="comparison-result-construction")
             result = comparison_results[ident]
             rid = result.comparison_result_id
+            if trace is not None and was_existing:
+                trace.event(candidate_id, stage="MERGER", event_type="RESULT_MERGE_PROPOSED",
+                            before={"result_id": rid, "parent": {"outcome": oid, "comparison": cid}},
+                            after={"result_id": rid}, rule_id="deterministic-comparison-key")
+                trace.event(candidate_id, stage="MERGER", event_type="RESULT_MERGED",
+                            before={"result_id": rid}, after={"survivor": rid},
+                            rule_id="merge-field-observation")
             fill(result, "ComparisonResult", rid, TIME_FIELDS, row, timing(row, values), index)
             fill(result, "ComparisonResult", rid, COMPARISON_FIELDS, row, values, index)
             if not text(values.get("raw_value")) and len(explicit) == 1 and row.get("source_values"):
                 put(result, "ComparisonResult", rid, "raw_value", json.dumps(row["source_values"], ensure_ascii=False), row, row, index)
             result.legacy_fields.setdefault("source_observations", []).append({"source_index": index,
                 "table_id": row.get("table_id"), "row_id": row.get("row_id"), "comparison": deepcopy(comparison)})
+            if trace is not None:
+                trace.event(candidate_id, stage="PARENT_BINDING", event_type="COMPARISON_BOUND",
+                            before=labels, after=bound, rule_id="explicit-comparison-alias",
+                            source_refs=[{"source_index": index, "table_id": row.get("table_id"),
+                                          "row_id": row.get("row_id")}])
+                trace.set_result(
+                    candidate_id, result_id=rid,
+                    parent={"outcome": oid, "arm": None, "comparison": cid,
+                            "timepoint": row.get("outcome_observation_timepoint_raw", row.get("timepoint")),
+                            "statistic_kind": values.get("effect_size_name", values.get("between_group_measure"))},
+                )
 
     # Assemble once so intermediate graph references cannot trigger partial validation.
     payload = graph.model_dump()

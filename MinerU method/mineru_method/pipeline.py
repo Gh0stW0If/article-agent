@@ -9,6 +9,11 @@ from article_agent.models import OpenAICompatibleClient
 from article_agent.trial_topology_agent import TrialTopology, run_topology
 from article_agent.arm_details_agent import run_arm_details
 from article_agent.slot_result_extraction import discover_result_slots, slot_based_enabled
+from article_agent.evidence_indexed_discovery import (
+    annotate_units_with_client,
+    build_slot_plan_from_annotations,
+    build_source_unit_index,
+)
 from article_agent.evidence_engine import BibliographicMetadata, MetadataResolver, inject_metadata_into_contexts
 from article_agent.document_pipeline import chunks_from_normalized_document, normalize_markdown_document, write_normalized_document
 
@@ -469,7 +474,56 @@ def run_experiment(
     # free-form OutcomeExtraction remains the production source of truth until
     # a later PR wires constrained slot filling/materialisation end-to-end.
     slot_manifest: dict | None = None
-    if slot_based_enabled():
+    if os.getenv("EVIDENCE_INDEXED_STRUCTURE_DISCOVERY", "").strip().lower() in {
+        "1", "true", "yes", "on",
+    }:
+        try:
+            slot_dir = output_dir / "slot_results"
+            slot_dir.mkdir(parents=True, exist_ok=True)
+            source_records = [item.model_dump(mode="json") for item in outcomes.outcomes]
+            unit_index = build_source_unit_index(article_id, source_records, markdown=contexts["outcomes"])
+            annotations = annotate_units_with_client(unit_index, client)
+            slot_plan = build_slot_plan_from_annotations(
+                article_id, topology, arm_graph, unit_index, annotations,
+            )
+            (slot_dir / "SOURCE_UNIT_INDEX.json").write_text(
+                unit_index.model_dump_json(indent=2) + "\n", encoding="utf-8"
+            )
+            (slot_dir / "UNIT_ANNOTATIONS.json").write_text(
+                annotations.model_dump_json(indent=2) + "\n", encoding="utf-8"
+            )
+            (slot_dir / "STRUCTURE_PLAN.json").write_text(
+                slot_plan.model_dump_json(indent=2) + "\n", encoding="utf-8"
+            )
+            slot_manifest = {
+                "enabled": True,
+                "mode": "evidence-indexed-bounded-annotation",
+                "artifacts": [
+                    "slot_results/SOURCE_UNIT_INDEX.json",
+                    "slot_results/UNIT_ANNOTATIONS.json",
+                    "slot_results/STRUCTURE_PLAN.json",
+                ],
+                "source_unit_count": len(unit_index.units),
+                "annotation_count": len(annotations.accepted),
+                "annotation_violations": len(annotations.violations),
+                "annotation_ambiguities": len(annotations.ambiguities),
+                "slot_count": len(slot_plan.slots),
+                "warning_count": len(slot_plan.warnings),
+                "gold_used": False,
+                "registry_used": False,
+                "legacy_freeform_path": "preserved",
+            }
+        except Exception as exc:
+            slot_manifest = {
+                "enabled": True,
+                "mode": "evidence-indexed-bounded-annotation",
+                "status": "failed",
+                "error": f"{type(exc).__name__}: {exc}",
+                "gold_used": False,
+                "registry_used": False,
+                "legacy_freeform_path": "preserved",
+            }
+    elif slot_based_enabled():
         try:
             slot_dir = output_dir / "slot_results"
             slot_dir.mkdir(parents=True, exist_ok=True)

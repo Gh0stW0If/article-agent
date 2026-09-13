@@ -58,6 +58,7 @@ class ResultSlot(SlotModel):
     arm_id: str | None = None
     comparison_id: str | None = None
     comparison_arm_ids: list[str] = Field(default_factory=list)
+    source_unit_ids: list[str] = Field(default_factory=list)
     source_refs: list[SourceRef] = Field(default_factory=list)
     discovery_rule: str = Field(min_length=1)
     discovery_evidence: list[str] = Field(default_factory=list)

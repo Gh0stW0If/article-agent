@@ -171,6 +171,50 @@ def test_metadata_resolver_is_injectable_and_does_not_require_network() -> None:
     assert len(calls) == 3
 
 
+def test_metadata_resolver_normalizes_doi_and_selects_best_title_candidate() -> None:
+    calls = []
+
+    def fetch(url: str):
+        calls.append(url)
+        if "works?" in url:
+            return {"message": {"items": [
+                {"DOI": "10.9999/wrong", "title": ["Unrelated trial"]},
+                {"DOI": "10.1234/example", "title": ["Trial of acupuncture"]},
+            ]}}
+        if "crossref" in url:
+            return {"message": {
+                "DOI": "10.1234/example",
+                "title": ["Trial of acupuncture"],
+                "container-title": ["Journal"],
+            }}
+        return {}
+
+    resolver = MetadataResolver(fetch_json=fetch)
+    by_doi = resolver.resolve(title="NR", doi=" DOI: 10.1234/example. ")
+    assert by_doi.doi == "10.1234/example"
+    assert calls[0].endswith("/works/10.1234%2Fexample")
+
+    by_title = resolver.resolve(title="Trial of acupuncture", doi="NR")
+    assert by_title.doi == "10.1234/example"
+
+
+def test_metadata_resolver_uses_curl_fallback_after_urllib_failure(monkeypatch) -> None:
+    import urllib.error
+
+    def fail_urlopen(*args, **kwargs):
+        raise urllib.error.URLError("TLS handshake failed")
+
+    class Completed:
+        stdout = b'{"message": {"DOI": "10.1234/example", "title": ["Trial"]}}'
+
+    monkeypatch.setattr("article_agent.evidence_engine.urllib.request.urlopen", fail_urlopen)
+    monkeypatch.setattr("article_agent.evidence_engine.shutil.which", lambda name: "curl.exe")
+    monkeypatch.setattr("article_agent.evidence_engine.subprocess.run", lambda *args, **kwargs: Completed())
+
+    metadata = MetadataResolver().resolve(title="Trial", doi="10.1234/example")
+    assert metadata.doi == "10.1234/example"
+
+
 def test_baml_adapter_fallback_keeps_pydantic_wire_contract(tmp_path: Path) -> None:
     class FakeClient:
         def chat_json(self, messages):

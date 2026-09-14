@@ -1,0 +1,304 @@
+{
+  "rule": "Crossref DOI-verified bibliographic fields override conflicting PDF/BAML values; email comparison uses normalized candidates.",
+  "articles": [
+    {
+      "article_id": "2015-01",
+      "matched": 6,
+      "total": 6,
+      "details": [
+        {
+          "field": "title",
+          "prediction": "Acupuncture for Fibromyalgia in Primary Care: A Randomised Controlled Trial",
+          "gold": "Acupuncture for fibromyalgia in primary care: a randomised controlled trial",
+          "source": "PDF",
+          "match": true
+        },
+        {
+          "field": "year",
+          "prediction": 2015,
+          "gold": 2015,
+          "source": "PDF",
+          "match": true
+        },
+        {
+          "field": "language",
+          "prediction": "English",
+          "gold": "English",
+          "source": "PDF",
+          "match": true
+        },
+        {
+          "field": "journal",
+          "prediction": "Acupuncture in Medicine",
+          "gold": "Acupuncture in medicine",
+          "source": "PDF",
+          "match": true
+        },
+        {
+          "field": "first_author",
+          "prediction": "Jorge Vas",
+          "gold": "Jorge Vas",
+          "source": "OTHER",
+          "match": true
+        },
+        {
+          "field": "corresponding_author_email",
+          "prediction": "jorgef.vas.sspa@juntadeandalucia.es",
+          "gold": "1:jorgef.vas. sspa@juntadeandalucia.es",
+          "source": "OTHER",
+          "match": true
+        }
+      ]
+    },
+    {
+      "article_id": "2015-02",
+      "matched": 6,
+      "total": 6,
+      "details": [
+        {
+          "field": "title",
+          "prediction": "Acupuncture for seasonal allergic rhinitis: a randomized controlled trial",
+          "gold": "Acupuncture for seasonal allergic rhinitis: a randomized\ncontrolled trial",
+          "source": "PDF",
+          "match": true
+        },
+        {
+          "field": "year",
+          "prediction": 2015,
+          "gold": 2015,
+          "source": "PDF",
+          "match": true
+        },
+        {
+          "field": "language",
+          "prediction": "English",
+          "gold": "English",
+          "source": "PDF",
+          "match": true
+        },
+        {
+          "field": "journal",
+          "prediction": "Annals of Allergy, Asthma &amp; Immunology",
+          "gold": "ANNALS OF ALLERGY ASTHMA & IMMUNOLOGY",
+          "source": "PDF",
+          "match": true
+        },
+        {
+          "field": "first_author",
+          "prediction": "Charlie Changli Xue",
+          "gold": "Charlie Changli Xue",
+          "source": "OTHER",
+          "match": true
+        },
+        {
+          "field": "corresponding_author_email",
+          "prediction": "Charlie.xue@rmit.edu.au",
+          "gold": "2:Charlie.xue@rmit. edu.au",
+          "source": "OTHER",
+          "match": true
+        }
+      ]
+    },
+    {
+      "article_id": "2015-03",
+      "matched": 6,
+      "total": 6,
+      "details": [
+        {
+          "field": "title",
+          "prediction": "Does the addition of specific acupuncture to standard swallowing training improve outcomes in patients with dysphagia after stroke? a randomized controlled trial",
+          "gold": "Does the addition of specific \nacupuncture to standard \nswallowing training improve \noutcomes in patients with \ndysphagia after stroke? a \nrandomized controlled trial",
+          "source": "PDF",
+          "match": true
+        },
+        {
+          "field": "year",
+          "prediction": 2015,
+          "gold": 2015,
+          "source": "PDF",
+          "match": true
+        },
+        {
+          "field": "language",
+          "prediction": "English",
+          "gold": "English",
+          "source": "PDF",
+          "match": true
+        },
+        {
+          "field": "journal",
+          "prediction": "Clinical Rehabilitation",
+          "gold": "Clinical Rehabilitation",
+          "source": "PDF",
+          "match": true
+        },
+        {
+          "field": "first_author",
+          "prediction": "Wenguang Xia",
+          "gold": "Wenguang Xia",
+          "source": "OTHER",
+          "match": true
+        },
+        {
+          "field": "corresponding_author_email",
+          "prediction": "docxwg@163.com",
+          "gold": " docxwg@163.com",
+          "source": "OTHER",
+          "match": true
+        }
+      ]
+    },
+    {
+      "article_id": "2015-04",
+      "matched": 5,
+      "total": 6,
+      "details": [
+        {
+          "field": "title",
+          "prediction": "Acupuncture for chronic fatigue syndrome and idiopathic chronic fatigue: a multicenter, nonblinded, randomized controlled trial",
+          "gold": "Acupuncture for chronic fatigue syndrome and idiopathic chronic fatigue: a multicenter,nonblinded, randomized controlled trial",
+          "source": "PDF",
+          "match": true
+        },
+        {
+          "field": "year",
+          "prediction": 2015,
+          "gold": 2015,
+          "source": "PDF",
+          "match": true
+        },
+        {
+          "field": "language",
+          "prediction": "English",
+          "gold": "English",
+          "source": "PDF",
+          "match": true
+        },
+        {
+          "field": "journal",
+          "prediction": "Trials",
+          "gold": "Trials",
+          "source": "PDF",
+          "match": true
+        },
+        {
+          "field": "first_author",
+          "prediction": "Jung-Eun Kim",
+          "gold": "Jung-Eun Kim",
+          "source": "OTHER",
+          "match": true
+        },
+        {
+          "field": "corresponding_author_email",
+          "prediction": "journalpermissions@springernature.com",
+          "gold": "1: smchoi@kiom.re.kr",
+          "source": "OTHER",
+          "match": false
+        }
+      ]
+    },
+    {
+      "article_id": "2015-05",
+      "matched": 6,
+      "total": 6,
+      "details": [
+        {
+          "field": "title",
+          "prediction": "Auricular acupuncture as an adjunct for pain management during first trimester abortion: a randomized, double-blinded, three arm trial",
+          "gold": "Auricular acupuncture as an adjunct for pain management during first trimester abortion: a randomized, double-blinded, three arm trial",
+          "source": "PDF",
+          "match": true
+        },
+        {
+          "field": "year",
+          "prediction": 2015,
+          "gold": 2015,
+          "source": "PDF",
+          "match": true
+        },
+        {
+          "field": "language",
+          "prediction": "English",
+          "gold": "English",
+          "source": "PDF",
+          "match": true
+        },
+        {
+          "field": "journal",
+          "prediction": "Contraception",
+          "gold": "Contraception",
+          "source": "OTHER",
+          "match": true
+        },
+        {
+          "field": "first_author",
+          "prediction": "Chioma Ndubisi",
+          "gold": "Chioma Ndubisi",
+          "source": "OTHER",
+          "match": true
+        },
+        {
+          "field": "corresponding_author_email",
+          "prediction": "clw3@columbia.edu",
+          "gold": "1: clw3@columbia.edu",
+          "source": "OTHER",
+          "match": true
+        }
+      ]
+    },
+    {
+      "article_id": "2015-06",
+      "matched": 6,
+      "total": 6,
+      "details": [
+        {
+          "field": "title",
+          "prediction": "Effects of electroacupuncture combined with clean intermittent catheterization on urinary retention after spinal cord injury: a single blind randomized controlled clinical trial",
+          "gold": "Effects of electroacupuncture combined with clean \nintermittent catheterization on urinary retention \nafter spinal cord injury: a single blind \nrandomized controlled clinical trial",
+          "source": "PDF",
+          "match": true
+        },
+        {
+          "field": "year",
+          "prediction": 2015,
+          "gold": 2015,
+          "source": "PDF",
+          "match": true
+        },
+        {
+          "field": "language",
+          "prediction": "English",
+          "gold": "English",
+          "source": "PDF",
+          "match": true
+        },
+        {
+          "field": "journal",
+          "prediction": "Int J Clin Exp Med",
+          "gold": "International journal of clinical and experimental medicine.",
+          "source": "PDF",
+          "match": true
+        },
+        {
+          "field": "first_author",
+          "prediction": "Xu-Dong Gu",
+          "gold": "Xu-Dong Gu",
+          "source": "OTHER",
+          "match": true
+        },
+        {
+          "field": "corresponding_author_email",
+          "prediction": "jingwangjw1@163.com",
+          "gold": "jingwangjw1@163.com",
+          "source": "PDF",
+          "match": true
+        }
+      ]
+    }
+  ],
+  "overall": {
+    "matched": 35,
+    "total": 36,
+    "accuracy": 0.9722222222222222
+  }
+}

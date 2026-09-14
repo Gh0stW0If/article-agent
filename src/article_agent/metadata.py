@@ -5,14 +5,116 @@ import re
 import urllib.parse
 import urllib.request
 import os
+import shutil
+import subprocess
+from difflib import SequenceMatcher
 from html import unescape
 from typing import Any
+
+from pydantic import BaseModel, Field
+
+from .baml_adapter import BamlExtractor
+from .models import OpenAICompatibleClient
+try:
+    import fitz
+except Exception:
+    fitz = None
 
 from .schemas import EvidenceSpan, FieldValue, ParsedDocument, StudyRecord
 
 
+
+class _MetadataEvidence(BaseModel):
+    field_id: str
+    quote: str
+    page: int | None = None
+    source: str = "markdown"
+    support_type: str = "direct"
+    derivation: str | None = None
+
+
+class _MetadataExtraction(BaseModel):
+    title: str = "NR"
+    publication_year: int | None = None
+    language: str = "NR"
+    journal: str = "NR"
+    first_author: str = "NR"
+    author_contact: str = "NR"
+    disease_name: str = "NR"
+    country: str = "NR"
+    intervention: str = "NR"
+    control: str = "NR"
+    evidence: list[_MetadataEvidence] = Field(default_factory=list)
+
+
+def _baml_metadata(doc: ParsedDocument, raw_dir: Any = None) -> tuple[_MetadataExtraction | None, str]:
+    """Run the generated Metadata BAML skill when explicitly configured.
+
+    A missing BAML client or failed call is non-fatal: deterministic PDF and
+    external metadata enrichment remains authoritative, and unavailable values
+    stay NR rather than being guessed.
+    """
+    extractor = BamlExtractor(raw_dir=raw_dir)
+    if extractor.generated_client is None:
+        return None, "baml_unavailable"
+    context = "\n\n".join(
+        f"[page={c.page}; section={c.section}; source_type={c.source_type}; chunk_id={c.chunk_id}] {c.text}"
+        for c in doc.chunks[:24]
+    )
+    try:
+        result = extractor.extract("metadata", _MetadataExtraction, context, {
+            "task_description": "Extract article metadata, first author and author contact from supplied evidence only. Return NR when unavailable; never guess.",
+            "field_boundaries": {"first_author": "first listed author", "author_contact": "corresponding author email, otherwise first-author email"},
+            "json_template": {"first_author": "NR", "author_contact": "NR", "evidence": []},
+        })
+        return result, extractor.backend_name
+    except Exception:
+        return None, "baml_error"
+
+
+
+def _vision_first_page_metadata(doc: ParsedDocument) -> tuple[dict[str, Any] | None, str]:
+    """Read the first page as an image; failures leave the field unresolved."""
+    if fitz is None or not doc.source_pdf.exists():
+        return None, "vision_unavailable"
+    try:
+        pdf = fitz.open(str(doc.source_pdf)); page = pdf.load_page(0)
+        image = page.get_pixmap(matrix=fitz.Matrix(1.8, 1.8), alpha=False).tobytes("png")
+        result = OpenAICompatibleClient().chat_vision_json(
+            "Read only the article first page. Return JSON with title, journal, doi, first_author, author_contact. "
+            "Copy exact text; if a value is not clearly visible return NR. Never infer or repair a DOI.", image, "image/png")
+        return result, "vision"
+    except Exception:
+        return None, "vision_error"
+
+
 def _text(doc: ParsedDocument) -> str:
     return " ".join(c.text for c in doc.chunks)
+
+
+def clean_contact_string(raw: str | None) -> str:
+    """Normalize workbook/contact text without changing the email itself."""
+    value = str(raw or "").strip()
+    value = re.sub(r"^\s*[1-3]\s*[:：]\s*", "", value)
+    value = re.sub(r"\s+(?=[.@])|(?<=[.@])\s+", "", value)
+    return value.strip(" .;,()[]")
+
+
+def extract_email_candidates(raw: str | None) -> list[str]:
+    value = clean_contact_string(raw)
+    # Permit line breaks/spaces inserted around @ and dots, but return only
+    # syntactically complete addresses.
+    compact = re.sub(r"\s+(?=[.@])|(?<=[.@])\s+", "", value)
+    candidates = re.findall(r"[A-Za-z0-9_%+\-]+(?:\.[A-Za-z0-9_%+\-]+)*@[A-Za-z0-9\-]+(?:\.[A-Za-z0-9\-]+)+", compact)
+    return list(dict.fromkeys(_clean_email(x) for x in candidates))
+
+
+def email_matches_gold(candidates: list[str] | str | None, gold_contact: str | None) -> bool:
+    """Return true when any normalized candidate matches an email in Gold text."""
+    left = candidates if isinstance(candidates, list) else [candidates]
+    predicted = {x.lower() for value in left for x in extract_email_candidates(value)}
+    expected = {x.lower() for x in extract_email_candidates(gold_contact)}
+    return bool(predicted & expected)
 
 
 def _clean_email(raw: str) -> str:
@@ -23,17 +125,10 @@ def _clean_email(raw: str) -> str:
 
 def extract_email_from_pdf(doc: ParsedDocument) -> FieldValue:
     text = _text(doc)
-    # Also tolerate PDFs that insert spaces around dots.
-    compact = re.sub(r"\s+(?=[.@])|(?<=[.@])\s+", "", text)
-    match = re.search(r"[A-Za-z0-9._%+\-]+\s*@\s*[A-Za-z0-9.\-]+\s*\.\s*[A-Za-z]{2,}", compact)
-    if not match:
+    candidates = extract_email_candidates(text)
+    if not candidates:
         return FieldValue(field_name="corresponding_author_email", value="NR", code="NR", confidence=0.0, needs_review=True, reason="No email found in PDF text")
-    email = _clean_email(match.group(0))
-    # Multi-column PDFs sometimes split the local part, e.g. "jorgef.vas. ... sspa@domain".
-    before_at = text[max(0, text.find("@") - 160): text.find("@")]
-    prefix_matches = re.findall(r"([A-Za-z][A-Za-z0-9._%+\-]*\.)\s+", before_at)
-    if prefix_matches and not email.lower().startswith(prefix_matches[-1].lower().rstrip(".")):
-        email = _clean_email(prefix_matches[-1] + email)
+    email = candidates[0]
     chunk = next((c for c in doc.chunks if "@" in c.text or email.split("@")[0] in c.text), doc.chunks[0] if doc.chunks else None)
     evidence = []
     if chunk:
@@ -87,22 +182,72 @@ def extract_doi_from_pdf(doc: ParsedDocument) -> FieldValue:
 
 
 def _crossref_request(url: str) -> dict[str, Any]:
-    req = urllib.request.Request(url, headers={"User-Agent": "article-agent-mvp/0.1 (mailto:unknown@example.com)"})
-    with urllib.request.urlopen(req, timeout=30) as response:
-        return json.loads(response.read().decode("utf-8"))
+    timeout = float(os.getenv("ARTICLE_AGENT_METADATA_TIMEOUT", "8"))
+    mailto = os.getenv("CROSSREF_MAILTO") or os.getenv("UNPAYWALL_EMAIL") or "article-agent@example.com"
+    headers = {
+        "Accept": "application/json",
+        "User-Agent": f"Article-Agent/0.3 (mailto:{mailto})",
+    }
+    req = urllib.request.Request(url, headers=headers)
+    try:
+        with urllib.request.urlopen(req, timeout=timeout) as response:
+            return json.loads(response.read().decode("utf-8"))
+    except Exception as urllib_error:
+        # Windows Anaconda OpenSSL can fail behind some proxies while the
+        # installed curl.exe (Schannel) can reach the same endpoint.
+        curl = shutil.which("curl.exe") or shutil.which("curl")
+        if not curl:
+            raise urllib_error
+        completed = subprocess.run(
+            [curl, "--silent", "--show-error", "--fail", "--location",
+             "--max-time", str(max(1, int(timeout))),
+             "-H", f"Accept: {headers['Accept']}",
+             "-H", f"User-Agent: {headers['User-Agent']}", url],
+            check=True,
+            capture_output=True,
+            timeout=timeout + 2,
+        )
+        return json.loads(completed.stdout.decode("utf-8"))
+
+
+def _normalize_doi(value: str | None) -> str:
+    doi = str(value or "").strip()
+    doi = re.sub(r"^(?:https?://)?(?:dx\.)?doi\.org/", "", doi, flags=re.I)
+    doi = re.sub(r"^doi\s*:\s*", "", doi, flags=re.I)
+    return doi.strip().rstrip(".,;:)]}")
+
+
+def _normalize_title(value: str) -> str:
+    return re.sub(r"[^a-z0-9]+", " ", str(value or "").lower()).strip()
 
 
 def lookup_crossref(title: str | None = None, doi: str | None = None) -> dict[str, Any] | None:
     try:
-        if doi and doi != "NR":
-            url = "https://api.crossref.org/works/" + urllib.parse.quote(doi, safe="")
+        normalized_doi = _normalize_doi(doi)
+        if normalized_doi and normalized_doi.upper() != "NR":
+            url = "https://api.crossref.org/works/" + urllib.parse.quote(normalized_doi, safe="")
             data = _crossref_request(url)
-            return data.get("message")
+            message = data.get("message")
+            return message if isinstance(message, dict) else None
         if title and title != "NR":
-            qs = urllib.parse.urlencode({"query.title": title, "rows": 1})
+            qs = urllib.parse.urlencode({"query.title": title, "rows": 3})
             data = _crossref_request(f"https://api.crossref.org/works?{qs}")
             items = data.get("message", {}).get("items", [])
-            return items[0] if items else None
+            if not isinstance(items, list):
+                return None
+            target = _normalize_title(title)
+            scored = [
+                (
+                    SequenceMatcher(None, target, _normalize_title((item.get("title") or [""])[0])).ratio(),
+                    item,
+                )
+                for item in items
+                if isinstance(item, dict)
+            ]
+            if not scored:
+                return None
+            score, message = max(scored, key=lambda pair: pair[0])
+            return message if score >= 0.88 else None
     except Exception:
         return None
     return None
@@ -119,7 +264,7 @@ def _author_name(author: dict[str, Any]) -> str:
 def _request_json(url: str) -> dict[str, Any] | None:
     try:
         req = urllib.request.Request(url, headers={"User-Agent": "article-agent-mvp/0.1 (mailto:unknown@example.com)"})
-        with urllib.request.urlopen(req, timeout=30) as response:
+        with urllib.request.urlopen(req, timeout=float(os.getenv("ARTICLE_AGENT_METADATA_TIMEOUT", "8"))) as response:
             return json.loads(response.read().decode("utf-8"))
     except Exception:
         return None
@@ -128,7 +273,7 @@ def _request_json(url: str) -> dict[str, Any] | None:
 def _request_text(url: str, max_bytes: int = 1_000_000) -> str | None:
     try:
         req = urllib.request.Request(url, headers={"User-Agent": "article-agent-mvp/0.1 (mailto:unknown@example.com)"})
-        with urllib.request.urlopen(req, timeout=30) as response:
+        with urllib.request.urlopen(req, timeout=float(os.getenv("ARTICLE_AGENT_METADATA_TIMEOUT", "8"))) as response:
             ctype = response.headers.get("Content-Type", "")
             if "pdf" in ctype.lower():
                 return None
@@ -227,8 +372,15 @@ def external_email_field(study_id: str, email: str, source: str, url: str) -> Fi
     return FieldValue(field_name="corresponding_author_email", value=email, code=email, evidence=[ev], confidence=0.86, needs_review=False, reason=f"Email retrieved from {source}")
 
 def enrich_study_metadata(doc: ParsedDocument, study: StudyRecord, use_external: bool) -> tuple[StudyRecord, dict[str, Any]]:
+    baml_result, baml_status = _baml_metadata(doc)
+    vision_result, vision_status = _vision_first_page_metadata(doc) if use_external else (None, "vision_not_requested")
     email = extract_email_from_pdf(doc)
     doi = extract_doi_from_pdf(doc)
+    if vision_result:
+        vdoi = str(vision_result.get("doi") or "NR").strip().rstrip(".,;)")
+        if vdoi.lower() != "nr" and re.fullmatch(r"10\.\d{4,9}/[-._;()/:A-Za-z0-9]+", vdoi):
+            doi.value = vdoi; doi.code = vdoi; doi.confidence = max(doi.confidence, 0.82); doi.needs_review = True
+            doi.reason = "DOI read from first-page image; pending Crossref confirmation"
     study.corresponding_author_email = email
     study.doi = doi
     # Conservative PDF fallback: first author often follows title on page 1.
@@ -241,6 +393,18 @@ def enrich_study_metadata(doc: ParsedDocument, study: StudyRecord, use_external:
         if m:
             first_author = m.group(1)
     source = "pdf"
+    if vision_result:
+        v_author = str(vision_result.get("first_author") or "NR").strip()
+        if v_author and v_author != "NR": first_author = v_author; source = "vision"
+        v_contact = str(vision_result.get("author_contact") or "NR").strip()
+        if v_contact != "NR" and "@" in v_contact:
+            email = FieldValue(field_name="corresponding_author_email", value=_clean_email(v_contact), code=_clean_email(v_contact), confidence=0.78, needs_review=True, reason="Email read from first-page image; verify with external metadata")
+    if baml_result is not None:
+        if baml_result.first_author not in ("", "NR"):
+            first_author = baml_result.first_author
+            source = "baml"
+        if baml_result.author_contact not in ("", "NR") and "@" in baml_result.author_contact:
+            email = FieldValue(field_name="corresponding_author_email", value=baml_result.author_contact, code=baml_result.author_contact, confidence=0.8, needs_review=True, reason="Email extracted by Metadata BAML skill")
     metadata = None
     unpaywall = None
     europe_pmc = None
@@ -248,22 +412,47 @@ def enrich_study_metadata(doc: ParsedDocument, study: StudyRecord, use_external:
     external_email_source = None
     external_email_url = None
     if use_external:
-        metadata = lookup_crossref(str(study.title.value or ""), str(doi.value or ""))
+        observed_title = str((vision_result or {}).get("title") or "").strip() or str((baml_result.title if baml_result else "") or "").strip() or str(study.title.value or "")
+        metadata = lookup_crossref(observed_title, str(doi.value or ""))
+        crossref_verified = False
+        title_similarity = 0.0
         if metadata:
+            crossref_doi = _normalize_doi(metadata.get("DOI"))
+            candidate_doi = _normalize_doi(str(doi.value or ""))
+            crossref_verified = bool(crossref_doi and candidate_doi and crossref_doi.lower() == candidate_doi.lower())
+            crossref_title = str((metadata.get("title") or [""])[0]).strip()
+            title_similarity = SequenceMatcher(None, _normalize_title(observed_title), _normalize_title(crossref_title)).ratio() if crossref_title else 0.0
+            if crossref_verified and crossref_title:
+                study.title = FieldValue(field_name="title", value=crossref_title, code=crossref_title, confidence=0.98, needs_review=False, reason=f"Title confirmed by Crossref DOI; source title similarity={title_similarity:.3f}")
             authors = metadata.get("author") or []
-            if authors:
+            if authors and crossref_verified:
                 first_author = _author_name(authors[0])
                 source = "crossref"
+            if crossref_verified:
+                # A DOI-verified Crossref record is the authoritative
+                # bibliographic source. Replace conflicting low-confidence
+                # PDF/BAML values rather than preserving a stale candidate.
+                published = metadata.get("published") or metadata.get("published-print") or metadata.get("published-online") or {}
+                parts = published.get("date-parts") or []
+                if parts and parts[0] and parts[0][0]:
+                    study.year = FieldValue(
+                        field_name="year", value=int(parts[0][0]), code=str(parts[0][0]),
+                        confidence=0.99, needs_review=False,
+                        reason="Publication year confirmed by Crossref DOI",
+                    )
             if metadata.get("DOI") and doi.value == "NR":
                 doi.value = metadata.get("DOI")
                 doi.code = doi.value
                 doi.confidence = 0.85
                 doi.reason = "DOI retrieved from Crossref by title"
-            if metadata.get("container-title") and study.journal.value in (None, "NR", ""):
+            if metadata.get("container-title") and crossref_verified:
                 titles = metadata.get("container-title") or []
                 if titles:
-                    study.journal.value = titles[0]
-                    study.journal.code = titles[0]
+                    study.journal = FieldValue(
+                        field_name="journal", value=unescape(str(titles[0])).strip(),
+                        code=unescape(str(titles[0])).strip(), confidence=0.99,
+                        needs_review=False, reason="Journal confirmed by Crossref DOI",
+                    )
         unpaywall = lookup_unpaywall(str(doi.value or ""))
         europe_pmc = lookup_europe_pmc(str(study.title.value or ""), str(doi.value or ""))
         external_email, external_email_source, external_email_url = lookup_email_from_external_fulltext(unpaywall, europe_pmc)
@@ -293,7 +482,12 @@ def enrich_study_metadata(doc: ParsedDocument, study: StudyRecord, use_external:
     study.doi = doi
     return study, {
         "metadata_source": source,
+        "baml_status": baml_status,
+        "vision_status": vision_status,
         "crossref_used": bool(metadata),
+        "crossref_doi_verified": crossref_verified if use_external else False,
+        "crossref_title_similarity": title_similarity if use_external else 0.0,
+        "title_source": study.title.reason,
         "unpaywall_used": bool(unpaywall),
         "europe_pmc_used": bool(europe_pmc),
         "external_email_source": external_email_source,
@@ -302,3 +496,4 @@ def enrich_study_metadata(doc: ParsedDocument, study: StudyRecord, use_external:
         "first_author": first_author,
         "email_found": email.value != "NR",
     }
+

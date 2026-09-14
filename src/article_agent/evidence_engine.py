@@ -24,8 +24,12 @@ import math
 import re
 import urllib.parse
 import urllib.request
+import os
+import shutil
+import subprocess
 from collections import defaultdict
 from datetime import datetime, timezone
+from difflib import SequenceMatcher
 from pathlib import Path
 from typing import Any, Callable, Iterable, Mapping, Protocol, Sequence
 
@@ -108,6 +112,17 @@ class EvidenceAnswer(BaseModel):
     generation_backend: str = "fallback"
 
 
+def _normalize_doi(value: str | None) -> str:
+    doi = str(value or "").strip()
+    doi = re.sub(r"^(?:https?://)?(?:dx\.)?doi\.org/", "", doi, flags=re.I)
+    doi = re.sub(r"^doi\s*:\s*", "", doi, flags=re.I)
+    return doi.strip().rstrip(".,;:)]}").lower() or "NR"
+
+
+def _normalize_title(value: str) -> str:
+    return re.sub(r"[^a-z0-9]+", " ", str(value or "").lower()).strip()
+
+
 class MetadataResolver:
     """Fetch Crossref/Semantic Scholar/Unpaywall metadata with injection-safe I/O."""
 
@@ -116,21 +131,32 @@ class MetadataResolver:
         self.fetch_json = fetch_json or self._fetch_json
 
     def _fetch_json(self, url: str) -> dict[str, Any]:
-        request = urllib.request.Request(
-            url,
-            headers={
-                "Accept": "application/json",
-                "User-Agent": "Article-Agent/0.2 (evidence-metadata)",
-            },
-        )
-        with urllib.request.urlopen(request, timeout=self.timeout) as response:
-            value = json.loads(response.read().decode("utf-8"))
+        headers = {
+            "Accept": "application/json",
+            "User-Agent": f"Article-Agent/0.3 (mailto:{os.getenv('CROSSREF_MAILTO') or 'article-agent@example.com'})",
+        }
+        request = urllib.request.Request(url, headers=headers)
+        try:
+            with urllib.request.urlopen(request, timeout=self.timeout) as response:
+                value = json.loads(response.read().decode("utf-8"))
+        except Exception as urllib_error:
+            curl = shutil.which("curl.exe") or shutil.which("curl")
+            if not curl:
+                raise urllib_error
+            completed = subprocess.run(
+                [curl, "--silent", "--show-error", "--fail", "--location",
+                 "--max-time", str(self.timeout),
+                 "-H", f"Accept: {headers['Accept']}",
+                 "-H", f"User-Agent: {headers['User-Agent']}", url],
+                check=True,
+                capture_output=True,
+                timeout=self.timeout + 2,
+            )
+            value = json.loads(completed.stdout.decode("utf-8"))
         return value if isinstance(value, dict) else {}
 
     def resolve(self, *, title: str = "NR", doi: str = "NR", allow_network: bool = True) -> BibliographicMetadata:
-        normalized_doi = str(doi or "NR").strip().lower() or "NR"
-        if normalized_doi.startswith("https://doi.org/"):
-            normalized_doi = normalized_doi.split("https://doi.org/", 1)[1]
+        normalized_doi = _normalize_doi(doi)
         result = BibliographicMetadata(doi=normalized_doi, title=str(title or "NR"))
         if not allow_network:
             return result
@@ -141,9 +167,21 @@ class MetadataResolver:
                 url = "https://api.crossref.org/works/" + urllib.parse.quote(normalized_doi, safe="")
                 crossref = self.fetch_json(url).get("message", {})
             elif title and title != "NR":
-                query = urllib.parse.urlencode({"query.title": title, "rows": 1})
+                query = urllib.parse.urlencode({"query.title": title, "rows": 3})
                 items = self.fetch_json(f"https://api.crossref.org/works?{query}").get("message", {}).get("items", [])
-                crossref = items[0] if items else None
+                target = _normalize_title(title)
+                scored = [
+                    (
+                        SequenceMatcher(None, target, _normalize_title((item.get("title") or [""])[0])).ratio(),
+                        item,
+                    )
+                    for item in items
+                    if isinstance(item, dict)
+                ]
+                if scored:
+                    score, candidate = max(scored, key=lambda pair: pair[0])
+                    if score >= 0.88:
+                        crossref = candidate
         except Exception as exc:
             result.errors.append(f"crossref: {type(exc).__name__}: {exc}")
         if crossref:

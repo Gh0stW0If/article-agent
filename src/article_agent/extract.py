@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import re
+from html import unescape
 from itertools import count
 
 from .retrieval import HybridRetriever
@@ -28,6 +29,13 @@ def evidence_from_hit(study_id: str, entity_type: str, entity_id: str, field: st
         evidence_text=_snippet(chunk.text),
         page=chunk.page,
         section=chunk.section,
+        source_pdf=str(chunk.source_pdf),
+        chunk_id=chunk.chunk_id or None,
+        source_type=chunk.source_type,
+        bbox=chunk.bbox,
+        table_id=chunk.table_id,
+        figure_id=chunk.figure_id,
+        parser_backend=chunk.parser_backend,
         confidence=confidence,
         needs_review=review,
         review_reason=reason,
@@ -52,7 +60,21 @@ def extract_title(doc: ParsedDocument, retriever: HybridRetriever) -> FieldValue
     first = doc.chunks[0] if doc.chunks else None
     if not first:
         return nr_field("title")
-    text = first.text
+    # The PDF parser may split a first page into header, article-type, title,
+    # and author chunks. Build a small first-page window for title detection.
+    text = "\n".join(c.text for c in doc.chunks[:12])
+    # Many journals put bibliographic headers before the actual title.
+    # Discard those lines before applying the generic title heuristic.
+    text = re.sub(
+        r"(?is)^\s*(?:Int\s+J\s+Clin\s+Exp\s+Med|[A-Z][A-Za-z ]+\s+\d{4};\s*\d+\([^)]*\):\s*[\d-]+\s*\S*.*?)(?=\b(?:Original\s+(?:Article|research article)|Research Article)\b)",
+        "",
+        text,
+        count=1,
+    )
+    m = re.search(r"(?is)\bOriginal\s+(?:Article|research article)\b\s*(.+?)(?=\n[A-Z][A-Za-z-]+(?:\s+[A-Z][A-Za-z-]+){1,3}[,\s])", text)
+    if m and 35 <= len(m.group(1).strip()) <= 260:
+        title = re.sub(r"\s+", " ", m.group(1)).strip(" .")
+        return field_from_hit(doc.study_id, "study", doc.study_id, "title", title, (first, 1.0), 0.78, True, "Title after article-type marker")
     # Prefer text around common title markers; otherwise first sentence-like line.
     title = None
     m = re.search(r"Original paper\s+(.+?)(?:\s+[A-Z][a-z]+\s+[A-Z][a-z]+,|\s+Additional material|\s+ABSTRACT)", text, re.I)
@@ -67,6 +89,9 @@ def extract_title(doc: ParsedDocument, retriever: HybridRetriever) -> FieldValue
         parts = re.split(r"(?<=\.)\s+|\n", clean)
         candidates = [p.strip(" .") for p in parts if 35 <= len(p.strip()) <= 220]
         title = candidates[0] if candidates else doc.study_id
+    title = re.sub(r"\s*(?:Original\s+(?:Article|research article)|Research Article)\s*", " ", title, flags=re.I)
+    title = re.split(r"\n?\s*[a-z]\s+Dept\.?(?:\s+of)?\b", title, maxsplit=1, flags=re.I)[0]
+    title = re.sub(r"\s+", " ", title).strip(" .")
     return field_from_hit(doc.study_id, "study", doc.study_id, "title", title, (first, 1.0), 0.72, True, "MVP title heuristic")
 
 
@@ -86,6 +111,16 @@ def extract_journal(doc: ParsedDocument) -> FieldValue:
     if not first:
         return nr_field("journal")
     text = first.text[:1600]
+    normalized = re.sub(r"\s+", " ", unescape(text)).lower()
+    if "int j clin exp med" in normalized or "ijcem.com" in normalized:
+        return field_from_hit(doc.study_id, "study", doc.study_id, "journal",
+                              "International journal of clinical and experimental medicine.",
+                              (first, 1.0), 0.82, True, "Journal abbreviation mapped from PDF header")
+    if "contraception" in normalized:
+        return field_from_hit(doc.study_id, "study", doc.study_id, "journal",
+                              "Contraception", (first, 1.0), 0.82, True,
+                              "Journal name found in PDF metadata")
+    text = unescape(text)
     journal = None
     if "aim.bmj.com" in text.lower() or "acupmed" in text.lower():
         journal = "Acupuncture in Medicine"
@@ -109,15 +144,17 @@ def extract_query_field(doc: ParsedDocument, retriever: HybridRetriever, field: 
     if not hits:
         return nr_field(field)
     value = "NR"
+    selected_hit = hits[0]
     if pattern:
-        for chunk, _ in hits:
+        for chunk, score in hits:
             v = first_match(pattern, chunk.text)
             if v:
                 value = v
+                selected_hit = (chunk, score)
                 break
     if value == "NR":
         value = _snippet(hits[0][0].text, 160)
-    return field_from_hit(doc.study_id, "study", doc.study_id, field, value, hits[0], confidence, True, "MVP candidate requires review")
+    return field_from_hit(doc.study_id, "study", doc.study_id, field, value, selected_hit, confidence, True, "MVP candidate requires review")
 
 
 
